@@ -4,6 +4,7 @@ using System.Linq;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
 using net.adamec.lib.common.dmn.engine.parser.dto;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 {
@@ -39,7 +40,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             var positiveRules = EvaluateRules(context, correlationId);
 
             //EVALUATE OUTPUTS for positive rules
-            var results=EvaluateOutputsForPositiveRules(context, correlationId, positiveRules);
+            var results = EvaluateOutputsForPositiveRules(context, correlationId, positiveRules);
 
             //APPLY HIT POLICY
             if (positiveRules.Count <= 0) return new DmnDecisionResult();
@@ -66,7 +67,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     // Multiple rules can match, with different output entries. This policy returns the matching rule with the highest output priority.
                     //  Output priorities are specified in the ordered list of output values, in decreasing order of priority. Note that priorities are independent from rule sequence
                     // A P table that omits allowed output values is an error.
-                    var orderedPositiveRules = OrderPositiveRulesByOutputPriority(positiveRules, results,correlationId);
+                    var orderedPositiveRules = OrderPositiveRulesByOutputPriority(positiveRules, results, correlationId);
                     if (orderedPositiveRules == null)
                     {
                         //A P table that omits allowed output values is an error.
@@ -79,7 +80,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 case HitPolicyEnum.Any:
                     //  There may be overlap, but all of the matching rules show equal output entries for each output, so any match can be used.
                     //  If the output entries are non-equal, the hit policy is incorrect and the result is an error.
-                    if (!MatchRuleOutputs(positiveRules,results))
+                    if (!MatchRuleOutputs(positiveRules, results))
                         throw Logger.Error<DmnExecutorException>(
                             correlationId,
                             $"ANY hit policy violation - the outputs don't match");
@@ -121,8 +122,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     else
                     {
                         var collectValues = isAllowedForSumMinMax ?
-                            CalculatePositiveRulesCollectValues(positiveRules,results) :
-                            CalculatePositiveRulesCollectCountValue(positiveRules,results);
+                            CalculatePositiveRulesCollectValues(positiveRules, results) :
+                            CalculatePositiveRulesCollectCountValue(positiveRules, results);
 
                         var output = Outputs[0];
                         var outputVariable = context.GetVariable(output.Variable);
@@ -164,7 +165,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 case HitPolicyEnum.OutputOrder:
                     //Returns all hits in decreasing output priority order. 
                     // Output priorities are specified in the ordered list of output values in decreasing order of priority
-                    var orderedPositiveRules2 = OrderPositiveRulesByOutputPriority(positiveRules,results, correlationId);
+                    var orderedPositiveRules2 = OrderPositiveRulesByOutputPriority(positiveRules, results, correlationId);
                     if (orderedPositiveRules2 == null)
                     {
                         //A P table that omits allowed output values is an error.
@@ -200,7 +201,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             var positiveRules = new List<DmnDecisionTableRule>();
 
             //EVALUATE RULES
-            Logger.Info(correlationId, $"Evaluating decision table {Name} rules...");
+            Logger.Info(correlationId, message: $"Evaluating decision table {Name} rules...");
             foreach (var rule in Rules)
             {
                 var match = true;
@@ -227,11 +228,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                                 correlationId,
                                 $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
                     }
-
-                    Logger.Trace(correlationId, $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
+                    if (Logger.IsDebugEnabled)
+                        Logger.Debug(correlationId, message: $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
                     var result =
                         context.EvalExpression<bool>(ruleInput.Expression); //TODO ?pre-parse and use the inputs as parameters?
-                    Logger.Trace(correlationId, $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+                    if (Logger.IsDebugEnabled)
+                        Logger.Debug(correlationId, message: $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
                     if (!result)
                     {
                         match = false;
@@ -240,21 +242,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 }
 
                 Logger.Info(correlationId,
-                    $"Evaluated decision table {Name} rule: {(match ? "POSITIVE" : "NEGATIVE")} - {rule}");
+                    message: $"Evaluated decision table {Name} rule: {(match ? "POSITIVE" : "NEGATIVE")} - {rule}");
                 if (match)
                 {
                     positiveRules.Add(rule);
                 }
             }
 
-            Logger.Info(correlationId, $"Evaluated decision table {Name} rules");
+            Logger.Info(correlationId, message: $"Evaluated decision table {Name} rules");
             return positiveRules;
         }
 
         private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string correlationId, IEnumerable<DmnDecisionTableRule> positiveRules)
         {
-            Logger.Info(correlationId, $"Evaluating decision table {Name} positive rules outputs...");
-            var results=new DmnDecisionTableRuleExecutionResults();
+            Logger.Info(correlationId, message: $"Evaluating decision table {Name} positive rules outputs...");
+            var results = new DmnDecisionTableRuleExecutionResults();
             foreach (var positiveRule in positiveRules)
             {
                 //outputs
@@ -281,14 +283,15 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         }
                     }
 
-                    var output = new DmnExecutionVariable(ruleOutput.Output.Variable) {Value = result};
+                    var output = new DmnExecutionVariable(ruleOutput.Output.Variable) { Value = result };
                     results.SetResult(positiveRule, ruleOutput, output);
-                    Logger.Trace(correlationId,
-                        $"Positive decision table {Name} rule {positiveRule}: output {output.Name}, value {output.Value}");
+                    if (Logger.IsDebugEnabled)
+                        Logger.Debug(correlationId,
+                            message: $"Positive decision table {Name} rule {positiveRule}: output {output.Name}, value {output.Value}");
                 }
             }
 
-            Logger.Info(correlationId, $"Evaluated decision table {Name} positive rules outputs");
+            Logger.Info(correlationId, message: $"Evaluated decision table {Name} positive rules outputs");
             return results;
         }
 
@@ -323,7 +326,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         //no output result in positive rule (ruleOutput.ResultOutput==null) - at the end of the list
                         //no output result value in positive rule (ruleOutput.ResultOutput.Value==null) - at the end of the list 
                         //all handled in GetIndexOfOutputValue: if (value == null) return int.MaxValue;
-                        return GetIndexOfOutputValue(output.AllowedValues,results.GetResult(i,ruleOutput)?.Value, correlationId);
+                        return GetIndexOfOutputValue(output.AllowedValues, results.GetResult(i, ruleOutput)?.Value, correlationId);
                     });
                 }
                 else

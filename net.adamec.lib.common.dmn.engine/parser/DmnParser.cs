@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 using net.adamec.lib.common.dmn.engine.parser.dto;
-using net.adamec.lib.common.dmn.engine.utils;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.parser
 {
@@ -11,7 +11,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
     /// </summary>
     public class DmnParser
     {
-        private static readonly Logging Logger = Logging.CreateLogging<DmnParser>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnParser>();
 
         /// <summary>
         /// DMN Model XML serializer

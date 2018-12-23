@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     /// Single decision within the DMN file
     /// It can be expression decision of decision table.
     /// Decision table is recognized by having the <see cref="DecisionTable"/> element, 
-    /// otherwise, the expression decision is expacted with elements <see cref="Expression"/> and <see cref="OutputVariable"/>
+    /// otherwise, the expression decision is expected with elements <see cref="Expression"/> and <see cref="OutputVariable"/>
     /// </summary>
     public class Decision : NamedElement
     {

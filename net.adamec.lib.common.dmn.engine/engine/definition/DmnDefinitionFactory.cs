@@ -5,13 +5,13 @@ using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table;
 using net.adamec.lib.common.dmn.engine.parser;
 using net.adamec.lib.common.dmn.engine.parser.dto;
-using net.adamec.lib.common.dmn.engine.utils;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.definition
 {
     public class DmnDefinitionFactory //TODO Definition (abstraction Model -> Definition -> Context) documentation
     {
-        protected static Logging Logger { get; } = Logging.CreateLogging<DmnDefinitionFactory>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
 
         /// <summary>
         /// Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions

@@ -1,12 +1,12 @@
 ﻿using System;
 using net.adamec.lib.common.dmn.engine.engine.definition;
-using net.adamec.lib.common.dmn.engine.utils;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.runtime
 {
     public class DmnExecutionVariable
     {
-        private static readonly Logging Logger = Logging.CreateLogging<DmnExecutionVariable>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionVariable>();
 
         private readonly DmnVariableDefinition definition;
 

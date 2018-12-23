@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Xml;
-using net.adamec.lib.common.dmn.engine.utils;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.parser
 {
@@ -11,14 +11,14 @@ namespace net.adamec.lib.common.dmn.engine.parser
     /// </summary>
     public class SfeelParser
     {
-        private static readonly Logging Logger = Logging.CreateLogging<SfeelParser>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<SfeelParser>();
 
         /// <summary>
         /// Custom functions to be  used in DynamoExpression for S-FEEL functions
         /// </summary>
         public static Dictionary<string, Delegate> CustomFunctions { get; } = new Dictionary<string, Delegate>();
         /// <summary>
-        /// Translatations of custom functions from  S-FEEL to <see cref="CustomFunctions"/>
+        /// Translations of custom functions from  S-FEEL to <see cref="CustomFunctions"/>
         /// For example "date and time" will be "date_and_time"
         /// </summary>
         private static Dictionary<string, string> CustomFunctionTranslations { get; } = new Dictionary<string, string>();
@@ -41,7 +41,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
         /// <returns>Expression to be used in rule evaluation</returns>
         public static string ParseInput(string expr, string leftSide)
         {
-            Logger.Trace($"Parsing input expression {expr} for left side {leftSide}...");
+            if (Logger.IsDebugEnabled)
+                Logger.Debug($"Parsing input expression {expr} for left side {leftSide}...");
             expr = expr.Trim();
             //custom functions translations
             foreach (var translation in CustomFunctionTranslations)
@@ -74,7 +75,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
                     (part.EndsWith("]") || part.EndsWith("[") || part.EndsWith(")")))
                 {
                     var partInner = part.Substring(1, part.Length - 2);
-                    var partInnerSplit = partInner.Split(new []{".."},StringSplitOptions.None);
+                    var partInnerSplit = partInner.Split(new[] { ".." }, StringSplitOptions.None);
                     // ReSharper disable once InvertIf
                     if (partInnerSplit.Length == 2)
                     {
@@ -93,8 +94,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
 
             var condition = string.Join(" || ", conditionParts);
             if (isNegated) condition = $"!({condition})";
-
-            Logger.Trace($"Parsed input expression {expr} for variable {leftSide} - {condition}");
+            if (Logger.IsDebugEnabled)
+                Logger.Debug($"Parsed input expression {expr} for variable {leftSide} - {condition}");
             return condition;
         }
 

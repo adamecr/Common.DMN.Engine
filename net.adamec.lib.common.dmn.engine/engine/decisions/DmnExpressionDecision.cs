@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions
 {
@@ -21,9 +22,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
 
         public override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
         {
-            Logger.Info(correlationId, $"Evaluating expressiong decision {Name} with expression {Expression}...");
+            Logger.Info(correlationId, message: $"Evaluating expressiong decision {Name} with expression {Expression}...");
             var result = context.EvalExpression(Expression, Output.Type);
-            Logger.Info(correlationId, $"Evaluated expressiong decision {Name} with expression {Expression}");
+            Logger.Info(correlationId, message: $"Evaluated expressiong decision {Name} with expression {Expression}");
             var outVariable= context.GetVariable(Output);
             outVariable.Value = result;
             return new DmnDecisionResult() + (new DmnDecisionSingleResult() + outVariable.Clone());

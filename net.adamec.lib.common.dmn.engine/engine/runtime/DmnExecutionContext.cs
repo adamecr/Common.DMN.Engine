@@ -5,13 +5,14 @@ using DynamicExpresso;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.parser;
-using net.adamec.lib.common.dmn.engine.utils;
+using net.adamec.lib.common.extensions;
+using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.runtime
 {
     public class DmnExecutionContext
     {
-        protected static Logging Logger { get; } = Logging.CreateLogging<DmnExecutionContext>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
         private static Dictionary<(string, Type), Lambda> ParsedExpressionsCache = new Dictionary<(string, Type), Lambda>();
 
         public DmnDefinition Definition { get; }
@@ -72,7 +73,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         {
             if (string.IsNullOrEmpty(name)) throw Logger.Fatal<DmnExecutorException>($"WithInputParameter: Missing name parameter");
 
-            var variable = Variables?.Values?.FirstOrDefault(i => i.IsInputParameter && i.Name == name);
+            var variable = Variables?.Values.FirstOrDefault(i => i.IsInputParameter && i.Name == name);
             if (variable == null) throw Logger.Fatal<DmnExecutorException>($"WithInputParameter: {name} is not an input parameter");
 
             variable.SetInputParameterValue(value);
@@ -106,7 +107,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
             foreach (var variable in Variables.Values)
             {
                 //check null variable for value type
-                var varValue = variable.Value ?? Utils.GetDefault(variable.Type);
+                var varValue = variable.Value ?? variable.Type?.GetDefaultValue();
 
                 var parameter = new Parameter(
                     variable.Name,

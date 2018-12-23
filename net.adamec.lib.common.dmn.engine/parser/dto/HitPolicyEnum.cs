@@ -2,14 +2,15 @@
 {
     /// <summary>
     /// Decision Table hit policy - the hit policy specifies what the result of the decision table is in cases of overlapping rules, i.e. when more than one rule matches the input data.
-    /// 
+    /// </summary>
+    /// <remarks>
     /// Decision tables with compound outputs support only the following hit policies: Unique, Any, Priority, First, Output order, Rule order and Collect without operator,
     /// because the collect operator is undefined over multiple outputs. 
     /// For the Priority and Output order hit policies, priority is decided in compound output tables over all the outputs for which output values have been provided.
     /// The priority for each output is specified in the ordered list of output values in decreasing order of priority,
     /// and the overall priority is established by considering the ordered outputs from left to right. 
     /// Outputs for which no output values are provided are not taken into account in the ordering, although their output entries are included in the ordered compound output.
-    /// </summary>
+    /// </remarks>
     public enum HitPolicyEnum
     {
         /// <summary>
