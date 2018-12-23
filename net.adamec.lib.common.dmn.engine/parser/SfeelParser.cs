@@ -41,8 +41,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
         /// <returns>Expression to be used in rule evaluation</returns>
         public static string ParseInput(string expr, string leftSide)
         {
-            if (Logger.IsDebugEnabled)
-                Logger.Debug($"Parsing input expression {expr} for left side {leftSide}...");
+            if (Logger.IsTraceEnabled)
+                Logger.Trace($"Parsing input expression {expr} for left side {leftSide}...");
             expr = expr.Trim();
             //custom functions translations
             foreach (var translation in CustomFunctionTranslations)
@@ -94,8 +94,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
 
             var condition = string.Join(" || ", conditionParts);
             if (isNegated) condition = $"!({condition})";
-            if (Logger.IsDebugEnabled)
-                Logger.Debug($"Parsed input expression {expr} for variable {leftSide} - {condition}");
+            if (Logger.IsTraceEnabled)
+                Logger.Trace($"Parsed input expression {expr} for variable {leftSide} - {condition}");
             return condition;
         }
 

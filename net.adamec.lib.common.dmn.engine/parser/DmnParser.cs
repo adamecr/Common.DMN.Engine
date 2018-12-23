@@ -64,7 +64,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
                 try
                 {
                     Logger.Info($"Parsing DMN definition from given string...");
-                    Logger.Trace(dmnDefinition);
+                    if (Logger.IsTraceEnabled)
+                        Logger.Trace(dmnDefinition);
                     def = (DmnModel)DmnDefinitionsSerializer.Deserialize(rdr);
                     Logger.Info($"Parsed DMN definition from given string");
                 }

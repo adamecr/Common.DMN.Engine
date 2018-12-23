@@ -8,13 +8,31 @@ using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 {
+    /// <summary>
+    /// DMN Decision Table definition
+    /// </summary>
     public class DmnDecisionTable : DmnDecision
     {
+        /// <summary>
+        /// Decision table hit policy
+        /// </summary>
         public HitPolicyEnum HitPolicy { get; }
+        /// <summary>
+        /// Aggregation type of collect hit policy
+        /// </summary>
         public CollectHitPolicyAggregationEnum Aggregation { get; }
 
+        /// <summary>
+        /// Decision table outputs
+        /// </summary>
         public List<DmnDecisionTableOutput> Outputs { get; }
+        /// <summary>
+        /// Decision table inputs
+        /// </summary>
         public List<DmnDecisionTableInput> Inputs { get; }
+        /// <summary>
+        /// Decision table rules
+        /// </summary>
         public List<DmnDecisionTableRule> Rules { get; }
 
 
@@ -34,6 +52,16 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             Rules = rules;
         }
 
+        /// <summary>
+        /// Evaluates the decision table.
+        /// </summary>
+        /// <remarks>
+        /// While evaluating the decision table, the <seealso cref="Rules"/> are evaluated first.
+        /// Then it evaluates (calculates) the outputs for positive rules and applies the hit policy.
+        /// </remarks>
+        /// <param name="context">DMN Engine execution context</param>
+        /// <param name="correlationId">Optional correlation ID used while logging</param>
+        /// <returns>Decision result</returns>
         public override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
         {
             //EVALUATE RULES
@@ -228,12 +256,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                                 correlationId,
                                 $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
                     }
-                    if (Logger.IsDebugEnabled)
-                        Logger.Debug(correlationId, message: $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
+                    if (Logger.IsTraceEnabled)
+                        Logger.Trace(correlationId, message: $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
                     var result =
                         context.EvalExpression<bool>(ruleInput.Expression); //TODO ?pre-parse and use the inputs as parameters?
-                    if (Logger.IsDebugEnabled)
-                        Logger.Debug(correlationId, message: $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+                    if (Logger.IsTraceEnabled)
+                        Logger.Trace(correlationId, message: $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
                     if (!result)
                     {
                         match = false;
@@ -285,8 +313,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 
                     var output = new DmnExecutionVariable(ruleOutput.Output.Variable) { Value = result };
                     results.SetResult(positiveRule, ruleOutput, output);
-                    if (Logger.IsDebugEnabled)
-                        Logger.Debug(correlationId,
+                    if (Logger.IsTraceEnabled)
+                        Logger.Trace(correlationId,
                             message: $"Positive decision table {Name} rule {positiveRule}: output {output.Name}, value {output.Value}");
                 }
             }
@@ -399,29 +427,45 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             IEnumerable<DmnDecisionTableRule> positiveRules,
             DmnDecisionTableRuleExecutionResults results)
         {
-            var distinctValues = new List<string>();
-
-            foreach (var positiveRule in positiveRules)
-            {
-                var value = results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value;
-                if (value == null) continue; //ignore null results/values
-
-                if (!distinctValues.Contains(value.ToString()))
-                {
-                    distinctValues.Add(value.ToString());
-                }
-            }
-
-            var count = distinctValues.Count;
+           var count = positiveRules.ToList()
+                .Select(r => results.GetResult(r, r.Outputs[0])?.Value?.ToString())
+                .Where(v => v != null)
+                .Distinct()
+                .ToList()
+                .Count;
+            
             return new PositiveRulesCollectValues(0, 0, 0, count);
         }
+
+        /// <summary>
+        /// Container of aggregate values for positive rules when <see cref="HitPolicyEnum.Collect"/> hit policy is used.
+        /// </summary>
         private class PositiveRulesCollectValues
         {
+            /// <summary>
+            /// Sum of evaluated values
+            /// </summary>
             public readonly double Sum;
+            /// <summary>
+            /// Min evaluated value
+            /// </summary>
             public readonly double Min;
+            /// <summary>
+            /// Max evaluated value
+            /// </summary>
             public readonly double Max;
+            /// <summary>
+            /// Count of distinct evaluated values
+            /// </summary>
             public readonly int Count;
 
+            /// <summary>
+            /// CTOR
+            /// </summary>
+            /// <param name="sum">Sum of evaluated values</param>
+            /// <param name="min">Min evaluated value</param>
+            /// <param name="max">Max evaluated value</param>
+            /// <param name="count">Count of distinct evaluated values</param>
             public PositiveRulesCollectValues(double sum, double min, double max, int count)
             {
                 Sum = sum;
