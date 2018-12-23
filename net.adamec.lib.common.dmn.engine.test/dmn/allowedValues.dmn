@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_0nrbd70" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="Test">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+      <biodi:edge source="InputData_1qe0wwq">
+        <biodi:waypoints x="239" y="130" />
+        <biodi:waypoints x="278" y="200" />
+      </biodi:edge>
+      <biodi:edge source="InputData_1ltd0cd">
+        <biodi:waypoints x="424" y="133" />
+        <biodi:waypoints x="377" y="200" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1qe0wwq" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_1ltd0cd" />
+    </informationRequirement>
+    <decisionTable>
+      <input id="InputClause_10mfpt9" label="a">
+        <inputExpression id="LiteralExpression_1mipj8g" typeRef="string" />
+        <inputValues id="UnaryTests_064xcpz">
+          <text><![CDATA["one","two","three"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0np5tp7" label="" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0u4e3w3" typeRef="string">
+          <text>b</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1yu2kfa">
+          <text><![CDATA["dog","cat","horse"]]></text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="c" typeRef="string">
+        <outputValues id="UnaryTests_1h2wckg">
+          <text><![CDATA["blue","white","red"]]></text>
+        </outputValues>
+      </output>
+      <rule id="row-816543858-24">
+        <inputEntry id="UnaryTests_0yon64t">
+          <text><![CDATA["one"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_054vjei">
+          <text><![CDATA["dog"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18xz4eg">
+          <text><![CDATA["blue"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-25">
+        <inputEntry id="UnaryTests_159omdv">
+          <text><![CDATA["one", "two"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_052g59e">
+          <text><![CDATA["cat"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vra8ka">
+          <text><![CDATA["white"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-26">
+        <inputEntry id="UnaryTests_1yawtp2">
+          <text><![CDATA["three"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ykmub">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19zs63i">
+          <text><![CDATA["red"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-27">
+        <inputEntry id="UnaryTests_080rxjs">
+          <text><![CDATA["one"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rchdy7">
+          <text><![CDATA["whale"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mufmzi">
+          <text><![CDATA["blue"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-28">
+        <inputEntry id="UnaryTests_1gmm06x">
+          <text><![CDATA["four"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08r34pu">
+          <text><![CDATA["cat"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02c4q15">
+          <text><![CDATA["red"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-29">
+        <inputEntry id="UnaryTests_1uk8x8j">
+          <text><![CDATA["one"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p96zfb">
+          <text><![CDATA["horse"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0okn7il">
+          <text><![CDATA["yellow"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1qe0wwq" name="a">
+    <extensionElements>
+      <biodi:bounds x="164" y="85" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_1ltd0cd" name="b">
+    <extensionElements>
+      <biodi:bounds x="377" y="88" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>
