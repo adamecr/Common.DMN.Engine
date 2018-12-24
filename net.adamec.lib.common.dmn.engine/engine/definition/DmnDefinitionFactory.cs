@@ -179,8 +179,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 variable.ValueSetters.Add($"Table Decision {decisionName}");
                 CheckAndUpdateVariableType(variable, sourceOutput.TypeRef);
 
-                var allovedValues = sourceOutput.AllowedOutputValues?.Values?.ToList();
-                outputs.Add(new DmnDecisionTableOutput(outputIdx, variable, allovedValues));
+                var allowedValues = sourceOutput.AllowedOutputValues?.Values?.ToList();
+                outputs.Add(new DmnDecisionTableOutput(outputIdx, variable, allowedValues));
                 outputIdx++;
             }
 

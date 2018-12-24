@@ -262,6 +262,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         context.EvalExpression<bool>(ruleInput.Expression); //TODO ?pre-parse and use the inputs as parameters?
                     if (Logger.IsTraceEnabled)
                         Logger.Trace(correlationId, message: $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+                    
+                    // ReSharper disable once InvertIf
                     if (!result)
                     {
                         match = false;
@@ -323,17 +325,46 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             return results;
         }
 
+        //------------------------------------------------------------------------
+        // Any hit policy helpers
+        //------------------------------------------------------------------------
+       
+        /// <summary>
+        /// Checks whether all positive rule outputs match as required by Any hit policy
+        /// </summary>
+        /// <param name="positiveRules">Rules evaluates as positive match</param>
+        /// <param name="results">Evaluated (calculated) results (rule outputs)</param>
+        /// <returns>True when all positive rule outputs match</returns>
         private static bool MatchRuleOutputs(IEnumerable<DmnDecisionTableRule> positiveRules, DmnDecisionTableRuleExecutionResults results)
         {
 
-            var arry = positiveRules.ToArray();
-            if (arry.Length < 2) return true;
+            var array = positiveRules.ToArray();
+            if (array.Length < 2) return true;
 
-            var firstItem = results.GetResultsHashCode(arry[0]);
-            var allEqual = arry.Skip(1).All(i => Equals(firstItem, results.GetResultsHashCode(i)));
+            var firstItem = results.GetResultsHashCode(array[0]);
+            var allEqual = array.Skip(1).All(i => Equals(firstItem, results.GetResultsHashCode(i)));
             return allEqual;
         }
 
+
+        //------------------------------------------------------------------------
+        // Priority and Output order hit policies helpers
+        //------------------------------------------------------------------------
+
+        /// <summary>
+        /// Orders the positive rules by output priorities for the Priority and Output order hit policies.
+        /// </summary>
+        /// <remarks>
+        /// For the Priority and Output order hit policies, priority is decided in compound output tables over all the outputs for which output values have been provided.
+        /// The priority for each output is specified in the ordered list of output values in decreasing order of priority,
+        /// and the overall priority is established by considering the ordered outputs from left to right.
+        /// Outputs for which no output values are provided are not taken into account in the ordering,
+        /// although their output entries are included in the ordered compound output.
+        /// </remarks>
+        /// <param name="positiveRules">Rules evaluates as positive match</param>
+        /// <param name="results">Evaluated (calculated) results (rule outputs)</param>
+        /// <param name="correlationId">Correlation ID used for logging</param>
+        /// <returns>Positive rules ordered by output priorities for the Priority and Output order hit policies</returns>
         private IOrderedEnumerable<DmnDecisionTableRule> OrderPositiveRulesByOutputPriority(
             IReadOnlyCollection<DmnDecisionTableRule> positiveRules,
             DmnDecisionTableRuleExecutionResults results,
@@ -342,6 +373,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             IOrderedEnumerable<DmnDecisionTableRule> ordered = null;
             foreach (var output in Outputs)
             {
+                //outputs without allowed values list are not part of ordering
                 if (output.AllowedValues == null || output.AllowedValues.Count <= 0) continue;
 
                 if (ordered == null)
@@ -370,13 +402,24 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             return ordered;
         }
 
+        /// <summary>
+        /// Gets the index of output <paramref name="value"/> within the list of <paramref name="allowedValues"/>.
+        /// When the output <paramref name="value"/> is null, it returns <see cref="int.MaxValue"/>, so the items will be added to
+        /// the end of the list when ordering by index.
+        /// </summary>
+        /// <param name="allowedValues"></param>
+        /// <param name="value"></param>
+        /// <param name="correlationId">Correlation ID used for logging</param>
+        /// <returns>Index of output <paramref name="value"/> within the list of <paramref name="allowedValues"/>.
+        /// When the output <paramref name="value"/> is null, it returns <see cref="int.MaxValue"/>.</returns>
         private int GetIndexOfOutputValue(IList<string> allowedValues, object value, string correlationId)
         {
             //null value at the end
             if (value == null) return int.MaxValue;
+
             var strVal = value.ToString().Trim();
             var idx = allowedValues.IndexOf(strVal);
-            //not found - exception, but shoul not happen
+            //not found - exception, but should not happen
             if (idx == -1) throw Logger.Fatal<DmnExecutorException>(
                 correlationId,
                 $"GetIndexOfOutputValue: Output value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
@@ -384,6 +427,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             return idx;
         }
 
+        //------------------------------------------------------------------------
+        // Collect hit policy helpers
+        //------------------------------------------------------------------------
+
+        /// <summary>
+        /// Calculates the aggregate output values for Collect hit policy
+        /// </summary>
+        /// <remarks>Based on the collect hit policy, the aggregates are calculated for the first output</remarks>
+        /// <param name="positiveRules">Rules evaluates as positive match</param>
+        /// <param name="results">Evaluated (calculated) results (rule outputs)</param>
+        /// <returns><see cref="PositiveRulesCollectValues"/> container with aggregated output values</returns>
         private static PositiveRulesCollectValues CalculatePositiveRulesCollectValues(
             IEnumerable<DmnDecisionTableRule> positiveRules,
             DmnDecisionTableRuleExecutionResults results)
@@ -423,6 +477,14 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             return new PositiveRulesCollectValues(sum, min, max, count);
         }
 
+        /// <summary>
+        /// Calculates the distinct count of output values for Collect hit policy
+        /// </summary>
+        /// <remarks>Based on the collect hit policy, the aggregated count is calculated for the first output.</remarks>
+        /// <param name="positiveRules">Rules evaluates as positive match</param>
+        /// <param name="results">Evaluated (calculated) results (rule outputs)</param>
+        /// <returns><see cref="PositiveRulesCollectValues"/> container where the <see cref="PositiveRulesCollectValues.Count"/> contains the
+        /// distinct count of values, the other properties are zeroed</returns>
         private static PositiveRulesCollectValues CalculatePositiveRulesCollectCountValue(
             IEnumerable<DmnDecisionTableRule> positiveRules,
             DmnDecisionTableRuleExecutionResults results)
