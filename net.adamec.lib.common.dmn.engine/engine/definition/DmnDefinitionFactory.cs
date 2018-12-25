@@ -59,9 +59,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             //TODO ?Required input parameters check for null??
             foreach (var sourceInput in source.InputData)
             {
-                if (string.IsNullOrEmpty(sourceInput.Id)) throw new DmnParserException($"Missing input id");
+                if (string.IsNullOrWhiteSpace(sourceInput.Id)) throw new DmnParserException($"Missing input id");
 
-                var inputName = !string.IsNullOrEmpty(sourceInput.Name) ? sourceInput.Name : sourceInput.Id;
+                var inputName = !string.IsNullOrWhiteSpace(sourceInput.Name) ? sourceInput.Name : sourceInput.Id;
                 var variableName = NormalizeVariableName(inputName);
                 if (InputData.ContainsKey(variableName))
                     throw new DmnParserException($"Duplicate input data name {variableName} (from {inputName})");
@@ -78,11 +78,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
              Decision sourceDecision, IReadOnlyCollection<Decision> allDecisions,
              IDictionary<string, IDmnDecision> decisionsById, IDictionary<string, DmnVariableDefinition> inputDataById)
         {
-            if (string.IsNullOrEmpty(sourceDecision.Id)) throw new DmnParserException($"Missing decision id");
+            if (string.IsNullOrWhiteSpace(sourceDecision.Id)) throw new DmnParserException($"Missing decision id");
 
             if (decisionsById.ContainsKey(sourceDecision.Id)) return decisionsById[sourceDecision.Id]; //already processed
 
-            var decisionName = !string.IsNullOrEmpty(sourceDecision.Name) ? sourceDecision.Name : sourceDecision.Id;
+            var decisionName = !string.IsNullOrWhiteSpace(sourceDecision.Name) ? sourceDecision.Name : sourceDecision.Id;
             if (Decisions.ContainsKey(decisionName)) throw new DmnParserException($"Duplicate decision name {decisionName}");
 
             var requiredInputs = new List<DmnVariableDefinition>();
@@ -93,7 +93,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 foreach (var dependsOnDecisionRef in sourceDecision.InformationRequirements.Where(i => i.RequirementType == InformationRequirementType.Decision))
                 {
                     var refId = dependsOnDecisionRef.Ref;
-                    if (string.IsNullOrEmpty(refId)) throw new DmnParserException($"Missing required decision reference for {decisionName}");
+                    if (string.IsNullOrWhiteSpace(refId)) throw new DmnParserException($"Missing required decision reference for {decisionName}");
 
                     if (decisionsById.ContainsKey(refId))
                     {
@@ -120,7 +120,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 foreach (var informationRequirement in sourceDecision.InformationRequirements.Where(d => d.RequirementType == InformationRequirementType.Input))
                 {
                     var refId = informationRequirement.Ref;
-                    if (string.IsNullOrEmpty(refId)) throw new DmnParserException($"Missing required input reference for {decisionName}");
+                    if (string.IsNullOrWhiteSpace(refId)) throw new DmnParserException($"Missing required input reference for {decisionName}");
                     if (!inputDataById.ContainsKey(refId)) throw new DmnParserException($"Input with reference {refId} for {decisionName} not found");
                     newInputs.Add(inputDataById[refId]);
                 }
@@ -158,8 +158,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             {
                 //Label, Name, Id
                 var sourceVariableName =
-                    !string.IsNullOrEmpty(sourceOutput.Label) ? sourceOutput.Label :
-                    !string.IsNullOrEmpty(sourceOutput.Name) ? sourceOutput.Name :
+                    !string.IsNullOrWhiteSpace(sourceOutput.Label) ? sourceOutput.Label :
+                    !string.IsNullOrWhiteSpace(sourceOutput.Name) ? sourceOutput.Name :
                     sourceOutput.Id;
 
                 var variableName = NormalizeVariableName(sourceVariableName);
@@ -196,9 +196,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 DmnVariableDefinition variable = null;
                 string expression = null;
 
-                if (string.IsNullOrEmpty(sourceInput.InputExpression?.Text))
+                if (string.IsNullOrWhiteSpace(sourceInput.InputExpression?.Text))
                 {
-                    var sourceVariableName = !string.IsNullOrEmpty(sourceInput.Label) ? sourceInput.Label : sourceInput.Id;
+                    var sourceVariableName = !string.IsNullOrWhiteSpace(sourceInput.Label) ? sourceInput.Label : sourceInput.Id;
                     var variableName = NormalizeVariableName(sourceVariableName);
 
                     if (!Variables.ContainsKey(variableName))
@@ -236,13 +236,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
 
                 var ruleInputs = new List<DmnDecisionTableRuleInput>();
                 var ruleOutputs = new List<DmnDecisionTableRuleOutput>();
-                var ruleName = string.IsNullOrEmpty(sourceRule.Label) ? sourceRule.Id : sourceRule.Label;
+                var ruleName = string.IsNullOrWhiteSpace(sourceRule.Label) ? sourceRule.Id : sourceRule.Label;
 
                 //inputs
                 var ruleInputIdx = 0;
                 foreach (var sourceRuleInputEntry in sourceRule.InputEntries)
                 {
-                    if (!string.IsNullOrEmpty(sourceRuleInputEntry.Text) && sourceRuleInputEntry.Text != "-") //don't create rule inputs with no condition - can be also represented as single dash
+                    if (!string.IsNullOrWhiteSpace(sourceRuleInputEntry.Text) && sourceRuleInputEntry.Text != "-") //don't create rule inputs with no condition - can be also represented as single dash
                     {
                         var ruleInput = new DmnDecisionTableRuleInput(inputs[ruleInputIdx], sourceRuleInputEntry.Text);
                         ruleInputs.Add(ruleInput);
@@ -276,7 +276,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
         {
             //prepare output variable
-            var sourceVariableName = !string.IsNullOrEmpty(sourceDecision.OutputVariable.Name)
+            var sourceVariableName = !string.IsNullOrWhiteSpace(sourceDecision.OutputVariable.Name)
                 ? sourceDecision.OutputVariable.Name
                 : sourceDecision.OutputVariable.Id;
             var variableName = NormalizeVariableName(sourceVariableName);
@@ -297,7 +297,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             CheckAndUpdateVariableType(variable, sourceDecision.OutputVariable.TypeRef);
 
             //prepare expression
-            if (string.IsNullOrEmpty(sourceDecision.Expression.Text))
+            if (string.IsNullOrWhiteSpace(sourceDecision.Expression.Text))
                 throw new DmnParserException($"Missing expression for expression decision {decisionName}");
             var expr = $"{sourceDecision.Expression.Text}";
 
@@ -325,7 +325,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
 
         protected static void CheckAndUpdateVariableType(DmnVariableDefinition variable, string typeName)
         {
-            if (string.IsNullOrEmpty(typeName)) return;
+            if (string.IsNullOrWhiteSpace(typeName)) return;
             if (variable == null) return;
 
             var parsedType = ParseTypeName(typeName);

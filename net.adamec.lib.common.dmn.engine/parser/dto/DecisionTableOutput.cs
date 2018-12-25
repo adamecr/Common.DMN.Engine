@@ -33,7 +33,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            return $"{Name}{(string.IsNullOrEmpty(TypeRef) ? "" : ":" + TypeRef)}/{Label}";
+            return $"{Name}{(string.IsNullOrWhiteSpace(TypeRef) ? "" : ":" + TypeRef)}/{Label}";
         }
     }
 }

@@ -71,7 +71,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <exception cref="DmnExecutorException">When the <paramref name="name"/> is not provided or the input parameter with given <paramref name="name"/> doesn't exist</exception>
         public DmnExecutionContext WithInputParameter(string name, object value)
         {
-            if (string.IsNullOrEmpty(name)) throw Logger.Fatal<DmnExecutorException>($"WithInputParameter: Missing name parameter");
+            if (string.IsNullOrWhiteSpace(name)) throw Logger.Fatal<DmnExecutorException>($"WithInputParameter: Missing name parameter");
 
             var variable = Variables?.Values.FirstOrDefault(i => i.IsInputParameter && i.Name == name);
             if (variable == null) throw Logger.Fatal<DmnExecutorException>($"WithInputParameter: {name} is not an input parameter");
@@ -83,7 +83,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
 
         public DmnDecisionResult ExecuteDecision(string decisionName)
         {
-            if (string.IsNullOrEmpty(decisionName)) throw Logger.Fatal<DmnExecutorException>($"ExecuteDecision: - decisionName is null or empty");
+            if (string.IsNullOrWhiteSpace(decisionName)) throw Logger.Fatal<DmnExecutorException>($"ExecuteDecision: - decisionName is null or empty");
             if (!Decisions.ContainsKey(decisionName)) throw Logger.Fatal<DmnExecutorException>($"ExecuteDecision: - decision {decisionName} not found");
 
             var decision = Decisions[decisionName];

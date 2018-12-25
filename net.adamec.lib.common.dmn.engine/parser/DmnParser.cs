@@ -25,7 +25,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
         /// <returns> Parsed DMN Model</returns>
         public static DmnModel Parse(string filePath)
         {
-            if (string.IsNullOrEmpty(filePath)) throw Logger.Fatal<DmnParserException>("Missing file path");
+            if (string.IsNullOrWhiteSpace(filePath)) throw Logger.Fatal<DmnParserException>("Missing file path");
             if (!File.Exists(filePath)) throw Logger.Fatal<DmnParserException>($"File {filePath} doesn't exist");
 
             DmnModel def;
@@ -55,7 +55,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
         public static DmnModel ParseString(string dmnDefinition)
         {
             dmnDefinition = dmnDefinition?.Trim();
-            if (string.IsNullOrEmpty(dmnDefinition)) throw Logger.Fatal<DmnParserException>("Missing DMN Model definition");
+            if (string.IsNullOrWhiteSpace(dmnDefinition)) throw Logger.Fatal<DmnParserException>("Missing DMN Model definition");
 
             DmnModel def;
             // ReSharper disable once AssignNullToNotNullAttribute

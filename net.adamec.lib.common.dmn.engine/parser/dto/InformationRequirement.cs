@@ -59,7 +59,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         {
             reference = reference?.Trim();
 
-            if (string.IsNullOrEmpty(reference))
+            if (string.IsNullOrWhiteSpace(reference))
                 throw new DmnParserException("Can't parse InformationRequirement - reference is null or empty");
 
             if (!reference.StartsWith("#"))

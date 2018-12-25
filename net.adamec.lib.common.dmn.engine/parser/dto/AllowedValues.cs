@@ -20,7 +20,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// </summary>
         [XmlIgnore]
         public string[] Values => 
-            string.IsNullOrEmpty(Text) ? null : Text.Split(',').Select(i =>
+            string.IsNullOrWhiteSpace(Text) ? null : Text.Split(',').Select(i =>
             {
                 var s = i.Trim();
                 if (s.StartsWith("\"") && s.EndsWith("\"")) s = s.Substring(1, s.Length - 2);

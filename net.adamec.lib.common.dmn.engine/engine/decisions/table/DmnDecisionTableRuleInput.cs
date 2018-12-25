@@ -25,7 +25,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         public DmnDecisionTableRuleInput(DmnDecisionTableInput input, string expression)
         {
             Input = input;
-            Expression = SfeelParser.ParseInput(expression, string.IsNullOrEmpty(input.Expression) ? input.Variable.Name : input.Expression);
+            Expression = SfeelParser.ParseInput(expression, string.IsNullOrWhiteSpace(input.Expression) ? input.Variable.Name : input.Expression);
         }
 
         /// <summary>Returns a string that represents the current object.</summary>

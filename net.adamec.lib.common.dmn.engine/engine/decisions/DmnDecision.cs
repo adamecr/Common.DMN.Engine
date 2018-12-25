@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
 using net.adamec.lib.common.logging;
@@ -35,12 +36,16 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <param name="name">Decision unique name</param>
         /// <param name="requiredInputs">Decision required inputs (input variables)</param>
         /// <param name="requiredDecisions">List of decisions, the decision depends on</param>
+        ///<exception cref="ArgumentNullException"><paramref name="name"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null</exception>
+        /// <exception cref="ArgumentException">Name is empty</exception>
         protected DmnDecision(string name, List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
         {
             Logger = CommonLogging.CreateLogger(GetType());
-            Name = name;
-            RequiredInputs = requiredInputs;
-            RequiredDecisions = requiredDecisions;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            RequiredInputs = requiredInputs??throw new ArgumentNullException(nameof(requiredInputs));
+            RequiredDecisions = requiredDecisions ?? throw new ArgumentNullException(nameof(requiredInputs));
+
+            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Name can't be empty");
         }
 
         /// <summary>
@@ -49,9 +54,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <param name="context">DMN Engine execution context</param>
         /// <param name="correlationId">Optional correlation ID used while logging</param>
         /// <returns>Decision result</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
         public DmnDecisionResult Execute(DmnExecutionContext context, string correlationId = null)
         {
-            
+            if (context == null) throw new ArgumentNullException(nameof(context));
+
             Logger.Info(correlationId,message:$"Executing decision {Name}...");
             if (Logger.IsTraceEnabled)
             {
@@ -116,6 +123,6 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <param name="context">DMN Engine execution context</param>
         /// <param name="correlationId">Optional correlation ID used while logging</param>
         /// <returns>Decision result</returns>
-        public abstract DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null);
+        protected abstract DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null);
     }
 }

@@ -32,7 +32,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
 
         public DmnExecutionVariable(DmnVariableDefinition definition)
         {
-            if (string.IsNullOrEmpty(definition?.Name?.Trim()))
+            if (string.IsNullOrWhiteSpace(definition?.Name?.Trim()))
                 throw Logger.Fatal<DmnExecutorException>($"Missing variable name");
             this.definition = definition;
         }
