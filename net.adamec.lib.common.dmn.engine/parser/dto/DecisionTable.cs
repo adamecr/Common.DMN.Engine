@@ -20,6 +20,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// <see cref="HitPolicyEnum">Hit policy</see> defined for decision table
         /// If not defined, <see cref="HitPolicyEnum.Unique"/> is used as default
         /// </summary>
+        ///<exception cref="DmnParserException">Wrong hit policy</exception>
         [XmlIgnore]
         public HitPolicyEnum HitPolicy
         {
@@ -43,9 +44,10 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         }
 
         /// <summary>
-        /// Agrregation attribute for "COLLECT" hit policy
+        /// Aggregation attribute for "COLLECT" hit policy
         /// Used just by deserializer, translated within <see cref="Aggregation"/> property getter
         /// </summary>
+        ///<exception cref="DmnParserException">Wrong hit policy aggregation</exception>
         [XmlAttribute("aggregation")]
         public string AggregationSrc { private get; set; }
 

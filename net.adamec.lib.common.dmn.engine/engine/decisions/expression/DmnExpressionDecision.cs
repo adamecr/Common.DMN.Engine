@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
-using net.adamec.lib.common.logging;
 
-namespace net.adamec.lib.common.dmn.engine.engine.decisions
+namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
 {
     /// <summary>
     /// Expression decision definition

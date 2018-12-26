@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 
-namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
+namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
 {
     /// <summary>
     /// Definition of decision table output - contains index (order), mapping to the variable and optional list of allowed values

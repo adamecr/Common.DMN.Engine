@@ -32,14 +32,15 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// </summary>
         [XmlElement("requiredInput")]
         public InformationRequirementItem RequiredInput { private get; set; }
-       
+
         /// <summary>
         /// Gets the type of dependency (requirement) - input of decision
         /// </summary>
+        ///<exception cref="DmnParserException">informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both</exception>
         [XmlIgnore]
         public InformationRequirementType RequirementType =>
             ((RequiredDecision == null && RequiredInput == null) || (RequiredDecision != null && RequiredInput != null))
-                ? throw new DmnParserException("infromationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both")
+                ? throw new DmnParserException("informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both")
                  : (RequiredDecision != null ? InformationRequirementType.Decision : InformationRequirementType.Input);
 
         /// <summary>
@@ -55,6 +56,9 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// </summary>
         /// <param name="reference">href attribute value (source reference with "#" prefix</param>
         /// <returns>The ID of required decision or input</returns>
+        ///<exception cref="DmnParserException">Can't parse InformationRequirement - reference is null or empty</exception>
+        ///<exception cref="DmnParserException">Can't parse InformationRequirement - reference doesn't start with #</exception>
+        ///<exception cref="DmnParserException">Can't parse InformationRequirement - reference too short/missing</exception>
         private static string ParseRef(string reference)
         {
             reference = reference?.Trim();

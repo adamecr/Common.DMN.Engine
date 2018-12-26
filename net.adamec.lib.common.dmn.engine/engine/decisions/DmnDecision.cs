@@ -36,7 +36,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <param name="name">Decision unique name</param>
         /// <param name="requiredInputs">Decision required inputs (input variables)</param>
         /// <param name="requiredDecisions">List of decisions, the decision depends on</param>
-        ///<exception cref="ArgumentNullException"><paramref name="name"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="name"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null</exception>
         /// <exception cref="ArgumentException">Name is empty</exception>
         protected DmnDecision(string name, List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
         {
@@ -54,7 +54,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <param name="context">DMN Engine execution context</param>
         /// <param name="correlationId">Optional correlation ID used while logging</param>
         /// <returns>Decision result</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="context"/> is null</exception>
         public DmnDecisionResult Execute(DmnExecutionContext context, string correlationId = null)
         {
             if (context == null) throw new ArgumentNullException(nameof(context));

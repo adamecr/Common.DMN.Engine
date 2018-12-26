@@ -10,7 +10,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         public Type Type { get; set; }
 
         public bool IsInputParameter { get; set; }
-        public bool HasValueSetter { get; set; } //is there any output to Varianble or is Input parameter
+        public bool HasValueSetter { get; set; } //is there any output to Variable or is Input parameter
 
         public List<string> ValueSetters { get; } = new List<string>();
 

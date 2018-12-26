@@ -1,17 +1,32 @@
 # DMN Engine #
-
-**NuGet package ID:** net.adamec.lib.common.actor
-
-# DMN Definition XML File #
+DMN Engine is a rule engine allowing to execute and evaluate the decisions defined in a DMN  model. It's primary target is to evaluate the decision tables that transform the inputs into the output(s) using the decision rules. Simple expression decisions are also supported as well as the complex decision models containing set of dependent decisions (tables or expressions).
+ 
 The DMN Model is defined using the adopted [standard](https://www.omg.org/spec/DMN/1.1/) XML file defined by OMG. Such definition can be designed for example using the [Camunda modeler](https://camunda.com/download/modeler/), keeping in mind the following principles how the file is parsed and the definition used in DMN Engine.
 
-## DMN Diagram ##
+**NuGet package ID:** net.adamec.lib.common.dmn.engine
+
+The basic use case is:
+1. Parse the DMN model from file.
+2. Create and engine execution context and load (and validate) the model into engine context.
+3. Provide the input parameter(s).
+4. Execute (and evaluate) the decision and get the result(s).
+
+
+```csharp
+var def = DmnParser.Parse(fileName);
+var ctx = DmnExecutionContextFactory.CreateExecutionContext(def);
+ctx.WithInputParameter("input name", inputValue);
+var result = ctx.ExecuteDecision("decision name");
+```
+
+## DMN Decision Model ##
 The DMN Model is actually set of inputs (parameters) and decisions.
+
 ![DMN digram](doc/img/dmn_diagram.png)
 
-The DMN Model XML is parsed (deserialized) using the `DmnParser.Parse` method getting the `file` as input parameter and returning the `DmnModel` (deserialized XML) based on such decisions model XML definition. The DmnParser contains just a very simple logic, as its intention is just to parse the XML.
+The DMN Model XML is parsed (deserialized) using the `DmnParser.Parse` method getting the `fileName` as input parameter and returning the `DmnModel` (deserialized XML) based on such decisions model XML definition. The DmnParser contains just a very simple logic, as its intention is just to deserialize the XML.
 ```csharp
-def = DmnParser.Parse(file);
+def = DmnParser.Parse(fileName);
 ```
 
 The XML model definition can also be provided as a `string` to `DmnParser.ParseString` method
@@ -20,6 +35,7 @@ def = DmnParser.ParseString("xml string");
 ```
 
 The `DmnModel` needs to be transformed to the `DmnExecutionContext` (Engine context) using the `DmnExecutionContextFactory` that gets the DMN Model and executes "second level parsing" to prepare the DMN Model for the Engine. The most of the "parsing" and validation logic is here.
+
 ```csharp
 var ctx = DmnExecutionContextFactory.CreateExecutionContext(DmnParser.Parse(file));
 ```
@@ -48,7 +64,7 @@ ctx.WithInputParameter("input name", inputValue);
 ### Decisions ###
 ![DMN digram](doc/img/dmn_decision.png) Decision represent an entity the Engine can evaluate and provide the required output(s).
 
-The decision is defined in XML file using the `decision` element and recognized by it's unique name taken from `name` attribute (or from `id` attribute when the `name` attribute is missing. The `id` attribute is mandatory). 
+The decision is defined in XML file using the `decision` element and recognized by its unique name taken from `name` attribute (or from `id` attribute when the `name` attribute is missing. The `id` attribute is mandatory). 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -67,7 +83,7 @@ The Engine supports the following decision types
 - ![DMN digram](doc/img/dmn_decision_table.png) Decision Tables that evaluate set of decision rules and provide matching output(s) 
 
 #### Dependency Tree ####
-When the model is parsed, the parser builds the dependency tree based on the information requirement connector. The decision can depend on zero or more inputs and on zero or more other decisions. When parsing the decision, the parser creates the full dependency tree of required inputs and decisions that needs to be evaluated before (in proper order).
+When the model is parsed, the parser builds the dependency tree based on the information requirement connector. The decision can depend on zero or more inputs and on zero or more other decisions. When parsing the decision, the parser creates the full dependency tree of required inputs and decisions that need to be evaluated before (in proper order).
 ![DMN digram](doc/img/dmn_dependency.png)
 
 The dependency is stored in XML within the `informationRequirement` element that can be `requiredInput` or `requiredDecision`. Both types must have the `href` attribute referencing the proper input or decision by their id (with "#" prefix). 
@@ -93,20 +109,27 @@ The decision is executed and evaluated by Engine using the method `ctx.ExecuteDe
 result = ctx.ExecuteDecision("decision name");
 ```
 The Engine checks for the decision dependencies and when any decision needs to be evaluated before, the Engine evaluates such decision. This is done recursively, so the complex dependencies can be defined.
-*Note: The Engine doesn't check for the circular dependencies, so the execution of model will fail with `StackOverflowException`.*
+*Note: The Engine doesn't check for the circular dependencies, so the execution of model will fail with `StackOverflowException` in such cases.*
 
 ## Variables in Decision Model ##
-As mentioned above, the inputs are one kind of variables existing in the Engine context. The variables allow sharing the data between the model elements. When the decision is evaluated it get some information at the input and produce the outputs. The outputs are also stored into the variables, so they can be used as inputs for another decisions.
+As mentioned above, the inputs are one kind of variables existing in the Engine context. The variables allow sharing the data between the model elements. When the decision is evaluated, it get some information at the input and produce the outputs. The outputs are also stored into the variables, so they can be used as inputs for another decisions.
 
-The Engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) interpreter and the full set of variables is provided to the interpreter while evaluating any of the expressions within the Engine, so they can be recognized in expressions.
+The Engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) interpreter and the full set of variables is provided to the interpreter while evaluating any of the expressions within the Engine, so they can be recognized in expressions.*Note: Technically, the variables are provided as parameters, so it's possible to parse the expression once and invoke it with the real values when needed - DMN Engine implements the parsed expression cache.*
 
 ```csharp
+var parameters = new List<Parameter>();
 foreach (var variable in Variables.Values)
- {
-   //check null variable for value type
-   var varValue = variable.Value ?? Utils.GetDefault(variable.Type);
-   interpreter.SetVariable(variable.Name, varValue);
- }
+{
+	//check null variable for value type
+	var varValue = variable.Value ?? variable.Type?.GetDefaultValue();
+
+	var parameter = new Parameter(variable.Name, variable.Type ?? varValue?.GetType() ?? typeof(object), varValue);
+	parameters.Add(parameter);
+}
+
+parsedExpression = interpreter.Parse(expression, outputType, parameters.ToArray());
+var result = parsedExpression.Invoke(parameters.ToArray());
+}
 ```
 
 The Engine context keeps the list of variables as triplets:
@@ -133,7 +156,9 @@ private static Type ParseTypeName(string typeName)
 ```
 Besides the defined data types, the Engine actually supports any .NET type known while evaluating the expressions, it's just not possible to explicitly define such data type for the variables in DMN Model.
 For example, let's have following model
+
 ![DMN digram](doc/img/dmn_complexObjects.png)
+
 Input parameter dyna is complex object
 ```csharp
 var dyna = new { Name = "name", IsOk = true, Direct="some value" };
@@ -195,7 +220,7 @@ There are three table inputs in the example above:
 - Variable input mapped to variable `b` of type `boolean` (`bool`)
 - Expression input with expression `dyna.Direct` evaluated to `string`.
 
-**Decision table output** means that Engine will provide the output for rules with positive match and store them into defined variables with given type
+**Decision table output** means that Engine will provide the output for rules with positive match and store them into defined variables with given type.
 There are two table outputs in the example above:
 - Output mapped to variable `res` of type `string`
 - Output mapped to variable `amount` of type `integer`
@@ -203,29 +228,29 @@ There are two table outputs in the example above:
 *Note: The mapping to the variables (persistence) is done after all rules are evaluated and the single or multiple rules with positive match are selected by Hit policy. Although it's possible to manipulate the output mapped variables within the rule expression, it's strongly recommended not to do so.* 
 
 **Rule** is the set of input and output expressions.
-The **Rule input expression** define kind of condition that the input data must meet to make the rule the positive match. It's possible to omit the rule input expression, meaning that the related table input will not be evaluated for such rule.
+The **Rule input expression** defines kind of condition that the input data must meet to make the rule the positive match. It's possible to omit the rule input expression, meaning that the related table input will not be evaluated for such rule.
 There will be following conditions used when evaluating the decision table above
 
-- Rule #1 - will be evaluated as positive, if all following conditions are valid (true)
+- Rule 1 - will be evaluated as positive, if all following conditions are valid (true)
   - `a=="a"` - value of string variable `a` is constant `a`.
   - `b==true` - value of bool variable `b` is `true`
   - `!(dyna.Direct=="over")` - result of expression `dyna.Direct` is not the constant `over`
-- Rule #2 - will be evaluated as positive, if all following conditions are valid (true)
+- Rule 2 - will be evaluated as positive, if all following conditions are valid (true)
   - `b==false` - value of bool variable `b` is `false`
   - `dyna.Direct=="over"` - result of expression `dyna.Direct` is the constant `over`
 
 Actually, it's possible to omit all input expressions, so the rule will be always evaluated as positive match. 
  
-The **Rule output expression** define the data that the Engine will store to defined output variables (and return). It's always handled as the expression even if returning the constant.
+The **Rule output expression** defines the data that the Engine will store to defined output variables (and return). It's always handled as the expression even if returning the constant.
 There are following outputs for the rules of the decision table above
 
-- Rule #1 - will produce following outputs
+- Rule 1 - will produce following outputs
   - `a+(b!=null?b.ToString():"")+dyna.Direct` - concatenated string of value of variable `a`, value of variable `b` and value of `Direct` property of object (variable) `dyna`. This concatenated string will be stored to variable `res`.
   - `50` - integer constant `50` will be store to variable `amount`.
-- Rule #2 - will produce following output
+- Rule 2 - will produce following output
   - `"dyna.Direct==over"` - string constant `dyna.Direct==over` will be stored to variable `res`.
   
-It's possible to omit one or more (all) output input expressions. In this case the Engine will just not produce the output value (so the output variable will not be "cleaned" or set to `null`).
+It's possible to omit one or more (all) output input expressions. In this case the Engine will just not produce the output value (so the output variable will NOT be "cleaned" or set to `null`).
 
 ### Inputs in XML ###
 The decision table in the example above will have following inputs in the XML definition
@@ -306,7 +331,7 @@ The decision table in the example above will have following rules in the XML def
 ```
 The rule input expressions are defined using the `inputEntry` elements. **Their count and order must match the table input definitions** (there is no other way of pairing). The `text` sub-element of `inputEntry` defines the rule input expression. If the `text` element is empty of contains constant `-` (dash) the input will be omitted in rule evaluation.
 
-The rule output expressions are defined using the `outputEntry` elements. **Their count and order must match the table output definitions** (there is no other way of pairing). The `text` sub-element of `outputEntry` defines the rule output expression. If the `text` element is empty of contains constant `-` (dash) the output will be omitted (not produces) during the decision table evaluation.
+The rule output expressions are defined using the `outputEntry` elements. **Their count and order must match the table output definitions** (there is no other way of pairing). The `text` sub-element of `outputEntry` defines the rule output expression. If the `text` element is empty of contains constant `-` (dash) the output will be omitted (not produced) during the decision table evaluation.
 
 The optional rule annotation is stored in element `description`. 
 
@@ -343,7 +368,7 @@ Following single-hit policies are supported
 Following multiple-hit policies are supported
 - **Collect** - Multiple rules can be satisfied.
 	- If there is not aggregator or aggregator is `LIST`, the decision table result contains the output of all satisfied rules in an arbitrary order as a list.
-	- If the Collect hit policy is used with an aggregator (other than `List`, the decision table can only have one output.The aggregator will generate the output entry from all satisfied rules.
+	- If the Collect hit policy is used with an aggregator (other than `List`), the decision table can only have one output.The aggregator will generate the output entry from all satisfied rules.
 	- Except for C-count and C-list, the rules must have numeric or boolean output values.
 	- COUNT aggregator for string stores the counted value (number) as a string into the output variable
 	- Boolean output values are valid for SUM, MIN and MAX aggregator
@@ -356,7 +381,7 @@ Following multiple-hit policies are supported
 
 *Note: The multiple-hit policy decision table returns full set of outputs, however the output variables are set to the values corresponding to the **last** (ordered) positive rule. Take this into the consideration when mapping the output of the multiple-hit policy decision table as the input for another decision*
 
-Decision tables with compound outputs support only the following hit policies: Unique, Any, Priority, First, Output order, Rule order and Collect without operator,because the collect operator is undefined over multiple outputs.
+Decision tables with compound outputs support only the following hit policies: Unique, Any, Priority, First, Output order, Rule order and Collect without operator, because the collect operator is undefined over multiple outputs.
  
 For the Priority and Output order hit policies, priority is decided in compound output tables over all the outputs for which output values have been provided.The priority for each output is specified in the ordered list of output values in decreasing order of priority, and the overall priority is established by considering the ordered outputs from left to right. Outputs for which no output values are provided are not taken into account in the ordering, although their output entries are included in the ordered compound output.
 

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
+namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
 {
     /// <summary>
     /// Definition of decision table rule output - contains the calculation expression and mapping to table output 

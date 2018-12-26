@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.dmn.engine.parser;
 
-namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
+namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
 {
     /// <summary>
     /// Definition of decision table rule input - contains the input match evaluation expression and mapping to table input

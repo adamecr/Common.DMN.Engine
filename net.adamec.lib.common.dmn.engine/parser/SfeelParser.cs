@@ -33,14 +33,20 @@ namespace net.adamec.lib.common.dmn.engine.parser
         }
 
         /// <summary>
-        /// Parses the S-FEEL expresion and creates the comparison that will be used in rule evaluation
+        /// Parses the S-FEEL expression and creates the comparison that will be used in rule evaluation
         /// The parser recognize the basic types of S-FEEL expressions: not(expr), simple comparators, multiple values and range
         /// </summary>
         /// <param name="expr">Source expression</param>
-        /// <param name="leftSide">Left side of resultion expression - to what to compare to</param>
+        /// <param name="leftSide">Left side of comparison expression - to what to compare to</param>
         /// <returns>Expression to be used in rule evaluation</returns>
+        /// <exception cref="DmnParserException">Missing expression (<paramref name="expr"/> is null or empty)</exception>
+        /// <exception cref="DmnParserException">Missing left side of expression (<paramref name="leftSide"/> is null or empty)</exception>
+        /// <exception cref="DmnParserException">Wrong S-FEEL range</exception>
         public static string ParseInput(string expr, string leftSide)
         {
+            if (string.IsNullOrWhiteSpace(expr)) throw Logger.Error<DmnParserException>($"Missing expression");
+            if (string.IsNullOrWhiteSpace(leftSide)) throw Logger.Error<DmnParserException>($"Missing left side of expression");
+
             if (Logger.IsTraceEnabled)
                 Logger.Trace($"Parsing input expression {expr} for left side {leftSide}...");
             expr = expr.Trim();

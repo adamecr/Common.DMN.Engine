@@ -23,6 +23,9 @@ namespace net.adamec.lib.common.dmn.engine.parser
         /// </summary>
         /// <param name="filePath">Path to the file to be parsed</param>
         /// <returns> Parsed DMN Model</returns>
+        /// <exception cref="DmnParserException">Missing file path (<paramref name="filePath"/> is null or empty)</exception>
+        /// <exception cref="DmnParserException">File doesn't exist</exception>
+        /// <exception cref="DmnParserException">Can't parse file</exception>
         public static DmnModel Parse(string filePath)
         {
             if (string.IsNullOrWhiteSpace(filePath)) throw Logger.Fatal<DmnParserException>("Missing file path");
@@ -52,6 +55,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
         /// </summary>
         /// <param name="dmnDefinition">DMN Model XML definition</param>
         /// <returns>Parsed DMN Model</returns>
+        /// <exception cref="DmnParserException">Missing DMN Model definition (<paramref name="dmnDefinition"/> is null or empty)</exception>
+        /// <exception cref="DmnParserException">Can't parse DMN definition</exception>
         public static DmnModel ParseString(string dmnDefinition)
         {
             dmnDefinition = dmnDefinition?.Trim();

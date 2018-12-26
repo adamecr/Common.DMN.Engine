@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
+using net.adamec.lib.common.dmn.engine.engine.decisions.expression;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table;
+using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
 using net.adamec.lib.common.dmn.engine.parser;
 using net.adamec.lib.common.dmn.engine.parser.dto;
 using net.adamec.lib.common.logging;

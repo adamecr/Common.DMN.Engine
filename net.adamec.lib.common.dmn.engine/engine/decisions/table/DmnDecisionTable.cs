@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
+using net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
 using net.adamec.lib.common.dmn.engine.parser.dto;

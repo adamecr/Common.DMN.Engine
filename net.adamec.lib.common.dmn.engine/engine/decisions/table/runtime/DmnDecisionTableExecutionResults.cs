@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
 
-namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
+namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
 {
     /// <summary>
     /// Decision table rules execution results
