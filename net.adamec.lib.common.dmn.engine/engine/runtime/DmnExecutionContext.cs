@@ -13,7 +13,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
     public class DmnExecutionContext
     {
         protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
-        private static Dictionary<(string, Type), Lambda> ParsedExpressionsCache = new Dictionary<(string, Type), Lambda>();
+        private static readonly Dictionary<(string, Type), Lambda> ParsedExpressionsCache = new Dictionary<(string, Type), Lambda>();
 
         public DmnDefinition Definition { get; }
 

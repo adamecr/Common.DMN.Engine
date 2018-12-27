@@ -6,7 +6,6 @@ using net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
 using net.adamec.lib.common.dmn.engine.parser.dto;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 {
@@ -48,8 +47,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <param name="rules">Decision table rules</param>
         /// <param name="requiredInputs">Inputs the decision table depends on.</param>
         /// <param name="requiredDecisions">Decisions that needs to be evaluated before the decision table (provide the inputs to the table).</param>
-        ///<exception cref="ArgumentNullException"><paramref name="inputs"/>, <paramref name="outputs"/> or <paramref name="rules"/> is null</exception>
-        ///<exception cref="ArgumentException"><paramref name="inputs"/>, <paramref name="outputs"/> or <paramref name="rules"/> is empty</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="inputs"/>, <paramref name="outputs"/> or <paramref name="rules"/> is null</exception>
+        /// <exception cref="ArgumentException"><paramref name="inputs"/>, <paramref name="outputs"/> or <paramref name="rules"/> is empty</exception>
         public DmnDecisionTable(
             string name,
             HitPolicyEnum hitPolicy, CollectHitPolicyAggregationEnum aggregation,
@@ -83,7 +82,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
         protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
         {
-            if(context==null) throw new ArgumentNullException(nameof(context));
+            if (context == null) throw new ArgumentNullException(nameof(context));
 
             //EVALUATE RULES
             var positiveRules = EvaluateRules(context, correlationId);

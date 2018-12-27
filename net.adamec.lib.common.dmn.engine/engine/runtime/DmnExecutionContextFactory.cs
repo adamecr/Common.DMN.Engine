@@ -40,7 +40,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
                 Decisions.Add(sourceDecision.Key,sourceDecision.Value);
             }
 
-            //Init runtion (execution) variables
+            //Init runtime (execution) variables
             foreach (var sourceVariable in source.Variables.Values)
             {
                 var variable=new DmnExecutionVariable(sourceVariable);

@@ -25,7 +25,7 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
             Action act=()=> DmnExecutionContextFactory.CreateExecutionContext(DmnParser.ParseString(def));
 
             act.Should().Throw<DmnParserException>().WithMessage(
-                "infromationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both");
+                "informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both");
         }
 
         [TestMethod]
@@ -44,7 +44,7 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
             Action act = () => DmnExecutionContextFactory.CreateExecutionContext(DmnParser.ParseString(def));
 
             act.Should().Throw<DmnParserException>().WithMessage(
-                "infromationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both");
+                "informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both");
         }
 
         [TestMethod]

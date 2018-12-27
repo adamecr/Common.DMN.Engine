@@ -55,6 +55,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// <see cref="CollectHitPolicyAggregationEnum">Aggregation</see> defined for "COLLECT" hit policy
         /// If not defined, <see cref="CollectHitPolicyAggregationEnum.List"/> is used as default
         /// </summary>
+        /// <exception cref="DmnParserException">Wrong hit policy aggregation</exception>
         [XmlIgnore]
         public CollectHitPolicyAggregationEnum Aggregation
         {
