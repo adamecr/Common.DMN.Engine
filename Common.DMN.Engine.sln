@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net.adamec.lib.common.dmn.e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net.adamec.lib.common.dmn.engine.test", "net.adamec.lib.common.dmn.engine.test\net.adamec.lib.common.dmn.engine.test.csproj", "{B3526A96-116B-43F4-A452-C9E3720110F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{4CC35D7F-F2D7-470C-A572-279E3EF71CEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B3526A96-116B-43F4-A452-C9E3720110F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3526A96-116B-43F4-A452-C9E3720110F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3526A96-116B-43F4-A452-C9E3720110F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC35D7F-F2D7-470C-A572-279E3EF71CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC35D7F-F2D7-470C-A572-279E3EF71CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC35D7F-F2D7-470C-A572-279E3EF71CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC35D7F-F2D7-470C-A572-279E3EF71CEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
