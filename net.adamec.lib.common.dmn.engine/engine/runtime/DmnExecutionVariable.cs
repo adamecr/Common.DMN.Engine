@@ -62,8 +62,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
                     if (ex is InvalidCastException || ex is FormatException || ex is OverflowException || ex is ArgumentNullException)
                     {
                         //most probably from Convert.ChangeType
-                        Logger.Error<DmnExecutorException>($"Can't cast value to target type: {Type?.Name??"[null]"}. Value is: {value}");
-                        return;
+                        throw Logger.Error<DmnExecutorException>($"Can't cast value to target type: {Type?.Name??"[null]"}. Value is: {value}");
                     }
 
                     Logger.Fatal(ex,$"Unexpected exception while setting the variable {Name}",null);
