@@ -48,7 +48,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
         /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
         protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
         {
-            if (context == null) throw new ArgumentNullException(nameof(context));
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(correlationId,$"{nameof(context)} is null");
 
             Logger.InfoCorr(correlationId, $"Evaluating expressiong decision {Name} with expression {Expression}...");
             var result = context.EvalExpression(Expression, Output.Type);

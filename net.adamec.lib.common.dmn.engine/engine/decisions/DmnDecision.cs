@@ -41,11 +41,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         protected DmnDecision(string name, List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
         {
             Logger = CommonLogging.CreateLogger(GetType());
-            Name = name ?? throw new ArgumentNullException(nameof(name));
-            RequiredInputs = requiredInputs ?? throw new ArgumentNullException(nameof(requiredInputs));
-            RequiredDecisions = requiredDecisions ?? throw new ArgumentNullException(nameof(requiredInputs));
+            Name = name ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(name)} is null");
+            RequiredInputs = requiredInputs ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(requiredInputs)} is null");
+            RequiredDecisions = requiredDecisions ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(requiredDecisions)} is null");
 
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Name can't be empty");
+            if (string.IsNullOrWhiteSpace(name)) throw Logger.Fatal<ArgumentNullException>($"{nameof(name)} is empty");
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <exception cref="ArgumentNullException"><paramref name="context"/> is null</exception>
         public DmnDecisionResult Execute(DmnExecutionContext context, string correlationId = null)
         {
-            if (context == null) throw new ArgumentNullException(nameof(context));
+            if (context == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(context)} is null");
 
             Logger.InfoCorr(correlationId, $"Executing decision {Name}...");
             if (Logger.IsTraceEnabled)

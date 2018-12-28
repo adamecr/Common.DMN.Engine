@@ -18,6 +18,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// </summary>
         public IDictionary<string, DmnExecutionVariable> InputData { get; } = new Dictionary<string, DmnExecutionVariable>();
 
+        /// <summary>
+        /// Dictionary of available decisions by name
+        /// </summary>
         public IDictionary<string, IDmnDecision> Decisions { get; } = new Dictionary<string, IDmnDecision>();
 
         public static DmnExecutionContext CreateExecutionContext(DmnModel sourceModel)

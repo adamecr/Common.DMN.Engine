@@ -27,10 +27,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <exception cref="ArgumentException"><paramref name="instance"/> or <paramref name="variable"/> is null</exception>
         public static DmnDecisionSingleResult operator +(DmnDecisionSingleResult instance, DmnExecutionVariable variable)
         {
-            if (instance == null)
-                throw new ArgumentNullException(nameof(instance));
-            if (variable == null)
-                throw new ArgumentNullException(nameof(variable));
+            if (instance == null) throw new ArgumentNullException(nameof(instance));
+            if (variable == null) throw new ArgumentNullException(nameof(variable));
 
             instance.variables.Add(variable);
 

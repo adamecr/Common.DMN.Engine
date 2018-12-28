@@ -28,7 +28,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
         /// <exception cref="DmnParserException">Can't parse file</exception>
         public static DmnModel Parse(string filePath)
         {
-            if (string.IsNullOrWhiteSpace(filePath)) throw Logger.Fatal<DmnParserException>("Missing file path");
+            if (string.IsNullOrWhiteSpace(filePath)) throw Logger.Fatal<DmnParserException>($"{nameof(filePath)} is null or empty");
             if (!File.Exists(filePath)) throw Logger.Fatal<DmnParserException>($"File {filePath} doesn't exist");
 
             DmnModel def;

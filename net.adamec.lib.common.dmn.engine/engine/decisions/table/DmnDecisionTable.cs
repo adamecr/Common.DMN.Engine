@@ -60,13 +60,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         {
             HitPolicy = hitPolicy;
             Aggregation = aggregation;
-            Inputs = inputs ?? throw new ArgumentNullException(nameof(inputs));
-            Outputs = outputs ?? throw new ArgumentNullException(nameof(outputs));
-            Rules = rules ?? throw new ArgumentNullException(nameof(rules));
+            Inputs = inputs ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(inputs)} is null");
+            Outputs = outputs ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(outputs)} is null");
+            Rules = rules ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(rules)} is null");
 
-            if (inputs.Count < 1) throw new ArgumentException("No inputs for the table");
-            if (outputs.Count < 1) throw new ArgumentException("No outputs for the table");
-            if (rules.Count < 1) throw new ArgumentException("No rules for the table");
+            if (inputs.Count < 1) throw Logger.Fatal<ArgumentException>("No inputs for the table");
+            if (outputs.Count < 1) throw Logger.Fatal<ArgumentException>("No outputs for the table");
+            if (rules.Count < 1) throw Logger.Fatal<ArgumentException>("No rules for the table");
         }
 
         /// <summary>
@@ -79,10 +79,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <param name="context">DMN Engine execution context</param>
         /// <param name="correlationId">Optional correlation ID used while logging</param>
         /// <returns>Decision result</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="context"/> is null</exception>
         protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
         {
-            if (context == null) throw new ArgumentNullException(nameof(context));
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(correlationId,$"{nameof(context)} is null");
 
             //EVALUATE RULES
             var positiveRules = EvaluateRules(context, correlationId);
@@ -260,10 +260,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
         private List<DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string correlationId)
         {
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(correlationId,$"{nameof(context)} is null");
+
             var positiveRules = new List<DmnDecisionTableRule>();
 
             //EVALUATE RULES
-            Logger.InfoCorr(correlationId,  $"Evaluating decision table {Name} rules...");
+            Logger.InfoCorr(correlationId, $"Evaluating decision table {Name} rules...");
             foreach (var rule in Rules)
             {
                 var match = true;
@@ -291,11 +293,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                                 $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
                     }
                     if (Logger.IsTraceEnabled)
-                        Logger.TraceCorr(correlationId,  $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
+                        Logger.TraceCorr(correlationId, $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
                     var result =
                         context.EvalExpression<bool>(ruleInput.Expression); //TODO ?pre-parse and use the inputs as parameters?
                     if (Logger.IsTraceEnabled)
-                        Logger.TraceCorr(correlationId,  $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+                        Logger.TraceCorr(correlationId, $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
 
                     // ReSharper disable once InvertIf
                     if (!result)
@@ -313,7 +315,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 }
             }
 
-            Logger.InfoCorr(correlationId,  $"Evaluated decision table {Name} rules");
+            Logger.InfoCorr(correlationId, $"Evaluated decision table {Name} rules");
             return positiveRules;
         }
 
@@ -326,7 +328,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <returns>Table execution results</returns>
         private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string correlationId, IEnumerable<DmnDecisionTableRule> positiveRules)
         {
-            Logger.InfoCorr(correlationId,  $"Evaluating decision table {Name} positive rules outputs...");
+            Logger.InfoCorr(correlationId, $"Evaluating decision table {Name} positive rules outputs...");
             var results = new DmnDecisionTableRuleExecutionResults();
             foreach (var positiveRule in positiveRules)
             {
@@ -362,7 +364,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 }
             }
 
-            Logger.InfoCorr(correlationId,  $"Evaluated decision table {Name} positive rules outputs");
+            Logger.InfoCorr(correlationId, $"Evaluated decision table {Name} positive rules outputs");
             return results;
         }
 
@@ -378,7 +380,6 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <returns>True when all positive rule outputs match</returns>
         private static bool MatchRuleOutputs(IEnumerable<DmnDecisionTableRule> positiveRules, DmnDecisionTableRuleExecutionResults results)
         {
-
             var array = positiveRules.ToArray();
             if (array.Length < 2) return true;
 

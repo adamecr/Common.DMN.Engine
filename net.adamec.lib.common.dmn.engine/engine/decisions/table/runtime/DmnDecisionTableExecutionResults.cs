@@ -17,7 +17,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
         /// <summary>
         /// Internal dictionary of rule result hashcodes (hashcode per rule)
         /// </summary>
-        private readonly Dictionary<DmnDecisionTableRule, int> ruleResultHashCodes=new Dictionary<DmnDecisionTableRule, int>();
+        private readonly Dictionary<DmnDecisionTableRule, int> ruleResultHashCodes = new Dictionary<DmnDecisionTableRule, int>();
         /// <summary>
         /// Sets the <paramref name="result"/> of the single <paramref name="output"/> of the <paramref name="rule"/>.
         /// </summary>
@@ -28,9 +28,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
         /// <exception cref="ArgumentNullException"><paramref name="rule"/> or <paramref name="output"/> is null</exception>
         public void SetResult(DmnDecisionTableRule rule, DmnDecisionTableRuleOutput output, DmnExecutionVariable result)
         {
-            if(rule ==null) throw new ArgumentNullException(nameof(rule));
+            if (rule == null) throw new ArgumentNullException(nameof(rule));
             if (output == null) throw new ArgumentNullException(nameof(output));
-            
+
             if (results.ContainsKey((rule, output)))
             {
                 results[(rule, output)] = result;
@@ -58,10 +58,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
                 }
                 else
                 {
-                    ruleResultHashCodes.Add(rule,hash);
+                    ruleResultHashCodes.Add(rule, hash);
                 }
             }
-           
+
         }
 
         /// <summary>
@@ -70,9 +70,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
         /// <param name="rule">Rule to get the result for</param>
         /// <param name="output">Output to get the result for</param>
         /// <returns>Result for given pair <paramref name="rule"/> - <paramref name="output"/> or null when the result is not found</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="rule"/> or <paramref name="output"/> is null</exception>
         public DmnExecutionVariable GetResult(DmnDecisionTableRule rule, DmnDecisionTableRuleOutput output)
         {
-            return results.ContainsKey((rule, output)) ? results[(rule, output)] : null;
+            if (rule == null) throw new ArgumentNullException(nameof(rule));
+            if (output == null) throw new ArgumentNullException(nameof(output));
+
+            return results.TryGetValue((rule, output), out var retVal) ? retVal : null;
         }
 
         /// <summary>
@@ -80,9 +84,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
         /// </summary>
         /// <param name="rule">Rule to get the hashcode for</param>
         /// <returns>Hashcode of rule results or zero when there are not results for given <paramref name="rule"/></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="rule"/> is null</exception>
         public int GetResultsHashCode(DmnDecisionTableRule rule)
         {
-            return ruleResultHashCodes.TryGetValue(rule,out var retVal)?retVal:0;
+            if (rule == null) throw new ArgumentNullException(nameof(rule));
+
+            return ruleResultHashCodes.TryGetValue(rule, out var retVal) ? retVal : 0;
         }
     }
 }

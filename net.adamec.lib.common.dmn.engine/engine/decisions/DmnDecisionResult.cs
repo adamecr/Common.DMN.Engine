@@ -43,10 +43,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <exception cref="ArgumentException"><paramref name="instance"/> or <paramref name="result"/> is null</exception>
         public static DmnDecisionResult operator +(DmnDecisionResult instance, DmnDecisionSingleResult result)
         {
-            if (instance == null)
-                throw new ArgumentNullException(nameof(instance));
-            if (result == null)
-                throw new ArgumentNullException(nameof(result));
+            if (instance == null) throw new ArgumentNullException(nameof(instance));
+            if (result == null) throw new ArgumentNullException(nameof(result));
 
             instance.results.Add(result);
 

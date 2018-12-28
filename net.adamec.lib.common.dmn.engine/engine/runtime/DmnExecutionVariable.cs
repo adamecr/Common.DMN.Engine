@@ -17,21 +17,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <summary>
         /// Variable definition
         /// </summary>
-        private readonly DmnVariableDefinition definition;
+        private DmnVariableDefinition Definition { get; }
 
         /// <summary>
         /// Unique variable name
         /// </summary>
-        public string Name => definition.Name;
+        public string Name => Definition.Name;
         /// <summary>
         /// Variable type or null if not defined
         /// </summary>
-        public Type Type => definition.Type;
+        public Type Type => Definition.Type;
 
         /// <summary>
         /// Flag whether the variable is input parameter
         /// </summary>
-        public bool IsInputParameter => definition.IsInputParameter;
+        public bool IsInputParameter => Definition.IsInputParameter;
 
         /// <summary>
         /// Backing field for <see cref="Value"/> property
@@ -83,10 +83,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         public DmnExecutionVariable(DmnVariableDefinition definition)
         {
             if (definition == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(definition)} is null");
+
             if (string.IsNullOrWhiteSpace(definition.Name?.Trim()))
                 throw Logger.Fatal<DmnExecutorException>($"Missing variable name");
 
-            this.definition = definition;
+            Definition = definition;
         }
 
         /// <summary>
@@ -95,7 +96,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <returns>Cloned variable</returns>
         public DmnExecutionVariable Clone()
         {
-            var retVal = new DmnExecutionVariable(definition)
+            var retVal = new DmnExecutionVariable(Definition)
             {
                 Value = Value //new DmnExecutionVariable.Value=this.Value - it's just bit confusing here ;-)
             };

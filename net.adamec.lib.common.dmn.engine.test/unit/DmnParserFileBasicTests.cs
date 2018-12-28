@@ -26,7 +26,7 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
         public void ParseNullOrEmptyFileTest(string file)
         {
             Action act = () => DmnParser.Parse(file);
-            act.Should().Throw<DmnParserException>().WithMessage("Missing file path");
+            act.Should().Throw<DmnParserException>().WithMessage("filePath is null or empty");
         }
 
         [TestMethod]
