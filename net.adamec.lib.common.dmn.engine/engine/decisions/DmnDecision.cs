@@ -15,12 +15,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// Logger
         /// </summary>
         protected ILogger Logger { get; }
-   
+
         /// <summary>
         /// Decision unique name
         /// </summary>
         public string Name { get; }
-    
+
         /// <summary>
         /// Decision required inputs (input variables)
         /// </summary>
@@ -42,10 +42,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         {
             Logger = CommonLogging.CreateLogger(GetType());
             Name = name ?? throw new ArgumentNullException(nameof(name));
-            RequiredInputs = requiredInputs??throw new ArgumentNullException(nameof(requiredInputs));
+            RequiredInputs = requiredInputs ?? throw new ArgumentNullException(nameof(requiredInputs));
             RequiredDecisions = requiredDecisions ?? throw new ArgumentNullException(nameof(requiredInputs));
 
-            if(string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Name can't be empty");
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Name can't be empty");
         }
 
         /// <summary>
@@ -59,37 +59,37 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            Logger.Info(correlationId,message:$"Executing decision {Name}...");
+            Logger.InfoCorr(correlationId, $"Executing decision {Name}...");
             if (Logger.IsTraceEnabled)
             {
                 foreach (var input in RequiredInputs)
                 {
-                    Logger.Trace(correlationId, message: $"Decision {Name}, input {input.Name}, value {context.GetVariable(input).Value}");
+                    Logger.TraceCorr(correlationId, $"Decision {Name}, input {input.Name}, value {context.GetVariable(input).Value}");
                 }
             }
 
             // ReSharper disable once InvertIf
             if (RequiredDecisions != null)
             {
-                Logger.Info(correlationId, message: $"Resolving dependencies for decision {Name}...");
+                Logger.InfoCorr(correlationId, $"Resolving dependencies for decision {Name}...");
                 foreach (var requiredDecision in RequiredDecisions)
                 {
-                    Logger.Info(correlationId, message: $"Executing dependency  {requiredDecision.Name} for decision {Name}...");
-                    requiredDecision.Execute(context,correlationId);
-                    Logger.Info(correlationId, message: $"Executed dependency  {requiredDecision.Name} for decision {Name}");
+                    Logger.InfoCorr(correlationId, $"Executing dependency  {requiredDecision.Name} for decision {Name}...");
+                    requiredDecision.Execute(context, correlationId);
+                    Logger.InfoCorr(correlationId, $"Executed dependency  {requiredDecision.Name} for decision {Name}");
                 }
-                Logger.Info(correlationId, message: $"Resolved dependencies for decision {Name}");
+                Logger.InfoCorr(correlationId, $"Resolved dependencies for decision {Name}");
             }
 
-            var result =Evaluate(context,correlationId);
+            var result = Evaluate(context, correlationId);
 
-            Logger.Info(correlationId, message: $"Executed decision {Name}");
+            Logger.InfoCorr(correlationId, $"Executed decision {Name}");
             // ReSharper disable once InvertIf
             if (Logger.IsTraceEnabled)
             {
                 if (!result.HasResult)
                 {
-                    Logger.Trace(correlationId, message: $"Decision {Name} returned no result");
+                    Logger.TraceCorr(correlationId, $"Decision {Name} returned no result");
                 }
                 else
                 {
@@ -97,7 +97,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
                     {
                         foreach (var output in result.SingleResult)
                         {
-                            Logger.Trace(correlationId, message: $"Decision {Name} single result, output {output.Name}, value {output.Value}");
+                            Logger.TraceCorr(correlationId, $"Decision {Name} single result, output {output.Name}, value {output.Value}");
                         }
                     }
                     else
@@ -108,7 +108,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
                             idx++;
                             foreach (var output in singleResult.Variables)
                             {
-                                Logger.Trace(correlationId, message: $"Decision {Name} result #{idx}, output {output.Name}, value {output.Value}");
+                                Logger.TraceCorr(correlationId, $"Decision {Name} result #{idx}, output {output.Name}, value {output.Value}");
                             }
                         }
                     }

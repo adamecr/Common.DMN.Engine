@@ -11,7 +11,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="RadCommons.logging.CommonLogging" Version="1.1.0-dev.499.181225221633">
+    <PackageReference Include="RadCommons.logging.CommonLogging" Version="1.1.0-dev.504.181228113040">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>

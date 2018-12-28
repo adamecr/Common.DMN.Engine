@@ -14,7 +14,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
         /// Decision expression
         /// </summary>
         public string Expression { get; }
-        
+
         /// <summary>
         /// Decision output definition
         /// </summary>
@@ -50,10 +50,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            Logger.Info(correlationId, message: $"Evaluating expressiong decision {Name} with expression {Expression}...");
+            Logger.InfoCorr(correlationId, $"Evaluating expressiong decision {Name} with expression {Expression}...");
             var result = context.EvalExpression(Expression, Output.Type);
-            Logger.Info(correlationId, message: $"Evaluated expressiong decision {Name} with expression {Expression}");
-            var outVariable= context.GetVariable(Output);
+            Logger.InfoCorr(correlationId, $"Evaluated expressiong decision {Name} with expression {Expression}");
+            var outVariable = context.GetVariable(Output);
             outVariable.Value = result;
             return new DmnDecisionResult() + (new DmnDecisionSingleResult() + outVariable.Clone());
         }

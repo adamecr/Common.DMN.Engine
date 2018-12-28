@@ -57,16 +57,18 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
                         : value;
                 }
                 catch (Exception ex)
+                    when (ex is InvalidCastException ||
+                          ex is FormatException || 
+                          ex is OverflowException ||
+                          ex is ArgumentNullException)
                 {
-                    // ReSharper disable once InvertIf
-                    if (ex is InvalidCastException || ex is FormatException || ex is OverflowException || ex is ArgumentNullException)
-                    {
-                        //most probably from Convert.ChangeType
-                        throw Logger.Error<DmnExecutorException>($"Can't cast value to target type: {Type?.Name??"[null]"}. Value is: {value}");
-                    }
-
-                    Logger.Fatal(ex,$"Unexpected exception while setting the variable {Name}",null);
-                    throw; //another exception, just re-throw
+                    //most probably from Convert.ChangeType
+                    throw Logger.Error<DmnExecutorException>(
+                        $"Can't cast value to target type: {Type?.Name ?? "[null]"}. Value is: {value}");
+                }
+                catch (Exception ex) when (Logger.FatalFltr(ex))
+                {
+                    //just log it and as Logger.FatalFltr returns false by default, the exception will not be catch (will be thrown)
                 }
             }
         }
@@ -80,7 +82,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <exception cref="DmnExecutorException">Missing variable name</exception>
         public DmnExecutionVariable(DmnVariableDefinition definition)
         {
-            if(definition==null) throw Logger.Fatal<ArgumentNullException>($"{nameof(definition)} is null");
+            if (definition == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(definition)} is null");
             if (string.IsNullOrWhiteSpace(definition.Name?.Trim()))
                 throw Logger.Fatal<DmnExecutorException>($"Missing variable name");
 
