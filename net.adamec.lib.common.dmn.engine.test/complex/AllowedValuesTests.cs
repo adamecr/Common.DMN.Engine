@@ -18,7 +18,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
         [DataRow("two", "cat", "white", true, true)]
         [DataRow("three", null, "red", true, true)]
         [DataRow("three", "cat", "red", true, true)]
-        [DataRow("three", "whale", "red", true, true)] //If the rule input expression is omited, the value for corresponding input is not checked for allowed values. 
+        [DataRow("three", "whale", "red", true, true)] //If the rule input expression is omitted, the value for corresponding input is not checked for allowed values. 
         [DataRow("one", "whale", "blue", false, true)]
         [DataRow("four", "cat", "red", false, true)]
         [DataRow("one", "horse", "yellow", true, false)]

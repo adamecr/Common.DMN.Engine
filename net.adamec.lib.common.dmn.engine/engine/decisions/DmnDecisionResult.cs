@@ -20,7 +20,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// however it's recommended to use the <see cref="SingleResult"/> when expecting the single result.</remarks>
         public IReadOnlyList<DmnDecisionSingleResult> Results => results;
         /// <summary>
-        /// Decision evaluation single (first) result. When there is no result, the empty list of <see cref="DmnExecutionVariable">variables</see> is returned.
+        /// Decision evaluation single (first) result variables. When there is no result, the empty list of <see cref="DmnExecutionVariable">variables</see> is returned.
         /// </summary>
         public IReadOnlyList<DmnExecutionVariable> SingleResult =>
             results.Count == 0 ? new List<DmnExecutionVariable>() : results[0].Variables;

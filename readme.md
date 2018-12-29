@@ -5,6 +5,7 @@ The DMN Model is defined using the adopted [standard](https://www.omg.org/spec/D
 
 **NuGet package ID:** net.adamec.lib.common.dmn.engine
 
+### Quick start ###
 The basic use case is:
 1. Parse the DMN model from file.
 2. Create and engine execution context and load (and validate) the model into engine context.
@@ -18,6 +19,18 @@ var ctx = DmnExecutionContextFactory.CreateExecutionContext(def);
 ctx.WithInputParameter("input name", inputValue);
 var result = ctx.ExecuteDecision("decision name");
 ```
+### Build ###
+The library uses the customized MS Build process in projects `build` and `build.tasks`. It's safe to remove such projects from solution if needed.
+Details about the build process are described in [build documentation](build/readme.md).
+
+### Tests ###
+Tests are implemented using [MS Test Framework](https://github.com/microsoft/testfx) and provides also bunch of sample models that can help together with the test code help to better understand how the DMN Engine works and is to be used. 
+
+Note: adjust the `LogHome` variable in `nlog.config` of test project as you need.
+
+### Code Documentation ###
+The [code documentation](doc/net.adamec.lib.common.dmn.engine.md) is generated during the customized build using [MarkupDoc](https://github.com/adamecr/MarkupDoc).
+
 
 ## DMN Decision Model ##
 The DMN Model is actually set of inputs (parameters) and decisions.
@@ -396,5 +409,13 @@ For the Priority and Output order hit policies, priority is decided in compound 
 </decisionTable>
 ```
 
-## Return Values ##
-**TBD**
+## Decision results ##
+The decision results are returned as `DmnDecisionResult` object. In general, there can be zero, one or multiple results.
+- When there are none (zero) results, `DmnDecisionResult.HasResult` is `false`
+- When there is single (one) result, `IsSingleResult.HasResult` is `true` (`DmnDecisionResult.HasResult` is `true`)
+- When there are multiple results, `DmnDecisionResult.HasResult` is `true` and  `IsSingleResult.HasResult` is `false`.
+
+The results are accessible using  `DmnDecisionResult.Results` list. Each result contains the list of output `Variables` and each variable has `Name`, `Value` and `Type` (when the output variable type is know).
+
+There is a kind of a "shortcut" to the variables for the single result - `DmnDecisionResult.SingleResult` returns the list of variables of the first result (the only one for the single result).
+
