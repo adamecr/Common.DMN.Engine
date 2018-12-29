@@ -18,7 +18,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.utils.basedisposable__7s72ps" />  BaseDisposable Class ##
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -76,7 +76,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -101,7 +101,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -126,7 +126,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -151,7 +151,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -170,7 +170,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -195,7 +195,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -221,7 +221,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
@@ -246,7 +246,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: s\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
 Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 

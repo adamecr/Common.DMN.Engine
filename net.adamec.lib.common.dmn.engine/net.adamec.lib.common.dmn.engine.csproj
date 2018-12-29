@@ -24,15 +24,15 @@
   <ItemGroup>
     <PackageReference Include="DynamicExpresso.Core" Version="2.2.0" />
     <PackageReference Include="NLog" Version="4.5.11" />
-    <PackageReference Include="RadCommons.extensions.TypeExtensions.DefaultValue" Version="1.1.0-dev.513.181229132853">
+    <PackageReference Include="RadCommons.extensions.TypeExtensions.DefaultValue" Version="1.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="RadCommons.logging.CommonLogging" Version="1.1.0-dev.513.181229132853">
+    <PackageReference Include="RadCommons.logging.CommonLogging" Version="1.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="RadCommons.utils.BaseDisposable" Version="1.1.0-dev.513.181229132853">
+    <PackageReference Include="RadCommons.utils.BaseDisposable" Version="1.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>

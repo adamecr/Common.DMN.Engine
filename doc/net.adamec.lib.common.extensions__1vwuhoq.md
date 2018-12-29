@@ -18,7 +18,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.extensions.typeextensions__63ezc8" />  TypeExtensions Class ##
 <small>Namespace: [net.adamec.lib.common.extensions](net.adamec.lib.common.extensions__1vwuhoq.md#n-net.adamec.lib.common.extensions__1vwuhoq)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: 853\contentFiles\cs\any\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
+Sources: ny\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
 Source-only packages: [RadCommons.extensions.TypeExtensions.DefaultValue](src-only-packages--.html#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue)</small>
 
 
@@ -53,7 +53,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.extensions](net.adamec.lib.common.extensions__1vwuhoq.md#n-net.adamec.lib.common.extensions__1vwuhoq)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [TypeExtensions](net.adamec.lib.common.extensions__1vwuhoq.md#t-net.adamec.lib.common.extensions.typeextensions__63ezc8)           
-Sources: 853\contentFiles\cs\any\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
+Sources: ny\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
 Source-only packages: [RadCommons.extensions.TypeExtensions.DefaultValue](src-only-packages--.html#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue)</small>
 
 

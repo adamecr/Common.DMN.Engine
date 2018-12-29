@@ -28,7 +28,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.logging.commonlogging__1dar5wb" />  CommonLogging Class ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs           
+Sources: adCommons.logging.CommonLogging\CommonLogging.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -65,7 +65,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [CommonLogging](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs           
+Sources: adCommons.logging.CommonLogging\CommonLogging.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -91,7 +91,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [CommonLogging](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs           
+Sources: adCommons.logging.CommonLogging\CommonLogging.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -117,7 +117,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [CommonLogging](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs           
+Sources: adCommons.logging.CommonLogging\CommonLogging.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -142,7 +142,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.logging.loggerext__ac9km2" />  LoggerExt Class ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -210,7 +210,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -237,7 +237,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -263,7 +263,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -289,7 +289,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -315,7 +315,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -341,7 +341,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -368,7 +368,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -394,7 +394,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -420,7 +420,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -447,7 +447,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -474,7 +474,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -526,7 +526,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -561,7 +561,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -587,7 +587,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -613,7 +613,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -639,7 +639,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -666,7 +666,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -692,7 +692,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -718,7 +718,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -745,7 +745,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -772,7 +772,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -807,7 +807,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -842,7 +842,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -868,7 +868,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -894,7 +894,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -920,7 +920,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -946,7 +946,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -972,7 +972,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -998,7 +998,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1024,7 +1024,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1050,7 +1050,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1076,7 +1076,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1102,7 +1102,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1128,7 +1128,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [LoggerExt](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs           
+Sources: adCommons.logging.CommonLogging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1153,7 +1153,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.logging.ilogger__y2ollm" />  ILogger Interface ##
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1217,7 +1217,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1243,7 +1243,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1269,7 +1269,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1295,7 +1295,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1321,7 +1321,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1348,7 +1348,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1374,7 +1374,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1400,7 +1400,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1427,7 +1427,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1454,7 +1454,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1506,7 +1506,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1541,7 +1541,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1567,7 +1567,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1593,7 +1593,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1619,7 +1619,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1646,7 +1646,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1672,7 +1672,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1698,7 +1698,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1725,7 +1725,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1752,7 +1752,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1787,7 +1787,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1822,7 +1822,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1848,7 +1848,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1874,7 +1874,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1900,7 +1900,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1926,7 +1926,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1952,7 +1952,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -1978,7 +1978,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -2004,7 +2004,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -2030,7 +2030,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.logging](net.adamec.lib.common.logging__1g9pm29.md#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs           
+Sources: adCommons.logging.CommonLogging\ILogger.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](src-only-packages--.html#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
