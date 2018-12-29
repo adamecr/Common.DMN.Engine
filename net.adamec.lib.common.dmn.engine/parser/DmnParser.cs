@@ -11,7 +11,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
     /// </summary>
     public class DmnParser
     {
-        protected static ILogger Logger = CommonLogging.CreateLogger<DmnParser>();
+        internal static ILogger Logger = CommonLogging.CreateLogger<DmnParser>();
 
         /// <summary>
         /// DMN Model XML serializer

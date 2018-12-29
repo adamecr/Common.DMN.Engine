@@ -18,7 +18,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <summary>
         /// Logger
         /// </summary>
-        protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
+        internal static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
 
         /// <summary>
         /// Parsed (pre-processed) expressions cache

@@ -24,7 +24,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <summary>
         /// Logger
         /// </summary>
-        protected static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
+        internal static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
 
         /// <summary>
         /// Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions

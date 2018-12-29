@@ -11,7 +11,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
     /// </summary>
     public class SfeelParser
     {
-        protected static ILogger Logger = CommonLogging.CreateLogger<SfeelParser>();
+        internal static ILogger Logger = CommonLogging.CreateLogger<SfeelParser>();
 
         /// <summary>
         /// Custom functions to be  used in DynamoExpression for S-FEEL functions

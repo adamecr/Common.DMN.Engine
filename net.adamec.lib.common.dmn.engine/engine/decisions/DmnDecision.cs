@@ -14,7 +14,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <summary>
         /// Logger
         /// </summary>
-        protected ILogger Logger { get; }
+        internal ILogger Logger { get; }
 
         /// <summary>
         /// Decision unique name

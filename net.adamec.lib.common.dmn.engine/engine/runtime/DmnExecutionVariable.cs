@@ -12,7 +12,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <summary>
         /// Logger
         /// </summary>
-        protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionVariable>();
+        internal static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionVariable>();
 
         /// <summary>
         /// Variable definition
