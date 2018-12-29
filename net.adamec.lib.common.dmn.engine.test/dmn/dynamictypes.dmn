@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_1oaaw40" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="Test">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+      <biodi:edge source="Decision_0g9939m">
+        <biodi:waypoints x="182" y="108" />
+        <biodi:waypoints x="276" y="200" />
+      </biodi:edge>
+      <biodi:edge source="Decision_1lp2cym">
+        <biodi:waypoints x="401" y="107" />
+        <biodi:waypoints x="348" y="200" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0mtfdzm">
+        <biodi:waypoints x="315" y="-68" />
+        <biodi:waypoints x="309" y="200" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredDecision href="#Decision_0g9939m" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#Decision_1lp2cym" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_0mtfdzm" />
+    </informationRequirement>
+    <decisionTable>
+      <input id="InputClause_0u30uwn" label="a">
+        <inputExpression id="LiteralExpression_08j6nuz" typeRef="string" />
+      </input>
+      <input id="InputClause_1cxzre3" label="b">
+        <inputExpression id="LiteralExpression_1p2dnrd" typeRef="boolean" />
+      </input>
+      <input id="InputClause_02fvi57" label="" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_05dqncs" typeRef="string">
+          <text>dyna.Direct</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="" typeRef="string" />
+      <rule id="row-816543858-20">
+        <inputEntry id="UnaryTests_1138oyn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u7s9te">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k2rmgh">
+          <text><![CDATA[not("over")]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fcjkqq">
+          <text><![CDATA[a+(b!=null?b.ToString():"")+dyna.Direct]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-21">
+        <inputEntry id="UnaryTests_0d3oyqj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uwylk3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q8an8q">
+          <text><![CDATA["over"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10uih7e">
+          <text><![CDATA["dyna.Direct==over"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0mtfdzm" name="dyna">
+    <extensionElements>
+      <biodi:bounds x="253" y="-113" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <decision id="Decision_0g9939m" name="Name to &#34;a&#34;">
+    <extensionElements>
+      <biodi:bounds x="51" y="28" width="180" height="80" />
+      <biodi:edge source="InputData_0mtfdzm">
+        <biodi:waypoints x="297" y="-68" />
+        <biodi:waypoints x="212" y="28" />
+      </biodi:edge>
+    </extensionElements>
+    <variable id="InformationItem_19ksqc2" name="a" typeRef="string" />
+    <informationRequirement>
+      <requiredInput href="#InputData_0mtfdzm" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_0o790jq">
+      <text>dyna.Name</text>
+    </literalExpression>
+  </decision>
+  <decision id="Decision_1lp2cym" name="IsOk to &#34;b&#34;">
+    <extensionElements>
+      <biodi:bounds x="334" y="27" width="180" height="80" />
+      <biodi:edge source="InputData_0mtfdzm">
+        <biodi:waypoints x="332" y="-68" />
+        <biodi:waypoints x="401" y="27" />
+      </biodi:edge>
+    </extensionElements>
+    <variable id="InformationItem_1wrlvll" name="b" typeRef="boolean" />
+    <informationRequirement>
+      <requiredInput href="#InputData_0mtfdzm" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_0kevks4">
+      <text>dyna.IsOk</text>
+    </literalExpression>
+  </decision>
+</definitions>

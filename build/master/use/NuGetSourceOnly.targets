@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  
+  <PropertyGroup>
+    <PackDependsOn>GeneratePartNuSpecFilesForSourceOnly; GenerateSourceOnlyPackages; PublishSourceOnlyNuGetLocal; $(PackDependsOn)</PackDependsOn>
+  </PropertyGroup>
+  <!--
+      ======================================================================================= 
+      GeneratePartNuSpecFilesForSourceOnly target - generates the .partnuspec files for source files containing valid <NuProp.Id> XML Documentation Commonet 
+      Condition="'$(IsPackable)' == 'true'"
+      
+      This is used to generate the source-only packages. This target prepares partial NuSpec files for the individual source-only packages.
+      The partial NuSpec files are subject of file versioning (git)
+      
+      Sets: _SourceFilesForSourceOnlyPackages (items)
+      =======================================================================================
+    -->
+  <Target Name="GeneratePartNuSpecFilesForSourceOnly" Condition="'$(IsPackable)' == 'true'">
+    <Message Text="Generating partNuSpec files for source only packages ..." />
+
+    <ItemGroup>
+      <_SourceFilesForSourceOnlyPackages Include="**/*.cs"/>
+    </ItemGroup>
+
+    <ProcessNuPropsTask
+    SourceFiles="@(_SourceFilesForSourceOnlyPackages)"
+      DebugTasks="$(DebugTasks)">
+    </ProcessNuPropsTask>
+
+    <Message Text="Generated partNuSpec files for source only packages" />
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      GenerateSourceOnlyPackages target - generates the source-only packages 
+      Condition="'$(IsPackable)' == 'true'"
+      
+      This is used to generate the source-only packages. This target gets the partial NuSpec files for the individial source-only packages,
+      enriches them with solution wide properties (author, copyright, ...) and generates the NuGet  packages into .artifacts directory
+      (the directory is cleaned up before)
+      The temporary NuSpec files used to build the packages are deleted after processing. Artifacts directory should be git ignored
+      
+      Sets: _PartNuspecFiles (items), _TmpNuspecFiles (items)
+      =======================================================================================
+    -->
+  <Target Name="GenerateSourceOnlyPackages" Condition="'$(IsPackable)' == 'true'">
+
+    <ItemGroup>
+      <_PartNuspecFiles Include="**/*.partnuspec"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <_ProcessPartNuspec Condition="'@(_PartNuspecFiles->Count())' &lt; 1">false</_ProcessPartNuspec>
+      <_ProcessPartNuspec Condition="'@(_PartNuspecFiles->Count())' &gt; 0">true</_ProcessPartNuspec>
+    </PropertyGroup>
+
+    <Message Text="Generating tmp.NuSpec files for source only packages ..." Condition="'$(_ProcessPartNuspec)'=='true'" />
+    <RemoveDir Directories="$(MSBuildProjectDirectory)/.artifacts" Condition="Exists('$(MSBuildProjectDirectory)/.artifacts')" />
+    <GenerateSourceOnlyPackageNuspecsTask Condition="'$(_ProcessPartNuspec)'=='true'"
+      PackageVersionFull ="$(PackageVersionFull)"
+      Authors="$(Authors)"
+      PackageRequireLicenseAcceptance="$(PackageRequireLicenseAcceptance)"
+      PackageLicenseUrl="$(PackageLicenseUrl)"
+      PackageLicense="$(PackageLicense)"
+      PackageProjectUrl="$(PackageProjectUrl)"
+      PackageIconUrl="$(PackageIconUrl)"
+      Copyright="$(Copyright)"
+      RepositoryUrl="$(RepositoryUrl)"
+      GitBranch="$(GitBranch)"
+      GitCommit="$(GitCommit)"
+      PartNuspecFiles="@(_PartNuspecFiles)"
+      DebugTasks="$(DebugTasks)">
+    </GenerateSourceOnlyPackageNuspecsTask>
+    <Message Text="Generated tmp.NuSpec files for source only packages" Condition="'$(_ProcessPartNuspec)'=='true'" />
+
+    <ItemGroup>
+      <_TmpNuspecFiles Include="**/*.tmp.nuspec"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <_ProcessTmpNuspec Condition="'@(_TmpNuspecFiles->Count())' &lt; 1">false</_ProcessTmpNuspec>
+      <_ProcessTmpNuspec Condition="'@(_TmpNuspecFiles->Count())' &gt; 0">true</_ProcessTmpNuspec>
+    </PropertyGroup>
+    <Message Text="Packing source only packages ..." Condition="'$(_ProcessTmpNuspec)'=='true'" />
+
+    <Message Text="To pack: %(_TmpNuspecFiles.FullPath)" Condition="'$(_ProcessTmpNuspec)'=='true'"/>
+    <Exec Command='nuget pack "%(_TmpNuspecFiles.FullPath)" -OutputDirectory "$(MSBuildProjectDirectory)/.artifacts"' Condition="'$(_ProcessTmpNuspec)'=='true'" />
+    <Message Text="Packed source only packages" Condition="'$(_ProcessTmpNuspec)'=='true'" />
+    <Message Text="Cleaning tmp.NuSpec files for source only packages..." Condition="'$(_ProcessTmpNuspec)'=='true'" />
+    <Delete Files="%(_TmpNuspecFiles.FullPath)" Condition="'$(_ProcessTmpNuspec)'=='true'" />
+    <Message Text="Cleaned tmp.NuSpec files for source only packages..." Condition="'$(_ProcessTmpNuspec)'=='true'" />
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      PublishSourceOnlyNuGetLocal target - pushes the source-only packages to local NuGet feed
+      Condition="'$(IsPackable)' == 'true' AND '$(PushPackagesToLocalFeed)' == 'true'"
+      
+      Local NuGet feed source name (directory) is identified by $(NuGetLocalFeedSourceName)
+      
+      Sets: _NuGetLocalFeedPushSource (items)
+      =======================================================================================
+    -->
+  <Target Name="PublishSourceOnlyNuGetLocal"  Condition="'$(IsPackable)' == 'true' AND '$(PushPackagesToLocalFeed)' == 'true'">
+    <PropertyGroup>
+      <_NuGetLocalFeedPushOutput>$(_NuGetLocalFeedPushOutput)</_NuGetLocalFeedPushOutput>
+    </PropertyGroup>
+    <ItemGroup>
+      <_NuGetLocalFeedPushSource Include="$(MSBuildProjectDirectory)/.artifacts/*.nupkg"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <_ProcessSrcOnlyLocFeed Condition="'@(_NuGetLocalFeedPushSource->Count())' &lt; 1">false</_ProcessSrcOnlyLocFeed>
+      <_ProcessSrcOnlyLocFeed Condition="'@(_NuGetLocalFeedPushSource->Count())' &gt; 0">true</_ProcessSrcOnlyLocFeed>
+    </PropertyGroup>
+    <Message Text="Pushing source-only %(_NuGetLocalFeedPushSource.Filename) to local feed..." Condition="'$(_ProcessSrcOnlyLocFeed)'=='true'" />
+
+    <Exec Command="nuget push &quot;%(_NuGetLocalFeedPushSource.FullPath)&quot; -Source &quot;$(NuGetLocalFeedSourceName)&quot; "
+          Condition="'$(_ProcessSrcOnlyLocFeed)'=='true'"
+          EchoOff="true" StandardErrorImportance="low" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_NuGetLocalFeedPushOutput" />
+      <Output TaskParameter="ExitCode" PropertyName="MSBuildLastExitCode" />
+    </Exec>
+    <Warning Text="Could not push source-only %(_NuGetLocalFeedPushSource.Filename) to local feed: $(NuGetLocalFeedSourceName)"
+             Condition="'$(MSBuildLastExitCode)' != '0' AND '$(_ProcessSrcOnlyLocFeed)'=='true'" />
+    <Message Text="Pushed source-only  %(_NuGetLocalFeedPushSource.Filename) to local feed: $(NuGetLocalFeedSourceName)"
+             Condition="'$(MSBuildLastExitCode)' == '0' AND '$(_ProcessSrcOnlyLocFeed)'=='true'" />
+
+  </Target>
+
+</Project>
+

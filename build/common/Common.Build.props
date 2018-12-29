@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+      ======================================================================================= 
+      Common Build properties to be used for all configurations (part of template)
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <DebugTasks>false</DebugTasks>
+    <DumpPropertiesOnBuild>false</DumpPropertiesOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <MarkupDocPath>$(USERPROFILE)\Documents\Visual Studio 2017\Projects\MarkupDoc\binaries\MarkupDoc.exe</MarkupDocPath>
+    <MarkupDocGenerate>true</MarkupDocGenerate>
+    <MarkupDocTargetDir>$(MSBuildProjectDirectory)/../doc/</MarkupDocTargetDir>
+    <MarkupDocTargetName>$(MSBuildProjectName)</MarkupDocTargetName>
+    <MarkupDocLocalMsDocDir>X:/_DEV/_dotnet-api-docs/dotnet-api-docs</MarkupDocLocalMsDocDir>
+  </PropertyGroup>
+
+</Project>

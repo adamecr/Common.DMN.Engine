@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+ 
+
+  <!--
+      ======================================================================================= 
+      GetProjectsPath target - displays relative project paths
+      AfterTargets="Build"
+      =======================================================================================
+    -->
+  <Target Name="GetProjectsPath" AfterTargets="Build" >
+    <Message Text="Relative project paths:" />
+    <Message Text="@(ProjectReference->DirectoryName())" />
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      GenerateNuSpecFile target - generates the NuSpec file for project output package 
+      BeforeTargets="Pack" 
+      AfterTargets="Build"
+      DependsOnTargets="GetProjectsPath"
+      Condition="'$(IsPackable)' == 'true'"
+      
+      Sets: _SourceFiles (items), NuSpecFile (item), NuspecFile (property)
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <NuSpecFileName>$(NuSpecFileName)</NuSpecFileName>
+  </PropertyGroup>
+
+  <Target Name="GenerateNuSpecFile"  BeforeTargets="Pack" AfterTargets="Build" DependsOnTargets="GetProjectsPath" Condition="'$(IsPackable)' == 'true'">
+    <Message Text="Generating NuSpec file..." />
+    <ItemGroup>
+      <_SourceFiles />
+    </ItemGroup>
+    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="SourceFilesProjectOutputGroup" Properties="BuildProjectReferences=false;">
+      <Output TaskParameter="TargetOutputs" ItemName="_SourceFiles" />
+    </MSBuild>
+
+    <GenerateNuSpecFileTask
+      Configuration="$(Configuration)"
+      ProjectName="$(MSBuildProjectName)"
+      ProjectDirectory="$(MSBuildProjectDirectory)"
+      IntermediateOutputPath="$(BaseIntermediateOutputPath)"
+      OutputPath ="$(OutputPath)"
+      AssemblyName="$(AssemblyName)"
+      PackageId="$(PackageId)"
+      Title="$(Title)"
+      PackageVersionFull ="$(PackageVersionFull)"
+      PackageVersionShort="$(PackageVersionShort)"
+      Authors="$(Authors)"
+      PackageRequireLicenseAcceptance="$(PackageRequireLicenseAcceptance)"
+      PackageLicenseUrl="$(PackageLicenseUrl)"
+      PackageLicense="$(PackageLicense)"
+      PackageProjectUrl="$(PackageProjectUrl)"
+      PackageIconUrl="$(PackageIconUrl)"
+      Description="$(Description)"
+      PackageReleaseNotes="$(PackageReleaseNotes)"
+      Copyright="$(Copyright)"
+      PackageTags="$(PackageTags)"
+      RepositoryUrl="$(RepositoryUrl)"
+      GitBranch="$(GitBranch)"
+      GitCommit="$(GitCommit)"
+      TargetFramework="$(TargetFramework)"
+      SourceFiles="@(_SourceFiles)"
+      PackageReferences="@(PackageReference)"
+      ProjectReferences="@(ProjectReference)"
+      ReferenceCopyLocalPaths="@(ReferenceCopyLocalPaths)"
+      DebugTasks="$(DebugTasks)">
+      <Output TaskParameter="NuSpecFile" ItemName="NuSpecFile" />
+      <Output TaskParameter="NuSpecFile" PropertyName="NuspecFile" />
+    </GenerateNuSpecFileTask>
+
+    <PropertyGroup>
+      <PackageVersion >$(PackageVersionShort)</PackageVersion>
+    </PropertyGroup>
+    <Message Text="Generated NuSpec file @(NuSpecFile) for package version $(PackageVersion) (configuration=$(Configuration))" />
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      PublishNuGetLocal target - pushes the project output package to local NuGet feed
+      AfterTargets="Pack"
+      DependsOnTargets="GenerateNuSpecFile"
+      Condition="'$(IsPackable)' == 'true' AND '$(PushPackagesToLocalFeed)' == 'true'"
+      
+      Local NuGet feed source name (directory) is identified by $(NuGetLocalFeedSourceName)
+      =======================================================================================
+    -->
+  <Target Name="PublishNuGetLocal" AfterTargets="Pack" DependsOnTargets="GenerateNuSpecFile" Condition="'$(IsPackable)' == 'true' AND '$(PushPackagesToLocalFeed)' == 'true'">
+    <PropertyGroup>
+      <_NuGetLocalFeedPushOutput>$(_NuGetLocalFeedPushOutput)</_NuGetLocalFeedPushOutput>
+    </PropertyGroup>
+    <Message Text="Pushing $(PackageId).$(PackageVersion).nupkg to local feed..." />
+
+    <Exec Command="nuget push &quot;$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(NuGetLocalFeedSourceName)&quot; " EchoOff="true" StandardErrorImportance="low" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_NuGetLocalFeedPushOutput" />
+      <Output TaskParameter="ExitCode" PropertyName="MSBuildLastExitCode" />
+    </Exec>
+    <Warning Text="Could not push $(PackageId).$(PackageVersion).nupkg to local feed: $(NuGetLocalFeedSourceName)" Condition="'$(MSBuildLastExitCode)' != '0'" />
+    <Message Text="Pushed $(PackageId).$(PackageVersion).nupkg to local feed: $(NuGetLocalFeedSourceName)" Condition="'$(MSBuildLastExitCode)' == '0'" />
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      PublishNuGetVsts target - pushes the project output package to VSTS (Azure DevOps) NuGet feed
+      AfterTargets="Pack"
+      DependsOnTargets="GenerateNuSpecFile"
+      Condition="'$(IsPackable)' == 'true' AND '$(PushPackagesToVstsFeed)' == 'true'"
+      
+      VSTS NuGet feed source name is identified by $(NuGetVstsFeedSourceName) - the NuGet source must be defined in advance
+      Set the credentials in advance: nuget sources update -Name "<source_name>" -username "<user_name>" -password "<password>"
+      =======================================================================================
+    -->
+  <Target Name="PublishNuGetVsts" AfterTargets="Pack" DependsOnTargets="GenerateNuSpecFile" Condition="'$(IsPackable)' == 'true' AND '$(PushPackagesToVstsFeed)' == 'true'">
+    <PropertyGroup>
+      <_NuGetVstsFeedPushOutput>$(_NuGetVstsFeedPushOutput)</_NuGetVstsFeedPushOutput>
+    </PropertyGroup>
+    <Message Text="Pushing $(PackageId).$(PackageVersion).nupkg to VSTS feed..." />
+
+    <Exec Command="nuget push &quot;$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(NuGetVstsFeedSourceName)&quot; -ApiKey VSTS" EchoOff="true" StandardErrorImportance="low" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_NuGetVstsFeedPushOutput" />
+      <Output TaskParameter="ExitCode" PropertyName="MSBuildLastExitCode" />
+    </Exec>
+    <Message Text="$(_NuGetVstsFeedPushOutput)"/>
+    <Warning Text="Could not push $(PackageId).$(PackageVersion).nupkg to VSTS feed: $(NuGetVstsFeedSourceName)" Condition="'$(MSBuildLastExitCode)' != '0'" />
+    <Message Text="Pushed $(PackageId).$(PackageVersion).nupkg to VSTS feed: $(NuGetVstsFeedSourceName)" Condition="'$(MSBuildLastExitCode)' == '0'" />
+  </Target>
+</Project>
+

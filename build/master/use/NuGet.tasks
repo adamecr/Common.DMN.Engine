@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+      ======================================================================================= 
+      Creates the nuspec file for the package
+      =======================================================================================
+    -->
+
+  <!-- Use the DLL for debugging. There might be a problem with locking the dll with tasks (solved by using the env. variable MSBUILDDISABLENODEREUSE=1)-->
+  <UsingTask TaskName="GenerateNuSpecFileTask" AssemblyFile="..\..\..\build.tasks\bin\debug\netstandard2.0\build.tasks.dll" Condition="'$(DebugTasks)'=='true'" />
+  
+  <UsingTask TaskName="GenerateNuSpecFileTask" Condition="'$(DebugTasks)'!='true'"
+             TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <Task>
+      <Code Type="Class" Language="cs" Source="$(MSBuildProjectDirectory)/../build.tasks/GenerateNuSpecFileTask.cs" />
+    </Task>
+  </UsingTask>
+
+  <!--
+      ======================================================================================= 
+      Creates the partnuspec file for the source-only package
+      =======================================================================================
+    -->
+  <!-- Use the DLL for debugging. There might be a problem with locking the dll with tasks (solved by using the env. variable MSBUILDDISABLENODEREUSE=1)-->
+  <UsingTask TaskName="ProcessNuPropsTask" AssemblyFile="..\..\..\build.tasks\bin\debug\netstandard2.0\build.tasks.dll" Condition="'$(DebugTasks)'=='true'" />
+
+  <UsingTask TaskName="ProcessNuPropsTask" Condition="'$(DebugTasks)'!='true'"
+             TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <Task>
+      <Code Type="Class" Language="cs" Source="$(MSBuildProjectDirectory)/../build.tasks/sourceOnlyPackage/ProcessNuPropsTask.cs" />
+    </Task>
+  </UsingTask>
+ 
+  <!--
+      ======================================================================================= 
+      Creates the temp.nuspec file for the source-only package
+      =======================================================================================
+    -->
+
+  <!-- Use the DLL for debugging. There might be a problem with locking the dll with tasks (solved by using the env. variable MSBUILDDISABLENODEREUSE=1)-->
+  <UsingTask TaskName="GenerateSourceOnlyPackageNuspecsTask" AssemblyFile="..\..\..\build.tasks\bin\debug\netstandard2.0\build.tasks.dll" Condition="'$(DebugTasks)'=='true'" />
+
+  <UsingTask TaskName="GenerateSourceOnlyPackageNuspecsTask" Condition="'$(DebugTasks)'!='true'"
+             TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <Task>
+      <Code Type="Class" Language="cs" Source="$(MSBuildProjectDirectory)/../build.tasks/sourceOnlyPackage/GenerateSourceOnlyPackageNuspecsTask.cs" />
+    </Task>
+  </UsingTask>
+
+</Project>

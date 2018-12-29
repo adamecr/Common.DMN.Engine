@@ -1,0 +1,16 @@
+{
+  "Output": {
+    "Title":"DMN Engine Documentation",
+    "Html": true,
+    "Markdown": true,
+    "HtmlExtension": "html",
+    "MarkdownExtension": "md",
+    "SplitNs": true,
+    "SplitType": false
+  },
+  "MicrosoftApi": {
+    "LinkToApi": true,
+    "RequireLocalDoc": false,
+    "ApiBaseUrl": "https://docs.microsoft.com/en-us/dotnet/api/"
+  }
+}

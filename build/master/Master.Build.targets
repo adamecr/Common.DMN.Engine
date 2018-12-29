@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+      ======================================================================================= 
+      Master file to be imported within the Directory.Build.targets of the solution (usually part of the template)
+      =======================================================================================
+    -->
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="../common/Common.Build.props" Condition="Exists('../common/Common.Build.props')" />
+  <Import Project="../common/Common.Build.props.debug" Condition="'$(Configuration)'=='Debug' AND Exists('../common/Common.Build.props.debug')" />
+  <Import Project="../common/Common.Build.props.release" Condition="'$(Configuration)'=='Release' AND Exists('../common/Common.Build.props.release')" />
+  <Import Project="../custom/Build.props" Condition="Exists('../custom/Build.props')" />
+  <Import Project="../custom/Build.props.debug" Condition="'$(Configuration)'=='Debug' AND Exists('../custom/Build.props.debug')" />
+  <Import Project="../custom/Build.props.release" Condition="'$(Configuration)'=='Release' AND Exists('../custom/Build.props.release')" />
+  <Import Project="../../Version.props" Condition="Exists('../../Version.props')" />
+  <Import Project="$(MSBuildProjectDirectory)/Build.props" Condition="Exists('$(MSBuildProjectDirectory)/Build.props')" />
+
+  <Import Project="use/Utils.tasks" />
+  <Import Project="use/NuGet.tasks" />
+  <Import Project="use/NuGet.targets" Condition="'$(IsPackable)' == 'true'" />
+  <Import Project="use/NuGetSourceOnly.targets" Condition="'$(IsPackable)' == 'true'" />
+  <Import Project="../custom/use/Custom.Build.targets" Condition="Exists('../custom/use/Custom.Build.targets')" />
+  <Import Project="$(MSBuildProjectDirectory)/Build.targets" Condition="Exists('$(MSBuildProjectDirectory)/Build.targets')" />
+
+  <!--
+      ======================================================================================= 
+      CleanFull target - cleans out/<configuration> and bin/<configuration> directories
+      AfterTargets="Clean"
+      =======================================================================================
+    -->
+  <Target Name="CleanFull" AfterTargets="Clean">
+    <PropertyGroup>
+      <_ObjWithConfigurationDir>$(MSBuildProjectDirectory)\$(BaseIntermediateOutputPath)\$(Configuration)</_ObjWithConfigurationDir>
+      <_OutWithConfigurationDir>$(MSBuildProjectDirectory)\$(BaseOutputPath)\$(Configuration)</_OutWithConfigurationDir>
+    </PropertyGroup>
+   
+    <Message Importance="High" Text="Cleaning $(_ObjWithConfigurationDir)..." />
+    <RemoveDir Directories="$(_ObjWithConfigurationDir)" Condition = "Exists('$(_ObjWithConfigurationDir)')" />
+    <MakeDir Directories = "$(_ObjWithConfigurationDir)" Condition = "!Exists('$(_ObjWithConfigurationDir)')" />
+
+    <Message Importance="High" Text="Cleaning $(_OutWithConfigurationDir)..." />
+    <RemoveDir Directories="$(_OutWithConfigurationDir)" Condition = "Exists('$(_OutWithConfigurationDir)')" />
+    <MakeDir Directories = "$(_OutWithConfigurationDir)" Condition = "!Exists('$(_OutWithConfigurationDir)')" />
+  </Target>
+
+
+  <!--
+      ======================================================================================= 
+      SetVersionProperties target - sets proper version infomation from Version.props to other relevant properties used by SDK.
+      BeforeTargets="BeforeCompile"
+      
+      The Version.props is updated once per (solution)build via build project at the beginning (the build project has to be set as a build dependency and be the first in the order)
+      
+      Sets: Version, AssemblyVersion, FileVersion, AssemblyFileVersion, PackageVersion, AssemblyInformationalVersion, InformationalVersion
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <BuildNumber>$(RadBuild)</BuildNumber>
+  </PropertyGroup>
+  <Target Name="SetVersionProperties" BeforeTargets="BeforeCompile" >
+    <Message Text="Using version info: version $(RadMajor).$(RadMinor).$(RadPatch); Package $(PackageVersionFull); Build number set to $(BuildNumber)" />
+    <PropertyGroup>
+      <Version>$(RadMajor).$(RadMinor).$(RadPatch)</Version>
+
+      <AssemblyVersion>$(RadMajor).$(RadMinor).$(RadPatch).$(BuildNumber)</AssemblyVersion>
+      <FileVersion>$(RadMajor).$(RadMinor).$(RadPatch).$(BuildNumber)</FileVersion>
+      <AssemblyFileVersion>$(RadMajor).$(RadMinor).$(RadPatch).$(BuildNumber)</AssemblyFileVersion>
+
+      <PackageVersion>$(PackageVersionShort)</PackageVersion>
+
+      <AssemblyInformationalVersion>$(PackageVersionFull)</AssemblyInformationalVersion>
+      <InformationalVersion>$(PackageVersionFull)</InformationalVersion>
+
+    </PropertyGroup>
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      GenerateMarkupDoc target - generates code documentation
+      AfterTargets="Build"
+      Condition="'$(MarkupDocGenerate)'=='true'"
+      
+      The output target and MS API Local dir is set here, for the other params, use markupdoc.json placed in the project directory.
+      =======================================================================================
+    -->
+  <Target Name="GenerateMarkupDoc"  AfterTargets="Build" Condition="'$(MarkupDocGenerate)'=='true'">
+    <PropertyGroup>
+      <_MarkupDocLastExitCode />
+      <_MarkupDocLastOutput />
+    </PropertyGroup>
+    <Message Text="Generating the markup documentation..." />
+    <MakeDir Directories="$(MarkupDocTargetDir)"/>
+    <Exec Command='"$(MarkupDocPath)" "$(MSBuildProjectFullPath)" -p:Output.Target="$(MarkupDocTargetDir)/$(MarkupDocTargetName)" -p:MicrosoftApi.LocalDocDir="$(MarkupDocLocalMsDocDir)" -p:Output.EnableAddOns'
+          EchoOff="false" StandardErrorImportance="low" StandardOutputImportance="low"
+          ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="_MarkupDocLastOutput" />
+      <Output TaskParameter="ExitCode" PropertyName="_MarkupDocLastExitCode" />
+    </Exec>
+    <Warning Text="Could not generate the markup documentation" Condition="'$(_MarkupDocLastExitCode)' != '0'" />
+    <Message Text="$(_MarkupDocLastOutput)" Condition="'$(_MarkupDocLastExitCode)' != '0'"  />
+    <Message Text="Generated the markup documentation" Condition="'$(_MarkupDocLastExitCode)' == '0'" />
+  </Target>
+
+  <!--
+      ======================================================================================= 
+      DumpPropertiesTarget - dumps the build properties if needed
+      AfterTargets="Build"
+      Condition="'$(DumpPropertiesOnBuild)'=='true'" 
+      =======================================================================================
+    -->
+  <Target Name="DumpPropertiesTarget" AfterTargets="Build" Condition="'$(DumpPropertiesOnBuild)'=='true'" >
+    <DumpPropertiesTask DebugTasks="$(DebugTasks)"/>
+  </Target>
+
+</Project>

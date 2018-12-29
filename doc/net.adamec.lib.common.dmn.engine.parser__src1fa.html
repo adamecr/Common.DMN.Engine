@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DMN Engine Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  DMN Engine Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.dmn.engine.parser__src1fa" ></a>  net.adamec.lib.common.dmn.engine.parser Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a></td><td>public</td><td>DMN Model XML parser</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></td><td>public</td><td>Exception thrown while parsing the DMN Model</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a></td><td>public</td><td>S-FEEL simple parser</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" ></a>  DmnParser Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\DmnParser.cs</small></p>
+<p>DMN Model XML parser</p>
+<pre><code class="csharp">public class DmnParser</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmndefinitionsserializer__1rtavq1" >DmnDefinitionsSerializer</a></td><td>protected static</td><td>DMN Model XML serializer</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.logger__1w7m682" >Logger</a></td><td>internal static</td><td></td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse_system.string___14hqoi9" >Parse(string)</a></td><td>public static</td><td>Parse the file with DMN Model XML definition</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring_system.string___1flgut8" >ParseString(string)</a></td><td>public static</td><td>Parse the string with DMN Model XML definition</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmndefinitionsserializer__1rtavq1" ></a>  DmnParser.DmnDefinitionsSerializer Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<p>DMN Model XML serializer</p>
+<pre><code class="csharp">protected static XmlSerializer DmnDefinitionsSerializer</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dmnparser.logger__1w7m682" ></a>  DmnParser.Logger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<pre><code class="csharp">internal static ILogger Logger</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse_system.string___14hqoi9" ></a>  DmnParser.Parse(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<p>Parse the file with DMN Model XML definition</p>
+<pre><code class="csharp">public static DmnModel Parse(string filePath)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>filePath</strong></dt><dd>Path to the file to be parsed</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a></dt><dd>Parsed DMN Model</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing file path ( <strong>filePath</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>File doesn&#39;t exist</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse file</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring_system.string___1flgut8" ></a>  DmnParser.ParseString(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<p>Parse the string with DMN Model XML definition</p>
+<pre><code class="csharp">public static DmnModel ParseString(string dmnDefinition)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>dmnDefinition</strong></dt><dd>DMN Model XML definition</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a></dt><dd>Parsed DMN Model</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing DMN Model definition ( <strong>dmnDefinition</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse DMN definition</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" ></a>  DmnParserException Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\DmnParserException.cs</small></p>
+<p>Exception thrown while parsing the DMN Model</p>
+<pre><code class="csharp">public class DmnParserException : Exception</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.iserializable" class="link-external" target="_blank" >System.Runtime.Serialization.ISerializable</a></p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparserexception.-ctor_system.string-system.exception___1mxhbyy" >DmnParserException(string, Exception)</a></td><td>public</td><td>Creates <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a> with given <strong>message</strong> and optional <strong>innerException</strong></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparserexception.-ctor_system.string-system.exception___1mxhbyy" ></a>  DmnParserException.DmnParserException(string, Exception) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a><br />
+Sources: parser\DmnParserException.cs</small></p>
+<p>Creates <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a> with given <strong>message</strong> and optional <strong>innerException</strong></p>
+<pre><code class="csharp">public DmnParserException(string message, Exception innerException = null)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>message</strong></dt><dd>Error message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" class="link-external" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Optional inner exception</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" ></a>  SfeelParser Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\SfeelParser.cs</small></p>
+<p>S-FEEL simple parser</p>
+<pre><code class="csharp">public class SfeelParser</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.sfeelparser.logger__1txjqko" >Logger</a></td><td>internal static</td><td></td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a></td><td>public static</td><td>Custom functions to be  used in DynamoExpression for S-FEEL functions</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctiontranslations__wlq0ll" >CustomFunctionTranslations</a></td><td>private static</td><td>Translations of custom functions from  S-FEEL to <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a> For example &quot;date and time&quot; will be &quot;date_and_time&quot;</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.sfeelparser.-cctor__l74yw7" >SfeelParser()</a></td><td>private static</td><td>Initialize <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a> . Defines the <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a> for the DynamoExpression interpreter</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.sfeelparser.parseinput_system.string-system.string___1yu774r" >ParseInput(string, string)</a></td><td>public static</td><td>Parses the S-FEEL expression and creates the comparison that will be used in rule evaluation The parser recognize the basic types of S-FEEL expressions: not(expr), simple comparators, multiple values and range</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.sfeelparser.preparecustomfunctions__axhm1y" >PrepareCustomFunctions()</a></td><td>public static</td><td>Defines the <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a> for the DynamoExpression interpreter.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.sfeelparser.logger__1txjqko" ></a>  SfeelParser.Logger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a><br />
+Sources: parser\SfeelParser.cs</small></p>
+<pre><code class="csharp">internal static ILogger Logger</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.logging__1g9pm29.html#t-net.adamec.lib.common.logging.ilogger__y2ollm" >net.adamec.lib.common.logging.ILogger</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" ></a>  SfeelParser.CustomFunctions Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a><br />
+Sources: parser\SfeelParser.cs</small></p>
+<p>Custom functions to be  used in DynamoExpression for S-FEEL functions</p>
+<pre><code class="csharp">public static Dictionary&lt;string,Delegate&gt; CustomFunctions { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" class="link-external" target="_blank" >Dictionary&lt;string,Delegate&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctiontranslations__wlq0ll" ></a>  SfeelParser.CustomFunctionTranslations Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a><br />
+Sources: parser\SfeelParser.cs</small></p>
+<p>Translations of custom functions from  S-FEEL to <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a> For example &quot;date and time&quot; will be &quot;date_and_time&quot;</p>
+<pre><code class="csharp">private static Dictionary&lt;string,string&gt; CustomFunctionTranslations { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" class="link-external" target="_blank" >Dictionary&lt;string,string&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.sfeelparser.-cctor__l74yw7" ></a>  SfeelParser.SfeelParser() Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a><br />
+Sources: parser\SfeelParser.cs</small></p>
+<p>Initialize <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a> . Defines the <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a> for the DynamoExpression interpreter</p>
+<pre><code class="csharp">private static SfeelParser()</code></pre>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.sfeelparser.parseinput_system.string-system.string___1yu774r" ></a>  SfeelParser.ParseInput(string, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a><br />
+Sources: parser\SfeelParser.cs</small></p>
+<p>Parses the S-FEEL expression and creates the comparison that will be used in rule evaluation The parser recognize the basic types of S-FEEL expressions: not(expr), simple comparators, multiple values and range</p>
+<pre><code class="csharp">public static string ParseInput(string expr, string leftSide)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expr</strong></dt><dd>Source expression</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>leftSide</strong></dt><dd>Left side of comparison expression - to what to compare to</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Expression to be used in rule evaluation</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing expression ( <strong>expr</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing left side of expression ( <strong>leftSide</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Wrong S-FEEL range</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.sfeelparser.preparecustomfunctions__axhm1y" ></a>  SfeelParser.PrepareCustomFunctions() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.sfeelparser__1rin914" >SfeelParser</a><br />
+Sources: parser\SfeelParser.cs</small></p>
+<p>Defines the <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#p-net.adamec.lib.common.dmn.engine.parser.sfeelparser.customfunctions__zgl9qa" >CustomFunctions</a> for the DynamoExpression interpreter.</p>
+<pre><code class="csharp">public static void PrepareCustomFunctions()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+</body></html>

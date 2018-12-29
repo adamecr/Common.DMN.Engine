@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DMN Engine Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  DMN Engine Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" ></a>  net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" >DmnDecisionTableRuleExecutionResults</a></td><td>public</td><td>Decision table rules execution results</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" ></a>  DmnDecisionTableRuleExecutionResults Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" >net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\decisions\table\runtime\DmnDecisionTableExecutionResults.cs</small></p>
+<p>Decision table rules execution results</p>
+<pre><code class="csharp">public class DmnDecisionTableRuleExecutionResults</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#f-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.results__1nhoos7" >results</a></td><td>private</td><td>Internal dictionary of results per rule and output</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#f-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.ruleresulthashcodes__16bh4i8" >ruleResultHashCodes</a></td><td>private</td><td>Internal dictionary of rule result hashcodes (hashcode per rule)</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.getresult_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput___1szwn17" >GetResult(DmnDecisionTableRule, DmnDecisionTableRuleOutput)</a></td><td>public</td><td>Gets the result for given pair <strong>rule</strong> - <strong>output</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.getresultshashcode_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule___72g8de" >GetResultsHashCode(DmnDecisionTableRule)</a></td><td>public</td><td>Gets the hashcode of <strong>rule</strong> results</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.setresult_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable___1ticw3h" >SetResult(DmnDecisionTableRule, DmnDecisionTableRuleOutput, DmnExecutionVariable)</a></td><td>public</td><td>Sets the <strong>result</strong> of the single <strong>output</strong> of the <strong>rule</strong> .</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.results__1nhoos7" ></a>  DmnDecisionTableRuleExecutionResults.results Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" >net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" >DmnDecisionTableRuleExecutionResults</a><br />
+Sources: engine\decisions\table\runtime\DmnDecisionTableExecutionResults.cs</small></p>
+<p>Internal dictionary of results per rule and output</p>
+<pre><code class="csharp">private readonly Dictionary&lt;(net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule Item1, net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput Item2),net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt; results</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" class="link-external" target="_blank" >Dictionary&lt;(net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule Item1, net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput Item2),net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.ruleresulthashcodes__16bh4i8" ></a>  DmnDecisionTableRuleExecutionResults.ruleResultHashCodes Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" >net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" >DmnDecisionTableRuleExecutionResults</a><br />
+Sources: engine\decisions\table\runtime\DmnDecisionTableExecutionResults.cs</small></p>
+<p>Internal dictionary of rule result hashcodes (hashcode per rule)</p>
+<pre><code class="csharp">private readonly Dictionary&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule,int&gt; ruleResultHashCodes</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" class="link-external" target="_blank" >Dictionary&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule,int&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.getresult_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput___1szwn17" ></a>  DmnDecisionTableRuleExecutionResults.GetResult(DmnDecisionTableRule, DmnDecisionTableRuleOutput) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" >net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" >DmnDecisionTableRuleExecutionResults</a><br />
+Sources: engine\decisions\table\runtime\DmnDecisionTableExecutionResults.cs</small></p>
+<p>Gets the result for given pair <strong>rule</strong> - <strong>output</strong></p>
+<pre><code class="csharp">public DmnExecutionVariable GetResult(DmnDecisionTableRule rule, DmnDecisionTableRuleOutput output)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule</a> <strong>rule</strong></dt><dd>Rule to get the result for</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput</a> <strong>output</strong></dt><dd>Output to get the result for</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable__15aolfc" >net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable</a></dt><dd>Result for given pair <strong>rule</strong> - <strong>output</strong> or null when the result is not found</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>rule</strong> or <strong>output</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.getresultshashcode_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule___72g8de" ></a>  DmnDecisionTableRuleExecutionResults.GetResultsHashCode(DmnDecisionTableRule) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" >net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" >DmnDecisionTableRuleExecutionResults</a><br />
+Sources: engine\decisions\table\runtime\DmnDecisionTableExecutionResults.cs</small></p>
+<p>Gets the hashcode of <strong>rule</strong> results</p>
+<pre><code class="csharp">public int GetResultsHashCode(DmnDecisionTableRule rule)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule</a> <strong>rule</strong></dt><dd>Rule to get the hashcode for</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd>Hashcode of rule results or zero when there are not results for given <strong>rule</strong></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>rule</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults.setresult_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable___1ticw3h" ></a>  DmnDecisionTableRuleExecutionResults.SetResult(DmnDecisionTableRule, DmnDecisionTableRuleOutput, DmnExecutionVariable) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am" >net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9" >DmnDecisionTableRuleExecutionResults</a><br />
+Sources: engine\decisions\table\runtime\DmnDecisionTableExecutionResults.cs</small></p>
+<p>Sets the <strong>result</strong> of the single <strong>output</strong> of the <strong>rule</strong> .</p>
+<pre><code class="csharp">public void SetResult(DmnDecisionTableRule rule, DmnDecisionTableRuleOutput output, DmnExecutionVariable result)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule</a> <strong>rule</strong></dt><dd>Rule to set the <strong>result</strong> for.</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput</a> <strong>output</strong></dt><dd>Output to set the <strong>result</strong> for.</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable__15aolfc" >net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable</a> <strong>result</strong></dt><dd>Result to set</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<h3>  Remarks </h3>
+<p>When a result is set (updated), the hashcode of whole rule results is recalculated.</p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>rule</strong> or <strong>output</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+</body></html>

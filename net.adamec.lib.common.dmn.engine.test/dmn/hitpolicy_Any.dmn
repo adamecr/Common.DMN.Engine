@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="definitions_0dzwbfg" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf3" name="Any">
+    <extensionElements>
+      <biodi:bounds x="333" y="217" width="180" height="80" />
+      <biodi:edge source="InputData_1do7r1m">
+        <biodi:waypoints x="287" y="131" />
+        <biodi:waypoints x="424" y="217" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0drys3o">
+        <biodi:waypoints x="549" y="140" />
+        <biodi:waypoints x="446" y="217" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1do7r1m" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_0drys3o" />
+    </informationRequirement>
+    <decisionTable hitPolicy="ANY">
+      <input id="InputClause_0rsadll3333" label="a">
+        <inputExpression id="LiteralExpression_0xuzx6o333" typeRef="integer" />
+      </input>
+      <input id="InputClause_02drmur3333" label="b">
+        <inputExpression id="LiteralExpression_068q4tu233" typeRef="integer" />
+      </input>
+      <output id="output_13" label="o" typeRef="string" />
+      <rule id="row-816543858-23">
+        <description>any for 5 - 2</description>
+        <inputEntry id="UnaryTests_1gpvt673">
+          <text><![CDATA[<= 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a0hy7s3">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07o8mix3">
+          <text><![CDATA["x5 2"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-33">
+        <inputEntry id="UnaryTests_154kvlx3">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sk8yc83">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l2g7a43">
+          <text><![CDATA["5 1"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-43">
+        <description>any uniqe for 5 - 2</description>
+        <inputEntry id="UnaryTests_1kjpfhe3">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036lxav3">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_103tlz93">
+          <text><![CDATA["x5 2"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-53">
+        <description>err not same for 6-3</description>
+        <inputEntry id="UnaryTests_0m3irnu3">
+          <text>6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xincs73">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r9iilo3">
+          <text><![CDATA["6"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-63">
+        <inputEntry id="UnaryTests_1lyotlg3">
+          <text><![CDATA[> 6]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bc9tpv3">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ohks8d3">
+          <text><![CDATA[">6 2"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-73">
+        <description>empty out</description>
+        <inputEntry id="UnaryTests_12w8qrn3">
+          <text><![CDATA[> 6]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0djt2hr3">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iozur53">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-133">
+        <description>err not same for 6-3</description>
+        <inputEntry id="UnaryTests_1womchd3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tch5za3">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x882f83">
+          <text><![CDATA["- 3"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1do7r1m" name="a">
+    <extensionElements>
+      <biodi:bounds x="209" y="86" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0drys3o" name="b">
+    <extensionElements>
+      <biodi:bounds x="499" y="95" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>
