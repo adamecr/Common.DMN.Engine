@@ -1,0 +1,19 @@
+<Project>
+  <!--
+      ======================================================================================= 
+      Version information shared between the projects within the whole solution.
+      Major, Minor, Patch is to be set manually
+      Build is set at the beginning of the build process using SetBuildNumberTask (once per solution/build)
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <RadMajor>0</RadMajor>
+    <RadMinor>1</RadMinor>
+    <RadPatch>0</RadPatch>
+    <RadBuild>6</RadBuild>
+    <PackageVersionShort>0.1.0-dev.6.181229204335</PackageVersionShort>
+    <PackageVersionFull>0.1.0-dev.6.181229204335+15.master.7fc4a8f-dirty</PackageVersionFull>
+    <GitCommit>7fc4a8f-dirty</GitCommit>
+    <GitBranch>master</GitBranch>
+  </PropertyGroup>
+</Project>

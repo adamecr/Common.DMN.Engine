@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <_MSBuildLastExitCode />
+  </PropertyGroup>
+
+  <!--
+      ======================================================================================= 
+      GetGitInfo target - executes git commands to get the current commit short SHA,  branch and commit number
+      Sets: GitCommit, GitBranch, GitCommits
+      =======================================================================================
+    -->
+  <Target Name="GetGitInfo">
+    <Message Text="Getting git info..." />
+    <Exec Command="git describe --match=NeVeRmAtCh --always --abbrev=7 --dirty" EchoOff="true" StandardErrorImportance="low" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitCommit" />
+      <Output TaskParameter="ExitCode" PropertyName="_MSBuildLastExitCode" />
+    </Exec>
+    <Warning Text="Could not retrieve last git commit" Condition="'$(_MSBuildLastExitCode)' != '0' Or '$(GitCommit)' == ''" />
+
+    <Exec Command="git rev-parse --abbrev-ref HEAD" EchoOff="true" StandardErrorImportance="low" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch" />
+      <Output TaskParameter="ExitCode" PropertyName="MSBuildLastExitCode" />
+    </Exec>
+    <Warning Text="Could not retrieve git branch" Condition="'$(_MSBuildLastExitCode)' != '0' Or '$(GitBranch)' == ''" />
+
+    <Exec Command="git rev-list --all --count" EchoOff="true" StandardErrorImportance="low" StandardOutputImportance="low" ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitCommits" />
+      <Output TaskParameter="ExitCode" PropertyName="MSBuildLastExitCode" />
+    </Exec>
+    <Warning Text="Could not retrieve git commits number" Condition="'$(_MSBuildLastExitCode)' != '0' Or '$(GitCommits)' == ''" />
+
+    <Message Text="Got git info: commit $(GitCommit), branch $(GitBranch), commits number $(GitCommits)" />
+  </Target>
+</Project>

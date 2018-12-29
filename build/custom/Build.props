@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--
+      ======================================================================================= 
+      Customizable common properties to be shared between the projects within the solution
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <Authors>Radek Adamec</Authors>
+    <Company>Radek Adamec</Company>
+    <Copyright>Radek Adamec 2018</Copyright>
+    <Description>DMN Engine is a rule engine allowing to execute and evaluate the decisions defined in a DMN  model. It's primary target is to evaluate the decision tables that transform the inputs into the output(s) using the decision rules</Description>
+    <PackageLicenseUrl>https://github.com/adamecr/Common.DMN.Engine/blob/master/license.txt</PackageLicenseUrl>
+    <PackageLicense>MIT</PackageLicense>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/adamecr/Common.DMN.Engine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/adamecr/Common.DMN.Engine.git</RepositoryUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/adamecr/Common.DMN.Engine/master/icon.png</PackageIconUrl>
+    <PushPackagesToVstsFeed>false</PushPackagesToVstsFeed>
+  </PropertyGroup>
+</Project>

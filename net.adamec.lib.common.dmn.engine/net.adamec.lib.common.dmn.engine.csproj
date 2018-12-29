@@ -1,7 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>$(Authors)</Authors>
+    <Company>$(Company)</Company>
+    <Copyright>$(Copyright)</Copyright>
+    <Description>$(Description)</Description>
+    <PackageLicenseUrl>$(PackageLicenseUrl)</PackageLicenseUrl>
+    <Version>$(Version)</Version>
+    <Product>net.adamec.lib.common.dmn.engine</Product>
+    <PackageProjectUrl>$(PackageProjectUrl)</PackageProjectUrl>
+    <PackageIconUrl>$(PackageIconUrl)</PackageIconUrl>
+    <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
+    <PackageTags>RADCommons DMNEngine dmn dmn-engine rule-engine decision-engine</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <FileVersion>$(FileVersion)</FileVersion>
+    <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
+    <IsPackable>true</IsPackable>
+
   </PropertyGroup>
 
   <ItemGroup>

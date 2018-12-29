@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="../common/Common.Build.props" Condition="Exists('../common/Common.Build.props')" />
+  <Import Project="../common/Common.Build.props.debug" Condition="'$(Configuration)'=='Debug' AND Exists('../common/Common.Build.props.debug')" />
+  <Import Project="../common/Common.Build.props.release" Condition="'$(Configuration)'=='Release' AND Exists('../common/Common.Build.props.release')" />
+  <Import Project="../custom/Build.props" Condition="Exists('../custom/Build.props')" />
+  <Import Project="../custom/Build.props.debug" Condition="'$(Configuration)'=='Debug' AND Exists('../custom/Build.props.debug')" />
+  <Import Project="../custom/Build.props.release" Condition="'$(Configuration)'=='Release' AND Exists('../custom/Build.props.release')" />
+  <Import Project="../../Version.props" Condition="Exists('../../Version.props')" />
+
+  <Import Project="../master/use/Git.targets" />
+  <Import Project="../master/use/Version.tasks" />
+  <Import Project="../custom/use/Custom.Build.Once.targets" Condition="Exists('../custom/use/Custom.Build.Once.targets')" />
+  <!-- Get current version info containing the last build number -->
+
+  <!--
+      ======================================================================================= 
+      SetVersionInfo target - sets (increase) the build number for the whole solution (build process).
+      DependsOnTargets="GetGitInfo"
+      BeforeTargets="Build"
+      
+      Updates the Version.props file, so the other projects just imports it
+      
+      Sets: RadBuild, BuildNumber, PackageVersionShort, PackageVersionFull
+      =======================================================================================
+    -->
+  <Target Name="SetVersionInfo" DependsOnTargets="GetGitInfo" BeforeTargets="Build" >
+
+    <SetVersionInfoTask
+      VersionFile="../Version.props"
+      Configuration="$(Configuration)"
+      Major="$(RadMajor)"
+      Minor="$(RadMinor)"
+      Patch="$(RadPatch)"
+      BuildNumber="$(RadBuild)"
+      GitCommit="$(GitCommit)"
+      GitBranch="$(GitBranch)"
+      GitCommits="$(GitCommits)"
+      DebugTasks="$(DebugTasks)"
+    >
+      <Output TaskParameter="BuildNumber" PropertyName="RadBuild" />
+      <Output TaskParameter="BuildNumber" PropertyName="BuildNumber" />
+      <Output TaskParameter="PackageVersionShort" PropertyName="PackageVersionShort" />
+      <Output TaskParameter="PackageVersionFull" PropertyName="PackageVersionFull" />
+    </SetVersionInfoTask>
+    <Message Text="Prepared version info: version $(RadMajor).$(RadMinor).$(RadPatch); Package $(PackageVersionFull); Build number set to $(BuildNumber)" />
+  </Target>
+
+</Project>

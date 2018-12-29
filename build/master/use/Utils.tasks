@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+      ======================================================================================= 
+      Custom task dumping the all build properties to the build output/log
+      =======================================================================================
+    -->
+
+  <!-- Use the DLL for debugging. There might be a problem with locking the dll with tasks (solved by using the env. variable MSBUILDDISABLENODEREUSE=1)-->
+  <UsingTask TaskName="DumpPropertiesTask" AssemblyFile="..\..\..\build.tasks\bin\debug\netstandard2.0\build.tasks.dll" Condition="'$(DebugTasks)'=='true'"/>
+
+  <UsingTask TaskName="DumpPropertiesTask" Condition="'$(DebugTasks)'!='true'"
+             TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <Task>
+      <Reference Include="Microsoft.Build" />
+      <Reference Include="Microsoft.Build.Framework" />
+      <Reference Include="Microsoft.Build.Utilities.Core" />
+      <Code Type="Class" Language="cs" Source="$(MSBuildProjectDirectory)/../build.tasks/DumpPropertiesTask.cs">
+      </Code>
+    </Task>
+  </UsingTask>
+
+</Project>

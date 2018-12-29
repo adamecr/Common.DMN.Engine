@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+      ======================================================================================= 
+      Build properties to be used for RELEASE configuration (created by template, but not updated, so can be modified)
+      =======================================================================================
+    -->
+  <PropertyGroup>
+   
+  </PropertyGroup>
+
+</Project>

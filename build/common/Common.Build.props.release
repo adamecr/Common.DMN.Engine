@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+      ======================================================================================= 
+      Common Build properties to be used for RELEASE configuration (part of template)
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <PushPackagesToLocalFeed>true</PushPackagesToLocalFeed>
+    <NuGetLocalFeedSourceName>$(USERPROFILE)\LocalNuGetFeed</NuGetLocalFeedSourceName>
+    <PushPackagesToVstsFeed>true</PushPackagesToVstsFeed>
+    <NuGetVstsFeedSourceName>RAD VSTS Commons</NuGetVstsFeedSourceName>
+  </PropertyGroup>
+ 
+
+</Project>
