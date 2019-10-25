@@ -26,12 +26,12 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// Reference to required decision
         /// </summary>
         [XmlElement("requiredDecision")]
-        public InformationRequirementItem RequiredDecision {private get; set; }
+        public InformationRequirementItem RequiredDecision {get; set; }
         /// <summary>
         /// Reference to required input
         /// </summary>
         [XmlElement("requiredInput")]
-        public InformationRequirementItem RequiredInput { private get; set; }
+        public InformationRequirementItem RequiredInput { get; set; }
 
         /// <summary>
         /// Gets the type of dependency (requirement) - input of decision

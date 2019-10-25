@@ -13,7 +13,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// The source list of allowed values in form "value 1", "value 2", "value 3", "value n"
         /// </summary>
         [XmlElement("text")]
-        public string Text {private get; set; }
+        public string Text {get; set; }
 
         /// <summary>
         /// List of allowed values 

@@ -14,7 +14,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// Used just by deserializer, translated within <see cref="HitPolicy"/> property getter
         /// </summary>
         [XmlAttribute("hitPolicy")]
-        public string HitPolicySrc { private get;  set; }
+        public string HitPolicySrc { get;  set; }
 
         /// <summary>
         /// <see cref="HitPolicyEnum">Hit policy</see> defined for decision table
@@ -49,7 +49,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// </summary>
         ///<exception cref="DmnParserException">Wrong hit policy aggregation</exception>
         [XmlAttribute("aggregation")]
-        public string AggregationSrc { private get; set; }
+        public string AggregationSrc { get; set; }
 
         /// <summary>
         /// <see cref="CollectHitPolicyAggregationEnum">Aggregation</see> defined for "COLLECT" hit policy
