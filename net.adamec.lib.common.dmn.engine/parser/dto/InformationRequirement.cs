@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace net.adamec.lib.common.dmn.engine.parser.dto
@@ -8,8 +10,13 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     /// The inputs are referenced by <see cref="RequiredInput"/> sub-element and decisions by <see cref="RequiredDecision"/> one.
     /// Exactly one of the sub element must be present
     /// </summary>
-    public class InformationRequirement
+    public class InformationRequirement : IXmlSerializable
     {
+        /// <summary>
+        /// Serializer used for the serialization proxy class
+        /// </summary>
+        private static readonly XmlSerializer InformationRequirementSerializableSerializer = new XmlSerializer(typeof(InformationRequirementSerializable));
+
         /// <summary>
         /// Required input or decision reference
         /// </summary>
@@ -19,34 +26,32 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
             /// Reference to input/decision by it's ID prefixed with "#" - for example href="#Input1"
             /// </summary>
             [XmlAttribute("href")]
-            public string Ref {  get; set; }
+            public string Ref { get; set; }
         }
-       
+
         /// <summary>
         /// Reference to required decision
         /// </summary>
-        [XmlElement("requiredDecision")]
-        public InformationRequirementItem RequiredDecision {private get; set; }
+        private InformationRequirementItem RequiredDecision { get; set; }
+
         /// <summary>
         /// Reference to required input
         /// </summary>
-        [XmlElement("requiredInput")]
-        public InformationRequirementItem RequiredInput { private get; set; }
+        private InformationRequirementItem RequiredInput { get; set; }
 
         /// <summary>
         /// Gets the type of dependency (requirement) - input of decision
         /// </summary>
         ///<exception cref="DmnParserException">informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both</exception>
-        [XmlIgnore]
         public InformationRequirementType RequirementType =>
             ((RequiredDecision == null && RequiredInput == null) || (RequiredDecision != null && RequiredInput != null))
-                ? throw new DmnParserException("informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both")
-                 : (RequiredDecision != null ? InformationRequirementType.Decision : InformationRequirementType.Input);
+                ? throw new DmnParserException(
+                    "informationRequirement element doesn't contain requiredDecision nor requiredInput elements or contains both")
+                : (RequiredDecision != null ? InformationRequirementType.Decision : InformationRequirementType.Input);
 
         /// <summary>
         /// Gets the reference to ID of decision or input the decision depends to
         /// </summary>
-        [XmlIgnore]
         public string Ref => RequirementType == InformationRequirementType.Decision
             ? ParseRef(RequiredDecision.Ref)
             : ParseRef(RequiredInput.Ref);
@@ -83,9 +88,34 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
             return $"{RequirementType}:{Ref}";
         }
 
+        /// <summary>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <see cref="T:System.Xml.Serialization.XmlSchemaProviderAttribute"></see> to the class.</summary>
+        /// <returns>An <see cref="T:System.Xml.Schema.XmlSchema"></see> that describes the XML representation of the object that is produced by the <see cref="M:System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)"></see> method and consumed by the <see cref="M:System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)"></see> method.</returns>
+        public XmlSchema GetSchema()
+        {
+            return null;
+        }
+
+        /// <summary>Generates an object from its XML representation.</summary>
+        /// <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> stream from which the object is deserialized.</param>
+        public void ReadXml(XmlReader reader)
+        {
+            var r = reader.ReadSubtree();
+            var proxy = (InformationRequirementSerializable)InformationRequirementSerializableSerializer.Deserialize(r);
+            RequiredDecision = proxy.RequiredDecision;
+            RequiredInput = proxy.RequiredInput;
+            reader.ReadEndElement();
+        }
+
+        /// <summary>Converts an object into its XML representation.</summary>
+        /// <remarks>Not implemented - always throws <see cref="System.NotImplementedException"/> </remarks>
+        /// <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> stream to which the object is serialized.</param>
+        /// <exception cref="System.NotImplementedException">Method not implemented and should not be used</exception>
+        public void WriteXml(XmlWriter writer)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
-    
     /// <summary>
     /// Type of the dependency
     /// </summary>
@@ -95,9 +125,29 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// Required decision
         /// </summary>
         Decision,
+
         /// <summary>
         /// Required input
         /// </summary>
         Input
+    }
+
+    /// <summary>
+    /// Information Requirement (de)serialization proxy implemented to support the private getters in <see cref="InformationRequirement"/>
+    /// </summary>
+    [XmlRoot("informationRequirement", Namespace = "http://www.omg.org/spec/DMN/20151101/dmn.xsd")]
+    public class InformationRequirementSerializable
+    {
+        /// <summary>
+        /// Reference to required decision
+        /// </summary>
+        [XmlElement("requiredDecision")]
+        public InformationRequirement.InformationRequirementItem RequiredDecision { get; set; }
+
+        /// <summary>
+        /// Reference to required input
+        /// </summary>
+        [XmlElement("requiredInput")]
+        public InformationRequirement.InformationRequirementItem RequiredInput { get; set; }
     }
 }
