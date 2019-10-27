@@ -10,10 +10,10 @@
     <RadMajor>0</RadMajor>
     <RadMinor>1</RadMinor>
     <RadPatch>0</RadPatch>
-    <RadBuild>70</RadBuild>
-    <PackageVersionShort>0.1.0-dev.70.191027095646</PackageVersionShort>
-    <PackageVersionFull>0.1.0-dev.70.191027095646+84.tst-pullreq1.c5c1a82-dirty</PackageVersionFull>
-    <GitCommit>c5c1a82-dirty</GitCommit>
+    <RadBuild>72</RadBuild>
+    <PackageVersionShort>0.1.0-dev.72.191027102656</PackageVersionShort>
+    <PackageVersionFull>0.1.0-dev.72.191027102656+86.tst-pullreq1.c46834a-dirty</PackageVersionFull>
+    <GitCommit>c46834a-dirty</GitCommit>
     <GitBranch>tst-pullreq1</GitBranch>
   </PropertyGroup>
 </Project>

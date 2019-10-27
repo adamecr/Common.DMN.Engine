@@ -40,7 +40,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Logger](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#f-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext.logger__mpgrpl) | internal static | Logger | 
+ | [Logger](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#f-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext.logger__mpgrpl) | protected static | Logger | 
  | [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#f-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext.parsedexpressionscache__1v2fbnt) | private static | Parsed (pre-processed) expressions cache | 
 
  
@@ -101,10 +101,10 @@ Logger
 
 
 ```csharp
-internal static ILogger Logger
+protected static ILogger Logger
 ```
 
-<strong>Field value</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd></dd></dl>
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
@@ -724,7 +724,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [_value](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#f-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable._value__10kb2mi) | private | Backing field for [Value](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#p-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable.value__1tc871d) property | 
- | [Logger](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#f-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable.logger__1q6bj3o) | internal static | Logger | 
+ | [Logger](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#f-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable.logger__1q6bj3o) | protected static | Logger | 
 
  
 
@@ -805,10 +805,10 @@ Logger
 
 
 ```csharp
-internal static ILogger Logger
+protected static ILogger Logger
 ```
 
-<strong>Field value</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd></dd></dl>
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)

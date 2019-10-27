@@ -1,6 +1,6 @@
 ﻿using System;
+using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.definition;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.runtime
 {
@@ -12,7 +12,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <summary>
         /// Logger
         /// </summary>
-        internal static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionVariable>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionVariable>();
 
         /// <summary>
         /// Variable definition

@@ -181,7 +181,7 @@ As the [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adam
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Logger](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.logger__a8qmti) | internal static | Logger | 
+ | [Logger](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.logger__a8qmti) | protected static | Logger | 
 
  
 
@@ -241,10 +241,10 @@ Logger
 
 
 ```csharp
-internal static ILogger Logger
+protected static ILogger Logger
 ```
 
-<strong>Field value</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd></dd></dl>
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)

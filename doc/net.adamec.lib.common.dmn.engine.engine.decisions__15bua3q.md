@@ -49,7 +49,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Logger](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.logger__1xp222x) | internal | Logger | 
+ | [Logger](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.logger__1xp222x) | protected | Logger | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.name__11d67s8) | public | Decision unique name | 
  | [RequiredDecisions](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.requireddecisions__6uus9z) | public | List of decisions, the decision depends on | 
  | [RequiredInputs](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.requiredinputs__1kiuu49) | public | Decision required inputs (input variables) | 
@@ -94,10 +94,10 @@ Logger
 
 
 ```csharp
-internal ILogger Logger { get; }
+protected ILogger Logger { get; }
 ```
 
-<strong>Property value</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)

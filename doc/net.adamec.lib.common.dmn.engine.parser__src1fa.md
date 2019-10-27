@@ -40,7 +40,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [DmnDefinitionsSerializer](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmndefinitionsserializer__1rtavq1) | protected static | DMN Model XML serializer | 
- | [Logger](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.logger__1w7m682) | internal static |  | 
+ | [Logger](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.logger__1w7m682) | protected static |  | 
 
  
 
@@ -94,10 +94,10 @@ Sources: parser\DmnParser.cs</small>
 
 
 ```csharp
-internal static ILogger Logger
+protected static ILogger Logger
 ```
 
-<strong>Field value</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd></dd></dl>
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
@@ -241,7 +241,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Logger](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.sfeelparser.logger__1txjqko) | internal static |  | 
+ | [Logger](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.sfeelparser.logger__1txjqko) | protected static |  | 
 
  
 
@@ -290,10 +290,10 @@ Sources: parser\SfeelParser.cs</small>
 
 
 ```csharp
-internal static ILogger Logger
+protected static ILogger Logger
 ```
 
-<strong>Field value</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](net.adamec.lib.common.logging__1g9pm29.md#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd></dd></dl>
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)

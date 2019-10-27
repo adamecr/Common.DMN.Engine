@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.decisions.expression;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
 using net.adamec.lib.common.dmn.engine.parser;
 using net.adamec.lib.common.dmn.engine.parser.dto;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.definition
 {
@@ -24,7 +24,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <summary>
         /// Logger
         /// </summary>
-        internal static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
 
         /// <summary>
         /// Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions
