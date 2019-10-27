@@ -18,8 +18,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.utils.basedisposable__7s72ps" />  BaseDisposable Class ##
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Helper class for implementation of <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> types
@@ -76,8 +76,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Flag whether the object is fully disposed
@@ -101,8 +101,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Flag whether the managed resources are disposed
@@ -126,8 +126,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Flag whether the native resources are disposed
@@ -151,8 +151,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 
@@ -170,8 +170,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Dispose the object
@@ -195,8 +195,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Internal implementation of dispose - free the managed and native resources using the respective methods
@@ -221,8 +221,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Dispose any disposable managed fields or properties.
@@ -246,8 +246,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.utils](net.adamec.lib.common.utils__7vdji9.md#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [BaseDisposable](net.adamec.lib.common.utils__7vdji9.md#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
-Sources: dCommons.utils.BaseDisposable\BaseDisposable.cs           
-Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.html#src-only-package--RadCommons.utils.BaseDisposable)</small>
+Sources: App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](src-only-packages--.md#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
 Dispose of COM objects, Handles, etc. Then set those objects to null.

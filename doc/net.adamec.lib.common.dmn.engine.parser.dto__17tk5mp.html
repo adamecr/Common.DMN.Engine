@@ -44,11 +44,13 @@ dd {grid-column-start: 2;}
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a></td><td>public</td><td>Decision table definition</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49" >DecisionTableInput</a></td><td>public</td><td>Decision table input definition</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput__63fwne" >DecisionTableOutput</a></td><td>public</td><td>Decision table output definition</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" >DecisionTableSerializable</a></td><td>public</td><td>Decision table (de)serialization proxy implemented to support the private getters in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a></td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >DmnModel</a></td><td>public</td><td>Root of DMN definition XML - DMN Model</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.expression__tql32b" >Expression</a></td><td>public</td><td>Expression within the DMN definition file</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.idedelement__1e85r4v" >IdedElement</a></td><td>public abstract</td><td>Element with id attribute</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a></td><td>public</td><td>Defines the input or decision needed for the decision to be evaluated. The inputs are referenced by <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requiredinput__jq7sir" >RequiredInput</a> sub-element and decisions by <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requireddecision__12tqhtx" >RequiredDecision</a> one. Exactly one of the sub element must be present</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >InformationRequirement.InformationRequirementItem</a></td><td>public</td><td>Required input or decision reference</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable__isg04z" >InformationRequirementSerializable</a></td><td>public</td><td>Information Requirement (de)serialization proxy implemented to support the private getters in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a></td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.inputdata__jk22hv" >InputData</a></td><td>public</td><td>Input Data element Defines the input data item provided to the DMN model. The input parameter and related variable are defined by <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.namedelement.name__3ml05" >Name</a></td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.namedelement__11eai0o" >NamedElement</a></td><td>public abstract</td><td>Element with id and name attributes</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.variable__1klt78r" >Variable</a></td><td>public</td><td>Variable definition Used in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decision__132ore9" >expression decision definition</a> to define the output variable</td></tr>
@@ -68,18 +70,21 @@ dd {grid-column-start: 2;}
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Sources: parser\dto\AllowedValues.cs</small></p>
 <p>Defines the list of allowed values for decision table inputs and outputs</p>
-<pre><code class="csharp">public class AllowedValues</code></pre>
+<pre><code class="csharp">public class AllowedValues : IXmlSerializable</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-</p>
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable</a></p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.text__v1ms34" >Text</a></td><td>public</td><td>The source list of allowed values in form &quot;value 1&quot;, &quot;value 2&quot;, &quot;value 3&quot;, &quot;value n&quot;</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.text__v1ms34" >Text</a></td><td>private</td><td>The source list of allowed values in form &quot;value 1&quot;, &quot;value 2&quot;, &quot;value 3&quot;, &quot;value n&quot;</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.values__1jdoyaj" >Values</a></td><td>public</td><td>List of allowed values</td></tr>
 </table>
 <p> </p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.getschema__6pb4rt" >GetSchema()</a></td><td>public</td><td>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlschemaproviderattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlSchemaProviderAttribute</a> to the class.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.readxml_system.xml.xmlreader___ezr1qu" >ReadXml(XmlReader)</a></td><td>public</td><td>Generates an object from its XML representation.</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.tostring__16y15q" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.writexml_system.xml.xmlwriter___154r01p" >WriteXml(XmlWriter)</a></td><td>public</td><td>Converts an object into its XML representation.</td></tr>
 </table>
 <p> </p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
@@ -90,9 +95,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues__1bbwvx1" >AllowedValues</a><br />
 Sources: parser\dto\AllowedValues.cs</small></p>
 <p>The source list of allowed values in form &quot;value 1&quot;, &quot;value 2&quot;, &quot;value 3&quot;, &quot;value n&quot;</p>
-<pre><code class="csharp">[XmlElement(&quot;text&quot;)]
-public string Text { private get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<pre><code class="csharp">private string Text { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.values__1jdoyaj" ></a>  AllowedValues.Values Property </h2>
@@ -101,9 +105,29 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues__1bbwvx1" >AllowedValues</a><br />
 Sources: parser\dto\AllowedValues.cs</small></p>
 <p>List of allowed values</p>
-<pre><code class="csharp">[XmlIgnore]
-public string[] Values { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string[]</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlignoreattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlIgnoreAttribute</a></p>
+<pre><code class="csharp">public string[] Values { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string[]</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.getschema__6pb4rt" ></a>  AllowedValues.GetSchema() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues__1bbwvx1" >AllowedValues</a><br />
+Sources: parser\dto\AllowedValues.cs</small></p>
+<p>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlschemaproviderattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlSchemaProviderAttribute</a> to the class.</p>
+<pre><code class="csharp">public XmlSchema GetSchema()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema" class="link-external" target="_blank" >System.Xml.Schema.XmlSchema</a></dt><dd>An <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema" class="link-external" target="_blank" >System.Xml.Schema.XmlSchema</a> that describes the XML representation of the object that is produced by the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.writexml#System_Xml_Serialization_IXmlSerializable_WriteXml_System_Xml_XmlWriter_" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)</a> method and consumed by the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.readxml#System_Xml_Serialization_IXmlSerializable_ReadXml_System_Xml_XmlReader_" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)</a> method.</dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.getschema#System_Xml_Serialization_IXmlSerializable_GetSchema" class="link-external" target="_blank" >Serialization.IXmlSerializable.GetSchema</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.readxml_system.xml.xmlreader___ezr1qu" ></a>  AllowedValues.ReadXml(XmlReader) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues__1bbwvx1" >AllowedValues</a><br />
+Sources: parser\dto\AllowedValues.cs</small></p>
+<p>Generates an object from its XML representation.</p>
+<pre><code class="csharp">public void ReadXml(XmlReader reader)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader" class="link-external" target="_blank" >System.Xml.XmlReader</a> <strong>reader</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader" class="link-external" target="_blank" >System.Xml.XmlReader</a> stream from which the object is deserialized.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.readxml#System_Xml_Serialization_IXmlSerializable_ReadXml_System_Xml_XmlReader_" class="link-external" target="_blank" >Serialization.IXmlSerializable.ReadXml</a></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.tostring__16y15q" ></a>  AllowedValues.ToString() Method </h2>
@@ -115,6 +139,21 @@ Sources: parser\dto\AllowedValues.cs</small></p>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues.writexml_system.xml.xmlwriter___154r01p" ></a>  AllowedValues.WriteXml(XmlWriter) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.allowedvalues__1bbwvx1" >AllowedValues</a><br />
+Sources: parser\dto\AllowedValues.cs</small></p>
+<p>Converts an object into its XML representation.</p>
+<pre><code class="csharp">public void WriteXml(XmlWriter writer)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter" class="link-external" target="_blank" >System.Xml.XmlWriter</a> <strong>writer</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter" class="link-external" target="_blank" >System.Xml.XmlWriter</a> stream to which the object is serialized.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.writexml#System_Xml_Serialization_IXmlSerializable_WriteXml_System_Xml_XmlWriter_" class="link-external" target="_blank" >Serialization.IXmlSerializable.WriteXml</a></p>
+<h3>  Remarks </h3>
+<p>Not implemented - always throws <a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception" class="link-external" target="_blank" >System.NotImplementedException</a></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception" class="link-external" target="_blank" >System.NotImplementedException</a></dt><dd>Method not implemented and should not be used</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.decision__132ore9" ></a>  Decision Class </h2>
@@ -262,20 +301,42 @@ public override string ToString()</code></pre>
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>Decision table definition</p>
-<pre><code class="csharp">public class DecisionTable : IdedElement</code></pre>
+<pre><code class="csharp">public class DecisionTable : IdedElement, IXmlSerializable</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.idedelement__1e85r4v" >net.adamec.lib.common.dmn.engine.parser.dto.IdedElement</a><br />
-</p>
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable</a></p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.decisiontableserializableserializer__1py1ie" >DecisionTableSerializableSerializer</a></td><td>private static</td><td>Serializer used for the serialization proxy class</td></tr>
+</table>
+<p> </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregation__1tmu6gt" >Aggregation</a></td><td>public</td><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9" >Aggregation</a> defined for &quot;COLLECT&quot; hit policy If not defined, <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum.list__u0sgin" >List</a> is used as default</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregationsrc__1nlixpb" >AggregationSrc</a></td><td>public</td><td>Aggregation attribute for &quot;COLLECT&quot; hit policy Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregation__1tmu6gt" >Aggregation</a> property getter</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregationsrc__1nlixpb" >AggregationSrc</a></td><td>private</td><td>Aggregation attribute for &quot;COLLECT&quot; hit policy Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregation__1tmu6gt" >Aggregation</a> property getter</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.hitpolicy__12cqsva" >HitPolicy</a></td><td>public</td><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz" >Hit policy</a> defined for decision table If not defined, <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum.unique__pve6y6" >Unique</a> is used as default</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.hitpolicysrc__vijplw" >HitPolicySrc</a></td><td>public</td><td>Hit policy attribute Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.hitpolicy__12cqsva" >HitPolicy</a> property getter</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.hitpolicysrc__vijplw" >HitPolicySrc</a></td><td>private</td><td>Hit policy attribute Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.hitpolicy__12cqsva" >HitPolicy</a> property getter</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.inputs__1u48wwa" >Inputs</a></td><td>public</td><td>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49" >inputs</a></td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.outputs__68bgpp" >Outputs</a></td><td>public</td><td>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput__63fwne" >outputs</a></td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.rules__1xxlmgi" >Rules</a></td><td>public</td><td>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisionrule__ug9ttn" >rules</a></td></tr>
 </table>
 <p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.getschema__u49m8r" >GetSchema()</a></td><td>public</td><td>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlschemaproviderattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlSchemaProviderAttribute</a> to the class.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.readxml_system.xml.xmlreader___1kcmfxa" >ReadXml(XmlReader)</a></td><td>public</td><td>Generates an object from its XML representation.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.writexml_system.xml.xmlwriter___12g7mb" >WriteXml(XmlWriter)</a></td><td>public</td><td>Converts an object into its XML representation.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.decisiontableserializableserializer__1py1ie" ></a>  DecisionTable.DecisionTableSerializableSerializer Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Serializer used for the serialization proxy class</p>
+<pre><code class="csharp">private static readonly XmlSerializer DecisionTableSerializableSerializer</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregation__1tmu6gt" ></a>  DecisionTable.Aggregation Property </h2>
@@ -284,9 +345,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9" >Aggregation</a> defined for &quot;COLLECT&quot; hit policy If not defined, <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum.list__u0sgin" >List</a> is used as default</p>
-<pre><code class="csharp">[XmlIgnore]
-public CollectHitPolicyAggregationEnum Aggregation { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9" >net.adamec.lib.common.dmn.engine.parser.dto.CollectHitPolicyAggregationEnum</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlignoreattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlIgnoreAttribute</a></p>
+<pre><code class="csharp">public CollectHitPolicyAggregationEnum Aggregation { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9" >net.adamec.lib.common.dmn.engine.parser.dto.CollectHitPolicyAggregationEnum</a></dt><dd></dd></dl></p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Wrong hit policy aggregation</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
@@ -297,9 +357,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>Aggregation attribute for &quot;COLLECT&quot; hit policy Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.aggregation__1tmu6gt" >Aggregation</a> property getter</p>
-<pre><code class="csharp">[XmlAttribute(&quot;aggregation&quot;)]
-public string AggregationSrc { private get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<pre><code class="csharp">private string AggregationSrc { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Wrong hit policy aggregation</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
@@ -310,9 +369,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz" >Hit policy</a> defined for decision table If not defined, <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum.unique__pve6y6" >Unique</a> is used as default</p>
-<pre><code class="csharp">[XmlIgnore]
-public HitPolicyEnum HitPolicy { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz" >net.adamec.lib.common.dmn.engine.parser.dto.HitPolicyEnum</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlignoreattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlIgnoreAttribute</a></p>
+<pre><code class="csharp">public HitPolicyEnum HitPolicy { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz" >net.adamec.lib.common.dmn.engine.parser.dto.HitPolicyEnum</a></dt><dd></dd></dl></p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Wrong hit policy</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
@@ -323,9 +381,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>Hit policy attribute Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.hitpolicy__12cqsva" >HitPolicy</a> property getter</p>
-<pre><code class="csharp">[XmlAttribute(&quot;hitPolicy&quot;)]
-public string HitPolicySrc { private get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<pre><code class="csharp">private string HitPolicySrc { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.inputs__1u48wwa" ></a>  DecisionTable.Inputs Property </h2>
@@ -334,9 +391,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49" >inputs</a></p>
-<pre><code class="csharp">[XmlElement(&quot;input&quot;)]
-public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput&gt; Inputs { get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput&gt; Inputs { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput&gt;</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.outputs__68bgpp" ></a>  DecisionTable.Outputs Property </h2>
@@ -345,9 +401,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput__63fwne" >outputs</a></p>
-<pre><code class="csharp">[XmlElement(&quot;output&quot;)]
-public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableOutput&gt; Outputs { get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableOutput&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableOutput&gt; Outputs { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableOutput&gt;</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.rules__1xxlmgi" ></a>  DecisionTable.Rules Property </h2>
@@ -356,9 +411,44 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisionrule__ug9ttn" >rules</a></p>
-<pre><code class="csharp">[XmlElement(&quot;rule&quot;)]
-public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt; Rules { get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt; Rules { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.getschema__u49m8r" ></a>  DecisionTable.GetSchema() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlschemaproviderattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlSchemaProviderAttribute</a> to the class.</p>
+<pre><code class="csharp">public XmlSchema GetSchema()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema" class="link-external" target="_blank" >System.Xml.Schema.XmlSchema</a></dt><dd>An <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema" class="link-external" target="_blank" >System.Xml.Schema.XmlSchema</a> that describes the XML representation of the object that is produced by the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.writexml#System_Xml_Serialization_IXmlSerializable_WriteXml_System_Xml_XmlWriter_" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)</a> method and consumed by the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.readxml#System_Xml_Serialization_IXmlSerializable_ReadXml_System_Xml_XmlReader_" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)</a> method.</dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.getschema#System_Xml_Serialization_IXmlSerializable_GetSchema" class="link-external" target="_blank" >Serialization.IXmlSerializable.GetSchema</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.readxml_system.xml.xmlreader___1kcmfxa" ></a>  DecisionTable.ReadXml(XmlReader) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Generates an object from its XML representation.</p>
+<pre><code class="csharp">public void ReadXml(XmlReader reader)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader" class="link-external" target="_blank" >System.Xml.XmlReader</a> <strong>reader</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader" class="link-external" target="_blank" >System.Xml.XmlReader</a> stream from which the object is deserialized.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.readxml#System_Xml_Serialization_IXmlSerializable_ReadXml_System_Xml_XmlReader_" class="link-external" target="_blank" >Serialization.IXmlSerializable.ReadXml</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.writexml_system.xml.xmlwriter___12g7mb" ></a>  DecisionTable.WriteXml(XmlWriter) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Converts an object into its XML representation.</p>
+<pre><code class="csharp">public void WriteXml(XmlWriter writer)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter" class="link-external" target="_blank" >System.Xml.XmlWriter</a> <strong>writer</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter" class="link-external" target="_blank" >System.Xml.XmlWriter</a> stream to which the object is serialized.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.writexml#System_Xml_Serialization_IXmlSerializable_WriteXml_System_Xml_XmlWriter_" class="link-external" target="_blank" >Serialization.IXmlSerializable.WriteXml</a></p>
+<h3>  Remarks </h3>
+<p>Not implemented - always throws <a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception" class="link-external" target="_blank" >System.NotImplementedException</a></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception" class="link-external" target="_blank" >System.NotImplementedException</a></dt><dd>Method not implemented and should not be used</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49" ></a>  DecisionTableInput Class </h2>
@@ -491,6 +581,84 @@ Sources: parser\dto\DecisionTableOutput.cs</small></p>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.namedelement.tostring__1txv1o1" >NamedElement.ToString()</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" ></a>  DecisionTableSerializable Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Decision table (de)serialization proxy implemented to support the private getters in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a></p>
+<pre><code class="csharp">[XmlRoot(&quot;decisionTable&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20151101/dmn.xsd&quot;)]
+public class DecisionTableSerializable</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlrootattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlRootAttribute</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.aggregation__gifa90" >Aggregation</a></td><td>public</td><td>Aggregation attribute for &quot;COLLECT&quot; hit policy Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.aggregation__gifa90" >Aggregation</a> property getter</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.hitpolicy__1b0m3m5" >HitPolicy</a></td><td>public</td><td>Hit policy attribute Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.hitpolicy__1b0m3m5" >HitPolicy</a> property getter</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.inputs__gn116p" >Inputs</a></td><td>public</td><td>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49" >inputs</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.outputs__1nwdb6c" >Outputs</a></td><td>public</td><td>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput__63fwne" >outputs</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.rules__rrkc2x" >Rules</a></td><td>public</td><td>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisionrule__ug9ttn" >rules</a></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.aggregation__gifa90" ></a>  DecisionTableSerializable.Aggregation Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" >DecisionTableSerializable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Aggregation attribute for &quot;COLLECT&quot; hit policy Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.aggregation__gifa90" >Aggregation</a> property getter</p>
+<pre><code class="csharp">[XmlAttribute(&quot;aggregation&quot;)]
+public string Aggregation { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Wrong hit policy aggregation</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.hitpolicy__1b0m3m5" ></a>  DecisionTableSerializable.HitPolicy Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" >DecisionTableSerializable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Hit policy attribute Used just by deserializer, translated within <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.hitpolicy__1b0m3m5" >HitPolicy</a> property getter</p>
+<pre><code class="csharp">[XmlAttribute(&quot;hitPolicy&quot;)]
+public string HitPolicy { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.inputs__gn116p" ></a>  DecisionTableSerializable.Inputs Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" >DecisionTableSerializable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49" >inputs</a></p>
+<pre><code class="csharp">[XmlElement(&quot;input&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput&gt; Inputs { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.outputs__1nwdb6c" ></a>  DecisionTableSerializable.Outputs Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" >DecisionTableSerializable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput__63fwne" >outputs</a></p>
+<pre><code class="csharp">[XmlElement(&quot;output&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableOutput&gt; Outputs { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableOutput&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable.rules__rrkc2x" ></a>  DecisionTableSerializable.Rules Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableserializable__a9v25k" >DecisionTableSerializable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>List of decision table <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisionrule__ug9ttn" >rules</a></p>
+<pre><code class="csharp">[XmlElement(&quot;rule&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt; Rules { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" ></a>  DmnModel Class </h2>
@@ -648,23 +816,41 @@ public override string ToString()</code></pre>
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
 <p>Defines the input or decision needed for the decision to be evaluated. The inputs are referenced by <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requiredinput__jq7sir" >RequiredInput</a> sub-element and decisions by <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requireddecision__12tqhtx" >RequiredDecision</a> one. Exactly one of the sub element must be present</p>
-<pre><code class="csharp">public class InformationRequirement</code></pre>
+<pre><code class="csharp">public class InformationRequirement : IXmlSerializable</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-</p>
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable</a></p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementserializableserializer__1eee3uo" >InformationRequirementSerializableSerializer</a></td><td>private static</td><td>Serializer used for the serialization proxy class</td></tr>
+</table>
+<p> </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.ref__1qmp3n1" >Ref</a></td><td>public</td><td>Gets the reference to ID of decision or input the decision depends to</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requireddecision__12tqhtx" >RequiredDecision</a></td><td>public</td><td>Reference to required decision</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requiredinput__jq7sir" >RequiredInput</a></td><td>public</td><td>Reference to required input</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requireddecision__12tqhtx" >RequiredDecision</a></td><td>private</td><td>Reference to required decision</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requiredinput__jq7sir" >RequiredInput</a></td><td>private</td><td>Reference to required input</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requirementtype__uq9quz" >RequirementType</a></td><td>public</td><td>Gets the type of dependency (requirement) - input of decision</td></tr>
 </table>
 <p> </p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.getschema__gotc92" >GetSchema()</a></td><td>public</td><td>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlschemaproviderattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlSchemaProviderAttribute</a> to the class.</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.parseref_system.string___19xmaoq" >ParseRef(string)</a></td><td>private static</td><td>Parses the reference attribute - get&#39;s the ID of the required decision/input from href attribute by removing the &quot;#&quot; prefix.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.readxml_system.xml.xmlreader___u6p23z" >ReadXml(XmlReader)</a></td><td>public</td><td>Generates an object from its XML representation.</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.tostring__55kkp7" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.writexml_system.xml.xmlwriter___1y9a01y" >WriteXml(XmlWriter)</a></td><td>public</td><td>Converts an object into its XML representation.</td></tr>
 </table>
 <p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementserializableserializer__1eee3uo" ></a>  InformationRequirement.InformationRequirementSerializableSerializer Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Serializer used for the serialization proxy class</p>
+<pre><code class="csharp">private static readonly XmlSerializer InformationRequirementSerializableSerializer</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.ref__1qmp3n1" ></a>  InformationRequirement.Ref Property </h2>
@@ -673,9 +859,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
 <p>Gets the reference to ID of decision or input the decision depends to</p>
-<pre><code class="csharp">[XmlIgnore]
-public string Ref { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlignoreattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlIgnoreAttribute</a></p>
+<pre><code class="csharp">public string Ref { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requireddecision__12tqhtx" ></a>  InformationRequirement.RequiredDecision Property </h2>
@@ -684,9 +869,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
 <p>Reference to required decision</p>
-<pre><code class="csharp">[XmlElement(&quot;requiredDecision&quot;)]
-public InformationRequirement.InformationRequirementItem RequiredDecision { private get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirement.InformationRequirementItem</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<pre><code class="csharp">private InformationRequirement.InformationRequirementItem RequiredDecision { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirement.InformationRequirementItem</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requiredinput__jq7sir" ></a>  InformationRequirement.RequiredInput Property </h2>
@@ -695,9 +879,8 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
 <p>Reference to required input</p>
-<pre><code class="csharp">[XmlElement(&quot;requiredInput&quot;)]
-public InformationRequirement.InformationRequirementItem RequiredInput { private get; set; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirement.InformationRequirementItem</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<pre><code class="csharp">private InformationRequirement.InformationRequirementItem RequiredInput { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirement.InformationRequirementItem</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.requirementtype__uq9quz" ></a>  InformationRequirement.RequirementType Property </h2>
@@ -706,11 +889,20 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
 <p>Gets the type of dependency (requirement) - input of decision</p>
-<pre><code class="csharp">[XmlIgnore]
-public InformationRequirementType RequirementType { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementtype__f6e7u6" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirementType</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlignoreattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlIgnoreAttribute</a></p>
+<pre><code class="csharp">public InformationRequirementType RequirementType { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementtype__f6e7u6" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirementType</a></dt><dd></dd></dl></p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>informationRequirement element doesn&#39;t contain requiredDecision nor requiredInput elements or contains both</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.getschema__gotc92" ></a>  InformationRequirement.GetSchema() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlschemaproviderattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlSchemaProviderAttribute</a> to the class.</p>
+<pre><code class="csharp">public XmlSchema GetSchema()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema" class="link-external" target="_blank" >System.Xml.Schema.XmlSchema</a></dt><dd>An <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.schema.xmlschema" class="link-external" target="_blank" >System.Xml.Schema.XmlSchema</a> that describes the XML representation of the object that is produced by the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.writexml#System_Xml_Serialization_IXmlSerializable_WriteXml_System_Xml_XmlWriter_" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)</a> method and consumed by the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.readxml#System_Xml_Serialization_IXmlSerializable_ReadXml_System_Xml_XmlReader_" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)</a> method.</dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.getschema#System_Xml_Serialization_IXmlSerializable_GetSchema" class="link-external" target="_blank" >Serialization.IXmlSerializable.GetSchema</a></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.parseref_system.string___19xmaoq" ></a>  InformationRequirement.ParseRef(string) Method </h2>
@@ -726,6 +918,17 @@ Sources: parser\dto\InformationRequirement.cs</small></p>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse InformationRequirement - reference is null or empty</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse InformationRequirement - reference doesn&#39;t start with #</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse InformationRequirement - reference too short/missing</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.readxml_system.xml.xmlreader___u6p23z" ></a>  InformationRequirement.ReadXml(XmlReader) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Generates an object from its XML representation.</p>
+<pre><code class="csharp">public void ReadXml(XmlReader reader)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader" class="link-external" target="_blank" >System.Xml.XmlReader</a> <strong>reader</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlreader" class="link-external" target="_blank" >System.Xml.XmlReader</a> stream from which the object is deserialized.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.readxml#System_Xml_Serialization_IXmlSerializable_ReadXml_System_Xml_XmlReader_" class="link-external" target="_blank" >Serialization.IXmlSerializable.ReadXml</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.tostring__55kkp7" ></a>  InformationRequirement.ToString() Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
@@ -735,6 +938,21 @@ Sources: parser\dto\InformationRequirement.cs</small></p>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.writexml_system.xml.xmlwriter___1y9a01y" ></a>  InformationRequirement.WriteXml(XmlWriter) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Converts an object into its XML representation.</p>
+<pre><code class="csharp">public void WriteXml(XmlWriter writer)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter" class="link-external" target="_blank" >System.Xml.XmlWriter</a> <strong>writer</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter" class="link-external" target="_blank" >System.Xml.XmlWriter</a> stream to which the object is serialized.</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable.writexml#System_Xml_Serialization_IXmlSerializable_WriteXml_System_Xml_XmlWriter_" class="link-external" target="_blank" >Serialization.IXmlSerializable.WriteXml</a></p>
+<h3>  Remarks </h3>
+<p>Not implemented - always throws <a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception" class="link-external" target="_blank" >System.NotImplementedException</a></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception" class="link-external" target="_blank" >System.NotImplementedException</a></dt><dd>Method not implemented and should not be used</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" ></a>  InformationRequirement.InformationRequirementItem Class </h2>
@@ -761,6 +979,46 @@ Sources: parser\dto\InformationRequirement.cs</small></p>
 <pre><code class="csharp">[XmlAttribute(&quot;href&quot;)]
 public string Ref { get; set; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable__isg04z" ></a>  InformationRequirementSerializable Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Information Requirement (de)serialization proxy implemented to support the private getters in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a></p>
+<pre><code class="csharp">[XmlRoot(&quot;informationRequirement&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20151101/dmn.xsd&quot;)]
+public class InformationRequirementSerializable</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlrootattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlRootAttribute</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable.requireddecision__19vhq2a" >RequiredDecision</a></td><td>public</td><td>Reference to required decision</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable.requiredinput__1qud5bc" >RequiredInput</a></td><td>public</td><td>Reference to required input</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable.requireddecision__19vhq2a" ></a>  InformationRequirementSerializable.RequiredDecision Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable__isg04z" >InformationRequirementSerializable</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Reference to required decision</p>
+<pre><code class="csharp">[XmlElement(&quot;requiredDecision&quot;)]
+public InformationRequirement.InformationRequirementItem RequiredDecision { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirement.InformationRequirementItem</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable.requiredinput__1qud5bc" ></a>  InformationRequirementSerializable.RequiredInput Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirementserializable__isg04z" >InformationRequirementSerializable</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Reference to required input</p>
+<pre><code class="csharp">[XmlElement(&quot;requiredInput&quot;)]
+public InformationRequirement.InformationRequirementItem RequiredInput { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementitem__1gbx84m" >net.adamec.lib.common.dmn.engine.parser.dto.InformationRequirement.InformationRequirementItem</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.inputdata__jk22hv" ></a>  InputData Class </h2>

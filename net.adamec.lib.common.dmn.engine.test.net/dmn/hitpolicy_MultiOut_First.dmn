@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="definitions_0dzwbfg" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="First">
+    <extensionElements>
+      <biodi:bounds x="321" y="214" width="180" height="80" />
+      <biodi:edge source="InputData_1do7r1m">
+        <biodi:waypoints x="287" y="131" />
+        <biodi:waypoints x="432" y="214" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0drys3o">
+        <biodi:waypoints x="552" y="131" />
+        <biodi:waypoints x="454" y="214" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1do7r1m" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_0drys3o" />
+    </informationRequirement>
+    <decisionTable hitPolicy="FIRST">
+      <input id="InputClause_0rsadll" label="a">
+        <inputExpression id="LiteralExpression_0xuzx6o" typeRef="integer" />
+      </input>
+      <input id="InputClause_02drmur" label="b">
+        <inputExpression id="LiteralExpression_068q4tu" typeRef="integer" />
+      </input>
+      <output id="output_1" label="o1" typeRef="string" />
+      <output id="OutputClause_17ufk9w" label="o2" typeRef="integer" />
+      <rule id="row-816543858-1">
+        <inputEntry id="UnaryTests_1f4xh3r">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ck3udn">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01nvkij">
+          <text><![CDATA["double one"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ih6k8c">
+          <text>11</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-2">
+        <description></description>
+        <inputEntry id="UnaryTests_1gpvt67">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a0hy7s">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07o8mix">
+          <text><![CDATA["b2"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ys286k">
+          <text>a+b</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-3">
+        <inputEntry id="UnaryTests_154kvlx">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sk8yc8">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l2g7a4">
+          <text><![CDATA["13"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06wvvxg">
+          <text>13</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-4">
+        <description>no o2</description>
+        <inputEntry id="UnaryTests_1kjpfhe">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036lxav">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_103tlz9">
+          <text><![CDATA["54"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1k1vxk2">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-5">
+        <description>no o1</description>
+        <inputEntry id="UnaryTests_0m3irnu">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xincs7">
+          <text>5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r9iilo">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0gpub3j">
+          <text>45</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-1">
+        <description>no o1, o2</description>
+        <inputEntry id="UnaryTests_1w9lvmq">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12sebnn">
+          <text>5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ottnim">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v3flyc">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-2">
+        <description>no hit -/2 is hit first</description>
+        <inputEntry id="UnaryTests_1cuhwmq">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gg0twg">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e34ggc">
+          <text><![CDATA["52"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w15sm8">
+          <text>52</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1do7r1m" name="a">
+    <extensionElements>
+      <biodi:bounds x="209" y="86" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0drys3o" name="b">
+    <extensionElements>
+      <biodi:bounds x="502" y="86" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>
