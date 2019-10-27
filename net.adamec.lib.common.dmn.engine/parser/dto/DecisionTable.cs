@@ -1,27 +1,31 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace net.adamec.lib.common.dmn.engine.parser.dto
 {
-    /// <inheritdoc />
     /// <summary>
     /// Decision table definition
     /// </summary>
-    public class DecisionTable : IdedElement
+    public class DecisionTable : IdedElement, IXmlSerializable
     {
+        /// <summary>
+        /// Serializer used for the serialization proxy class
+        /// </summary>
+        private static readonly XmlSerializer DecisionTableSerializableSerializer = new XmlSerializer(typeof(DecisionTableSerializable));
+
         /// <summary>
         /// Hit policy attribute
         /// Used just by deserializer, translated within <see cref="HitPolicy"/> property getter
         /// </summary>
-        [XmlAttribute("hitPolicy")]
-        public string HitPolicySrc { private get;  set; }
+        private string HitPolicySrc { get; set; }
 
         /// <summary>
         /// <see cref="HitPolicyEnum">Hit policy</see> defined for decision table
         /// If not defined, <see cref="HitPolicyEnum.Unique"/> is used as default
         /// </summary>
         ///<exception cref="DmnParserException">Wrong hit policy</exception>
-        [XmlIgnore]
         public HitPolicyEnum HitPolicy
         {
             get
@@ -48,15 +52,13 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// Used just by deserializer, translated within <see cref="Aggregation"/> property getter
         /// </summary>
         ///<exception cref="DmnParserException">Wrong hit policy aggregation</exception>
-        [XmlAttribute("aggregation")]
-        public string AggregationSrc { private get; set; }
+        private string AggregationSrc { get; set; }
 
         /// <summary>
         /// <see cref="CollectHitPolicyAggregationEnum">Aggregation</see> defined for "COLLECT" hit policy
         /// If not defined, <see cref="CollectHitPolicyAggregationEnum.List"/> is used as default
         /// </summary>
         /// <exception cref="DmnParserException">Wrong hit policy aggregation</exception>
-        [XmlIgnore]
         public CollectHitPolicyAggregationEnum Aggregation
         {
             get
@@ -78,6 +80,73 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         /// <summary>
         /// List of decision table <see cref="DecisionTableInput">inputs</see>
         /// </summary>
+        public List<DecisionTableInput> Inputs { get; set; }
+
+        /// <summary>
+        /// List of decision table <see cref="DecisionTableOutput">outputs</see>
+        /// </summary>
+        public List<DecisionTableOutput> Outputs { get; set; }
+
+        /// <summary>
+        /// List of decision table <see cref="DecisionRule">rules</see>
+        /// </summary>
+        public List<DecisionRule> Rules { get; set; }
+
+        /// <summary>This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null (Nothing in Visual Basic) from this method, and instead, if specifying a custom schema is required, apply the <see cref="T:System.Xml.Serialization.XmlSchemaProviderAttribute"></see> to the class.</summary>
+        /// <returns>An <see cref="T:System.Xml.Schema.XmlSchema"></see> that describes the XML representation of the object that is produced by the <see cref="M:System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)"></see> method and consumed by the <see cref="M:System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)"></see> method.</returns>
+        public XmlSchema GetSchema()
+        {
+            return null;
+        }
+
+        /// <summary>Generates an object from its XML representation.</summary>
+        /// <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> stream from which the object is deserialized.</param>
+        public void ReadXml(XmlReader reader)
+        {
+            var r = reader.ReadSubtree();
+            var proxy = (DecisionTableSerializable)DecisionTableSerializableSerializer.Deserialize(r);
+            Inputs = proxy.Inputs;
+            AggregationSrc = proxy.Aggregation;
+            HitPolicySrc = proxy.HitPolicy;
+            Outputs = proxy.Outputs;
+            Rules = proxy.Rules;
+            reader.ReadEndElement();
+        }
+
+        /// <summary>Converts an object into its XML representation.</summary>
+        /// <remarks>Not implemented - always throws <see cref="System.NotImplementedException"/> </remarks>
+        /// <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> stream to which the object is serialized.</param>
+        /// <exception cref="System.NotImplementedException">Method not implemented and should not be used</exception>
+        public void WriteXml(XmlWriter writer)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    /// <summary>
+    /// Decision table (de)serialization proxy implemented to support the private getters in <see cref="DecisionTable"/>
+    /// </summary>
+    [XmlRoot("decisionTable", Namespace = "http://www.omg.org/spec/DMN/20151101/dmn.xsd")]
+    public class DecisionTableSerializable
+    {
+        /// <summary>
+        /// Hit policy attribute
+        /// Used just by deserializer, translated within <see cref="HitPolicy"/> property getter
+        /// </summary>
+        [XmlAttribute("hitPolicy")]
+        public string HitPolicy { get; set; }
+
+        /// <summary>
+        /// Aggregation attribute for "COLLECT" hit policy
+        /// Used just by deserializer, translated within <see cref="Aggregation"/> property getter
+        /// </summary>
+        ///<exception cref="DmnParserException">Wrong hit policy aggregation</exception>
+        [XmlAttribute("aggregation")]
+        public string Aggregation { get; set; }
+
+        /// <summary>
+        /// List of decision table <see cref="DecisionTableInput">inputs</see>
+        /// </summary>
         [XmlElement("input")]
         public List<DecisionTableInput> Inputs { get; set; }
 
@@ -93,4 +162,5 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         [XmlElement("rule")]
         public List<DecisionRule> Rules { get; set; }
     }
+
 }

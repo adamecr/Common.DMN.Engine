@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Xml;
-using net.adamec.lib.common.logging;
+using net.adamec.lib.common.core.logging;
 
 namespace net.adamec.lib.common.dmn.engine.parser
 {
@@ -11,7 +11,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
     /// </summary>
     public class SfeelParser
     {
-        internal static ILogger Logger = CommonLogging.CreateLogger<SfeelParser>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<SfeelParser>();
 
         /// <summary>
         /// Custom functions to be  used in DynamoExpression for S-FEEL functions

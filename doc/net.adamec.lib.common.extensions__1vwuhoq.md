@@ -18,8 +18,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 ##  <a id="t-net.adamec.lib.common.extensions.typeextensions__63ezc8" />  TypeExtensions Class ##
 <small>Namespace: [net.adamec.lib.common.extensions](net.adamec.lib.common.extensions__1vwuhoq.md#n-net.adamec.lib.common.extensions__1vwuhoq)           
 Assembly: net.adamec.lib.common.dmn.engine           
-Sources: ny\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
-Source-only packages: [RadCommons.extensions.TypeExtensions.DefaultValue](src-only-packages--.html#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue)</small>
+Sources: App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
+Source-only packages: [RadCommons.extensions.TypeExtensions.DefaultValue](src-only-packages--.md#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue)</small>
 
 
 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> extensions
@@ -53,8 +53,8 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
 <small>Namespace: [net.adamec.lib.common.extensions](net.adamec.lib.common.extensions__1vwuhoq.md#n-net.adamec.lib.common.extensions__1vwuhoq)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [TypeExtensions](net.adamec.lib.common.extensions__1vwuhoq.md#t-net.adamec.lib.common.extensions.typeextensions__63ezc8)           
-Sources: ny\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
-Source-only packages: [RadCommons.extensions.TypeExtensions.DefaultValue](src-only-packages--.html#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue)</small>
+Sources: App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs           
+Source-only packages: [RadCommons.extensions.TypeExtensions.DefaultValue](src-only-packages--.md#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue)</small>
 
 
 Gets the default value of given <strong>type</strong>

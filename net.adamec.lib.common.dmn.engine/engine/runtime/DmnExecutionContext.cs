@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using DynamicExpresso;
+using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.parser;
 using net.adamec.lib.common.extensions;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.runtime
 {
@@ -18,7 +18,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <summary>
         /// Logger
         /// </summary>
-        internal static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
+        protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
 
         /// <summary>
         /// Parsed (pre-processed) expressions cache

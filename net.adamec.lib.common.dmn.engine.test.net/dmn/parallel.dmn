@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="definitions_1y35ruv" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="sfeel">
+    <extensionElements>
+      <biodi:bounds x="220" y="200" width="180" height="80" />
+      <biodi:edge source="InputData_1wc2pj0">
+        <biodi:waypoints x="196" y="111" />
+        <biodi:waypoints x="295" y="200" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0uvuu0h">
+        <biodi:waypoints x="331" y="111" />
+        <biodi:waypoints x="325" y="200" />
+      </biodi:edge>
+      <biodi:edge source="InputData_00stedd">
+        <biodi:waypoints x="492" y="114" />
+        <biodi:waypoints x="400" y="207" />
+      </biodi:edge>
+      <biodi:edge source="Decision_1b3xt5h">
+        <biodi:waypoints x="159" y="247" />
+        <biodi:waypoints x="220" y="243" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_0uvuu0h" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_00stedd" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#Decision_1b3xt5h" />
+    </informationRequirement>
+    <decisionTable>
+      <input id="InputClause_1bdx79h" label="num">
+        <inputExpression id="LiteralExpression_1surltt" typeRef="integer" />
+      </input>
+      <input id="InputClause_0mk8nnc" label="str">
+        <inputExpression id="LiteralExpression_0de7idf" typeRef="string" />
+      </input>
+      <input id="InputClause_0z1r7bx" label="dt">
+        <inputExpression id="LiteralExpression_1jfy6uf" typeRef="date" />
+      </input>
+      <output id="output_1" label="o" typeRef="string" />
+      <output id="OutputClause_0y8jvay" label="numout" typeRef="integer" />
+      <output id="OutputClause_10nonho" label="numinout" typeRef="integer" />
+      <rule id="row-200213824-2">
+        <inputEntry id="UnaryTests_13uob2n">
+          <text>6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nsw2hq">
+          <text><![CDATA["a","aa","aaa"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10mqffx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qemi2m">
+          <text><![CDATA["6"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1etuvt8">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_182ykbq">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-3">
+        <inputEntry id="UnaryTests_0rc4t1y">
+          <text><![CDATA[< 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ij00mq">
+          <text><![CDATA["b"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17kx1si">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10yxjkf">
+          <text><![CDATA["<5"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1eusjan">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01s2pcl">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-4">
+        <inputEntry id="UnaryTests_01blnqy">
+          <text><![CDATA[<= 4]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p6vngm">
+          <text><![CDATA["c"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nrxk46">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tyx3fg">
+          <text><![CDATA["<=4"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00uu5qg">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ntk3c7">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-5">
+        <inputEntry id="UnaryTests_0ee8for">
+          <text><![CDATA[> 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yg984z">
+          <text><![CDATA["d"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m1j4ix">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cganbq">
+          <text><![CDATA[">5"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1oaojia">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0pj2bek">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-6">
+        <inputEntry id="UnaryTests_1os89hr">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qt8zih">
+          <text><![CDATA["e"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p4z8mo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ve5613">
+          <text><![CDATA[">=7"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_078fpdk">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07h54ap">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-7">
+        <inputEntry id="UnaryTests_1v2ovbn">
+          <text>[2..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zpxrgy">
+          <text><![CDATA["f"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mnmujb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04ko019">
+          <text><![CDATA["[2..5]"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nll2az">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w2hjpb">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-8">
+        <inputEntry id="UnaryTests_03m5j6c">
+          <text>[2..5[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wimu7b">
+          <text><![CDATA["g"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u03vs2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o0p1y7">
+          <text><![CDATA["[2..5["]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1j17z1a">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vngqi7">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-9">
+        <inputEntry id="UnaryTests_1wbbe9j">
+          <text>[2..5)</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0smjghg">
+          <text><![CDATA["h"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_015j9yg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u3zy4u">
+          <text><![CDATA["[2..5)"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v0not3">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10vki0p">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-10">
+        <inputEntry id="UnaryTests_0h0ry6t">
+          <text>]2..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x1oyib">
+          <text><![CDATA["i"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_131jkxd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cg43mz">
+          <text><![CDATA["]2..5]"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cfx8nh">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0b57nn8">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-11">
+        <inputEntry id="UnaryTests_14w6ro2">
+          <text>]2..5[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1njekgj">
+          <text><![CDATA["j"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y98atd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01ghiqk">
+          <text><![CDATA["]2..5["]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bigih1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05u25w9">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-12">
+        <inputEntry id="UnaryTests_032a0o3">
+          <text>]2..5)</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12bd63r">
+          <text><![CDATA["k"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jxi906">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nmp1uo">
+          <text><![CDATA["]2..5)"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0duc6qm">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0r9udv4">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-13">
+        <inputEntry id="UnaryTests_12rirl1">
+          <text>(2..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0atmnro">
+          <text><![CDATA["l"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19w1doo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e3sbit">
+          <text><![CDATA["(2..5]"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17rn5nk">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lss1im">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-14">
+        <inputEntry id="UnaryTests_07jq9sh">
+          <text>(2..5[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kqy3eh">
+          <text><![CDATA["m"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q2h2fh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0eeg22a">
+          <text><![CDATA["(2..5["]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_011t0uu">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0hyxujr">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-15">
+        <inputEntry id="UnaryTests_0m4wmzo">
+          <text>(2..5)</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06x6kxl">
+          <text><![CDATA["n"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f0grgc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x47xm0">
+          <text><![CDATA["(2..5)"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p9poqp">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10oktsb">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-16">
+        <inputEntry id="UnaryTests_0zh0n7j">
+          <text>not(6)</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_004y8db">
+          <text><![CDATA["o"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qleb0r">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qcgtkr">
+          <text><![CDATA["not(6)"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dbi67c">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1p7uyae">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-17">
+        <inputEntry id="UnaryTests_1utgmm3">
+          <text><![CDATA[not(<=5)]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05brh0o">
+          <text><![CDATA["p"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ydmws6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q9wlil">
+          <text><![CDATA["not(<=5)"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01kv1w7">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_006660r">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-18">
+        <inputEntry id="UnaryTests_0cj4c6t">
+          <text><![CDATA[not(>4)]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tto2gc">
+          <text><![CDATA["q"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08vhttt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vzxepg">
+          <text><![CDATA["not(>4)"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1suz659">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x132h4">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-19">
+        <inputEntry id="UnaryTests_1apbyjd">
+          <text>not([2..5])</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lset3e">
+          <text><![CDATA["r"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12pzuan">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mqdemd">
+          <text><![CDATA["not([2..5])"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rl5toq">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1dttq85">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-20">
+        <inputEntry id="UnaryTests_0fuotnz">
+          <text>not((2..5))</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dt3iem">
+          <text><![CDATA["s"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hzi8ar">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04wv8qk">
+          <text><![CDATA["not((2..5))"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l2p38p">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w0g4vh">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-24">
+        <inputEntry id="UnaryTests_00spn66">
+          <text>-10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00xxqf0">
+          <text><![CDATA[not("b","c","q","o","r","s","v")]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q5olfu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0inzasm">
+          <text><![CDATA["1"]]></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0jx42v1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_016s6cs">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-200213824-29">
+        <inputEntry id="UnaryTests_14yhtk9">
+          <text><![CDATA[<0]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eutwr0">
+          <text><![CDATA[not("b","c","q","o","r","s","v")]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rw8vg7">
+          <text><![CDATA[>date(str)]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13x0slc">
+          <text>str</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bsws98">
+          <text>num*2</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0hkz7lt">
+          <text>numin</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1wc2pj0" name="numin">
+    <extensionElements>
+      <biodi:bounds x="109" y="66" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0uvuu0h" name="str">
+    <extensionElements>
+      <biodi:bounds x="269" y="66" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_00stedd" name="dt">
+    <extensionElements>
+      <biodi:bounds x="451" y="69" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <decision id="Decision_1b3xt5h" name="numin*2 to num">
+    <extensionElements>
+      <biodi:bounds x="-21" y="214" width="180" height="80" />
+      <biodi:edge source="InputData_1wc2pj0">
+        <biodi:waypoints x="196" y="111" />
+        <biodi:waypoints x="83" y="214" />
+      </biodi:edge>
+    </extensionElements>
+    <variable id="InformationItem_1xcmv3f" name="num" typeRef="integer" />
+    <informationRequirement>
+      <requiredInput href="#InputData_1wc2pj0" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_075mvwc">
+      <text>numin*2</text>
+    </literalExpression>
+  </decision>
+</definitions>

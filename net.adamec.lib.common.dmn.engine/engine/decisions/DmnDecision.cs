@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions
 {
@@ -14,7 +14,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <summary>
         /// Logger
         /// </summary>
-        internal ILogger Logger { get; }
+        protected ILogger Logger { get; }
 
         /// <summary>
         /// Decision unique name
