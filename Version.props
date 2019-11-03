@@ -9,7 +9,7 @@
   <PropertyGroup>
     <RadMajor>0</RadMajor>
     <RadMinor>1</RadMinor>
-    <RadPatch>1</RadPatch>
+    <RadPatch>2</RadPatch>
     <RadBuild>77</RadBuild>
     <PackageVersionShort>0.1.1</PackageVersionShort>
     <PackageVersionFull>0.1.1+77.191103103154.release.9fb9ff5</PackageVersionFull>
