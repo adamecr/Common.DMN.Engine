@@ -24,7 +24,7 @@ The library uses the customized MS Build process in projects `build` and `build.
 Details about the build process are described in [build documentation](build/readme.md).
 
 ### Tests ###
-Tests are implemented using [MS Test Framework](https://github.com/microsoft/testfx) and provides also bunch of sample models that can help together with the test code help to better understand how the DMN Engine works and is to be used. 
+Tests are implemented using [MS Test Framework](https://github.com/microsoft/testfx) and provide also bunch of sample models that can help together with the test code to better understand how the DMN Engine works and is to be used. 
 
 Note: adjust the `LogHome` variable in `nlog.config` of test project as you need.
 
@@ -37,7 +37,7 @@ The DMN Model is actually set of inputs (parameters) and decisions.
 
 ![DMN digram](doc/img/dmn_diagram.png)
 
-The DMN Model XML is parsed (deserialized) using the `DmnParser.Parse` method getting the `fileName` as input parameter and returning the `DmnModel` (deserialized XML) based on such decisions model XML definition. The DmnParser contains just a very simple logic, as its intention is just to deserialize the XML.
+The DMN Model XML is parsed (deserialized) using the `DmnParser.Parse` method getting the `fileName` as input parameter and returning the `DmnModel` (deserialized XML) based on such decisions model XML definition. The DmnParser contains a very simple logic only, as its intention is just to deserialize the XML.
 ```csharp
 def = DmnParser.Parse(fileName);
 ```
@@ -56,7 +56,7 @@ var ctx = DmnExecutionContextFactory.CreateExecutionContext(DmnParser.Parse(file
 ### Inputs ###
 ![DMN digram](doc/img/dmn_input.png) Input represents an external data entering the Engine while evaluating the decision. You can think about it as it's the parameter of the decision to be made.
 
-The input is defined in XML file using the `inputData` element and recognized by it's unique name taken from `name` attribute (or from `id` attribute when the `name` attribute is missing. The `id` attribute is mandatory). 
+The input is defined in XML file using the `inputData` element and recognized by its unique name taken from `name` attribute (or from `id` attribute when the `name` attribute is missing. The `id` attribute is mandatory). 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -75,7 +75,7 @@ ctx.WithInputParameter("input name", inputValue);
 *Note: Inputs by default don't define the data type. The parser tries to recognize the type when "back-tracking" the dependency tree from Decision Table inputs that can define the data type.*
 
 ### Decisions ###
-![DMN digram](doc/img/dmn_decision.png) Decision represent an entity the Engine can evaluate and provide the required output(s).
+![DMN digram](doc/img/dmn_decision.png) Decision represents an entity the Engine can evaluate and provide the required output(s).
 
 The decision is defined in XML file using the `decision` element and recognized by its unique name taken from `name` attribute (or from `id` attribute when the `name` attribute is missing. The `id` attribute is mandatory). 
 
@@ -100,7 +100,7 @@ When the model is parsed, the parser builds the dependency tree based on the inf
 ![DMN digram](doc/img/dmn_dependency.png)
 
 The dependency is stored in XML within the `informationRequirement` element that can be `requiredInput` or `requiredDecision`. Both types must have the `href` attribute referencing the proper input or decision by their id (with "#" prefix). 
-*Note: Exactly one of the sub elements (`informationRequirement` or `requiredInput`) must be present within the `informationRequirement` element.*
+*Note: Exactly one of the sub elements (`requiredDecision` or `requiredInput`) must be present within the `informationRequirement` element.*
 ```xml
 <decision id="mainDt" name="MainDT">
     <informationRequirement>
@@ -125,9 +125,9 @@ The Engine checks for the decision dependencies and when any decision needs to b
 *Note: The Engine doesn't check for the circular dependencies, so the execution of model will fail with `StackOverflowException` in such cases.*
 
 ## Variables in Decision Model ##
-As mentioned above, the inputs are one kind of variables existing in the Engine context. The variables allow sharing the data between the model elements. When the decision is evaluated, it get some information at the input and produce the outputs. The outputs are also stored into the variables, so they can be used as inputs for another decisions.
+As mentioned above, the inputs are one kind of variables existing in the Engine context. The variables allow sharing the data between the model elements. When the decision is evaluated, it gets some information at the input and produces the outputs. The outputs are also stored into the variables, so they can be used as inputs for another decisions.
 
-The Engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) interpreter and the full set of variables is provided to the interpreter while evaluating any of the expressions within the Engine, so they can be recognized in expressions.*Note: Technically, the variables are provided as parameters, so it's possible to parse the expression once and invoke it with the real values when needed - DMN Engine implements the parsed expression cache.*
+The Engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) interpreter and the full set of variables is provided to the interpreter while evaluating any of the expressions within the Engine, so they can be recognized in expressions.*Note: Technically, the variables are provided as parameters, so it's possible to parse the expression once and invoke it with the real values when needed - DMN Engine implements the parsed expressions cache.*
 
 ```csharp
 var parameters = new List<Parameter>();
@@ -148,9 +148,9 @@ var result = parsedExpression.Invoke(parameters.ToArray());
 The Engine context keeps the list of variables as triplets:
 - `Name` - name of the variable that is used as a reference as well as the name of the variable for the expression interpreter. The variable names are "normalized" (`name.Trim().Replace(' ', '_')`), so it might cause the un-intentional duplicity if not taken into the consideration 
 - `Type` - the variable values are stored within the Engine context as `object`, however, it provides some support for the data types. It's possible to define the data type in some parts of model - output variable for the expression decision, inputs and outputs for decision tables. The parser sets the type of variable at the first place where known and then checks that the data type is the same if set somwhere else. When the variable value is set and the type is known, the Engine tries to cast (`Convert.ChangeType(value, Type)`) the value to required type. 
-- `Value` - current value of the variable. When provided to the expression interpreter, the value type (non-nullable) variables are set to default value of the value type when the current value stores within the context is null
+- `Value` - current value of the variable. When provided to the expression interpreter, the value type (non-nullable) variables are set to default value of the value type when the current value stored within the context is null
 
-When the data type is defined in DMN model (attribute `typeRef`), the parser maps them to the .NET types using the function below
+When the data type is defined in DMN model (attribute `typeRef`), the parser maps the types to the .NET types using the function below
 ```csharp
 private static Type ParseTypeName(string typeName)
 {
@@ -172,7 +172,7 @@ For example, let's have following model
 
 ![DMN digram](doc/img/dmn_complexObjects.png)
 
-Input parameter dyna is complex object
+Input parameter `dyna` is complex object
 ```csharp
 var dyna = new { Name = "name", IsOk = true, Direct="some value" };
 ctx.WithInputParameter("dyna", dyna);
@@ -283,7 +283,7 @@ The decision table in the example above will have following inputs in the XML de
 </decisionTable>
 ```
 
-As you can see, if there is no value in `text` element of the `inputExpression`, the table input is *variable input* mapped to the variable with name defined in `label` attribute of `input` element. It the `label` attribute is missing the `id` attribute will be used instead to get the name of the input variable.
+As you can see, if there is no value in `text` element of the `inputExpression`, the table input is *variable input* mapped to the variable with name defined in `label` attribute of `input` element. If the `label` attribute is missing, the `id` attribute will be used instead to get the name of the input variable.
 
 Whenever the `text` element of the `inputExpression` is not empty, the table input is *expression input* and the expression within the `text` element will be evaluated as described above.
 
@@ -295,7 +295,7 @@ The decision table in the example above will have following outputs in the XML d
   <output id="output_2" label="amount" typeRef="integer" />
 </decisionTable>
 ```
-The output definition XML is quite simple it just define the name of the output variable within the attribute `label` (or `id` if `label` is missing) and the required variable data type in the attribute `typeRef`
+The output definition XML is quite simple, it just defines the name of the output variable within the attribute `label` (or `id` if `label` is missing) and the required variable data type in the attribute `typeRef`
 
 ### Rules in XML ###
 The decision table in the example above will have following rules in the XML definition
@@ -381,7 +381,7 @@ Following single-hit policies are supported
 Following multiple-hit policies are supported
 - **Collect** - Multiple rules can be satisfied.
 	- If there is not aggregator or aggregator is `LIST`, the decision table result contains the output of all satisfied rules in an arbitrary order as a list.
-	- If the Collect hit policy is used with an aggregator (other than `List`), the decision table can only have one output.The aggregator will generate the output entry from all satisfied rules.
+	- If the Collect hit policy is used with an aggregator (other than `List`), the decision table can only have single output.The aggregator will generate the output entry from all satisfied rules.
 	- Except for C-count and C-list, the rules must have numeric or boolean output values.
 	- COUNT aggregator for string stores the counted value (number) as a string into the output variable
 	- Boolean output values are valid for SUM, MIN and MAX aggregator
