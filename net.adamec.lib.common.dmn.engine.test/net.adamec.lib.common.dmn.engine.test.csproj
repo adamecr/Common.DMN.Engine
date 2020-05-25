@@ -32,6 +32,9 @@
     <None Update="dmn\datatypes_err.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="dmn\date_between_expression.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="dmn\dynamictypes.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

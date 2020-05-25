@@ -102,6 +102,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             if (inputDataById == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(inputDataById)} is null");
             if (source.InputData == null || source.InputData.Count == 0) return;//it's not common, but OK to have no input data
 
+            var inputExpressionTypeByNames = source.Decisions?.Where(d => d.DecisionTable?.Inputs != null).SelectMany(d => d.DecisionTable?.Inputs)?
+                .ToDictionary(i => string.IsNullOrEmpty(i.InputExpression?.Text) ? i.Label : i.InputExpression.Text, i => i.InputExpression?.TypeRef) ?? new Dictionary<string, string>();
+
             //TODO    ?Input name in form varName:varType for (complex) input types
             //TODO ?Required input parameters check for null??
             foreach (var sourceInput in source.InputData)
@@ -114,6 +117,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                     throw Logger.Fatal<DmnParserException>($"Duplicate input data name {variableName} (from {inputName})");
 
                 var variable = new DmnVariableDefinition(variableName) { IsInputParameter = true, HasValueSetter = true };
+
+                // try to evaluate variable type from expression type
+                if(inputExpressionTypeByNames.TryGetValue(variableName, out var expressionType))
+                    CheckAndUpdateVariableType(variable, expressionType);
+
                 variable.ValueSetters.Add($"Input: {inputName}");
                 InputData.Add(variableName, variable);
                 Variables.Add(variableName, variable);

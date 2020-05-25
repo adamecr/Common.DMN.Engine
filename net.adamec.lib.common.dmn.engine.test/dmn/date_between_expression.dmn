@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_0szzjs7" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.2">
+  <decision id="Decision_0td19xn" name="date_between_decision">
+    <extensionElements>
+      <biodi:bounds x="160" y="180" width="180" height="80" />
+      <biodi:edge source="InputData_02piyxw">
+        <biodi:waypoints x="518" y="122" />
+        <biodi:waypoints x="340" y="180" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_02piyxw" />
+    </informationRequirement>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Date">
+        <inputExpression id="inputExpression_1" typeRef="date">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" typeRef="boolean" />
+      <rule id="DecisionRule_0nmrs1v">
+        <inputEntry id="UnaryTests_0jxrxsp">
+          <text>[date and time("2000-05-25T00:00:00")..date and time("2030-05-25T00:00:00")]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uuynig">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_02piyxw" name="Date">
+    <extensionElements>
+      <biodi:bounds x="518" y="78" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>
