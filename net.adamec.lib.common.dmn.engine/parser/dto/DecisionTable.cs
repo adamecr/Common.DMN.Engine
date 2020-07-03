@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -11,9 +12,18 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     public class DecisionTable : IdedElement, IXmlSerializable
     {
         /// <summary>
-        /// Serializer used for the serialization proxy class
+        /// Serializer used for the serialization proxy class - DMN version 1.1
         /// </summary>
-        private static readonly XmlSerializer DecisionTableSerializableSerializer = new XmlSerializer(typeof(DecisionTableSerializable));
+        private static readonly XmlSerializer DecisionTableSerializableSerializer = new XmlSerializer(
+            typeof(DecisionTableSerializable), null, new Type[] { },
+            defaultNamespace: DmnParser.XmlNamespaceDmn11, root: new XmlRootAttribute("decisionTable") { Namespace = DmnParser.XmlNamespaceDmn11 });
+
+        /// <summary>
+        /// Serializer used for the serialization proxy class - DMN version 1.3
+        /// </summary>
+        private static readonly XmlSerializer DecisionTableSerializableSerializer13 = new XmlSerializer(
+            typeof(DecisionTableSerializable), null, new Type[] { },
+            defaultNamespace: DmnParser.XmlNamespaceDmn13, root: new XmlRootAttribute("decisionTable") { Namespace = DmnParser.XmlNamespaceDmn13 });
 
         /// <summary>
         /// Hit policy attribute
@@ -104,7 +114,12 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         public void ReadXml(XmlReader reader)
         {
             var r = reader.ReadSubtree();
-            var proxy = (DecisionTableSerializable)DecisionTableSerializableSerializer.Deserialize(r);
+
+            var serializer = reader.NamespaceURI == DmnParser.XmlNamespaceDmn11
+                ? DecisionTableSerializableSerializer
+                : DecisionTableSerializableSerializer13;
+
+            var proxy = (DecisionTableSerializable)serializer.Deserialize(r);
             Inputs = proxy.Inputs;
             AggregationSrc = proxy.Aggregation;
             HitPolicySrc = proxy.HitPolicy;
@@ -126,7 +141,6 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     /// <summary>
     /// Decision table (de)serialization proxy implemented to support the private getters in <see cref="DecisionTable"/>
     /// </summary>
-    [XmlRoot("decisionTable", Namespace = "http://www.omg.org/spec/DMN/20151101/dmn.xsd")]
     public class DecisionTableSerializable
     {
         /// <summary>

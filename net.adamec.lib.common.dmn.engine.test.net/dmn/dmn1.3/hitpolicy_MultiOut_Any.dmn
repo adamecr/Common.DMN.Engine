@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="definitions_0dzwbfg" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="Any">
+    <informationRequirement id="InformationRequirement_1udflgf">
+      <requiredInput href="#InputData_1do7r1m" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1u61j84">
+      <requiredInput href="#InputData_0drys3o" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0wrkq5a" hitPolicy="ANY">
+      <input id="InputClause_0rsadll" label="a">
+        <inputExpression id="LiteralExpression_0xuzx6o" typeRef="integer" />
+      </input>
+      <input id="InputClause_02drmur" label="b">
+        <inputExpression id="LiteralExpression_068q4tu" typeRef="integer" />
+      </input>
+      <output id="output_1" label="o1" typeRef="string" />
+      <output id="OutputClause_17ufk9w" label="o2" typeRef="integer" />
+      <rule id="row-816543858-1">
+        <inputEntry id="UnaryTests_1f4xh3r">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ck3udn">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01nvkij">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ih6k8c">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-2">
+        <description></description>
+        <inputEntry id="UnaryTests_1gpvt67">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a0hy7s">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07o8mix">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ys286k">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-3">
+        <description>err</description>
+        <inputEntry id="UnaryTests_154kvlx">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sk8yc8">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l2g7a4">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06wvvxg">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-4">
+        <description></description>
+        <inputEntry id="UnaryTests_1kjpfhe">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036lxav">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_103tlz9">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1k1vxk2">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-5">
+        <description></description>
+        <inputEntry id="UnaryTests_0m3irnu">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xincs7">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r9iilo">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0gpub3j">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-1">
+        <description></description>
+        <inputEntry id="UnaryTests_1w9lvmq">
+          <text>7</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12sebnn">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ottnim">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v3flyc">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-2">
+        <description>err</description>
+        <inputEntry id="UnaryTests_1cuhwmq">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gg0twg">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e34ggc">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w15sm8">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-14">
+        <description>err</description>
+        <inputEntry id="UnaryTests_1iwdtvq">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x70dsw">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m9hbqz">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1d4ck5h">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-15">
+        <inputEntry id="UnaryTests_060z968">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kl7syd">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ycdm5n">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0su8ki1">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-16">
+        <inputEntry id="UnaryTests_0qdrvd7">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lygebk">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0quhmxu">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dzouuc">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-17">
+        <inputEntry id="UnaryTests_16ikpvy">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01tr327">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_137vv70">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wg0xja">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-18">
+        <description>err</description>
+        <inputEntry id="UnaryTests_0qjweaq">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xtdhnz">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i0jeds">
+          <text>"c"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bmf7f3">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-19">
+        <inputEntry id="UnaryTests_1097znx">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y0ispu">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rwrnn4">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1dlcrqb">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-20">
+        <inputEntry id="UnaryTests_1f2qa7d">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jp0cbf">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15otgh2">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0feutyx">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-21">
+        <description>err</description>
+        <inputEntry id="UnaryTests_1c8ca91">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lqyyqy">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hk8ec4">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1n4j3so">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-272987607-22">
+        <description>err</description>
+        <inputEntry id="UnaryTests_0tuipen">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b7xar1">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1udbmx6">
+          <text>"d"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0s6e2qa">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1do7r1m" name="a" />
+  <inputData id="InputData_0drys3o" name="b" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_01grjsm">
+      <dmndi:DMNShape id="DMNShape_1buito3" dmnElementRef="Decision_13nychf">
+        <dc:Bounds height="80" width="180" x="321" y="214" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1fd0iu5" dmnElementRef="InformationRequirement_1udflgf">
+        <di:waypoint x="287" y="131" />
+        <di:waypoint x="432" y="214" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_01j9tp9" dmnElementRef="InformationRequirement_1u61j84">
+        <di:waypoint x="552" y="131" />
+        <di:waypoint x="454" y="214" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1e99q5u" dmnElementRef="InputData_1do7r1m">
+        <dc:Bounds height="45" width="125" x="209" y="86" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ia7sfm" dmnElementRef="InputData_0drys3o">
+        <dc:Bounds height="45" width="125" x="502" y="86" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

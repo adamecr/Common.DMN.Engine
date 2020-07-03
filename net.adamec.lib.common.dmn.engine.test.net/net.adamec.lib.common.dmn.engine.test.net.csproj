@@ -44,20 +44,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="complex\AllowedValuesTests.cs" />
+    <Compile Include="complex\AllowedValuesTests13.cs" />
     <Compile Include="complex\CircularReferenceTests.cs" />
+    <Compile Include="complex\CircularReferenceTests13.cs" />
     <Compile Include="complex\ComplexInputsTests.cs" />
+    <Compile Include="complex\ComplexInputsTests13.cs" />
     <Compile Include="complex\EndToEndTests.cs" />
+    <Compile Include="complex\EndToEndTests13.cs" />
     <Compile Include="complex\HitPolicyMultiOutTests.cs" />
+    <Compile Include="complex\HitPolicyMultiOutTests13.cs" />
     <Compile Include="complex\HitPolicyTest.cs" />
+    <Compile Include="complex\HitPolicyTest13.cs" />
     <Compile Include="complex\ParallelTests.cs" />
+    <Compile Include="complex\ParallelTests13.cs" />
     <Compile Include="complex\SfeelExpressionsTests.cs" />
+    <Compile Include="complex\SfeelExpressionsTests13.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestTools.cs" />
     <Compile Include="unit\DmnParserDataTypesTests.cs" />
+    <Compile Include="unit\DmnParserDataTypesTests13.cs" />
     <Compile Include="unit\DmnParserFileBasicTests.cs" />
+    <Compile Include="unit\DmnParserFileBasicTests13.cs" />
     <Compile Include="unit\DmnParserInformationRequirementsTests.cs" />
+    <Compile Include="unit\DmnParserInformationRequirementsTests13.cs" />
     <Compile Include="unit\DmnParserStringBasicTests.cs" />
+    <Compile Include="unit\DmnParserStringBasicTests13.cs" />
     <Compile Include="unit\SfeelParserTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +86,111 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="dmn\datatypes_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\allowedValues.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\circular_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\datatypes.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\datatypes_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\dynamictypes.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Any.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_Count.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_CountBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_CountStr.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_List.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_Max.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_MaxBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_Min.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_MinBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_Sum.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_SumBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Collect_SumStr.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_First.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_MultiOut_Any.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_MultiOut_First.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_MultiOut_OutputOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_MultiOut_Priority.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_MultiOut_RuleOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_MultiOut_Unique.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_OutputOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_OutputOrder_NoOutWithAllowed.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Priority.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Priority_NoOutWithAllowed.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_RuleOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_Unique.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_WrongAggregation.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\hitpolicy_WrongPolicy.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\parallel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\sfeel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dmn\dmn1.3\test.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="dmn\dynamictypes.dmn">

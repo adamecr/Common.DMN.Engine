@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="definitions_0dzwbfg" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf2" name="First">
+    <informationRequirement id="InformationRequirement_0ev1i33">
+      <requiredInput href="#InputData_1do7r1m" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_02ms4qq">
+      <requiredInput href="#InputData_0drys3o" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_058leya" hitPolicy="FIRST">
+      <input id="InputClause_0rsadll3" label="a">
+        <inputExpression id="LiteralExpression_0xuzx6o3" typeRef="integer" />
+      </input>
+      <input id="InputClause_02drmur3" label="b">
+        <inputExpression id="LiteralExpression_068q4tu2" typeRef="integer" />
+      </input>
+      <output id="output_12" label="o" typeRef="string" />
+      <rule id="row-816543858-12">
+        <inputEntry id="UnaryTests_1f4xh3r2">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ck3udn2">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01nvkij2">
+          <text>"&lt;5 1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-22">
+        <description>first 5</description>
+        <inputEntry id="UnaryTests_1gpvt672">
+          <text>&lt;= 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a0hy7s2">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07o8mix2">
+          <text>"&lt;=5 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-32">
+        <inputEntry id="UnaryTests_154kvlx2">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sk8yc82">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l2g7a42">
+          <text>"5 1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-42">
+        <description></description>
+        <inputEntry id="UnaryTests_1kjpfhe2">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036lxav2">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_103tlz92">
+          <text>"5 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-52">
+        <inputEntry id="UnaryTests_0m3irnu2">
+          <text>6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xincs72">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r9iilo2">
+          <text>"6"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-62">
+        <inputEntry id="UnaryTests_1lyotlg2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bc9tpv2">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ohks8d2">
+          <text>" - 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-72">
+        <description>empty out</description>
+        <inputEntry id="UnaryTests_12w8qrn2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0djt2hr2">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iozur52">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-816543858-11">
+        <inputEntry id="UnaryTests_012mrgr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vneuv4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_036t7s9">
+          <text>"fallback"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1do7r1m" name="a" />
+  <inputData id="InputData_0drys3o" name="b" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_0eyy6r0">
+      <dmndi:DMNShape id="DMNShape_11d9fch" dmnElementRef="Decision_13nychf2">
+        <dc:Bounds height="80" width="180" x="337" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_045jvxj" dmnElementRef="InformationRequirement_0ev1i33">
+        <di:waypoint x="287" y="131" />
+        <di:waypoint x="438" y="218" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1xi90hi" dmnElementRef="InformationRequirement_02ms4qq">
+        <di:waypoint x="549" y="140" />
+        <di:waypoint x="460" y="218" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0fia3y6" dmnElementRef="InputData_1do7r1m">
+        <dc:Bounds height="45" width="125" x="209" y="86" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0h171v2" dmnElementRef="InputData_0drys3o">
+        <dc:Bounds height="45" width="125" x="499" y="95" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

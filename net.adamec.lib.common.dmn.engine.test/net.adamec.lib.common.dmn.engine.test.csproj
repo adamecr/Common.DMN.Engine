@@ -32,6 +32,111 @@
     <None Update="dmn\datatypes_err.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="dmn\dmn1.3\allowedValues.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\circular_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\datatypes.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\datatypes_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\dynamictypes.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Any.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_Count.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_CountBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_CountStr.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_List.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_Max.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_MaxBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_Min.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_MinBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_Sum.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_SumBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Collect_SumStr.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_First.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_MultiOut_Any.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_MultiOut_First.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_MultiOut_OutputOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_MultiOut_Priority.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_MultiOut_RuleOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_MultiOut_Unique.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_OutputOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_OutputOrder_NoOutWithAllowed.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Priority.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Priority_NoOutWithAllowed.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_RuleOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_Unique.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_WrongAggregation.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\hitpolicy_WrongPolicy.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\parallel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\sfeel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dmn\dmn1.3\test.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="dmn\dynamictypes.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -6,7 +6,6 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     /// <summary>
     /// Root of DMN definition XML - DMN Model
     /// </summary>
-    [XmlRoot("definitions", Namespace = "http://www.omg.org/spec/DMN/20151101/dmn.xsd")]
     public class DmnModel
     {
         /// <summary>

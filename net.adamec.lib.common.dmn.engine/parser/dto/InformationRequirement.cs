@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -13,9 +14,18 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     public class InformationRequirement : IXmlSerializable
     {
         /// <summary>
-        /// Serializer used for the serialization proxy class
+        /// Serializer used for the serialization proxy class - DMN version 1.1
         /// </summary>
-        private static readonly XmlSerializer InformationRequirementSerializableSerializer = new XmlSerializer(typeof(InformationRequirementSerializable));
+        private static readonly XmlSerializer InformationRequirementSerializableSerializer = new XmlSerializer(
+            typeof(InformationRequirementSerializable), null, new Type[] { },
+            defaultNamespace: DmnParser.XmlNamespaceDmn11, root: new XmlRootAttribute("informationRequirement") { Namespace = DmnParser.XmlNamespaceDmn11 });
+
+        /// <summary>
+        /// Serializer used for the serialization proxy class - DMN version 1.3
+        /// </summary>
+        private static readonly XmlSerializer InformationRequirementSerializableSerializer13 = new XmlSerializer(
+            typeof(InformationRequirementSerializable), null, new Type[] { },
+            defaultNamespace: DmnParser.XmlNamespaceDmn13, root: new XmlRootAttribute("informationRequirement") { Namespace = DmnParser.XmlNamespaceDmn13 });
 
         /// <summary>
         /// Required input or decision reference
@@ -100,7 +110,12 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         public void ReadXml(XmlReader reader)
         {
             var r = reader.ReadSubtree();
-            var proxy = (InformationRequirementSerializable)InformationRequirementSerializableSerializer.Deserialize(r);
+
+            var serializer = reader.NamespaceURI == DmnParser.XmlNamespaceDmn11
+                ? InformationRequirementSerializableSerializer
+                : InformationRequirementSerializableSerializer13;
+
+            var proxy = (InformationRequirementSerializable)serializer.Deserialize(r);
             RequiredDecision = proxy.RequiredDecision;
             RequiredInput = proxy.RequiredInput;
             reader.ReadEndElement();
@@ -135,7 +150,6 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     /// <summary>
     /// Information Requirement (de)serialization proxy implemented to support the private getters in <see cref="InformationRequirement"/>
     /// </summary>
-    [XmlRoot("informationRequirement", Namespace = "http://www.omg.org/spec/DMN/20151101/dmn.xsd")]
     public class InformationRequirementSerializable
     {
         /// <summary>
