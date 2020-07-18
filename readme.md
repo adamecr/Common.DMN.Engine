@@ -52,6 +52,7 @@ The `DmnModel` needs to be transformed to the `DmnExecutionContext` (Engine cont
 ```csharp
 var ctx = DmnExecutionContextFactory.CreateExecutionContext(DmnParser.Parse(file));
 ```
+`DmnParser` uses the DMN XML v 1.1 by default. It can be overriden using the optional parameter `dmnVersion` when calling the parser. It can contain value `V1_1`(default) or `V1_3`(to support DMN XML version 1.3). The values are defined in `DmnVersionEnum`. Alternative way of using the DMN version 1.3 is to call methods `DmnParser.Parse13(fileName)` or `DmnParser.ParseString13("xml string")`.  
 
 ### Inputs ###
 ![DMN digram](doc/img/dmn_input.png) Input represents an external data entering the Engine while evaluating the decision. You can think about it as it's the parameter of the decision to be made.
