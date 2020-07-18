@@ -306,7 +306,8 @@ Sources: parser\dto\DecisionTable.cs</small></p>
 Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable</a></p>
 <h3>  Fields </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.decisiontableserializableserializer__1py1ie" >DecisionTableSerializableSerializer</a></td><td>private static</td><td>Serializer used for the serialization proxy class</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.decisiontableserializableserializer__1py1ie" >DecisionTableSerializableSerializer</a></td><td>private static</td><td>Serializer used for the serialization proxy class - DMN version 1.1</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.decisiontableserializableserializer13__1ukdb4u" >DecisionTableSerializableSerializer13</a></td><td>private static</td><td>Serializer used for the serialization proxy class - DMN version 1.3</td></tr>
 </table>
 <p> </p>
 <h3>  Properties </h3>
@@ -334,8 +335,18 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.seri
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
 Sources: parser\dto\DecisionTable.cs</small></p>
-<p>Serializer used for the serialization proxy class</p>
+<p>Serializer used for the serialization proxy class - DMN version 1.1</p>
 <pre><code class="csharp">private static readonly XmlSerializer DecisionTableSerializableSerializer</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable.decisiontableserializableserializer13__1ukdb4u" ></a>  DecisionTable.DecisionTableSerializableSerializer13 Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a><br />
+Sources: parser\dto\DecisionTable.cs</small></p>
+<p>Serializer used for the serialization proxy class - DMN version 1.3</p>
+<pre><code class="csharp">private static readonly XmlSerializer DecisionTableSerializableSerializer13</code></pre>
 <p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
@@ -588,10 +599,8 @@ public override string ToString()</code></pre>
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Sources: parser\dto\DecisionTable.cs</small></p>
 <p>Decision table (de)serialization proxy implemented to support the private getters in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr" >DecisionTable</a></p>
-<pre><code class="csharp">[XmlRoot(&quot;decisionTable&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20151101/dmn.xsd&quot;)]
-public class DecisionTableSerializable</code></pre>
+<pre><code class="csharp">public class DecisionTableSerializable</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlrootattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlRootAttribute</a><br />
 </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
@@ -666,10 +675,8 @@ public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule&gt; Rule
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Sources: parser\dto\DmnModel.cs</small></p>
 <p>Root of DMN definition XML - DMN Model</p>
-<pre><code class="csharp">[XmlRoot(&quot;definitions&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20151101/dmn.xsd&quot;)]
-public class DmnModel</code></pre>
+<pre><code class="csharp">public class DmnModel</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlrootattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlRootAttribute</a><br />
 </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
@@ -821,7 +828,8 @@ Sources: parser\dto\InformationRequirement.cs</small></p>
 Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.ixmlserializable" class="link-external" target="_blank" >System.Xml.Serialization.IXmlSerializable</a></p>
 <h3>  Fields </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementserializableserializer__1eee3uo" >InformationRequirementSerializableSerializer</a></td><td>private static</td><td>Serializer used for the serialization proxy class</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementserializableserializer__1eee3uo" >InformationRequirementSerializableSerializer</a></td><td>private static</td><td>Serializer used for the serialization proxy class - DMN version 1.1</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#f-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementserializableserializer13__jp6cec" >InformationRequirementSerializableSerializer13</a></td><td>private static</td><td>Serializer used for the serialization proxy class - DMN version 1.3</td></tr>
 </table>
 <p> </p>
 <h3>  Properties </h3>
@@ -848,8 +856,18 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.seri
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
-<p>Serializer used for the serialization proxy class</p>
+<p>Serializer used for the serialization proxy class - DMN version 1.1</p>
 <pre><code class="csharp">private static readonly XmlSerializer InformationRequirementSerializableSerializer</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement.informationrequirementserializableserializer13__jp6cec" ></a>  InformationRequirement.InformationRequirementSerializableSerializer13 Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp" >net.adamec.lib.common.dmn.engine.parser.dto</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a><br />
+Sources: parser\dto\InformationRequirement.cs</small></p>
+<p>Serializer used for the serialization proxy class - DMN version 1.3</p>
+<pre><code class="csharp">private static readonly XmlSerializer InformationRequirementSerializableSerializer13</code></pre>
 <p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer" class="link-external" target="_blank" >System.Xml.Serialization.XmlSerializer</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
 <p> </p>
@@ -986,10 +1004,8 @@ public string Ref { get; set; }</code></pre>
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Sources: parser\dto\InformationRequirement.cs</small></p>
 <p>Information Requirement (de)serialization proxy implemented to support the private getters in <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.informationrequirement__1lwftc6" >InformationRequirement</a></p>
-<pre><code class="csharp">[XmlRoot(&quot;informationRequirement&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20151101/dmn.xsd&quot;)]
-public class InformationRequirementSerializable</code></pre>
+<pre><code class="csharp">public class InformationRequirementSerializable</code></pre>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlrootattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlRootAttribute</a><br />
 </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
