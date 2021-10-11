@@ -62,6 +62,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
@@ -119,6 +124,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
@@ -189,6 +199,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
                 result.SingleResult.Should().NotBeNull();
                 result.SingleResult.Should().HaveCount(outVariableCount);
             }
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (outVariableCount <= 0) return;
 
@@ -246,6 +261,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
                 result.IsSingleResult.Should().Be(true);
                 result.SingleResult.Should().NotBeNull();
                 result.SingleResult.Should().HaveCount(outVariableCount);
+            }
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
             }
 
             if (outVariableCount <= 0) return;
@@ -317,6 +337,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
@@ -384,6 +409,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
@@ -482,6 +512,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
@@ -554,6 +589,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -619,6 +659,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -684,6 +729,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -749,6 +799,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -814,6 +869,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -879,6 +939,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -944,6 +1009,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];
@@ -1025,6 +1095,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.Results[0].Variables.Should().HaveCount(1);
             var output = result.Results[0].Variables[0];

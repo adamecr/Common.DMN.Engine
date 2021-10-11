@@ -180,6 +180,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                             //no value for sum, min, max
                             outputVariable.Value = null;
                             retVal += new DmnDecisionSingleResult() + outputVariable.Clone();
+                            retVal.Results[0].MatchedRules.AddRange(positiveRules);
                             return retVal;
                         }
                         // ReSharper disable once SwitchStatementMissingSomeCases
@@ -200,6 +201,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         }
 
                         retVal += new DmnDecisionSingleResult() + outputVariable.Clone();
+                        retVal.Results[0].MatchedRules.AddRange(positiveRules);
                         return retVal;
 
                     }
@@ -229,6 +231,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             foreach (var multiMatchOutputRule in positiveMatchOutputRules)
             {
                 var singleResult = new DmnDecisionSingleResult();
+                singleResult.MatchedRules.Add(multiMatchOutputRule);
                 foreach (var ruleOutput in multiMatchOutputRule.Outputs)
                 {
                     var resultOutput = results.GetResult(multiMatchOutputRule, ruleOutput);

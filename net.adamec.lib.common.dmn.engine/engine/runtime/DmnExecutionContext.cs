@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using DynamicExpresso;
@@ -23,7 +24,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.runtime
         /// <summary>
         /// Parsed (pre-processed) expressions cache
         /// </summary>
-        private static readonly Dictionary<(string, Type), Lambda> ParsedExpressionsCache = new Dictionary<(string, Type), Lambda>();
+        private static readonly ConcurrentDictionary<(string, Type), Lambda> ParsedExpressionsCache = new ConcurrentDictionary<(string, Type), Lambda>();
 
         /// <summary>
         /// DMN Model definition

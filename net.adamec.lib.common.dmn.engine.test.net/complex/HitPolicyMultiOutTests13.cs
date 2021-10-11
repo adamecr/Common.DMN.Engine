@@ -52,6 +52,13 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
+
+
             var outCount = 0;
             if (o1 != null) outCount++;
             if (o2 != null) outCount++;
@@ -125,6 +132,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             var outCount = 0;
             if (o1 != null) outCount++;
             if (o2 != null) outCount++;
@@ -202,6 +214,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.Results.Should().HaveCount(1);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
@@ -320,6 +337,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
 
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
             var outCount = 2;
             var o1Index = 0;
             var o2Index = 1;
@@ -406,6 +428,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             var hitsCount = o1.Length;
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (hitsCount == 1)
             {
@@ -508,6 +535,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             var hitsCount = o1.Length;
             result.Results.Should().HaveCount(hitsCount);
             result.HasResult.Should().Be(true);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (hitsCount == 1)
             {

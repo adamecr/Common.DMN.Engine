@@ -208,6 +208,11 @@ namespace net.adamec.lib.common.dmn.engine.test.net.complex
             result.IsSingleResult.Should().Be(true);
             result.SingleResult.Should().NotBeNull();
             result.SingleResult.Should().HaveCount(1);
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             var output = result.SingleResult[0];
             output.Should().NotBeNull();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
 using net.adamec.lib.common.dmn.engine.engine.runtime;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions
@@ -17,7 +18,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// List of result variables
         /// </summary>
         public IReadOnlyList<DmnExecutionVariable> Variables => variables;
-
+        /// <summary>
+        /// Capture of the rule that matched this decision
+        /// </summary>
+        public List<DmnDecisionTableRule> MatchedRules { get; internal set; } = new List<DmnDecisionTableRule>();
         /// <summary>
         /// Add result variable into the decision result
         /// </summary>

@@ -38,6 +38,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.Results.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (!hasHit)
             {
@@ -111,6 +116,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.Results.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (!hasHit)
             {
@@ -191,6 +201,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.Results.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (!hasHit)
             {
@@ -306,6 +321,12 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.Results.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
+
 
             if (!hasHit)
             {
@@ -394,6 +415,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.Results.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (!hasHit)
             {
@@ -496,6 +522,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.Results.Should().NotBeNull();
+            foreach (var r in result.Results)
+            {
+                r.MatchedRules.Should().NotBeNull();
+                r.MatchedRules.Count.Should().BeGreaterOrEqualTo(1);
+            }
 
             if (!hasHit)
             {
