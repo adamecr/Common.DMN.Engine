@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using net.adamec.lib.common.dmn.engine.engine.definition;
-using net.adamec.lib.common.dmn.engine.engine.runtime;
+using net.adamec.lib.common.dmn.engine.engine.execution.context;
+using net.adamec.lib.common.dmn.engine.engine.execution.result;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
 {
@@ -16,23 +17,24 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
         public string Expression { get; }
 
         /// <summary>
-        /// Decision output definition
+        /// Decision output variable
         /// </summary>
-        public DmnVariableDefinition Output { get; }
+        public IDmnVariable Output { get; }
 
         /// <summary>
         /// CTOR
         /// </summary>
         /// <param name="name">Unique name of the decision</param>
         /// <param name="expression">Decision expression</param>
-        /// <param name="output">Decision output definition</param>
+        /// <param name="output">Decision output variable</param>
         /// <param name="requiredInputs">Decision required inputs (input variables)</param>
         /// <param name="requiredDecisions">List of decisions, the decision depends on</param>
         public DmnExpressionDecision(
             string name,
             string expression,
-            DmnVariableDefinition output,
-            List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
+            IDmnVariable output,
+            IReadOnlyCollection<IDmnVariable> requiredInputs,
+            IReadOnlyCollection<IDmnDecision> requiredDecisions)
         : base(name, requiredInputs, requiredDecisions)
         {
             Expression = expression;
@@ -55,7 +57,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
             Logger.InfoCorr(correlationId, $"Evaluated expressiong decision {Name} with expression {Expression}");
             var outVariable = context.GetVariable(Output);
             outVariable.Value = result;
-            return new DmnDecisionResult() + (new DmnDecisionSingleResult() + outVariable.Clone());
+            return new DmnDecisionResult(new DmnDecisionSingleResult(context.GetVariable(Output)));
         }
     }
 }

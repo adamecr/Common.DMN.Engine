@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
 {
@@ -15,22 +14,22 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// <summary>
         /// Rule name
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; }
         /// <summary>
         /// Optional rule description (annotation)
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; }
 
         ///<summary>
         /// Definition of decision table rule inputs
         /// (each input contains the input match evaluation expression and mapping to table input)
         /// </summary>
-        public List<DmnDecisionTableRuleInput> Inputs { get; }
+        public DmnDecisionTableRuleInput[] Inputs { get; }
         ///<summary>
         /// Definition of decision table rule outputs
         /// (each output contains the calculation expression and mapping to table output)
         /// </summary>
-        public List<DmnDecisionTableRuleOutput> Outputs { get; }
+        public DmnDecisionTableRuleOutput[] Outputs { get; }
 
         /// <summary>
         /// CTOR
@@ -40,7 +39,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// <param name="inputs">Definition of decision table rule inputs</param>
         /// <param name="outputs">Definition of decision table rule outputs</param>
         /// <param name="description">Optional rule description (annotation)</param>
-        public DmnDecisionTableRule(int index, string name, List<DmnDecisionTableRuleInput> inputs, List<DmnDecisionTableRuleOutput> outputs, string description = null)
+        public DmnDecisionTableRule(
+            int index,
+            string name,
+            DmnDecisionTableRuleInput[] inputs,
+            DmnDecisionTableRuleOutput[] outputs,
+            string description = null)
         {
             Name = name;
             Index = index;
@@ -56,7 +60,5 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         {
             return $"#{Index}:{Name} {Description}";
         }
-
-        
     }
 }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.definition;
-using net.adamec.lib.common.dmn.engine.engine.runtime;
+
+using net.adamec.lib.common.dmn.engine.engine.execution.context;
+using net.adamec.lib.common.dmn.engine.engine.execution.result;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions
 {
@@ -24,11 +26,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <summary>
         /// Decision required inputs (input variables)
         /// </summary>
-        public List<DmnVariableDefinition> RequiredInputs { get; }
+        public IReadOnlyCollection<IDmnVariable> RequiredInputs { get; }
         /// <summary>
         /// List of decisions, the decision depends on
         /// </summary>
-        public List<IDmnDecision> RequiredDecisions { get; }
+        public IReadOnlyCollection<IDmnDecision> RequiredDecisions { get; }
 
         /// <summary>
         /// CTOR
@@ -38,7 +40,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// <param name="requiredDecisions">List of decisions, the decision depends on</param>
         /// <exception cref="ArgumentNullException"><paramref name="name"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null</exception>
         /// <exception cref="ArgumentException">Name is empty</exception>
-        protected DmnDecision(string name, List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
+        protected DmnDecision(
+            string name,
+            IReadOnlyCollection<IDmnVariable> requiredInputs,
+            IReadOnlyCollection<IDmnDecision> requiredDecisions)
         {
             Logger = CommonLogging.CreateLogger(GetType());
             Name = name ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(name)} is null");
@@ -82,6 +87,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
             }
 
             var result = Evaluate(context, correlationId);
+            context.CreateSnapshot(this,result);
 
             Logger.InfoCorr(correlationId, $"Executed decision {Name}");
             // ReSharper disable once InvertIf

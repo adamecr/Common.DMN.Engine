@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
@@ -16,19 +15,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// <summary>
         /// Variable to store the output to
         /// </summary>
-        public DmnVariableDefinition Variable { get; }
+        public IDmnVariable Variable { get; }
         /// <summary>
-        /// Optional list of allowed values
+        /// Optional array of allowed values
         /// </summary>
-        public List<string> AllowedValues { get; }
+        public string[] AllowedValues { get; }
 
         /// <summary>
         /// CTOR
         /// </summary>
         /// <param name="index">Index of the output (order)</param>
         /// <param name="variable">Variable to store the output to</param>
-        /// <param name="allowedValues">Optional list of allowed values</param>
-        public DmnDecisionTableOutput(int index, DmnVariableDefinition variable, List<string> allowedValues = null)
+        /// <param name="allowedValues">Optional array of allowed values</param>
+        public DmnDecisionTableOutput(int index, IDmnVariable variable, string[] allowedValues = null)
         {
             Index = index;
             Variable = variable;

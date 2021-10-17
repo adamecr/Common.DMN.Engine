@@ -13,19 +13,25 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// </summary>
         public DmnDecisionTableInput Input { get; }
         /// <summary>
-        /// Expression used to evaluate the rule input match
+        /// Expression used to evaluate the rule input match ("both sides")
         /// </summary>
         public string Expression { get; }
+
+        /// <summary>
+        /// Unparsed expression used to evaluate the rule input match ("right side")
+        /// </summary>
+        public string UnparsedExpression { get; }
 
         /// <summary>
         /// CTOR
         /// </summary>
         /// <param name="input">Corresponding table input</param>
-        /// <param name="expression">Expression used to evaluate the rule input match</param>
-        public DmnDecisionTableRuleInput(DmnDecisionTableInput input, string expression)
+        /// <param name="unparsedExpression">Expression used to evaluate the rule input match ("right side")</param>
+        public DmnDecisionTableRuleInput(DmnDecisionTableInput input, string unparsedExpression)
         {
             Input = input;
-            Expression = SfeelParser.ParseInput(expression, string.IsNullOrWhiteSpace(input.Expression) ? input.Variable.Name : input.Expression);
+            UnparsedExpression = unparsedExpression;
+            Expression = SfeelParser.ParseInput(unparsedExpression, string.IsNullOrWhiteSpace(input.Expression) ? input.Variable.Name : input.Expression);
         }
 
         /// <summary>Returns a string that represents the current object.</summary>

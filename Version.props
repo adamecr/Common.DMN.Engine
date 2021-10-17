@@ -7,13 +7,13 @@
       =======================================================================================
     -->
   <PropertyGroup>
-    <RadMajor>0</RadMajor>
-    <RadMinor>1</RadMinor>
-    <RadPatch>2</RadPatch>
-    <RadBuild>109</RadBuild>
-    <PackageVersionShort>0.1.2</PackageVersionShort>
-    <PackageVersionFull>0.1.2+109.200718213753.release.6f31eef</PackageVersionFull>
-    <GitCommit>6f31eef</GitCommit>
-    <GitBranch>release</GitBranch>
+    <RadMajor>1</RadMajor>
+    <RadMinor>0</RadMinor>
+    <RadPatch>0</RadPatch>
+    <RadBuild>446</RadBuild>
+    <PackageVersionShort>1.0.0-dev.446.211017100529</PackageVersionShort>
+    <PackageVersionFull>1.0.0-dev.446.211017100529+132.version-1.69222b0-dirty</PackageVersionFull>
+    <GitCommit>69222b0-dirty</GitCommit>
+    <GitBranch>version-1</GitBranch>
   </PropertyGroup>
 </Project>
