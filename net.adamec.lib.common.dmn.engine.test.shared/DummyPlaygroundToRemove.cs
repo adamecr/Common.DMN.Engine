@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.decisions.expression;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table;
 using net.adamec.lib.common.dmn.engine.engine.definition;
-using net.adamec.lib.common.dmn.engine.engine.definition.builder;
 using net.adamec.lib.common.dmn.engine.parser;
-using net.adamec.lib.common.dmn.engine.parser.dto;
 
 namespace net.adamec.lib.common.dmn.engine.test.dummy
 
 {
-    [TestClass]
-    [TestCategory("DummyPlayground")]
+    //[TestClass]
+    //[TestCategory("DummyPlayground")]
     public class DummyPlaygroundToRemove
     {
-        [TestMethod]
-        public void Dummy1()
+       // [TestMethod]
+        public void GenerateBuildersFromDmn()
         {
             var nl = Environment.NewLine;
             var split = "//------------------------------------" + nl;
@@ -187,7 +183,7 @@ namespace net.adamec.lib.common.dmn.engine.test.dummy
                     var firstInput = true;
                     var firstOutput = true;
                     foreach (var ruleInput in rule.Inputs)
-                    {//TODO How to get unparsed (original) expressions?
+                    {
                         o +=
                             $@"          .{(firstInput ? "When" : "And")}({prefix}Input{ruleInput.Input.Index},""{ruleInput.UnparsedExpression.CodeEncodeStr()}"")" +
                             nl;

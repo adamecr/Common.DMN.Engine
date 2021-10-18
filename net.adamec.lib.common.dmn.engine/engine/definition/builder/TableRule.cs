@@ -12,18 +12,24 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// The table inputs and outputs must be defined in TableDecision builder first, as the rule builders must be provided with proper table input/output references.
     /// </para>
     /// <para>The builder chain provides methods to define the input conditions (When, When.And[.And], Always)
-    /// and the output calculations (Then, Then.And[.And])</para>
+    /// and the output calculations (Then, Then.And[.And], SkipOutput)</para>
     /// <para>Syntax examples:</para>
     /// <para><code>rule.When(input1Ref, "input 1 eval expression").Then(output1Ref, "output 1 calc expression")</code></para>
     /// <para><code>rule.When(input1Ref, "input 1 eval expression").And(input2Ref, "input 2 eval expression").Then(output1Ref, "output 1 calc expression").And(output2Ref, "output 2 calc expression")</code></para>
     /// <para><code>rule.Always().Then(output1Ref, "output 1 calc expression").And(output2Ref, "output 2 calc expression")</code></para>
+    /// <para><code>rule.When(input1Ref, "input 1 eval expression").SkipOutput()</code></para>
+    /// <para><code>rule.When(input1Ref, "input 1 eval expression").And(input2Ref, "input 2 eval expression").SkipOutput()</code></para>
+    /// <para><code>rule.Always().SkipOutput()</code></para>
     /// <para></para>
     /// <para><see cref="TableRuleInputBuilder"/> provides <see cref="TableRuleInputBuilder.When"/> method to provide the first input condition and returns <see cref="TableRuleInputBuilder"/>.</para>
     /// <para><see cref="TableRuleInputBuilder"/> provides <see cref="TableRuleInputBuilder.Always"/> method to let the rule accept any input and returns <see cref="TableRuleThenOnlyBuilder"/>.</para>
     /// <para><see cref="TableRuleThenOrAndBuilder"/> provides <see cref="TableRuleThenOrAndBuilder.And"/> method provide the additional input condition and returns <see cref="TableRuleThenOrAndBuilder"/>.</para>
-    /// <para><see cref="TableRuleThenOrAndBuilder"/> provides <see cref="TableRuleThenOrAndBuilder.Then"/> method to provide the first output condition and returns <see cref="TableRuleOutputBuilder"/>.</para>
-    /// <para><see cref="TableRuleThenOnlyBuilder"/> provides <see cref="TableRuleThenOnlyBuilder.Then"/> method to provide the first output condition and returns <see cref="TableRuleOutputBuilder"/>.</para>
-    /// <para><see cref="TableRuleOutputBuilder"/> provides <see cref="TableRuleOutputBuilder.And"/> method to provide the additional output condition and returns <see cref="TableRuleOutputBuilder"/>.</para>
+    /// <para><see cref="TableRuleThenOrAndBuilder"/> provides <see cref="TableRuleThenOrAndBuilder.Then"/> method to provide the first output expression and returns <see cref="TableRuleAndOutputBuilder"/>.</para>
+    /// <para><see cref="TableRuleThenOrAndBuilder"/> provides <see cref="TableRuleThenOrAndBuilder.SkipOutput"/> method to skip the output calculation and returns <see cref="TableRuleOutputBuilder"/>.</para>
+    /// <para><see cref="TableRuleThenOnlyBuilder"/> provides <see cref="TableRuleThenOnlyBuilder.Then"/> method to provide the first output calculation and returns <see cref="TableRuleAndOutputBuilder"/>.</para>
+    /// <para><see cref="TableRuleThenOnlyBuilder"/> provides <see cref="TableRuleThenOnlyBuilder.SkipOutput"/> method to skip the output calculation and returns <see cref="TableRuleOutputBuilder"/>.</para>
+    /// <para><see cref="TableRuleAndOutputBuilder"/> inherits from <see cref="TableRuleOutputBuilder"/> and provides <see cref="TableRuleAndOutputBuilder.And"/> method to provide the additional output calculation and returns <see cref="TableRuleAndOutputBuilder"/>.</para>
+    /// <para><see cref="TableRuleOutputBuilder"/> is the final rule builder.</para>
     /// </summary>
     public class TableRule : DmnBuilderElement<TableRule, DmnDecisionTableRule>
     {
@@ -196,9 +202,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
             /// <exception cref="ArgumentNullException">Throws <see cref="ArgumentNullException"/> when the <paramref name="outputRef"/> is null</exception>
             /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the <paramref name="outputRef"/> is not recognized as the valid table output</exception>
-            public TableRuleOutputBuilder Then(TableOutput.Ref outputRef, string outputExpression)
+            public TableRuleAndOutputBuilder Then(TableOutput.Ref outputRef, string outputExpression)
             {
                 Rule.SetOutput(outputRef, outputExpression);
+                return new TableRuleAndOutputBuilder(Rule);
+            }
+
+            /// <summary>
+            /// Skips the output definition for the rule (no output to be provided)
+            /// </summary>
+            public TableRuleOutputBuilder SkipOutput()
+            {
                 return new TableRuleOutputBuilder(Rule);
             }
 
@@ -243,9 +257,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
             /// <exception cref="ArgumentNullException">Throws <see cref="ArgumentNullException"/> when the <paramref name="outputRef"/> is null</exception>
             /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the <paramref name="outputRef"/> is not recognized as the valid table output</exception>
-            public TableRuleOutputBuilder Then(TableOutput.Ref outputRef, string outputExpression)
+            public TableRuleAndOutputBuilder Then(TableOutput.Ref outputRef, string outputExpression)
             {
                 Rule.SetOutput(outputRef, outputExpression);
+                return new TableRuleAndOutputBuilder(Rule);
+            }
+
+            /// <summary>
+            /// Skips the output definition for the rule (no output to be provided)
+            /// </summary>
+            public TableRuleOutputBuilder SkipOutput()
+            {
                 return new TableRuleOutputBuilder(Rule);
             }
 
@@ -259,7 +281,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             /// <summary>
             /// "Parent"rule builder.
             /// </summary>
-            private TableRule Rule { get; }
+            protected TableRule Rule { get; }
             /// <summary>
             /// CTOR
             /// </summary>
@@ -267,6 +289,23 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             internal TableRuleOutputBuilder(TableRule rule)
             {
                 Rule = rule;
+            }
+
+            
+        }
+
+        /// <summary>
+        /// Helper builder used to configure the decision table rule definition using the chain of builders.
+        /// </summary>
+        public class TableRuleAndOutputBuilder: TableRuleOutputBuilder
+        {
+            /// <summary>
+            /// CTOR
+            /// </summary>
+            /// <param name="rule">"Parent"rule builder</param>
+            internal TableRuleAndOutputBuilder(TableRule rule):base(rule)
+            {
+                
             }
 
             /// <summary>
@@ -277,7 +316,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
             /// <exception cref="ArgumentNullException">Throws <see cref="ArgumentNullException"/> when the <paramref name="outputRef"/> is null</exception>
             /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the <paramref name="outputRef"/> is not recognized as the valid table output</exception>
-            public TableRuleOutputBuilder And(TableOutput.Ref outputRef, string outputExpression)
+            public TableRuleAndOutputBuilder And(TableOutput.Ref outputRef, string outputExpression)
             {
                 Rule.SetOutput(outputRef, outputExpression);
                 return this;

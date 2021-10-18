@@ -101,7 +101,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
                 {
                     if (result.IsSingleResult)
                     {
-                        foreach (var output in result.SingleResult)
+                        foreach (var output in result.FirstResultVariables)
                         {
                             Logger.TraceCorr(correlationId, $"Decision {Name} single result, output {output.Name}, value {output.Value}");
                         }

@@ -30,11 +30,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(0);
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("age10");
             output.Value.Should().Be(43).And.BeOfType<int>();
@@ -49,11 +49,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(0);
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("Age2");
             output.Value.Should().Be(86).And.BeOfType<int>();
@@ -73,17 +73,17 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(2);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(2);
             result.Results[0].HitRules.Should().HaveCount(1);
 
-            var o1 = result.SingleResult[0];
+            var o1 = result.FirstResultVariables[0];
             o1.Should().NotBeNull();
             o1.Name.Should().Be("Category");
             o1.Value.Should().Be("c").And.BeOfType<string>();
             o1.Type.Should().Be(typeof(string));
 
-            var o2 = result.SingleResult[1];
+            var o2 = result.FirstResultVariables[1];
             o2.Should().NotBeNull();
             o2.Name.Should().Be("Eligible");
             o2.Value.Should().Be(true).And.BeOfType<bool>();
@@ -106,11 +106,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(0);
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("CategoryExt");
             output.Value.Should().Be("c<<").And.BeOfType<string>();
@@ -132,11 +132,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(1);
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("Amount");
             output.Value.Should().Be(300).And.BeOfType<int>();

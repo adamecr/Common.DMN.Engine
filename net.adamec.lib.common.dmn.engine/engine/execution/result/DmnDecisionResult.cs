@@ -10,21 +10,36 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
     public class DmnDecisionResult
     {
         /// <summary>
-        /// Internal list of results. The first item represents the <see cref="SingleResult"/>
+        /// Internal list of results. The first item represents the <see cref="FirstResultVariables"/>
         /// </summary>
         private readonly List<DmnDecisionSingleResult> results = new List<DmnDecisionSingleResult>();
         /// <summary>
         /// List of decision evaluation results. 
         /// </summary>
-        /// <remarks>The first item represents the <see cref="SingleResult"/>,
-        /// however it's recommended to use the <see cref="SingleResult"/> when expecting the single result.</remarks>
+        /// <remarks>The first item represents the <see cref="FirstResultVariables"/>,
+        /// however it's recommended to use the <see cref="FirstResultVariables"/> when expecting the single result.</remarks>
         public IReadOnlyList<DmnDecisionSingleResult> Results => results;
+        /// <summary>
+        /// This method is obsolete, use <see cref="FirstResultVariables"/> instead.
+        /// Decision evaluation single (first) result variables.
+        /// When there is no result, the empty list of <see cref="DmnResultVariable">variables</see> is returned.
+        /// </summary>
+        [Obsolete("This method is obsolete, use FirstResultVariables instead")]
+        public IReadOnlyList<DmnResultVariable> SingleResult =>
+            results.Count == 0 ? new List<DmnResultVariable>() : results[0].Variables;
         /// <summary>
         /// Decision evaluation single (first) result variables.
         /// When there is no result, the empty list of <see cref="DmnResultVariable">variables</see> is returned.
         /// </summary>
-        public IReadOnlyList<DmnResultVariable> SingleResult =>
+        public IReadOnlyList<DmnResultVariable> FirstResultVariables =>
             results.Count == 0 ? new List<DmnResultVariable>() : results[0].Variables;
+
+        /// <summary>
+        /// Decision evaluation single (first) result.
+        /// When there is no result, null is returned.
+        /// </summary>
+        public DmnDecisionSingleResult First =>
+            results.Count == 0 ? null : results[0];
 
         /// <summary>
         /// Flag whether there is any result available
@@ -42,7 +57,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         public DmnDecisionResult(DmnDecisionSingleResult result)
         {
             if (result == null) throw new ArgumentNullException(nameof(result));
-
+            
             results.Add(result);
         }
 

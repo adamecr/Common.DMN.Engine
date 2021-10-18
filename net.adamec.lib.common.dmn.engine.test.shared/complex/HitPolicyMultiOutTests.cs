@@ -48,16 +48,16 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.Results[0].HitRules.Should().HaveCount(1);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
+            result.FirstResultVariables.Should().NotBeNull();
             var outCount = 0;
             if (o1 != null) outCount++;
             if (o2 != null) outCount++;
 
-            result.SingleResult.Should().HaveCount(outCount);
+            result.FirstResultVariables.Should().HaveCount(outCount);
 
             if (o1 != null)
             {
-                var output1 = result.SingleResult[0];
+                var output1 = result.FirstResultVariables[0];
                 output1.Should().NotBeNull();
                 output1.Name.Should().Be("o1");
                 output1.Value.Should().Be(o1).And.BeOfType<string>();
@@ -65,7 +65,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
                 if (o2 == null) return;
 
-                var output2 = result.SingleResult[1];
+                var output2 = result.FirstResultVariables[1];
                 output2.Should().NotBeNull();
                 output2.Name.Should().Be("o2");
                 output2.Value.Should().Be(o2).And.BeOfType<int>();
@@ -74,7 +74,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             else
             {
                 if (o2 == null) return;
-                var output2 = result.SingleResult[0];
+                var output2 = result.FirstResultVariables[0];
                 output2.Should().NotBeNull();
                 output2.Name.Should().Be("o2");
                 output2.Value.Should().Be(o2).And.BeOfType<int>();
@@ -120,16 +120,16 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.Results[0].HitRules.Should().HaveCount(1);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
+            result.FirstResultVariables.Should().NotBeNull();
             var outCount = 0;
             if (o1 != null) outCount++;
             if (o2 != null) outCount++;
 
-            result.SingleResult.Should().HaveCount(outCount);
+            result.FirstResultVariables.Should().HaveCount(outCount);
 
             if (o1 != null)
             {
-                var output1 = result.SingleResult[0];
+                var output1 = result.FirstResultVariables[0];
                 output1.Should().NotBeNull();
                 output1.Name.Should().Be("o1");
                 output1.Value.Should().Be(o1).And.BeOfType<string>();
@@ -137,7 +137,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
                 if (o2 == null) return;
 
-                var output2 = result.SingleResult[1];
+                var output2 = result.FirstResultVariables[1];
                 output2.Should().NotBeNull();
                 output2.Name.Should().Be("o2");
                 output2.Value.Should().Be(o2).And.BeOfType<int>();
@@ -146,7 +146,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             else
             {
                 if (o2 == null) return;
-                var output2 = result.SingleResult[0];
+                var output2 = result.FirstResultVariables[0];
                 output2.Should().NotBeNull();
                 output2.Name.Should().Be("o2");
                 output2.Value.Should().Be(o2).And.BeOfType<int>();
@@ -199,7 +199,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.Results[0].HitRules.Should().HaveCount(1);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
+            result.FirstResultVariables.Should().NotBeNull();
             var outCount = 3;
             var o1Index = 0;
             var o2Index = 1;
@@ -224,11 +224,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
                 outCount--;
             }
 
-            result.SingleResult.Should().HaveCount(outCount);
+            result.FirstResultVariables.Should().HaveCount(outCount);
 
             if (o1Index >= 0)
             {
-                var output1 = result.SingleResult[o1Index];
+                var output1 = result.FirstResultVariables[o1Index];
                 output1.Should().NotBeNull();
                 output1.Name.Should().Be("o1");
                 output1.Value.Should().Be(o1).And.BeOfType<string>();
@@ -238,7 +238,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (o2Index >= 0)
             {
 
-                var output2 = result.SingleResult[o2Index];
+                var output2 = result.FirstResultVariables[o2Index];
                 output2.Should().NotBeNull();
                 output2.Name.Should().Be("o2");
                 output2.Value.Should().Be(o2).And.BeOfType<int>();
@@ -248,7 +248,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             // ReSharper disable once InvertIf
             if (o3Index >= 0)
             {
-                var output3 = result.SingleResult[o3Index];
+                var output3 = result.FirstResultVariables[o3Index];
                 output3.Should().NotBeNull();
                 output3.Name.Should().Be("o3");
                 output3.Value.Should().Be(o3).And.BeOfType<string>();
@@ -313,7 +313,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.Results[0].HitRules.Should().HaveCount(1);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
+            result.FirstResultVariables.Should().NotBeNull();
             var outCount = 2;
             var o1Index = 0;
             var o2Index = 1;
@@ -330,11 +330,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
                 o2Index = -1;
             }
 
-            result.SingleResult.Should().HaveCount(outCount);
+            result.FirstResultVariables.Should().HaveCount(outCount);
 
             if (o1Index >= 0)
             {
-                var output1 = result.SingleResult[o1Index];
+                var output1 = result.FirstResultVariables[o1Index];
                 output1.Should().NotBeNull();
                 output1.Name.Should().Be("o1");
                 output1.Value.Should().Be(o1).And.BeOfType<string>();
@@ -345,7 +345,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (o2Index >= 0)
             {
 
-                var output2 = result.SingleResult[o2Index];
+                var output2 = result.FirstResultVariables[o2Index];
                 output2.Should().NotBeNull();
                 output2.Name.Should().Be("o2");
                 output2.Value.Should().Be(o2).And.BeOfType<int>();
@@ -402,7 +402,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
+                result.FirstResultVariables.Should().NotBeNull();
             }
 
             result.Results.Should().HaveCount(hitsCount);
@@ -503,7 +503,7 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
+                result.FirstResultVariables.Should().NotBeNull();
             }
 
             result.Results.Should().HaveCount(hitsCount);

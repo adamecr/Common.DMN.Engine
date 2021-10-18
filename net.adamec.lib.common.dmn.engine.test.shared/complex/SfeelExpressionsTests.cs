@@ -197,16 +197,16 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (o == null)
             {
                 result.HasResult.Should().BeFalse();
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(0);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(0);
                 return;
             }
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("o");
             output.Value.Should().Be(o).And.BeOfType<string>();

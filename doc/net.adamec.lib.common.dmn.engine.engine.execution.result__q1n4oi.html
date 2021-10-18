@@ -55,15 +55,17 @@ Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
 </p>
 <h3>  Fields </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.results__1n9vhis" >results</a></td><td>private</td><td>Internal list of results. The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" >SingleResult</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.results__1n9vhis" >results</a></td><td>private</td><td>Internal list of results. The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a></td></tr>
 </table>
 <p> </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.first__nu3rp6" >First</a></td><td>public</td><td>Decision evaluation single (first) result. When there is no result, null is returned.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a></td><td>public</td><td>Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg" >variables</a> is returned.</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.hasresult__h948fd" >HasResult</a></td><td>public</td><td>Flag whether there is any result available</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.issingleresult__1ycasez" >IsSingleResult</a></td><td>public</td><td>Flag whether the decision  has single result</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.results__1c3jrwm" >Results</a></td><td>public</td><td>List of decision evaluation results.</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" >SingleResult</a></td><td>public</td><td>Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg" >variables</a> is returned.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" >SingleResult</a></td><td>public</td><td>This method is obsolete, use <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a> instead. Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg" >variables</a> is returned.</td></tr>
 </table>
 <p> </p>
 <h3>  Constructors </h3>
@@ -89,9 +91,29 @@ Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >DmnDecisionResult</a><br />
 Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
-<p>Internal list of results. The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" >SingleResult</a></p>
+<p>Internal list of results. The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a></p>
 <pre><code class="csharp">private readonly List&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult&gt; results</code></pre>
 <p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.first__nu3rp6" ></a>  DmnDecisionResult.First Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#n-net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi" >net.adamec.lib.common.dmn.engine.engine.execution.result</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >DmnDecisionResult</a><br />
+Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
+<p>Decision evaluation single (first) result. When there is no result, null is returned.</p>
+<pre><code class="csharp">public DmnDecisionSingleResult First { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult__ly679u" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" ></a>  DmnDecisionResult.FirstResultVariables Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#n-net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi" >net.adamec.lib.common.dmn.engine.engine.execution.result</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >DmnDecisionResult</a><br />
+Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
+<p>Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg" >variables</a> is returned.</p>
+<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt; FirstResultVariables { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt;</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.hasresult__h948fd" ></a>  DmnDecisionResult.HasResult Property </h2>
@@ -123,7 +145,7 @@ Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
 <pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult&gt; Results { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult&gt;</a></dt><dd></dd></dl></p>
 <h3>  Remarks </h3>
-<p>The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" >SingleResult</a> , however it&#39;s recommended to use the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" >SingleResult</a> when expecting the single result.</p>
+<p>The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a> , however it&#39;s recommended to use the <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a> when expecting the single result.</p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.singleresult__ghkfy1" ></a>  DmnDecisionResult.SingleResult Property </h2>
@@ -131,9 +153,10 @@ Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >DmnDecisionResult</a><br />
 Sources: engine\execution\result\DmnDecisionResult.cs</small></p>
-<p>Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg" >variables</a> is returned.</p>
-<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt; SingleResult { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt;</a></dt><dd></dd></dl></p>
+<p>This method is obsolete, use <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0" >FirstResultVariables</a> instead. Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg" >variables</a> is returned.</p>
+<pre><code class="csharp">[Obsolete(&quot;This method is obsolete, use FirstResultVariables instead&quot;)]
+public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt; SingleResult { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.obsoleteattribute" class="link-external" target="_blank" >System.ObsoleteAttribute</a></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.-ctor__1lmwiny" ></a>  DmnDecisionResult.DmnDecisionResult() Constructor </h2>

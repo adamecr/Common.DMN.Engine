@@ -5,41 +5,7 @@ The DMN Model is defined using the adopted [standard](https://www.omg.org/spec/D
 
 **NuGet package ID:** net.adamec.lib.common.dmn.engine
 
-### Version-1 ###
-
-**STILL TO BE DOCUMENTED / UPDATED IN DOCUMENTATION!!!**
-
-- Tests
-  - Shared code project with tests - "single test code"
-    - Hierarchy of test classes for same test but different source (DMN XML 1.1/1.3 or builders)
-    - Projects using the shared code targetting different platforms (.net core 2.1, 3.1, 5; .net framework 4.6.2, 4.7.2)
-
-
-- Definition classes
-  - In general, trying to have kind of immutable public interface after constructed 
-  - `DmnVariableDefinition` is "hidden" via R/O `IDmnVariable`. Also the setters are now not public (can be changed via dedicated methods encapsulating the logic)
-  - `IDmnVariable` and `IDmnDecision` is used are reference to variable/decision definition
-  - `IReadOnlyCollection` is used for required inputs and decision
-  - Arrays are used instead of lists for decision table - Inputs, Outpus, Rules, Allowed values
-  - The DMN definition can be created also by code using the builders (`DmnDefinitionBuilder`)
- 
-
-- Execution context
-  - Properties are published as `IReadOnlyDictionary` instead of `IDictionary`
-  - Parsed expressions cache (static property) is `ConcurrentDictionary` now
-  - New method `WithInputParameters` allowing to set multiple parameters in one call using the dictionary (`IReadOnlyCollection<KeyValuePair<string,object>>`)
-  - `DmnExecutionContextFactory` class is static now
-  - Decision execution can be traced/audited using the snapshots
-  - Execution context can be configured using the `DmnExecutionContextOptions` when calling the factory - set the snapshots on/off, table rules parallel processing
-  - FIX: when cloning the variables (for example from context to result), the ICloneable value is clonned properly
-
-
-- Other
-  - DynamicExpresso, NLog packages to current versions 
-  - Solution now primary for VS2019 (was 2017)
-
-TODOs
- - Tests for builders, execution options, snapshots
+See the latest changes in [changelog](changelog.md)
 
 ### Quick start ###
 The basic use case is:
@@ -477,7 +443,7 @@ There are following outputs for the rules of the decision table above
 - Rule 2 - will produce following output
   - `"dyna.Direct==over"` - string constant `dyna.Direct==over` will be stored to variable `res`.
   
-It's possible to omit one or more (all) output input expressions. In this case the Engine will just not produce the output value (so the output variable will NOT be "cleaned" or set to `null`).
+It's possible to omit one or more (all) output expressions. In this case the Engine will just not produce the output value (so the output variable will NOT be "cleaned" or set to `null`).
 
 ### Inputs in XML ###
 The decision table in the example above will have following inputs in the XML definition
@@ -604,6 +570,79 @@ The rule output expressions are defined using the `outputEntry` elements. **Thei
 
 The optional rule annotation is stored in element `description`. 
 
+### Rules in Builder ###
+`TableDecision` builder provides method `WithRule` for table rule definition. It takes a mandatory table-unique rule name and optional description and provides the rule builder to define the input conditions and output calculations.
+
+The input condition is defined as a pair of table input reference and the rule input expression. The first condition (doesn't need to be related to the first input) is defined using `When` method and additional ones can be added using `And` method(s). Use `Always` to skip the rule input definition (rule will be always evaluated as positive hit).
+
+The output calculation is defined as a pair of table output reference and the rule output expression. The first output calc expression (doesn't need to be related to the output input) is defined using `Then` method and additional ones can be added using `And` method(s). Use `SkipOutput` to skip the rule output definition (rule will produce no output).
+
+Some examples:
+
+```csharp
+var definition = new DmnDefinitionBuilder()
+  .WithInput<int>("input1", out var inputVar1Ref)
+  .WithInput<bool>("input2", out var inputVar2Ref)
+  .WithVariable<string>("output1", out var outputVar1Ref)
+  .WithVariable<int>("output2", out var outputVar2Ref)
+  .WithVariable<bool>("output3", out var outputVar3Ref)
+  .WithTableDecision("tDecision1", table =>
+     table
+       .WithInput(inputVar1Ref, out var tableInput1Ref)
+       .WithInput(inputVar2Ref, out var tableInput2Ref)
+       .WithInput("input2.ToString()[0]", out var tableInput3Ref)
+       .WithOutput(outputVar1Ref, out var tableOutput1Ref)
+       .WithOutput(outputVar2Ref, out var tableOutput2Ref)
+       .WithOutput(outputVar3Ref, out var tableOutput3Ref)
+       
+       .WithRule("rule1", r => r
+          .When(tableInput1Ref, "1")
+          .Then(tableOutput1Ref, "\"a\""))
+       .WithRule("rule2", r => r
+          .When(tableInput1Ref, "11")
+          .And(tableInput2Ref, "false")
+          .Then(tableOutput2Ref, "111"))
+       .WithRule("rule3", r => r
+          .When(tableInput1Ref, "2")
+          .And(tableInput2Ref, "true")
+          .Then(tableOutput2Ref, "2")
+          .And(tableOutput1Ref, "\"b\"")
+          .And(tableOutput3Ref, "false"))
+       .WithRule("rule4", "some rule description", r => r
+          .When(tableInput1Ref, "33")
+          .And(tableInput2Ref, "false")
+          .And(tableInput3Ref, "\"t\"")
+          .Then(tableOutput1Ref, "\"three\""))
+       .WithRule("rule5", r => r
+          .When(tableInput1Ref, "4")
+          .Then(tableOutput1Ref, "\"four\"")
+          .And(tableOutput2Ref, "4")
+          .And(tableOutput3Ref, "true"))
+       .WithRule("rule5", r => r
+          .Always()
+          .Then(tableOutput3Ref, "false"))
+       .WithRule("rule6", r => r
+          .Always()
+          .Then(tableOutput1Ref, "\"six\"")
+          .And(tableOutput2Ref, "66"))
+       .WithRule("rule7", r => r
+          .Always()
+          .Then(tableOutput1Ref, "\"7\"")
+          .And(tableOutput3Ref, "true"))
+       .WithRule("rule8", r => r
+          .When(tableInput2Ref, "false")
+          .SkipOutput())
+       .WithRule("rule9", r => r
+          .When(tableInput1Ref, "9")
+          .And(tableInput2Ref, "true")
+          .SkipOutput())
+       .WithRule("rule10", r => r
+          .Always()
+          .SkipOutput())
+    )
+ .Build();
+```
+
 ### Allowed Values Constraints ###
 It's possible to define the constraints for input a/or output values. When the constraint is defined and there is no match, the exception is thrown during the execution. The output allowed values might be also needed for the hit policy (see next chapter for details)
 
@@ -715,10 +754,33 @@ var definition = new DmnDefinitionBuilder()
 ## Decision results ##
 The decision results are returned as `DmnDecisionResult` object. In general, there can be zero, one or multiple results.
 - When there are none (zero) results, `DmnDecisionResult.HasResult` is `false`
-- When there is single (one) result, `IsSingleResult.HasResult` is `true` (`DmnDecisionResult.HasResult` is `true`)
-- When there are multiple results, `DmnDecisionResult.HasResult` is `true` and  `IsSingleResult.HasResult` is `false`.
+- When there is single (one) result, `IsSingleResult` is `true` (`DmnDecisionResult.HasResult` is `true`)
+- When there are multiple results, `DmnDecisionResult.HasResult` is `true` and  `IsSingleResult` is `false`.
 
-The results are accessible using  `DmnDecisionResult.Results` list. Each result contains the list of output `Variables` and each variable has `Name`, `Value` and `Type` (when the output variable type is know).
+The results are accessible using  `DmnDecisionResult.Results` list. The first (single) result can be retrieved using `DmnDecisionResult.First` method.
 
-There is a kind of a "shortcut" to the variables for the single result - `DmnDecisionResult.SingleResult` returns the list of variables of the first result (the only one for the single result).
+Each result is of type `DmnDecisionSingleResult` containing the list of output `Variables` where each variable has `Name`, `Value` and `Type` (when the output variable type is know). The variable can be retrieved using name-based indexed (for example `result.First["output1"]` to get the output variable named "output1" or `result.First["output1"].Value` to get the value of such variable).
+
+When the result comes from the decision table, it also provides the `HitRules` - list of rules (`DmnDecisionTableRule`) that had a positive hit (according to the evaluation and the hit policy) when the table has been evaluated (simple meaning - the list of rules that have been used to decide). *Thanks [Noel](https://github.com/nlysaght) for contribution.*
+
+There is a kind of a "shortcut" to the variables for the single result - `DmnDecisionResult.FirstResultVariables` returns the list of variables of the first result (the only one for the single result).
+
+## Execution Context Options ##
+When creating the execution context, it's possible to override the execution options when needed.
+
+```csharp
+var ctx = DmnExecutionContextFactory.CreateExecutionContext(def, configure =>
+  {
+    configure.EvaluateTableOutputsInParallel = true;
+    configure.EvaluateTableRulesInParallel = true;
+    configure.RecordSnapshots = true;
+  });
+```
+`EvaluateTableRulesInParallel` is a flag whether to evaluate the table rules in parallel (true by default) or in sequence and `EvaluateTableOutputsInParallel` is a flag whether to evaluate the table outputs for positive rules in parallel (false by default) or in sequence. These flags can be used for performance fine tuning of the processing of the decision tables when needed.
+*Note: Honestly, I didn't find the settings that will have conclusive results in general, so you can try to tweak the settings based on your decision tables and see what (and if) will bring better performance in each particular case.*
+
+`RecordSnaphots`, when on, can be used for auditing/tracking of the processing or even for debugging of the decisions when needed. It creates a context snapshot when `ctx.ExecuteDecision` is called to store the initial state (input parameters and variable "defaults"). This is snapshot with `Step=0`. Then a snapshot is created after each decision evaluation (one if there is not depencency, multiple when there are some decisions that needed to be evaluated first.). So the last snapshot relates to the decision referenced in `ExecuteDecision` for which the decision result is returned.
+
+The snapshots (`DmnExecutionSnapshots`) are avalable from execution context (`ctx.Snapshots`) providing the access to the `Last` snapshot and/or to all `Snapshots`.
+Each snapshot (`DmnExecutionSnapshot`) contains the step (sequence number), clone of all execution variables in execution context (with values corresponding to the time of snapshot creating) and `DecisionName`, `Decision` and `DecisionResult` for the snapshots created after decision execution.
 

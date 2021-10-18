@@ -45,11 +45,11 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
 
             result.Should().NotBeNull();
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(1);
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("c");
             output.Value.Should().Be(c).And.BeOfType<string>();

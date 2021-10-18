@@ -55,23 +55,23 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             {
                 result.Should().NotBeNull();
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(3);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(3);
                 result.Results[0].HitRules.Should().HaveCount(1);
 
-                var outNumInOut = result.SingleResult[2];
+                var outNumInOut = result.FirstResultVariables[2];
                 outNumInOut.Should().NotBeNull();
                 outNumInOut.Name.Should().Be("numinout");
                 outNumInOut.Type.Should().Be(typeof(int));
                 var numInOut = (int)outNumInOut.Value;
 
-                var outO = result.SingleResult[0];
+                var outO = result.FirstResultVariables[0];
                 outO.Should().NotBeNull();
                 outO.Name.Should().Be("o");
                 outO.Value.Should().Be("2018-01" + numInOut).And.BeOfType<string>();
                 outO.Type.Should().Be(typeof(string));
 
-                var outNumOut = result.SingleResult[1];
+                var outNumOut = result.FirstResultVariables[1];
                 outNumOut.Should().NotBeNull();
                 outNumOut.Name.Should().Be("numout");
                 outNumOut.Value.Should().Be(4 * numInOut).And.BeOfType<int>();

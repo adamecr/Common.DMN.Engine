@@ -63,14 +63,14 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount);
                 result.Results[0].HitRules.Should().HaveCount(1);
             }
 
             if (outVariableCount <= 0) return;
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("o");
             output.Value.Should().Be(c).And.BeOfType<string>();
@@ -119,14 +119,14 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount);
                 result.Results[0].HitRules.Should().HaveCount(1);
             }
 
             if (outVariableCount <= 0) return;
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("o");
             output.Value.Should().Be(c).And.BeOfType<string>();
@@ -182,14 +182,14 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount);
                 result.Results[0].HitRules.Should().HaveCount(1);
             }
 
             if (outVariableCount <= 0) return;
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("o");
             output.Value.Should().Be(c).And.BeOfType<string>();
@@ -239,14 +239,14 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount);
                 result.Results[0].HitRules.Should().HaveCount(1);
             }
 
             if (outVariableCount <= 0) return;
 
-            var output = result.SingleResult[0];
+            var output = result.FirstResultVariables[0];
             output.Should().NotBeNull();
             output.Name.Should().Be("o");
             output.Value.Should().Be(c).And.BeOfType<string>();
@@ -312,8 +312,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount[0]);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount[0]);
             }
 
             for (var i = 0; i < hitsCount; i++)
@@ -378,8 +378,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount[0]);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount[0]);
             }
 
             for (var i = 0; i < hitsCount; i++)
@@ -473,8 +473,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             if (hitsCount == 1)
             {
                 result.IsSingleResult.Should().Be(true);
-                result.SingleResult.Should().NotBeNull();
-                result.SingleResult.Should().HaveCount(outVariableCount[0]);
+                result.FirstResultVariables.Should().NotBeNull();
+                result.FirstResultVariables.Should().HaveCount(outVariableCount[0]);
             }
 
             for (var i = 0; i < hitsCount; i++)
@@ -538,8 +538,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -601,8 +601,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -664,8 +664,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -727,8 +727,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -790,8 +790,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -853,8 +853,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -916,8 +916,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
@@ -992,8 +992,8 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             result.HasResult.Should().Be(true);
 
             result.IsSingleResult.Should().Be(true);
-            result.SingleResult.Should().NotBeNull();
-            result.SingleResult.Should().HaveCount(1);
+            result.FirstResultVariables.Should().NotBeNull();
+            result.FirstResultVariables.Should().HaveCount(1);
 
             result.Results[0].Variables.Should().HaveCount(1);
             result.Results[0].HitRules.Should().HaveCount(hitsCount);
