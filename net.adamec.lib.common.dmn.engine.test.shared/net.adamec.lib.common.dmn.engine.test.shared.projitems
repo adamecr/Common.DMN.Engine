@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)builder\AllowedValuesTestsBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\BuilderBasicTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)builder\BuilderErrTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\ComplexInputsTestsBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\DmnBuilderSamples.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\EndToEndTestsBuilder.cs" />

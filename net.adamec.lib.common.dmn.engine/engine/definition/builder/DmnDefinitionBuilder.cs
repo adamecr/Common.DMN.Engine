@@ -136,6 +136,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             var existingInputs = Variables.InputData;
             if (existingInputs.ContainsKey(variableName))
                 throw Logger.Error<DmnBuilderException>($"Duplicate input variable name {variableName} (normalized from {name})");
+            
+            var existingVariables = Variables.Variables;
+            if (existingVariables.ContainsKey(variableName)) throw Logger.Error<DmnBuilderException>($"Duplicate variable name {variableName} (normalized from {name})");
+
 
             var variable = new Variable(Variables, Decisions, variableName, variableType).ForInput();
             inputVariable = variable.Reference;
