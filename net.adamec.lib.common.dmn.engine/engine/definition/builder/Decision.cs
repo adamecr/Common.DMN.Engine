@@ -120,6 +120,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             if (!input.IsInputParameter)
                 throw Logger.Error<DmnBuilderException>($"Variable {input.Name} is not an input parameter");
 
+            if(Variables[input]==null) throw Logger.Error<DmnBuilderException>($"Can't get the variable from reference {input.Name}");
+
             if (!RequiredInputs.Contains(input))
                 RequiredInputs.Add(input);
         }
@@ -134,6 +136,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (decision == null) throw new ArgumentNullException(nameof(decision));
+
+            if (Decisions[decision] == null) throw Logger.Error<DmnBuilderException>($"Can't get the decision from reference {decision.Name}");
 
             if (!RequiredDecisions.Contains(decision))
                 RequiredDecisions.Add(decision);

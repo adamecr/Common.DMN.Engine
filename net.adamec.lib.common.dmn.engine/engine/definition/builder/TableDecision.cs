@@ -282,12 +282,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// </summary>
         /// <returns>Table decision definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when there is no input or no output defined in builder</exception>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when there is no input, no output or no rule defined in builder</exception>
         internal override IDmnDecision Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (InputsInternal.Count < 1) throw Logger.Error<DmnBuilderException>($"At least one input must be defined for decision table {Name}");
             if (OutputsInternal.Count < 1) throw Logger.Error<DmnBuilderException>($"At least one output must be defined for decision table {Name}");
+            if (RulesInternal.Count < 1) throw Logger.Error<DmnBuilderException>($"At least one rule must be defined for decision table {Name}");
 
             //create
             var tableDecision = new DmnDecisionTable(

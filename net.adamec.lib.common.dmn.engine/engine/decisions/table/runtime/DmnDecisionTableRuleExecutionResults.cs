@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
-using net.adamec.lib.common.dmn.engine.engine.execution;
+
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
@@ -54,12 +54,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime
         /// </summary>
         /// <param name="rule">Rule to get the result for</param>
         /// <param name="output">Output to get the result for</param>
-        /// <returns>Result for given pair <paramref name="rule"/> - <paramref name="output"/> or null when the result is not found</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="rule"/> or <paramref name="output"/> is null</exception>
+        /// <returns>Result for given pair <paramref name="rule"/> - <paramref name="output"/> or null when the result is not found or <paramref name="output"/> is null</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="rule"/> is null</exception>
         public DmnExecutionVariable GetResult(DmnDecisionTableRule rule, DmnDecisionTableRuleOutput output)
         {
             if (rule == null) throw new ArgumentNullException(nameof(rule));
-            if (output == null) throw new ArgumentNullException(nameof(output));
+            if (output == null) return null;
 
             return Results.TryGetValue((rule, output), out var retVal) ? retVal : null;
         }

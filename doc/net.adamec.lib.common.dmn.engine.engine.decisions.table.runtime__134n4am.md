@@ -126,11 +126,11 @@ public DmnExecutionVariable GetResult(DmnDecisionTableRule rule, DmnDecisionTabl
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko) <strong>rule</strong></dt><dd>Rule to get the result for</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb) <strong>output</strong></dt><dd>Output to get the result for</dd></dl>
-<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn)</dt><dd>Result for given pair <strong>rule</strong> - <strong>output</strong> or null when the result is not found</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn)</dt><dd>Result for given pair <strong>rule</strong> - <strong>output</strong> or null when the result is not found or <strong>output</strong> is null</dd></dl>
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>rule</strong> or <strong>output</strong> is null</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>rule</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

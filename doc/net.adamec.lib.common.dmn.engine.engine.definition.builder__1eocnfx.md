@@ -1400,7 +1400,7 @@ public DmnDefinition Build()
 
 
 ###  Exceptions ###
-<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition contains no decision</dd><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -2907,7 +2907,7 @@ internal override IDmnDecision Build()
 
 
 ###  Exceptions ###
-<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when there is no input or no output defined in builder</dd></dl>
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when there is no input, no output or no rule defined in builder</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -4550,7 +4550,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | [AllTableOutputs](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.alltableoutputs__1pvqhfy) | private | All outputs defined for decision table (by reference) | 
  | [Description](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.description__kq90e9) | public | Optional rule description (annotation) | 
  | [Index](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.index__1sfu2qp) | public | Index (order) of the rule within the decision table | 
- | [Inputs](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.inputs__lx4x7g) | private | Definition of decision table rule inputs as a dictionary of pairs table input reference and the evaluation expression | 
+ | [Inputs](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.inputs__lx4x7g) | public | Definition of decision table rule inputs as a dictionary of pairs table input reference and the evaluation expression | 
  | [InputsInternal](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.inputsinternal__1pnl7fl) | private | Internal definition of decision table rule inputs as a dictionary of pairs table input reference and the evaluation expression | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.name__jmrvie) | public | Rule name | 
  | [Outputs](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.outputs__1a28hub) | public | Definition of decision table rule outputs as a dictionary of pairs table output reference and the calculation expression | 
@@ -4573,6 +4573,8 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.build__1po6hr6) | internal | Builds the decision table rule definition | 
+ | [ClearInputs()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.clearinputs__jfa60q) | private | Clears input expressions for all inputs | 
+ | [ClearOutputs()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.clearoutputs__1ww44wn) | private | Clears the output calculation expressions for all outputs | 
  | [SetInput(TableInput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.setinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-system.string___19sjs2l) | private | Sets the input expression for the input referenced by <strong>inputRef</strong> | 
  | [SetOutput(TableOutput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.setoutput_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-system.string___1npn6u9) | private | Sets the output expression for the output referenced by <strong>outputRef</strong> | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tostring__1i4ly5e) | public | Returns a string that represents the current object. | 
@@ -4694,7 +4696,7 @@ Definition of decision table rule inputs as a dictionary of pairs table input re
 
 
 ```csharp
-private IReadOnlyDictionary<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref,string> Inputs { get; }
+public IReadOnlyDictionary<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref,string> Inputs { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref,string&gt;</a></dt><dd></dd></dl>
@@ -4852,6 +4854,62 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.clearinputs__jfa60q" />  TableRule.ClearInputs() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableRule](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule__khh4t5)           
+Sources: engine\definition\builder\TableRule.cs</small>
+
+
+Clears input expressions for all inputs
+
+
+
+```csharp
+private void ClearInputs()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.clearoutputs__1ww44wn" />  TableRule.ClearOutputs() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableRule](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule__khh4t5)           
+Sources: engine\definition\builder\TableRule.cs</small>
+
+
+Clears the output calculation expressions for all outputs
+
+
+
+```csharp
+private void ClearOutputs()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.setinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-system.string___19sjs2l" />  TableRule.SetInput(TableInput.Ref, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -4869,6 +4927,10 @@ private void SetInput(TableInput.Ref inputRef, string inputExpression)
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) <strong>inputRef</strong></dt><dd>Reference to decision table input</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>inputExpression</strong></dt><dd>Input evaluation expression</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Remarks ###
+When the expression is null or whitespace the table input will not be used for the rule (will be removed when it was already defined before). When the expression is &quot;valid&quot; and the input expression has been defined before, it will override it
 
 
 ###  Exceptions ###
@@ -4898,6 +4960,10 @@ private void SetOutput(TableOutput.Ref outputRef, string outputExpression)
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref__1pq6cff) <strong>outputRef</strong></dt><dd>Reference to decision table output</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>outputExpression</strong></dt><dd>Output calculation expression</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Remarks ###
+When the expression is null or whitespace the table output will not be used for the rule (will be removed when it was already defined before). When the expression is &quot;valid&quot; and the output expression has been defined before, it will override it
 
 
 ###  Exceptions ###
@@ -5018,6 +5084,10 @@ public TableRule.TableRuleAndOutputBuilder And(TableOutput.Ref outputRef, string
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleAndOutputBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleandoutputbuilder__1z0ktcy)</dt><dd></dd></dl>
 
 
+###  Remarks ###
+When the expression is null or whitespace the table output will not be used for the rule (will be removed when it was already defined before). When the expression is &quot;valid&quot; and the output expression has been defined before, it will override it
+
+
 ###  Exceptions ###
 <dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>Throws <a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a> when the <strong>outputRef</strong> is null</dd><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the <strong>outputRef</strong> is not recognized as the valid table output</dd></dl>
 
@@ -5068,7 +5138,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Always()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleinputbuilder.always__muenim) | public | Skips the input conditions for rule meaning that the rule will accept any input | 
+ | [Always()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleinputbuilder.always__muenim) | public | Skips the input conditions for rule meaning that the rule will accept any input. All existing input conditions, if any, are removed | 
  | [When(TableInput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleinputbuilder.when_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-system.string___liomuk) | public | Sets the input expression for the input referenced by <strong>inputRef</strong> | 
 
  
@@ -5133,7 +5203,7 @@ Type: [TableRule.TableRuleInputBuilder](net.adamec.lib.common.dmn.engine.engine.
 Sources: engine\definition\builder\TableRule.cs</small>
 
 
-Skips the input conditions for rule meaning that the rule will accept any input
+Skips the input conditions for rule meaning that the rule will accept any input. All existing input conditions, if any, are removed
 
 
 
@@ -5167,6 +5237,10 @@ public TableRule.TableRuleThenOrAndBuilder When(TableInput.Ref inputRef, string 
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) <strong>inputRef</strong></dt><dd>Reference to decision table input</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>inputExpression</strong></dt><dd>Input evaluation expression</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleThenOrAndBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder__1dha7br)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+[When(TableInput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleinputbuilder.when_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-system.string___liomuk) clears all input expressions for the rule first and then add the <strong>inputExpression</strong> for <em>inputRef</em> When the expression is null or whitespace the table input will not be used for the rule (will not be added).
 
 
 ###  Exceptions ###
@@ -5308,7 +5382,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [SkipOutput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenonlybuilder.skipoutput__bxdug) | public | Skips the output definition for the rule (no output to be provided) | 
+ | [SkipOutput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenonlybuilder.skipoutput__bxdug) | public | Skips the output definition for the rule (no output to be provided). When there are already any output calculations for the rule, they will be removed/ | 
  | [Then(TableOutput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenonlybuilder.then_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-system.string___7sc76z) | public | Sets the output expression for the output referenced by <strong>outputRef</strong> | 
 
  
@@ -5373,7 +5447,7 @@ Type: [TableRule.TableRuleThenOnlyBuilder](net.adamec.lib.common.dmn.engine.engi
 Sources: engine\definition\builder\TableRule.cs</small>
 
 
-Skips the output definition for the rule (no output to be provided)
+Skips the output definition for the rule (no output to be provided). When there are already any output calculations for the rule, they will be removed/
 
 
 
@@ -5407,6 +5481,10 @@ public TableRule.TableRuleAndOutputBuilder Then(TableOutput.Ref outputRef, strin
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref__1pq6cff) <strong>outputRef</strong></dt><dd>Reference to decision table output</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>outputExpression</strong></dt><dd>Output calculation expression</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleAndOutputBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleandoutputbuilder__1z0ktcy)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+[Then(TableOutput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenonlybuilder.then_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-system.string___7sc76z) clears all output expressions for the rule first and then add the <strong>outputExpression</strong> for <em>outputRef</em> When the expression is null or whitespace the table input will not be used for the rule (will not be added).
 
 
 ###  Exceptions ###
@@ -5460,7 +5538,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [And(TableInput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder.and_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-system.string___ie3ztu) | public | Sets the input expression for the input referenced by <strong>inputRef</strong> | 
- | [SkipOutput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder.skipoutput__1erqm32) | public | Skips the output definition for the rule (no output to be provided) | 
+ | [SkipOutput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder.skipoutput__1erqm32) | public | Skips the output definition for the rule (no output to be provided). When there are already any output calculations for the rule, they will be removed. | 
  | [Then(TableOutput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder.then_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-system.string___k06qrt) | public | Sets the output expression for the output referenced by <strong>outputRef</strong> | 
 
  
@@ -5537,6 +5615,10 @@ public TableRule.TableRuleThenOrAndBuilder And(TableInput.Ref inputRef, string i
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleThenOrAndBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder__1dha7br)</dt><dd></dd></dl>
 
 
+###  Remarks ###
+When the expression is null or whitespace the table input will not be used for the rule (will be removed when it was already defined before). When the expression is &quot;valid&quot; and the input expression has been defined before, it will override it
+
+
 ###  Exceptions ###
 <dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>Throws <a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a> when the <strong>inputRef</strong> is null</dd><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the <strong>inputRef</strong> is not recognized as the valid table input</dd></dl>
 
@@ -5554,7 +5636,7 @@ Type: [TableRule.TableRuleThenOrAndBuilder](net.adamec.lib.common.dmn.engine.eng
 Sources: engine\definition\builder\TableRule.cs</small>
 
 
-Skips the output definition for the rule (no output to be provided)
+Skips the output definition for the rule (no output to be provided). When there are already any output calculations for the rule, they will be removed.
 
 
 
@@ -5588,6 +5670,10 @@ public TableRule.TableRuleAndOutputBuilder Then(TableOutput.Ref outputRef, strin
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref__1pq6cff) <strong>outputRef</strong></dt><dd>Reference to decision table output</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>outputExpression</strong></dt><dd>Output calculation expression</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleAndOutputBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleandoutputbuilder__1z0ktcy)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+[Then(TableOutput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tablerulethenorandbuilder.then_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-system.string___k06qrt) clears all output expressions for the rule first and then add the <strong>outputExpression</strong> for <em>outputRef</em> When the expression is null or whitespace the table output will not be used for the rule (will not be added).
 
 
 ###  Exceptions ###

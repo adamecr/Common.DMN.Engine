@@ -338,12 +338,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// executed within <see cref="execution.context.DmnExecutionContext"/>
         /// </summary>
         /// <returns><see cref="DmnDefinition"/> that can be executed within <see cref="execution.context.DmnExecutionContext"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition contains no decision</exception>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinition Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Definition is already built");
 
             IsBuilt = true;
+            if (Decisions.Decisions.Count == 0)
+            {
+                throw Logger.Error<DmnBuilderException>($"No decision in DMN definition");
+            }
             return new DmnDefinition(Variables.Build(), Decisions.Build());
         }
 

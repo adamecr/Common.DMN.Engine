@@ -642,7 +642,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 
             foreach (var positiveRule in positiveRules)
             {
-                var valueRaw = results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value;
+                var valueRaw = positiveRule.Outputs.Length>0?results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value:null;
                 if (valueRaw == null) continue; //ignore null results/values
 
                 double value;
@@ -682,7 +682,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             DmnDecisionTableRuleExecutionResults results)
         {
             var count = positiveRules.ToList()
-                 .Select(r => results.GetResult(r, r.Outputs[0])?.Value?.ToString())
+                 .Select(r => r.Outputs.Length > 0 ? results.GetResult(r, r.Outputs[0])?.Value?.ToString():null)
                  .Where(v => v != null)
                  .Distinct()
                  .ToList()

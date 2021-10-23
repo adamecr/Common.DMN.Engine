@@ -577,6 +577,11 @@ The input condition is defined as a pair of table input reference and the rule i
 
 The output calculation is defined as a pair of table output reference and the rule output expression. The first output calc expression (doesn't need to be related to the output input) is defined using `Then` method and additional ones can be added using `And` method(s). Use `SkipOutput` to skip the rule output definition (rule will produce no output).
 
+Although the builder chains for the rule input and output expression guides use quite intuitive way, for the advanced scenarios, it's good to know that:
+ - `When` and `Then` will clear all input or output expressions first and if the expression parameter is not null or whitespace, it will add it as the expression for the given rule input/output
+ - `Add` will set the input or output expression for given input/output if the expression is not null or whitespace. Otherwise, the expression for given input/output is removed. Other inputs/outputs are kept untouched
+ - `Always` and `SkipOutput` will clear all input or output expressions for the rule.
+
 Some examples:
 
 ```csharp
