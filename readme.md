@@ -55,6 +55,7 @@ The test classes for DMN 1.3 inherits from "primary" test class and override the
 
 The builder based definition tests are prepared similar way - inherit from "primary" test class and set the `Source` to used the builders. `DmnBuilderSamples` class is generated from DMN XML files to provide the same decision model (DMN definition) but using the builders (Note: it might be useful to check this class to have a quick look how the builders work).
 
+*Note: I use the test cases also to demonstrate some edge-case or less intuitive behavior, so they can be used also as a study material (tried to explain it in comments in test if needed).*
 
 
 ### Code Documentation ###
@@ -237,6 +238,9 @@ The decision is executed and evaluated by Engine using the method `ctx.ExecuteDe
 result = ctx.ExecuteDecision("decision name");
 ```
 The Engine checks for the decision dependencies and when any decision needs to be evaluated before (required decision), the Engine evaluates such decision. This is done recursively, so the complex dependencies can be defined.
+
+**Important: As mentioned above, the dependency check is simple recursion with no "cache-and-skip-next-time". Meaning that when the full depencency chain is always backtracked and executed and a single decision can be executed multiple times if multiple decisions defines it as a dependency. Keep this in mind when specifying the decision dependencies - it's not "just for information", but it means the decision will be executed.**
+
 *Note: The Engine doesn't check for the circular dependencies, so the execution of model will fail with `StackOverflowException` in such cases.*
 
 ## Variables in Decision Model ##
