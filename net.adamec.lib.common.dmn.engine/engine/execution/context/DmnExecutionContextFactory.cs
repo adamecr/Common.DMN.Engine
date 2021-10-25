@@ -22,10 +22,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             DmnModel sourceModel,
             Action<DmnExecutionContextOptions> configure = null)
         {
-            if (sourceModel == null) throw new ArgumentNullException(nameof(sourceModel));
-
-            var definition = DmnDefinitionFactory.CreateDmnDefinition(sourceModel);
-            return CreateExecutionContext(definition,configure);
+            return CreateCustomExecutionContext<DmnExecutionContext>(sourceModel, configure);
         }
 
         /// <summary>
@@ -38,6 +35,41 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         public static DmnExecutionContext CreateExecutionContext(
             DmnDefinition sourceDefinition,
             Action<DmnExecutionContextOptions> configure = null)
+        {
+            return CreateCustomExecutionContext<DmnExecutionContext>(sourceDefinition, configure);
+        }
+
+        /// <summary>
+        /// Creates the execution context from <paramref name="sourceModel"/>
+        /// </summary>
+        /// <param name="sourceModel">Source model to create the execution context for</param>
+        /// <param name="configure">Optional configuration action</param>
+        /// <typeparam name="T">Type of the execution context to be created. Must be <see cref="DmnExecutionContext"/> or its descendant</typeparam>
+        /// <returns><paramref name="sourceModel"/> execution context</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="sourceModel"/> is null</exception>
+        public static DmnExecutionContext CreateCustomExecutionContext<T>(
+            DmnModel sourceModel,
+            Action<DmnExecutionContextOptions> configure = null) 
+            where T : DmnExecutionContext
+        {
+            if (sourceModel == null) throw new ArgumentNullException(nameof(sourceModel));
+
+            var definition = DmnDefinitionFactory.CreateDmnDefinition(sourceModel);
+            return CreateCustomExecutionContext<T>(definition, configure);
+        }
+
+        /// <summary>
+        /// Creates the execution context from <paramref name="sourceDefinition"/>
+        /// </summary>
+        /// <param name="sourceDefinition">Source model definition  to create the execution context for</param>
+        /// <param name="configure">Optional configuration action</param>
+        /// <typeparam name="T">Type of the execution context to be created. Must be <see cref="DmnExecutionContext"/> or its descendant</typeparam>
+        /// <returns><paramref name="sourceDefinition"/> execution context</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="sourceDefinition"/> is null</exception>
+        public static DmnExecutionContext CreateCustomExecutionContext<T>(
+            DmnDefinition sourceDefinition,
+            Action<DmnExecutionContextOptions> configure = null) 
+            where T:DmnExecutionContext
         {
             if (sourceDefinition == null) throw new ArgumentNullException(nameof(sourceDefinition));
             if (sourceDefinition.Decisions == null || sourceDefinition.Decisions.Count < 1) throw new ArgumentException("No decisions in the sourceDefinition definition");
@@ -56,8 +88,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
                 .ToDictionary(
                     sourceDecision => sourceDecision.Key,
                     sourceDecision => sourceDecision.Value);
+            return (T)Activator.CreateInstance(typeof(T), sourceDefinition, variables, decisions, configure);
 
-            return new DmnExecutionContext(sourceDefinition, variables, decisions,configure);
         }
     }
 }

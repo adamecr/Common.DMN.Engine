@@ -62,6 +62,7 @@ Sources: engine\definition\DmnDefinition.cs</small></p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.decisions__1drwp89" >Decisions</a></td><td>public</td><td>Dictionary of available decisions by name</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.id__2fgy87" >Id</a></td><td>public</td><td>Unique identifier of the definition (set at CTOR)</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.inputdata__1605bm2" >InputData</a></td><td>public</td><td>Input data interface. Input data are stored as Variables with <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable.isinputparameter__1benkdl" >IsInputParameter</a> flag, complex objects are supported</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.variables__1aage4j" >Variables</a></td><td>public</td><td>Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions</td></tr>
 </table>
@@ -81,6 +82,16 @@ Sources: engine\definition\DmnDefinition.cs</small></p>
 <p>Dictionary of available decisions by name</p>
 <pre><code class="csharp">public IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; Decisions { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" class="link-external" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.id__2fgy87" ></a>  DmnDefinition.Id Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6" >net.adamec.lib.common.dmn.engine.engine.definition</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >DmnDefinition</a><br />
+Sources: engine\definition\DmnDefinition.cs</small></p>
+<p>Unique identifier of the definition (set at CTOR)</p>
+<pre><code class="csharp">public string Id { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.inputdata__1605bm2" ></a>  DmnDefinition.InputData Property </h2>

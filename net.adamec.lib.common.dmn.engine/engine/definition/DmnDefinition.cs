@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
 
@@ -9,6 +10,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
     /// </summary>
     public class DmnDefinition
     {
+        /// <summary>
+        /// Unique identifier of the definition (set at CTOR)
+        /// </summary>
+        public string Id { get; }
+
         /// <summary>
         /// Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions
         /// In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions
@@ -38,6 +44,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             IReadOnlyDictionary<string, IDmnVariable> variables,
             IReadOnlyDictionary<string, IDmnDecision> decisions)
         {
+            Id = Guid.NewGuid().ToString();
             Variables = variables;
             Decisions = decisions;
         }

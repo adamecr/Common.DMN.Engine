@@ -296,10 +296,10 @@ Evaluates the decision table.
 
 
 ```csharp
-protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
+protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Optional correlation ID used while logging</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka)</dt><dd>Decision result</dd></dl>Overrides: [DmnDecision.Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8)
 
 
@@ -329,10 +329,10 @@ Evaluates the output expressions for  positive rules and stores generates the ta
 
 
 ```csharp
-private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string correlationId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
+private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string executionId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9)</dt><dd>Table execution results</dd></dl>
 
 
@@ -354,10 +354,10 @@ Evaluates the output expressions for  positive rules and stores generates the ta
 
 
 ```csharp
-private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRulesParallel(DmnExecutionContext context, string correlationId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
+private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRulesParallel(DmnExecutionContext context, string executionId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9)</dt><dd>Table execution results</dd></dl>
 
 
@@ -379,10 +379,10 @@ Evaluates the rules and return the list of positive rules (rules that match the 
 
 
 ```csharp
-private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string correlationId)
+private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd>List of positive rules (rules that match the input)</dd></dl>
 
 
@@ -412,10 +412,10 @@ Evaluates the rules and return the list of positive rules (rules that match the 
 
 
 ```csharp
-private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRulesParallel(DmnExecutionContext context, string correlationId)
+private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRulesParallel(DmnExecutionContext context, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd>List of positive rules (rules that match the input)</dd></dl>
 
 
@@ -445,10 +445,10 @@ Gets the index of output <strong>value</strong> within the list of <strong>allow
 
 
 ```csharp
-private int GetIndexOfOutputValue(string[] allowedValues, object value, string correlationId)
+private int GetIndexOfOutputValue(string[] allowedValues, object value, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd>Index of output <strong>value</strong> within the list of <strong>allowedValues</strong> . When the output <strong>value</strong> is null, it returns <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32.maxvalue#System_Int32_MaxValue" target="_blank" >System.Int32.MaxValue</a> .</dd></dl>
 
 
@@ -495,10 +495,10 @@ Orders the positive rules by output priorities for the Priority and Output order
 
 
 ```csharp
-private IOrderedEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> OrderPositiveRulesByOutputPriority(IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules, DmnDecisionTableRuleExecutionResults results, string correlationId)
+private IOrderedEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> OrderPositiveRulesByOutputPriority(IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules, DmnDecisionTableRuleExecutionResults results, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>Rules evaluates as positive match</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9) <strong>results</strong></dt><dd>Evaluated (calculated) results (rule outputs)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>Rules evaluates as positive match</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9) <strong>results</strong></dt><dd>Evaluated (calculated) results (rule outputs)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.iorderedenumerable-1" target="_blank" >System.Linq.IOrderedEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd>Positive rules ordered by output priorities for the Priority and Output order hit policies</dd></dl>
 
 

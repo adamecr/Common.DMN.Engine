@@ -45,16 +45,16 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
         /// Evaluates the decision.
         /// </summary>
         /// <param name="context">DMN Engine execution context</param>
-        /// <param name="correlationId">Optional correlation ID used while logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>Decision result</returns>
         /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
-        protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
+        protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string executionId)
         {
-            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(correlationId,$"{nameof(context)} is null");
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(executionId,$"{nameof(context)} is null");
 
-            Logger.InfoCorr(correlationId, $"Evaluating expressiong decision {Name} with expression {Expression}...");
-            var result = context.EvalExpression(Expression, Output.Type);
-            Logger.InfoCorr(correlationId, $"Evaluated expressiong decision {Name} with expression {Expression}");
+            Logger.InfoCorr(executionId, $"Evaluating expressiong decision {Name} with expression {Expression}...");
+            var result = context.EvalExpression(Expression, Output.Type,executionId);
+            Logger.InfoCorr(executionId, $"Evaluated expressiong decision {Name} with expression {Expression}");
             var outVariable = context.GetVariable(Output);
             outVariable.Value = result;
             return new DmnDecisionResult(new DmnDecisionSingleResult(context.GetVariable(Output)));

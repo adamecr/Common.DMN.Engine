@@ -24,8 +24,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <summary>
         /// Parsed (pre-processed) expressions cache
         /// </summary>
-        private static readonly ConcurrentDictionary<(string, Type), Lambda> ParsedExpressionsCache =
-            new ConcurrentDictionary<(string, Type), Lambda>();
+        protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache = new ConcurrentDictionary<string, Lambda>();
+
+        /// <summary>
+        /// Unique identifier of the execution context (set at CTOR)
+        /// </summary>
+        public string Id { get; }
 
         /// <summary>
         /// DMN Model definition
@@ -56,7 +60,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <summary>
         /// Execution context options
         /// </summary>
-        public IDmnExecutionContextOptions Options=>options;
+        public IDmnExecutionContextOptions Options => options;
 
         /// <summary>
         /// CTOR
@@ -66,12 +70,14 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <param name="decisions">Dictionary of available decisions by name</param>
         /// <param name="configure">Optional configuration action</param>
         /// <exception cref="ArgumentNullException">Any of the parameters is null</exception>
-        internal DmnExecutionContext(
-            DmnDefinition definition,
-            IReadOnlyDictionary<string, DmnExecutionVariable> variables,
-            IReadOnlyDictionary<string, IDmnDecision> decisions,
-            Action<DmnExecutionContextOptions> configure = null)
+        public DmnExecutionContext(
+             DmnDefinition definition,
+             IReadOnlyDictionary<string, DmnExecutionVariable> variables,
+             IReadOnlyDictionary<string, IDmnDecision> decisions,
+             Action<DmnExecutionContextOptions> configure = null)
         {
+            Id = Guid.NewGuid().ToString();
+
             Definition = definition ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(definition)} is null");
             Variables = variables ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(variables)} is null");
             Decisions = decisions ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(decisions)} is null");
@@ -84,7 +90,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// and clears the snapshots
         /// </summary>
         /// <returns><see cref="DmnExecutionContext"/></returns>
-        public DmnExecutionContext Reset()
+        public virtual DmnExecutionContext Reset()
         {
             if (Variables == null) return this;
             foreach (var variable in Variables.Values.Where(i => !i.IsInputParameter))
@@ -108,7 +114,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <returns><see cref="DmnExecutionContext"/></returns>
         /// <exception cref="ArgumentException"><paramref name="name"/> is null or empty</exception>    
         /// <exception cref="DmnExecutorException">Input parameter with given <paramref name="name"/> doesn't exist</exception>
-        public DmnExecutionContext WithInputParameter(string name, object value)
+        public virtual DmnExecutionContext WithInputParameter(string name, object value)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw Logger.Fatal<ArgumentException>($"{nameof(name)} is null or empty");
@@ -133,7 +139,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <param name="parameters">Collection of parameters - Key=name, Value=value</param>
         /// <returns><see cref="DmnExecutionContext"/></returns>
         /// <exception cref="ArgumentNullException"><paramref name="parameters"/> is null</exception>    
-        public DmnExecutionContext WithInputParameters(IReadOnlyCollection<KeyValuePair<string, object>> parameters)
+        public virtual DmnExecutionContext WithInputParameters(IReadOnlyCollection<KeyValuePair<string, object>> parameters)
         {
             if (parameters == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(parameters)} is null");
 
@@ -169,7 +175,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <param name="decision">Decision to execute</param>
         /// <returns>Decision result</returns>
         /// <exception cref="ArgumentNullException"><paramref name="decision"/> is null</exception>
-        public DmnDecisionResult ExecuteDecision(IDmnDecision decision)
+        public virtual DmnDecisionResult ExecuteDecision(IDmnDecision decision)
         {
             if (decision == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(decision)} is null");
 
@@ -192,7 +198,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// </summary>
         /// <param name="decision">Decision evaluated just before the snapshot</param>
         /// <param name="result"><paramref name="decision"/> result</param>
-        internal void CreateSnapshot(IDmnDecision decision, DmnDecisionResult result)
+        internal virtual void CreateSnapshot(IDmnDecision decision, DmnDecisionResult result)
         {
             if (Options.RecordSnapshots)
                 Snapshots.CreateSnapshot(this, decision, result);
@@ -203,12 +209,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// </summary>
         /// <param name="expression">Expression to evaluate</param>
         /// <param name="outputType">Output (result) type</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <exception cref="ArgumentException"><paramref name="expression"/> is null or empty</exception>   
         /// <exception cref="ArgumentNullException"><paramref name="outputType"/> is null</exception>
         /// <exception cref="DmnExecutorException">Exception while invoking the expression</exception>
         /// <exception cref="DmnExecutorException">Can't convert the expression result to <paramref name="outputType"/></exception>
         /// <returns>The expression result converted to <paramref name="outputType"/></returns>
-        public object EvalExpression(string expression, Type outputType)
+        public virtual object EvalExpression(string expression, Type outputType, string executionId)
         {
             if (string.IsNullOrWhiteSpace(expression))
                 throw Logger.Fatal<ArgumentException>($"{nameof(expression)} is null or empty");
@@ -239,10 +246,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             }
 
             //Check parsed expression cache
-            if (!ParsedExpressionsCache.TryGetValue((expression, outputType), out var parsedExpression))
+            var cacheKey = GetParsedExpressionCacheKey(executionId, expression, outputType);
+            if (Options.ParsedExpressionCacheScope == ParsedExpressionCacheScopeEnum.None ||
+                !GetParsedExpressionsFromCache(cacheKey, out var parsedExpression))
             {
                 parsedExpression = interpreter.Parse(expression, outputType, parameters.ToArray());
-                ParsedExpressionsCache[(expression, outputType)] = parsedExpression;
+                if (Options.ParsedExpressionCacheScope != ParsedExpressionCacheScopeEnum.None)
+                    CacheParsedExpression(cacheKey, parsedExpression);
             }
 
             //Invoke expression to evaluate
@@ -273,18 +283,73 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         }
 
         /// <summary>
+        /// Tries to retrieve the <paramref name="parsedExpression"/> from the parsed expression cache using the <paramref name="cacheKey"/>
+        /// </summary>
+        /// <param name="cacheKey">Retrieval key of the <paramref name="parsedExpression"/></param>
+        /// <param name="parsedExpression">Parsed expression retrieved from cache if successful</param>
+        /// <returns>True when the <paramref name="parsedExpression"/> has been retrieved from cache, otherwise false</returns>
+        protected virtual bool GetParsedExpressionsFromCache(string cacheKey, out Lambda parsedExpression)
+        {
+            return ParsedExpressionsCache.TryGetValue(cacheKey, out parsedExpression);
+        }
+
+        /// <summary>
+        /// Store the <paramref name="parsedExpression"/> into parsed expression cache using the <paramref name="cacheKey"/>
+        /// </summary>
+        /// <param name="cacheKey">Retrieval key of the <paramref name="parsedExpression"/></param>
+        /// <param name="parsedExpression">Parsed expression to cache</param>
+        protected virtual void CacheParsedExpression(string cacheKey, Lambda parsedExpression)
+        {
+            ParsedExpressionsCache[cacheKey] = parsedExpression;
+        }
+
+        /// <summary>
+        /// Compose the parsed expression key (based on <see cref="DmnExecutionContextOptions.ParsedExpressionCacheScope"/>)
+        /// </summary>
+        /// <param name="executionId">Identifier of the execution run</param>
+        /// <param name="expression">Unparsed (raw) expression</param>
+        /// <param name="outputType">Expression output type</param>
+        /// <returns>Parsed expression key</returns>
+        protected virtual string GetParsedExpressionCacheKey(string executionId, string expression, Type outputType)
+        {
+            string prefix;
+            switch (Options.ParsedExpressionCacheScope)
+            {
+                case ParsedExpressionCacheScopeEnum.None:
+                    prefix = Guid.NewGuid().ToString(); //fallback, always unique key
+                    break;
+                case ParsedExpressionCacheScopeEnum.Execution:
+                    prefix = executionId;
+                    break;
+                case ParsedExpressionCacheScopeEnum.Context:
+                    prefix = Id;
+                    break;
+                case ParsedExpressionCacheScopeEnum.Definition:
+                    prefix = Definition.Id;
+                    break;
+                case ParsedExpressionCacheScopeEnum.Global:
+                    prefix = "";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return $"{prefix}||{expression}||{outputType.AssemblyQualifiedName}";
+        }
+        /// <summary>
         /// Evaluates expression
         /// </summary>
         /// <param name="expression">Expression to evaluate</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <typeparam name="TOutputType">Output (result) type</typeparam>
         /// <exception cref="ArgumentNullException"><paramref name="expression"/> is null or empty</exception>   
         /// <returns>The expression result converted to <typeparamref name="TOutputType"/></returns>
-        public TOutputType EvalExpression<TOutputType>(string expression)
+        public TOutputType EvalExpression<TOutputType>(string expression, string executionId)
         {
             if (string.IsNullOrWhiteSpace(expression))
                 throw Logger.Fatal<ArgumentNullException>($"EvalExpression: - {nameof(expression)} is null or empty");
 
-            var result = EvalExpression(expression, typeof(TOutputType));
+            var result = EvalExpression(expression, typeof(TOutputType), executionId);
             var resultConverted = (TOutputType)result;
             return resultConverted;
         }
@@ -296,7 +361,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <returns>Variable with given <paramref name="name"/></returns>
         /// <exception cref="ArgumentException"><paramref name="name"/> is null or empty</exception>
         /// <exception cref="DmnExecutorException">Variable not found</exception>
-        public DmnExecutionVariable GetVariable(string name)
+        public virtual DmnExecutionVariable GetVariable(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw Logger.Fatal<ArgumentException>($"{nameof(name)} is null or empty");

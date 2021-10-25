@@ -50,6 +50,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [Decisions](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.decisions__1drwp89) | public | Dictionary of available decisions by name | 
+ | [Id](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.id__2fgy87) | public | Unique identifier of the definition (set at CTOR) | 
  | [InputData](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.inputdata__1605bm2) | public | Input data interface. Input data are stored as Variables with [IsInputParameter](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable.isinputparameter__1benkdl) flag, complex objects are supported | 
  | [Variables](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.variables__1aage4j) | public | Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions | 
 
@@ -87,6 +88,30 @@ public IReadOnlyDictionary<string,net.adamec.lib.common.dmn.engine.engine.decisi
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition.id__2fgy87" />  DmnDefinition.Id Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4)           
+Sources: engine\definition\DmnDefinition.cs</small>
+
+
+Unique identifier of the definition (set at CTOR)
+
+
+
+```csharp
+public string Id { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

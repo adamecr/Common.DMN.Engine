@@ -28,9 +28,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// Executes the decision.
         /// </summary>
         /// <param name="context">DMN Engine execution context</param>
-        /// <param name="correlationId">Optional correlation ID used while logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>Decision result</returns>
-        DmnDecisionResult Execute(DmnExecutionContext context, string correlationId = null);
+        DmnDecisionResult Execute(DmnExecutionContext context, string executionId);
 
 
     }

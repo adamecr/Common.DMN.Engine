@@ -17,7 +17,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <summary>
         /// Variable definition
         /// </summary>
-        private IDmnVariable Definition { get; }
+        protected IDmnVariable Definition { get; }
 
         /// <summary>
         /// Unique variable name
@@ -37,14 +37,14 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// Backing field for <see cref="Value"/> property
         /// </summary>
         // ReSharper disable once InconsistentNaming
-        private object _value;
+        protected object _value;
 
         /// <summary>
         /// Variable value
         /// </summary>
         /// <exception cref="DmnExecutorException">Setter: Can't override input parameter</exception>
         /// <exception cref="DmnExecutorException">Setter: Can't cast value to target type</exception>
-        public object Value
+        public virtual object Value
         {
             get => _value;
             set
@@ -94,7 +94,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// CTOR for <see cref="Clone"/>
         /// </summary>
         /// <param name="cloneFrom">Variable to clone</param>
-        private DmnExecutionVariable(DmnExecutionVariable cloneFrom)
+        protected DmnExecutionVariable(DmnExecutionVariable cloneFrom)
         {
             Definition = cloneFrom.Definition;
 
@@ -112,7 +112,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// Clones the variable
         /// </summary>
         /// <returns>Cloned variable</returns>
-        public DmnExecutionVariable Clone()
+        public virtual DmnExecutionVariable Clone()
         {
             var retVal = new DmnExecutionVariable(this);
             return retVal;
@@ -125,7 +125,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// This dedicated method it to be used to ensure that the input parameter value is set intentionally (from <see cref="DmnExecutionContext"/>)</remarks>
         /// <param name="value">Value to be set</param>
         /// <exception cref="DmnExecutorException">Variable is not an input parameter</exception>
-        public void SetInputParameterValue(object value)
+        public virtual void SetInputParameterValue(object value)
         {
             if (!IsInputParameter) throw Logger.Error<DmnExecutorException>($"{Name} is not an input parameter");
             _value = value;

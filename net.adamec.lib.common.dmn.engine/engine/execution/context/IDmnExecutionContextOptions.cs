@@ -20,5 +20,9 @@
         /// This option can be used for performance tuning.
         /// </summary>
         bool EvaluateTableOutputsInParallel { get; }
+        /// <summary>
+        /// Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)
+        /// </summary>
+        ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; }
     }
 }

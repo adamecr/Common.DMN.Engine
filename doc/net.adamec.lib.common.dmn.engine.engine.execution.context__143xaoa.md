@@ -23,6 +23,15 @@
  
 
 
+###  Enums ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty) | public | Scope of the parsed expression cache | 
+
+ 
+
+
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -53,7 +62,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [Logger](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.logger__1vnt2s8) | protected static | Logger | 
  | [options](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__12wzwum) | private | Execution context options | 
- | [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) | private static | Parsed (pre-processed) expressions cache | 
+ | [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) | protected static | Parsed (pre-processed) expressions cache | 
 
  
 
@@ -64,6 +73,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [Decisions](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.decisions__170xpbn) | public | Dictionary of available decisions by name | 
  | [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.definition__1o87lf9) | public | DMN Model definition | 
+ | [Id](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.id__ns9ba9) | public | Unique identifier of the execution context (set at CTOR) | 
  | [Options](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__nfq4qk) | public | Execution context options | 
  | [Snapshots](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.snapshots__yzrrjf) | public | Snapshots of the context state during the execution | 
  | [Variables](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh) | public | Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions | 
@@ -75,7 +85,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DmnExecutionContext(DmnDefinition, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable_-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision_-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____dcsjhx) | internal | CTOR | 
+ | [DmnExecutionContext(DmnDefinition, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable_-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision_-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____dcsjhx) | public | CTOR | 
 
  
 
@@ -84,11 +94,14 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
+ | [CacheParsedExpression(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4) | protected | Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong> | 
  | [CreateSnapshot(IDmnDecision, DmnDecisionResult)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.createsnapshot_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1bztsza) | internal | Creates the execution context snapshot - to be called by decision after the evaluation | 
- | [EvalExpression(string, Type)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type___12usoxl) | public | Evaluates expression | 
- | [EvalExpression&lt;TOutputType&gt;(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string___4la697) | public | Evaluates expression | 
+ | [EvalExpression(string, Type, string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type-system.string___icbo1v) | public | Evaluates expression | 
+ | [EvalExpression&lt;TOutputType&gt;(string, string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string-system.string___1iaf9wt) | public | Evaluates expression | 
  | [ExecuteDecision(IDmnDecision)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision___16z7t5v) | public | Executes (evaluates) given <strong>decision</strong> | 
  | [ExecuteDecision(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_system.string___1olcv5p) | public | Executes (evaluates) decision with given <strong>decisionName</strong> | 
+ | [GetParsedExpressionCacheKey(string, string, Type)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressioncachekey_system.string-system.string-system.type___pepfrp) | protected | Compose the parsed expression key (based on [ParsedExpressionCacheScope](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p) ) | 
+ | [GetParsedExpressionsFromCache(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressionsfromcache_system.string-dynamicexpresso.lambda-___1emk6yb) | protected | Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong> | 
  | [GetVariable(IDmnVariable)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___qblh70) | public | Gets the runtime (execution) variable corresponding to its <strong>definition</strong> | 
  | [GetVariable(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_system.string___1pjw2vs) | public | Gets the runtime (execution) variable with given <strong>name</strong> | 
  | [Reset()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.reset__2lfhbq) | public | Resets the DMN execution context - clears all variables except the input parameters (sets them to null) and clears the snapshots | 
@@ -164,10 +177,10 @@ Parsed (pre-processed) expressions cache
 
 
 ```csharp
-private static readonly ConcurrentDictionary<(string Item1, System.Type Item2),DynamicExpresso.Lambda> ParsedExpressionsCache
+protected static readonly ConcurrentDictionary<string,DynamicExpresso.Lambda> ParsedExpressionsCache
 ```
 
-<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2" target="_blank" >System.Collections.Concurrent.ConcurrentDictionary&lt;(string Item1, System.Type Item2),DynamicExpresso.Lambda&gt;</a></dt><dd></dd></dl>
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2" target="_blank" >System.Collections.Concurrent.ConcurrentDictionary&lt;string,DynamicExpresso.Lambda&gt;</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -216,6 +229,30 @@ public DmnDefinition Definition { get; }
 ```
 
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.id__ns9ba9" />  DmnExecutionContext.Id Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Unique identifier of the execution context (set at CTOR)
+
+
+
+```csharp
+public string Id { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -308,12 +345,37 @@ CTOR
 
 
 ```csharp
-internal DmnExecutionContext(DmnDefinition definition, IReadOnlyDictionary<string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable> variables, IReadOnlyDictionary<string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision> decisions, Action<net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions> configure = null)
+public DmnExecutionContext(DmnDefinition definition, IReadOnlyDictionary<string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable> variables, IReadOnlyDictionary<string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision> decisions, Action<net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions> configure = null)
 ```
 
 <strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4) <strong>definition</strong></dt><dd>DMN Model definition</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;</a> <strong>variables</strong></dt><dd>Variables used while executing the DMN model</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>decisions</strong></dt><dd>Dictionary of available decisions by name</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
 ###  Exceptions ###
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>Any of the parameters is null</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4" />  DmnExecutionContext.CacheParsedExpression(string, Lambda) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong>
+
+
+
+```csharp
+protected virtual void CacheParsedExpression(string cacheKey, Lambda parsedExpression)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>cacheKey</strong></dt><dd>Retrieval key of the <strong>parsedExpression</strong></dd><dt>DynamicExpresso.Lambda <strong>parsedExpression</strong></dt><dd>Parsed expression to cache</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -334,7 +396,7 @@ Creates the execution context snapshot - to be called by decision after the eval
 
 
 ```csharp
-internal void CreateSnapshot(IDmnDecision decision, DmnDecisionResult result)
+internal virtual void CreateSnapshot(IDmnDecision decision, DmnDecisionResult result)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6) <strong>decision</strong></dt><dd>Decision evaluated just before the snapshot</dd><dt>[net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka) <strong>result</strong></dt><dd><strong>decision</strong> result</dd></dl>
@@ -347,7 +409,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type___12usoxl" />  DmnExecutionContext.EvalExpression(string, Type) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type-system.string___icbo1v" />  DmnExecutionContext.EvalExpression(string, Type, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
@@ -359,10 +421,10 @@ Evaluates expression
 
 
 ```csharp
-public object EvalExpression(string expression, Type outputType)
+public virtual object EvalExpression(string expression, Type outputType, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to evaluate</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>outputType</strong></dt><dd>Output (result) type</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to evaluate</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>outputType</strong></dt><dd>Output (result) type</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a></dt><dd>The expression result converted to <strong>outputType</strong></dd></dl>
 
 
@@ -376,7 +438,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string___4la697" />  DmnExecutionContext.EvalExpression&lt;TOutputType&gt;(string) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string-system.string___1iaf9wt" />  DmnExecutionContext.EvalExpression&lt;TOutputType&gt;(string, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
@@ -388,11 +450,11 @@ Evaluates expression
 
 
 ```csharp
-public DmnExecutionContext.TOutputType EvalExpression<TOutputType>(string expression)
+public DmnExecutionContext.TOutputType EvalExpression<TOutputType>(string expression, string executionId)
 ```
 
 <strong>Type parameters</strong><dl><dt><strong>TOutputType</strong></dt><dd>Output (result) type</dd></dl>
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to evaluate</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to evaluate</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext.TOutputType</dt><dd>The expression result converted to <strong>TOutputType</strong></dd></dl>
 
 
@@ -418,7 +480,7 @@ Executes (evaluates) given <strong>decision</strong>
 
 
 ```csharp
-public DmnDecisionResult ExecuteDecision(IDmnDecision decision)
+public virtual DmnDecisionResult ExecuteDecision(IDmnDecision decision)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6) <strong>decision</strong></dt><dd>Decision to execute</dd></dl>
@@ -456,6 +518,56 @@ public DmnDecisionResult ExecuteDecision(string decisionName)
 
 ###  Exceptions ###
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>decisionName</strong> is null or empty</dd><dt>[DmnExecutorException](net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.md#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y)</dt><dd>Decision with <strong>decisionName</strong> not found</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressioncachekey_system.string-system.string-system.type___pepfrp" />  DmnExecutionContext.GetParsedExpressionCacheKey(string, string, Type) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Compose the parsed expression key (based on [ParsedExpressionCacheScope](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p) )
+
+
+
+```csharp
+protected virtual string GetParsedExpressionCacheKey(string executionId, string expression, Type outputType)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Unparsed (raw) expression</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>outputType</strong></dt><dd>Expression output type</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>Parsed expression key</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressionsfromcache_system.string-dynamicexpresso.lambda-___1emk6yb" />  DmnExecutionContext.GetParsedExpressionsFromCache(string, Lambda) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong>
+
+
+
+```csharp
+protected virtual bool GetParsedExpressionsFromCache(string cacheKey, out Lambda parsedExpression)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>cacheKey</strong></dt><dd>Retrieval key of the <strong>parsedExpression</strong></dd><dt>DynamicExpresso.Lambda <strong>parsedExpression</strong></dt><dd>Parsed expression retrieved from cache if successful</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>True when the <strong>parsedExpression</strong> has been retrieved from cache, otherwise false</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -505,7 +617,7 @@ Gets the runtime (execution) variable with given <strong>name</strong>
 
 
 ```csharp
-public DmnExecutionVariable GetVariable(string name)
+public virtual DmnExecutionVariable GetVariable(string name)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the variable</dd></dl>
@@ -534,7 +646,7 @@ Resets the DMN execution context - clears all variables except the input paramet
 
 
 ```csharp
-public DmnExecutionContext Reset()
+public virtual DmnExecutionContext Reset()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)</dt><dd>[DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)</dd></dl>
@@ -558,7 +670,7 @@ Sets the named input parameter <strong>value</strong>
 
 
 ```csharp
-public DmnExecutionContext WithInputParameter(string name, object value)
+public virtual DmnExecutionContext WithInputParameter(string name, object value)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input parameter</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd>Value of the input parameter</dd></dl>
@@ -591,7 +703,7 @@ Sets the input parameters from key-value collection (key=name of parameter, valu
 
 
 ```csharp
-public DmnExecutionContext WithInputParameters(IReadOnlyCollection<System.Collections.Generic.KeyValuePair<string,object>> parameters)
+public virtual DmnExecutionContext WithInputParameters(IReadOnlyCollection<System.Collections.Generic.KeyValuePair<string,object>> parameters)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;System.Collections.Generic.KeyValuePair&lt;string,object&gt;&gt;</a> <strong>parameters</strong></dt><dd>Collection of parameters - Key=name, Value=value</dd></dl>
@@ -634,10 +746,72 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
+ | [CreateCustomExecutionContext&lt;T&gt;(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____zyyiig) | public static | Creates the execution context from <strong>sourceDefinition</strong> | 
+ | [CreateCustomExecutionContext&lt;T&gt;(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____v6dyk7) | public static | Creates the execution context from <strong>sourceModel</strong> | 
  | [CreateExecutionContext(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createexecutioncontext_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____17my8oa) | public static | Creates the execution context from <strong>sourceDefinition</strong> | 
  | [CreateExecutionContext(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createexecutioncontext_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____1yuu2u9) | public static | Creates the execution context from <strong>sourceModel</strong> | 
 
  
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____zyyiig" />  DmnExecutionContextFactory.CreateCustomExecutionContext&lt;T&gt;(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContextFactory](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72)           
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small>
+
+
+Creates the execution context from <strong>sourceDefinition</strong>
+
+
+
+```csharp
+public static DmnExecutionContext CreateCustomExecutionContext<T>(DmnDefinition sourceDefinition, Action<net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions> configure = null) where T: DmnExecutionContext
+```
+
+<strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd>Type of the execution context to be created. Must be [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) or its descendant</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4) <strong>sourceDefinition</strong></dt><dd>Source model definition  to create the execution context for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)</dt><dd><strong>sourceDefinition</strong> execution context</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>sourceDefinition</strong> is null</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____v6dyk7" />  DmnExecutionContextFactory.CreateCustomExecutionContext&lt;T&gt;(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContextFactory](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72)           
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small>
+
+
+Creates the execution context from <strong>sourceModel</strong>
+
+
+
+```csharp
+public static DmnExecutionContext CreateCustomExecutionContext<T>(DmnModel sourceModel, Action<net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions> configure = null) where T: DmnExecutionContext
+```
+
+<strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd>Type of the execution context to be created. Must be [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) or its descendant</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9) <strong>sourceModel</strong></dt><dd>Source model to create the execution context for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)</dt><dd><strong>sourceModel</strong> execution context</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>sourceModel</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -728,6 +902,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.execution.context.IDmnExecu
  | ------ | ---------- | --------- | 
  | [EvaluateTableOutputsInParallel](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.evaluatetableoutputsinparallel__1t745k9) | public | Flag whether to evaluate the table outputs for positive rules in parallel (false by default). This option can be used for performance tuning. | 
  | [EvaluateTableRulesInParallel](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.evaluatetablerulesinparallel__642z1w) | public | Flag whether to evaluate the table rules in parallel (true by default). This option can be used for performance tuning. | 
+ | [ParsedExpressionCacheScope](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p) | public | Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default) | 
  | [RecordSnapshots](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.recordsnapshots__owanre) | public | Flag whether to record snapshots of variables and results during the execution (false by default). This option can be used for execution tracking/audit and/or debugging | 
 
  
@@ -779,6 +954,30 @@ public bool EvaluateTableRulesInParallel { get; set; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd></dd></dl>Implements: [IDmnExecutionContextOptions.EvaluateTableRulesInParallel](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetablerulesinparallel__14h13gd)
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p" />  DmnExecutionContextOptions.ParsedExpressionCacheScope Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContextOptions](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6)           
+Sources: engine\execution\context\DmnExecutionContextOptions.cs</small>
+
+
+Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)
+
+
+
+```csharp
+public ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; set; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>Implements: [IDmnExecutionContextOptions.ParsedExpressionCacheScope](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.parsedexpressioncachescope__is5v9o)
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -1309,7 +1508,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [_value](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable._value__bzp68z) | private | Backing field for [Value](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq) property | 
+ | [_value](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable._value__bzp68z) | protected | Backing field for [Value](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq) property | 
  | [Logger](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.logger__1m5ji1b) | protected static | Logger | 
 
  
@@ -1319,7 +1518,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.definition__25wqos) | private | Variable definition | 
+ | [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.definition__25wqos) | protected | Variable definition | 
  | [IsInputParameter](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.isinputparameter__42owxq) | public | Flag whether the variable is input parameter | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.name__bp1gta) | public | Unique variable name | 
  | [Type](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.type__zll1w1) | public | Variable type or null if not defined | 
@@ -1332,7 +1531,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DmnExecutionVariable(DmnExecutionVariable)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable___1i5kgbp) | private | CTOR for [Clone()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7) | 
+ | [DmnExecutionVariable(DmnExecutionVariable)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable___1i5kgbp) | protected | CTOR for [Clone()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7) | 
  | [DmnExecutionVariable(IDmnVariable)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___1c49d5k) | public | CTOR | 
 
  
@@ -1368,7 +1567,7 @@ Backing field for [Value](net.adamec.lib.common.dmn.engine.engine.execution.cont
 
 
 ```csharp
-private object _value
+protected object _value
 ```
 
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a></dt><dd></dd></dl>
@@ -1416,7 +1615,7 @@ Variable definition
 
 
 ```csharp
-private IDmnVariable Definition { get; }
+protected IDmnVariable Definition { get; }
 ```
 
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w)</dt><dd></dd></dl>
@@ -1512,7 +1711,7 @@ Variable value
 
 
 ```csharp
-public object Value { get; set; }
+public virtual object Value { get; set; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a></dt><dd></dd></dl>
@@ -1540,7 +1739,7 @@ CTOR for [Clone()](net.adamec.lib.common.dmn.engine.engine.execution.context__14
 
 
 ```csharp
-private DmnExecutionVariable(DmnExecutionVariable cloneFrom)
+protected DmnExecutionVariable(DmnExecutionVariable cloneFrom)
 ```
 
 <strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn) <strong>cloneFrom</strong></dt><dd>Variable to clone</dd></dl>
@@ -1588,7 +1787,7 @@ Clones the variable
 
 
 ```csharp
-public DmnExecutionVariable Clone()
+public virtual DmnExecutionVariable Clone()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn)</dt><dd>Cloned variable</dd></dl>
@@ -1636,7 +1835,7 @@ Sets the input parameter variable value
 
 
 ```csharp
-public void SetInputParameterValue(object value)
+public virtual void SetInputParameterValue(object value)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd>Value to be set</dd></dl>
@@ -1705,6 +1904,7 @@ Implemented by: [net.adamec.lib.common.dmn.engine.engine.execution.context.DmnEx
  | ------ | ---------- | --------- | 
  | [EvaluateTableOutputsInParallel](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetableoutputsinparallel__35u85o) | public abstract | Flag whether to evaluate the table outputs for positive rules in parallel (false by default). This option can be used for performance tuning. | 
  | [EvaluateTableRulesInParallel](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetablerulesinparallel__14h13gd) | public abstract | Flag whether to evaluate the table rules in parallel (true by default). This option can be used for performance tuning. | 
+ | [ParsedExpressionCacheScope](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.parsedexpressioncachescope__is5v9o) | public abstract | Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default) | 
  | [RecordSnapshots](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.recordsnapshots__194qspf) | public abstract | Flag whether to record snapshots of variables and results during the execution (false by default). This option can be used for execution tracking/audit and/or debugging | 
 
  
@@ -1764,6 +1964,30 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.parsedexpressioncachescope__is5v9o" />  IDmnExecutionContextOptions.ParsedExpressionCacheScope Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [IDmnExecutionContextOptions](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur)           
+Sources: engine\execution\context\IDmnExecutionContextOptions.cs</small>
+
+
+Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)
+
+
+
+```csharp
+public abstract ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.recordsnapshots__194qspf" />  IDmnExecutionContextOptions.RecordSnapshots Property ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -1780,6 +2004,163 @@ public abstract bool RecordSnapshots { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" />  ParsedExpressionCacheScopeEnum Enum ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small>
+
+
+Scope of the parsed expression cache
+
+
+
+```csharp
+public enum ParsedExpressionCacheScopeEnum: int
+```
+
+Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.valuetype" target="_blank" >ValueType</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.enum" target="_blank" >Enum</a>           
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.icomparable" target="_blank" >System.IComparable</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.iconvertible" target="_blank" >System.IConvertible</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.iformattable" target="_blank" >System.IFormattable</a>
+
+
+###  Constants ###
+
+ | Name | Value | Summary | 
+ | ------ | ------- | --------- | 
+ | [None](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.none__1di2vgo) | 0 | Don&#39;t cache parsed expressions | 
+ | [Execution](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.execution__1p8porw) | 1 | Cache parsed expressions within the single execution run only | 
+ | [Context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.context__1nigzat) | 2 | Cache parsed expressions within execution context only | 
+ | [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv) | 3 | Cache parsed expressions for definition (cross execution contexts) | 
+ | [Global](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259) | 4 | Cache parsed expressions globally (cross definitions and execution contexts) | 
+
+ 
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.context__1nigzat" />  ParsedExpressionCacheScopeEnum.Context Constant ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)           
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small>
+
+
+Cache parsed expressions within execution context only
+
+
+
+```csharp
+ Context = 2
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv" />  ParsedExpressionCacheScopeEnum.Definition Constant ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)           
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small>
+
+
+Cache parsed expressions for definition (cross execution contexts)
+
+
+
+```csharp
+ Definition = 3
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.execution__1p8porw" />  ParsedExpressionCacheScopeEnum.Execution Constant ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)           
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small>
+
+
+Cache parsed expressions within the single execution run only
+
+
+
+```csharp
+ Execution = 1
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259" />  ParsedExpressionCacheScopeEnum.Global Constant ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)           
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small>
+
+
+Cache parsed expressions globally (cross definitions and execution contexts)
+
+
+
+```csharp
+ Global = 4
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.none__1di2vgo" />  ParsedExpressionCacheScopeEnum.None Constant ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)           
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small>
+
+
+Don&#39;t cache parsed expressions
+
+
+
+```csharp
+ None = 0
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty)</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

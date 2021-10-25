@@ -246,7 +246,7 @@ The Engine checks for the decision dependencies and when any decision needs to b
 ## Variables in Decision Model ##
 As mentioned above, the inputs are one kind of variables existing in the Engine context. The variables allow sharing the data between the model elements. When the decision is evaluated, it gets some information at the input and produces the outputs. The outputs are also stored into the variables, so they can be used as inputs for another decisions.
 
-The Engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) interpreter and the full set of variables is provided to the interpreter while evaluating any of the expressions within the Engine, so they can be recognized in expressions.*Note: Technically, the variables are provided as parameters, so it's possible to parse the expression once and invoke it with the real values when needed - DMN Engine implements the parsed expressions cache.*
+The Engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) interpreter and the full set of variables is provided to the interpreter while evaluating any of the expressions within the Engine, so they can be recognized in expressions. *Note: Technically, the variables are provided as parameters, so it's possible to parse the expression once and invoke it with the real values when needed - DMN Engine implements the parsed expressions cache.*
 
 ```csharp
 var parameters = new List<Parameter>();
@@ -774,22 +774,83 @@ When the result comes from the decision table, it also provides the `HitRules` -
 
 There is a kind of a "shortcut" to the variables for the single result - `DmnDecisionResult.FirstResultVariables` returns the list of variables of the first result (the only one for the single result).
 
-## Execution Context Options ##
-When creating the execution context, it's possible to override the execution options when needed.
+## Execution Context Advanced Scenarios ##
+As mentioned above, the basic execution flow is to create the execution context from `DmnDefinition` or `DmnModel` using the `DmnExecutionContextFactory.CreateExecutionContext`, set input parameters using `WithInputParameter` or `WithInputParameters` methods of context and call `DmnContext.ExecuteDecision` method to get the `DmnDecisionResult`. The execution context can be provided with optional options configuration actions (see the next chapter).
+
+The above mentioned using of the factory is recommended, however, if needed, it's possible to use the `DmnExecutionContext` constructor directly, giving it the DMN definition, execution variables dictionary (by name) and decisions dictionary (by name). When using the constructor directly (or inheriting from `DmnExecutionContext`), keep this in mind:
+ 
+ - DMN definition is not really used for the execution (except the definition ID for caching - see later), it's just a convinient way how to keep the reference to the "full" model
+ - The variables are to be unique per context and these are the runtime variables (`DmnExecutionVariable`) based on the variables from definition. However, it's possible to extend the set of variables (and even provide them with values) for the advanced scenarios - i can imagine for example having the custom variables (inheriting from `DmnExecutionVariable`) with advanced type handling or with "externalized" persistence allowing to retrieve or store the data from different sources. 
+ - As the decitions dictionary can be simply built from the decisions in the DMN definition, it's possible to narrow the decisions available for the execution by name by filtering the definition decisions. 
+
+*Note: When executing the decision by name, it's checked against the dictionary provided to the constructor, however, when execution the decision "directly" (with `IDmnDecision` parameter), it's not cross checked neither against the decisions dictionary nor the definition. The same applies for the dependencies when the decision requires another decision. So constructing the context or model the wrong way, might lead to unexpected results.*
+
+
+### Execution Context Options ###
+When creating the execution context, it's possible to override the execution options when needed. These are the default values:
 
 ```csharp
 var ctx = DmnExecutionContextFactory.CreateExecutionContext(def, configure =>
   {
-    configure.EvaluateTableOutputsInParallel = true;
+    configure.EvaluateTableOutputsInParallel = false;
     configure.EvaluateTableRulesInParallel = true;
-    configure.RecordSnapshots = true;
+    configure.RecordSnapshots = false;
+    configure.ParsedExpressionCacheScope = ParsedExpressionCacheScopeEnum.Definition;
   });
 ```
 `EvaluateTableRulesInParallel` is a flag whether to evaluate the table rules in parallel (true by default) or in sequence and `EvaluateTableOutputsInParallel` is a flag whether to evaluate the table outputs for positive rules in parallel (false by default) or in sequence. These flags can be used for performance fine tuning of the processing of the decision tables when needed.
 *Note: Honestly, I didn't find the settings that will have conclusive results in general, so you can try to tweak the settings based on your decision tables and see what (and if) will bring better performance in each particular case.*
 
-`RecordSnaphots`, when on, can be used for auditing/tracking of the processing or even for debugging of the decisions when needed. It creates a context snapshot when `ctx.ExecuteDecision` is called to store the initial state (input parameters and variable "defaults"). This is snapshot with `Step=0`. Then a snapshot is created after each decision evaluation (one if there is not depencency, multiple when there are some decisions that needed to be evaluated first.). So the last snapshot relates to the decision referenced in `ExecuteDecision` for which the decision result is returned.
+`RecordSnaphots`, when on, can be used for auditing/tracking of the processing or even for debugging of the decisions when needed.
+
+`ParsedExpressionCacheScope` alows to fine tune the parsed expression caching (see below)
+
+### Execution Context Snapshots ###
+When the `RecordSnaphots` option is set, it creates a context snapshot when `ctx.ExecuteDecision` is called to store the initial state (input parameters and variable "defaults"). This is snapshot with `Step=0`. Then a snapshot is created after each decision evaluation (one if there is not depencency, multiple when there are some decisions that needed to be evaluated first). So the last snapshot relates to the decision referenced in `ExecuteDecision` for which the decision result is returned.
 
 The snapshots (`DmnExecutionSnapshots`) are avalable from execution context (`ctx.Snapshots`) providing the access to the `Last` snapshot and/or to all `Snapshots`.
 Each snapshot (`DmnExecutionSnapshot`) contains the step (sequence number), clone of all execution variables in execution context (with values corresponding to the time of snapshot creating) and `DecisionName`, `Decision` and `DecisionResult` for the snapshots created after decision execution.
 
+### Parsed Expressions Cache ###
+The execution engine uses the [Dynamic Expresso](https://github.com/davideicardi/DynamicExpresso) for the most of it's "calculations". The expressions are processed in two steps - first, the expression is parsed (don't mismatch with parsing the model!) and second, the parsed expression is invoked. See the `DmnExecutionContext.EvalExpression` and the DynamicExpresso documentation for details.
+
+Parsing the expression is time consuming operation and a lot of expressions (for example the ones in decision tables) are evaluated multiple times. For that reason, the execution context contains the cache of the parsed expressions, so it doesn't need to be parsed again when used next time.
+
+The cache is a dictionary of parsed expressions (`DynamicExpresso.Lambda`) - 
+`protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache = new ConcurrentDictionary<string, Lambda>();`. The context `ParsedExpressionCacheScope` option drives how the dictionary key is constructed
+
+```csharp
+ protected virtual string GetParsedExpressionCacheKey(string executionId, string expression, Type outputType)
+ {
+   string prefix;
+   switch (Options.ParsedExpressionCacheScope)
+   {
+     case ParsedExpressionCacheScopeEnum.None:
+       prefix = Guid.NewGuid().ToString(); //fallback, always unique key
+       break;
+     case ParsedExpressionCacheScopeEnum.Execution:
+       prefix = executionId;
+       break;
+     case ParsedExpressionCacheScopeEnum.Context:
+       prefix = Id;
+       break;
+     case ParsedExpressionCacheScopeEnum.Definition:
+       prefix = Definition.Id;
+       break;
+     case ParsedExpressionCacheScopeEnum.Global:
+       prefix = "";
+       break;
+     default: throw new ArgumentOutOfRangeException();
+   }
+
+   return $"{prefix}||{expression}||{outputType.AssemblyQualifiedName}";
+}
+```
+
+As you can see, the cache key is composed from the expression text, output type and the prefix depending of the `ParsedExpressionCacheScopeEnum` option.
+
+ - `None` - Don't cache parsed expressions
+ - `Execution` - Cache parsed expressions within the single execution run only
+ - `Context` - Cache parsed expressions within execution context only (cross execution runs)
+ - `Definition` (default) - Cache parsed expressions for definition (cross execution contexts)
+ - `Global` - Cache parsed expressions globally (cross definitions and execution contexts)
