@@ -96,10 +96,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     EvaluateRules(context, executionId);
             //EVALUATE OUTPUTS for positive rules
             var results =
-                context.Options.EvaluateTableOutputsInParallel?
-                    EvaluateOutputsForPositiveRulesParallel(context, executionId, positiveRules):
+                context.Options.EvaluateTableOutputsInParallel ?
+                    EvaluateOutputsForPositiveRulesParallel(context, executionId, positiveRules) :
                     EvaluateOutputsForPositiveRules(context, executionId, positiveRules);
-            
+
             //APPLY HIT POLICY
             if (positiveRules.Count <= 0) return new DmnDecisionResult();
 
@@ -267,7 +267,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <param name="context">Engine execution context</param>
         /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>List of positive rules (rules that match the input)</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="context"/> is null</exception>
         private List<DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string executionId)
         {
             if (context == null) throw Logger.FatalCorr<ArgumentNullException>(executionId, $"{nameof(context)} is null");
@@ -289,7 +289,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         if (!string.IsNullOrWhiteSpace(ruleInput.Input.Expression))
                         {
                             //input is mapped to expression, so evaluate it to ger the value
-                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression,executionId);
+                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression, executionId);
                             if (valueObj != null) value = valueObj.ToString();
                         }
                         else
@@ -299,15 +299,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         }
 
                         if (!allowedValues.Contains(value))
-                            throw Logger.ErrorCorr<DmnExecutorException>(
+                        {
+                            match = false;
+                            Logger.WarnCorr(
                                 executionId,
                                 $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
+                            break;
+                        }
                     }
 
                     if (Logger.IsTraceEnabled)
                         Logger.TraceCorr(executionId,
                             $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
-                    var result = context.EvalExpression<bool>(ruleInput.Expression,executionId);
+                    var result = context.EvalExpression<bool>(ruleInput.Expression, executionId);
                     if (Logger.IsTraceEnabled)
                         Logger.TraceCorr(executionId,
                             $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
@@ -368,7 +372,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         if (!string.IsNullOrWhiteSpace(ruleInput.Input.Expression))
                         {
                             //input is mapped to expression, so evaluate it to ger the value
-                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression,executionId);
+                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression, executionId);
                             if (valueObj != null) value = valueObj.ToString();
                         }
                         else
@@ -378,18 +382,25 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         }
 
                         if (!allowedValues.Contains(value))
-                            throw Logger.ErrorCorr<DmnExecutorException>(
-                                executionId,
-                                $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
+                        {
+                            match = false;
+                            Logger.WarnCorr(
+                                  executionId,
+                                  $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
+                            break;
+                        }
                     }
+
+
 
                     if (Logger.IsTraceEnabled)
                         Logger.TraceCorr(executionId,
                             $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
-                    var result = context.EvalExpression<bool>(ruleInput.Expression,executionId);
+                    var result = context.EvalExpression<bool>(ruleInput.Expression, executionId);
                     if (Logger.IsTraceEnabled)
                         Logger.TraceCorr(executionId,
                             $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+
 
                     // ReSharper disable once InvertIf
                     if (!result)
@@ -397,6 +408,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         match = false;
                         break;
                     }
+
                 }
 
                 Logger.InfoCorr(executionId,
@@ -434,7 +446,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         continue;
                     }
 
-                    var result = context.EvalExpression(ruleOutput.Expression, ruleOutput.Output.Variable.Type ?? typeof(object),executionId);
+                    var result = context.EvalExpression(ruleOutput.Expression, ruleOutput.Output.Variable.Type ?? typeof(object), executionId);
 
                     // check allowed output values
                     var allowedValues = ruleOutput.Output.AllowedValues;
@@ -643,7 +655,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 
             foreach (var positiveRule in positiveRules)
             {
-                var valueRaw = positiveRule.Outputs.Length>0?results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value:null;
+                var valueRaw = positiveRule.Outputs.Length > 0 ? results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value : null;
                 if (valueRaw == null) continue; //ignore null results/values
 
                 double value;
@@ -683,7 +695,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             DmnDecisionTableRuleExecutionResults results)
         {
             var count = positiveRules.ToList()
-                 .Select(r => r.Outputs.Length > 0 ? results.GetResult(r, r.Outputs[0])?.Value?.ToString():null)
+                 .Select(r => r.Outputs.Length > 0 ? results.GetResult(r, r.Outputs[0])?.Value?.ToString() : null)
                  .Where(v => v != null)
                  .Distinct()
                  .ToList()

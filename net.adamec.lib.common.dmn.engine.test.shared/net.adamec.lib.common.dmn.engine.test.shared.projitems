@@ -43,6 +43,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DmnTestBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DummyPlaygroundToRemove.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)builder\CustomDecisionTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserDataTypesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserDataTypesTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserFileBasicTests.cs" />

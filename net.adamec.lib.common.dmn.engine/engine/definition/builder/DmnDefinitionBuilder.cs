@@ -24,12 +24,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <summary>
         /// Catalog holding the variables used in <see cref="DmnDefinitionBuilder"/>
         /// </summary>
-        private VariableCatalog Variables { get; } = new VariableCatalog();
+        protected VariableCatalog Variables { get; } = new VariableCatalog();
 
         /// <summary>
         /// Catalog holding the decisions used in <see cref="DmnDefinitionBuilder"/>
         /// </summary>
-        private DecisionCatalog Decisions { get; } = new DecisionCatalog();
+        protected DecisionCatalog Decisions { get; } = new DecisionCatalog();
 
         /// <summary>
         /// Adds the inputs of <typeparamref name="TVariableType"/> with given <paramref name="names"/> into the definition

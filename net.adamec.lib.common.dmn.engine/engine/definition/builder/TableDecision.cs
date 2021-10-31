@@ -11,7 +11,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// <summary>
     /// Decision table definition builder
     /// </summary>
-    public class TableDecision : Decision
+    public sealed class TableDecision : Decision
     {
         /// <summary>
         /// Table input builders
@@ -77,9 +77,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// it's more for better understanding the DMN model</remarks>
         /// <param name="input">Reference to the input variable</param>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public new TableDecision Requires(Variable.Ref input)
+        public TableDecision Requires(Variable.Ref input)
         {
-            base.Requires(input);
+            AddRequiredInput(input);
             return this;
         }
 
@@ -89,9 +89,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <remarks>When executing the decision, the engine checks for required decisions and executes them before executing this decision</remarks>
         /// <param name="decision">Reference to the decision this decision depends on </param>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public new TableDecision Requires(Ref decision)
+        public TableDecision Requires(Ref decision)
         {
-            base.Requires(decision);
+            AddRequiredDecision(decision);
             return this;
         }
 
@@ -283,7 +283,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <returns>Table decision definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when there is no input, no output or no rule defined in builder</exception>
-        internal override IDmnDecision Build()
+        protected internal override IDmnDecision Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (InputsInternal.Count < 1) throw Logger.Error<DmnBuilderException>($"At least one input must be defined for decision table {Name}");

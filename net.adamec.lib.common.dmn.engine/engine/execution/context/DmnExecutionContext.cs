@@ -24,7 +24,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <summary>
         /// Parsed (pre-processed) expressions cache
         /// </summary>
-        protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache = new ConcurrentDictionary<string, Lambda>();
+        protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache =
+            new ConcurrentDictionary<string, Lambda>();
 
         /// <summary>
         /// Unique identifier of the execution context (set at CTOR)
@@ -57,6 +58,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// Execution context options
         /// </summary>
         private readonly DmnExecutionContextOptions options = new DmnExecutionContextOptions();
+
         /// <summary>
         /// Execution context options
         /// </summary>
@@ -71,10 +73,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <param name="configure">Optional configuration action</param>
         /// <exception cref="ArgumentNullException">Any of the parameters is null</exception>
         public DmnExecutionContext(
-             DmnDefinition definition,
-             IReadOnlyDictionary<string, DmnExecutionVariable> variables,
-             IReadOnlyDictionary<string, IDmnDecision> decisions,
-             Action<DmnExecutionContextOptions> configure = null)
+            DmnDefinition definition,
+            IReadOnlyDictionary<string, DmnExecutionVariable> variables,
+            IReadOnlyDictionary<string, IDmnDecision> decisions,
+            Action<DmnExecutionContextOptions> configure = null)
         {
             Id = Guid.NewGuid().ToString();
 
@@ -139,7 +141,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// <param name="parameters">Collection of parameters - Key=name, Value=value</param>
         /// <returns><see cref="DmnExecutionContext"/></returns>
         /// <exception cref="ArgumentNullException"><paramref name="parameters"/> is null</exception>    
-        public virtual DmnExecutionContext WithInputParameters(IReadOnlyCollection<KeyValuePair<string, object>> parameters)
+        public virtual DmnExecutionContext WithInputParameters(
+            IReadOnlyCollection<KeyValuePair<string, object>> parameters)
         {
             if (parameters == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(parameters)} is null");
 
@@ -222,35 +225,28 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             if (outputType == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(outputType)} is null");
 
             var interpreter = new Interpreter();
+            ConfigureInterpreter(interpreter);
+            
             var parameters = new List<Parameter>();
+            SetInterpreterParameters(parameters);
 
-            //Prepare variables (as interpreter parameters)       
-            // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach (var variable in Variables.Values)
-            {
-                //check null variable for value type
-                var varValue = variable.Value ??
-                               (variable.Type?.IsValueType ?? false ? Activator.CreateInstance(variable.Type) : null);
-
-                var parameter = new Parameter(
-                    variable.Name,
-                    variable.Type ?? varValue?.GetType() ?? typeof(object),
-                    varValue);
-                parameters.Add(parameter);
-            }
-
-            //Add S-FEEL functions to the interpreter
-            foreach (var customFunction in SfeelParser.CustomFunctions)
-            {
-                interpreter.SetFunction(customFunction.Key, customFunction.Value);
-            }
+           
 
             //Check parsed expression cache
             var cacheKey = GetParsedExpressionCacheKey(executionId, expression, outputType);
             if (Options.ParsedExpressionCacheScope == ParsedExpressionCacheScopeEnum.None ||
                 !GetParsedExpressionsFromCache(cacheKey, out var parsedExpression))
             {
-                parsedExpression = interpreter.Parse(expression, outputType, parameters.ToArray());
+                try
+                {
+                    parsedExpression = interpreter.Parse(expression, outputType, parameters.ToArray());
+                }
+                catch (Exception exception)
+                {
+                    throw Logger.Fatal<DmnExecutorException>($"Exception while parsing the expression {expression}",
+                        exception);
+                }
+
                 if (Options.ParsedExpressionCacheScope != ParsedExpressionCacheScopeEnum.None)
                     CacheParsedExpression(cacheKey, parsedExpression);
             }
@@ -280,6 +276,46 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             }
 
             return resultConverted;
+        }
+
+        /// <summary>
+        /// Prepares the parameters that will be used when invoking the expression. All <see cref="Variables"/> are added to <paramref name="parameters"/>.
+        /// </summary>
+        /// <param name="parameters">Set of parameters that will be used for expression invocation</param>
+        protected virtual void SetInterpreterParameters(List<Parameter> parameters)
+        {
+            //Prepare variables (as interpreter parameters)       
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (var variable in Variables.Values)
+            {
+                //check null variable for value type
+                var varValue = variable.Value ??
+                               (variable.Type?.IsValueType ?? false ? Activator.CreateInstance(variable.Type) : null);
+
+                var parameter = new Parameter(
+                    variable.Name,
+                    variable.Type ?? varValue?.GetType() ?? typeof(object),
+                    varValue);
+                parameters.Add(parameter);
+            }
+        }
+
+        /// <summary>
+        /// Configures the <see cref="Interpreter"/> that will invoke the expression. Adds S-FEEL functions to the interpreter and some "common" references (types)
+        /// </summary>
+        /// <param name="interpreter">Interpreter to be configured</param>
+        protected virtual void ConfigureInterpreter(Interpreter interpreter)
+        {
+            interpreter.Reference(typeof(Array));
+            interpreter.Reference(typeof(Enum));
+            interpreter.Reference(typeof(DateTimeOffset));
+            interpreter.Reference(typeof(System.Globalization.CultureInfo));
+
+            //Add S-FEEL functions to the interpreter
+            foreach (var customFunction in SfeelParser.CustomFunctions)
+            {
+                interpreter.SetFunction(customFunction.Key, customFunction.Value);
+            }
         }
 
         /// <summary>

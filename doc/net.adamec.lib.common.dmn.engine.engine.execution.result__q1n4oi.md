@@ -39,7 +39,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [results](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.results__1n9vhis) | private | Internal list of results. The first item represents the [FirstResultVariables](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0) | 
+ | [ResultsInternal](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.resultsinternal__v901ox) | protected | Internal list of results. The first item represents the [FirstResultVariables](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.firstresultvariables__1s6kyp0) | 
 
  
 
@@ -92,7 +92,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.results__1n9vhis" />  DmnDecisionResult.results Field ##
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult.resultsinternal__v901ox" />  DmnDecisionResult.ResultsInternal Field ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.result](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#n-net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka)           
@@ -104,7 +104,7 @@ Internal list of results. The first item represents the [FirstResultVariables](n
 
 
 ```csharp
-private readonly List<net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult> results
+protected readonly List<net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult> ResultsInternal
 ```
 
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult&gt;</a></dt><dd></dd></dl>
@@ -253,10 +253,11 @@ This method is obsolete, use [FirstResultVariables](net.adamec.lib.common.dmn.en
 
 ```csharp
 [Obsolete("This method is obsolete, use FirstResultVariables instead")]
+[ExcludeFromCodeCoverage]
 public IReadOnlyList<net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable> SingleResult { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.obsoleteattribute" target="_blank" >System.ObsoleteAttribute</a>
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.obsoleteattribute" target="_blank" >System.ObsoleteAttribute</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -377,8 +378,8 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [hitRules](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.hitrules__1tct7om) | private | Internal list of table rules with the positive hit (based on hit policy) leading to this decision result. Empty for expression decisions | 
- | [variables](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.variables__hoerqr) | private | Internal list of result variables | 
+ | [HitRulesInternal](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.hitrulesinternal__bcesx9) | protected | Internal list of table rules with the positive hit (based on hit policy) leading to this decision result. Empty for expression decisions | 
+ | [VariablesInternal](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.variablesinternal__e64bdq) | protected | Internal list of result variables | 
 
  
 
@@ -439,7 +440,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.hitrules__1tct7om" />  DmnDecisionSingleResult.hitRules Field ##
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.hitrulesinternal__bcesx9" />  DmnDecisionSingleResult.HitRulesInternal Field ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.result](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#n-net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionSingleResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult__ly679u)           
@@ -451,7 +452,7 @@ Internal list of table rules with the positive hit (based on hit policy) leading
 
 
 ```csharp
-private readonly List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> hitRules
+protected readonly List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> HitRulesInternal
 ```
 
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd></dd></dl>
@@ -463,7 +464,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.variables__hoerqr" />  DmnDecisionSingleResult.variables Field ##
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult.variablesinternal__e64bdq" />  DmnDecisionSingleResult.VariablesInternal Field ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.result](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#n-net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionSingleResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult__ly679u)           
@@ -475,7 +476,7 @@ Internal list of result variables
 
 
 ```csharp
-private readonly List<net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable> variables
+protected readonly List<net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable> VariablesInternal
 ```
 
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable&gt;</a></dt><dd></dd></dl>
@@ -682,7 +683,7 @@ Clones the single result
 
 
 ```csharp
-public DmnDecisionSingleResult Clone()
+public virtual DmnDecisionSingleResult Clone()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionSingleResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionsingleresult__ly679u)</dt><dd>Cloned single result</dd></dl>
@@ -935,7 +936,7 @@ Clones the variable
 
 
 ```csharp
-public DmnResultVariable Clone()
+public virtual DmnResultVariable Clone()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.result.DmnResultVariable](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg)</dt><dd>Cloned variable</dd></dl>
@@ -959,10 +960,11 @@ Returns a string that represents the current object.
 
 
 ```csharp
+[ExcludeFromCodeCoverage]
 public override string ToString()
 ```
 
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" target="_blank" >object.ToString</a>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

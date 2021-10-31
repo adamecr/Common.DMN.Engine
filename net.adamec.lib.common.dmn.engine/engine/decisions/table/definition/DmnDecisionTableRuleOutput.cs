@@ -32,7 +32,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            return $"#{Output.Index} {Output.Variable.Name}{(Output.Variable.Type == null ? "" : ":" + Output.Variable.Type)} --> {Expression}";
+            return $"#{Output.Index} {Output.Variable} --> {Expression}";
         }
     }
 }

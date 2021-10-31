@@ -78,15 +78,30 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// Builds the builder element and returns the built definition element
         /// </summary>
         /// <returns>Built definition element</returns>
-        internal abstract TResult Build();
+        protected internal abstract TResult Build();
 
         /// <summary>
         /// Gets built definition element. Calls <see cref="Build"/> first if needed
         /// </summary>
         /// <returns>Built definition element</returns>
-        internal TResult GetResultOrBuild()
+        protected internal TResult GetResultOrBuild()
         {
             return IsBuilt ? Result : Build();
+        }
+
+        /// <summary>
+        /// Gets built definition of given <paramref name="element"/>.
+        /// </summary>
+        /// <param name="element">Builder element to get the built definition from</param>
+        /// <typeparam name="TBuilderElement">Builder element type of <paramref name="element"/></typeparam>
+        /// <typeparam name="TBuilderElementResult">Build result type of <paramref name="element"/></typeparam>
+        /// <returns>Built definition element</returns>
+        protected static TBuilderElementResult GetResultOrBuild<TBuilderElement, TBuilderElementResult>(
+            DmnBuilderElement<TBuilderElement, TBuilderElementResult> element)
+            where TBuilderElement : DmnBuilderElement<TBuilderElement, TBuilderElementResult>
+            where TBuilderElementResult : class
+        {
+            return element.GetResultOrBuild();
         }
     }
 }

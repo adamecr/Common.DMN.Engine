@@ -84,8 +84,8 @@ Derived: [net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionD
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Requires(Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref___1bphbrd) | protected | Adds the required decision reference to the decision. | 
- | [Requires(Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___qvuga3) | protected | Adds the required input reference to the decision. | 
+ | [AddRequiredDecision(Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.addrequireddecision_net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref___1f73hd7) | protected | Adds the required decision reference to the decision. | 
+ | [AddRequiredInput(Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.addrequiredinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___1syen1r) | protected | Adds the required input reference to the decision. | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.tostring__1gi326q) | public | Returns a string that represents the current object. | 
 
  
@@ -268,7 +268,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref___1bphbrd" />  Decision.Requires(Decision.Ref) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.addrequireddecision_net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref___1f73hd7" />  Decision.AddRequiredDecision(Decision.Ref) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [Decision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x)           
@@ -280,7 +280,7 @@ Adds the required decision reference to the decision.
 
 
 ```csharp
-protected void Requires(Decision.Ref decision)
+protected void AddRequiredDecision(Decision.Ref decision)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decision</strong></dt><dd>Reference to the decision this decision depends on</dd></dl>
@@ -301,7 +301,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___qvuga3" />  Decision.Requires(Variable.Ref) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.addrequiredinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___1syen1r" />  Decision.AddRequiredInput(Variable.Ref) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [Decision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x)           
@@ -313,7 +313,7 @@ Adds the required input reference to the decision.
 
 
 ```csharp
-protected void Requires(Variable.Ref input)
+protected void AddRequiredInput(Variable.Ref input)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>input</strong></dt><dd>Reference to the input variable</dd></dl>
@@ -530,7 +530,7 @@ Catalog holding the decision definition builders used in [DmnDefinitionBuilder](
 
 
 ```csharp
-public class DecisionCatalog
+public sealed class DecisionCatalog
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
@@ -992,8 +992,9 @@ Derived: [net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision](n
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0) | internal abstract | Builds the builder element and returns the built definition element | 
- | [GetResultOrBuild()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.getresultorbuild__fuvqm4) | internal | Gets built definition element. Calls [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0) first if needed | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0) | protected internal abstract | Builds the builder element and returns the built definition element | 
+ | [GetResultOrBuild()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.getresultorbuild__fuvqm4) | protected internal | Gets built definition element. Calls [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0) first if needed | 
+ | [GetResultOrBuild&lt;TBuilderElement,TBuilderElementResult&gt;(DmnBuilderElement&lt;TBuilderElement,TBuilderElementResult&gt;)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.getresultorbuild--2_net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement_--0---1____1a3e7rz) | protected static | Gets built definition of given <strong>element</strong> . | 
 
  
 
@@ -1118,7 +1119,7 @@ Builds the builder element and returns the built definition element
 
 
 ```csharp
-internal abstract DmnBuilderElement<TBuilder,TResult>.TResult Build()
+protected internal abstract DmnBuilderElement<TBuilder,TResult>.TResult Build()
 ```
 
 <strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;TBuilder,TResult&gt;.TResult</dt><dd>Built definition element</dd></dl>
@@ -1142,10 +1143,38 @@ Gets built definition element. Calls [Build()](net.adamec.lib.common.dmn.engine.
 
 
 ```csharp
-internal DmnBuilderElement<TBuilder,TResult>.TResult GetResultOrBuild()
+protected internal DmnBuilderElement<TBuilder,TResult>.TResult GetResultOrBuild()
 ```
 
 <strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;TBuilder,TResult&gt;.TResult</dt><dd>Built definition element</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.getresultorbuild--2_net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement_--0---1____1a3e7rz" />  DmnBuilderElement&lt;TBuilder,TResult&gt;.GetResultOrBuild&lt;TBuilderElement,TBuilderElementResult&gt;(DmnBuilderElement&lt;TBuilderElement,TBuilderElementResult&gt;) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnBuilderElement&lt;TBuilder,TResult&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv)           
+Sources: engine\definition\builder\DmnBuilderElement.cs</small>
+
+
+Gets built definition of given <strong>element</strong> .
+
+
+
+```csharp
+protected static DmnBuilderElement<TBuilder,TResult>.TBuilderElementResult GetResultOrBuild<TBuilderElement, TBuilderElementResult>(DmnBuilderElement<TBuilderElement,TBuilderElementResult> element)
+ where TBuilderElement: DmnBuilderElement<TBuilderElement,TBuilderElementResult>
+ where TBuilderElementResult: class
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TBuilderElement</strong></dt><dd>Builder element type of <strong>element</strong></dd><dt><strong>TBuilderElementResult</strong></dt><dd>Build result type of <strong>element</strong></dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;TBuilderElement,TBuilderElementResult&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv) <strong>element</strong></dt><dd>Builder element to get the built definition from</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;TBuilder,TResult&gt;.TBuilderElementResult</dt><dd>Built definition element</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -1240,9 +1269,9 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Decisions](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.decisions__1los4sb) | private | Catalog holding the decisions used in [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4) | 
+ | [Decisions](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.decisions__1los4sb) | protected | Catalog holding the decisions used in [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4) | 
  | [IsBuilt](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.isbuilt__sxfs1q) | public | Flag whether the definition has been already built. | 
- | [Variables](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.variables__13wvsht) | private | Catalog holding the variables used in [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4) | 
+ | [Variables](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.variables__13wvsht) | protected | Catalog holding the variables used in [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4) | 
 
  
 
@@ -1317,7 +1346,7 @@ Catalog holding the decisions used in [DmnDefinitionBuilder](net.adamec.lib.comm
 
 
 ```csharp
-private DecisionCatalog Decisions { get; }
+protected DecisionCatalog Decisions { get; }
 ```
 
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76)</dt><dd></dd></dl>
@@ -1369,7 +1398,7 @@ Catalog holding the variables used in [DmnDefinitionBuilder](net.adamec.lib.comm
 
 
 ```csharp
-private VariableCatalog Variables { get; }
+protected VariableCatalog Variables { get; }
 ```
 
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko)</dt><dd></dd></dl>
@@ -1983,7 +2012,7 @@ expressionDecision.Put("expression").To(outputVariableReference)
 
 
 ```csharp
-public class ExpressionDecision : Decision
+public sealed class ExpressionDecision : Decision
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement__vtdze1) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x)           
@@ -2014,7 +2043,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.build__16lp2w) | internal | Builds the expression decision definition | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.build__16lp2w) | protected internal | Builds the expression decision definition | 
  | [Requires(Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref___1vafzm7) | public | Adds the required decision reference to the decision. | 
  | [Requires(Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___4jzelp) | public | Adds the required input reference to the decision. | 
  | [SetExpression(string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.setexpression_system.string___i40673) | private | Sets the expression to be evaluated when the expression decision is executed | 
@@ -2136,7 +2165,7 @@ Builds the expression decision definition
 
 
 ```csharp
-internal override IDmnDecision Build()
+protected internal override IDmnDecision Build()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6)</dt><dd>Decision definition built</dd></dl>Overrides: [DmnBuilderElement&lt;TBuilder,TResult&gt;.Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0)
@@ -2164,7 +2193,7 @@ Adds the required decision reference to the decision.
 
 
 ```csharp
-public new ExpressionDecision Requires(Decision.Ref decision)
+public ExpressionDecision Requires(Decision.Ref decision)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decision</strong></dt><dd>Reference to the decision this decision depends on</dd></dl>
@@ -2197,7 +2226,7 @@ Adds the required input reference to the decision.
 
 
 ```csharp
-public new ExpressionDecision Requires(Variable.Ref input)
+public ExpressionDecision Requires(Variable.Ref input)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>input</strong></dt><dd>Reference to the input variable</dd></dl>
@@ -2564,7 +2593,7 @@ Decision table definition builder
 
 
 ```csharp
-public class TableDecision : Decision
+public sealed class TableDecision : Decision
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement__vtdze1) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x)           
@@ -2602,7 +2631,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.build__1hn8ora) | internal | Builds the decision table definition | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.build__1hn8ora) | protected internal | Builds the decision table definition | 
  | [Requires(Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref___1ouroor) | public | Adds the required decision reference to the decision. | 
  | [Requires(Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.requires_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___q7t18x) | public | Adds the required input reference to the decision. | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.tostring__12dgu3i) | public | Returns a string that represents the current object. | 
@@ -2900,7 +2929,7 @@ Builds the decision table definition
 
 
 ```csharp
-internal override IDmnDecision Build()
+protected internal override IDmnDecision Build()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6)</dt><dd>Table decision definition built</dd></dl>Overrides: [DmnBuilderElement&lt;TBuilder,TResult&gt;.Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0)
@@ -2928,7 +2957,7 @@ Adds the required decision reference to the decision.
 
 
 ```csharp
-public new TableDecision Requires(Decision.Ref decision)
+public TableDecision Requires(Decision.Ref decision)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decision</strong></dt><dd>Reference to the decision this decision depends on</dd></dl>
@@ -2961,7 +2990,7 @@ Adds the required input reference to the decision.
 
 
 ```csharp
-public new TableDecision Requires(Variable.Ref input)
+public TableDecision Requires(Variable.Ref input)
 ```
 
 <strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>input</strong></dt><dd>Reference to the input variable</dd></dl>
@@ -3332,7 +3361,7 @@ Definition of decision table input - contains index (order), mapping to the sour
 
 
 ```csharp
-public class TableInput : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput>
+public sealed class TableInput : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput>
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement__vtdze1) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv)           
@@ -3372,7 +3401,7 @@ Source variable and source expression are mutually exclusive and one of them has
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.build__ffj7k8) | internal | Builds the decision table input definition | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.build__ffj7k8) | protected internal | Builds the decision table input definition | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.tostring__1tet1g8) | public | Returns a string that represents the current object. | 
  | [WithAllowedValues(string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.withallowedvalues_system.string_____1s8723x) | public | Sets the list of values allowed for the input | 
  | [WithExpression(string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.withexpression_system.string___216i3t) | public | Binds the table input to given expression | 
@@ -3635,7 +3664,7 @@ Builds the decision table input definition
 
 
 ```csharp
-internal override DmnDecisionTableInput Build()
+protected internal override DmnDecisionTableInput Build()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2)</dt><dd>Decision table input definition built</dd></dl>Overrides: [DmnBuilderElement&lt;TBuilder,TResult&gt;.Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0)
@@ -3937,7 +3966,7 @@ Definition of decision table output - contains index (order), mapping to the var
 
 
 ```csharp
-public class TableOutput : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput>
+public sealed class TableOutput : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput>
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement__vtdze1) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv)           
@@ -3972,7 +4001,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.build__1jze84t) | internal | Builds the decision table output definition | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.build__1jze84t) | protected internal | Builds the decision table output definition | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.tostring__2tljv1) | public | Returns a string that represents the current object. | 
  | [WithAllowedValues(string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.withallowedvalues_system.string_____ks15za) | public | Sets the list of values allowed for the output | 
  | [WithoutAllowedValuesConstraint()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.withoutallowedvaluesconstraint__807am) | public | Clears the list of values allowed for the output | 
@@ -4198,7 +4227,7 @@ Builds the decision table output definition
 
 
 ```csharp
-internal override DmnDecisionTableOutput Build()
+protected internal override DmnDecisionTableOutput Build()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh)</dt><dd>Decision table output definition built</dd></dl>Overrides: [DmnBuilderElement&lt;TBuilder,TResult&gt;.Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0)
@@ -4535,7 +4564,7 @@ rule.Always().SkipOutput()
 
 
 ```csharp
-public class TableRule : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule>
+public sealed class TableRule : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule>
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement__vtdze1) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule,net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv)           
@@ -4572,7 +4601,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.build__1po6hr6) | internal | Builds the decision table rule definition | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.build__1po6hr6) | protected internal | Builds the decision table rule definition | 
  | [ClearInputs()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.clearinputs__jfa60q) | private | Clears input expressions for all inputs | 
  | [ClearOutputs()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.clearoutputs__1ww44wn) | private | Clears the output calculation expressions for all outputs | 
  | [SetInput(TableInput.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.setinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-system.string___19sjs2l) | private | Sets the input expression for the input referenced by <strong>inputRef</strong> | 
@@ -4838,7 +4867,7 @@ Builds the decision table rule definition
 
 
 ```csharp
-internal override DmnDecisionTableRule Build()
+protected internal override DmnDecisionTableRule Build()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko)</dt><dd>Decision table rule definition built</dd></dl>Overrides: [DmnBuilderElement&lt;TBuilder,TResult&gt;.Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0)
@@ -5697,7 +5726,7 @@ Variable definition builder
 
 
 ```csharp
-public class Variable : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable,net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition>
+public sealed class Variable : DmnBuilderElement<net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable,net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition>
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement__vtdze1) -&gt; [net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnBuilderElement&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable,net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2__xebtv)           
@@ -5741,7 +5770,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [AddValueSetter(string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.addvaluesetter_system.string___1cqrima) | public | Adds a value setter information to variable definition | 
- | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.build__1hd7zk4) | internal | Builds the variable definition | 
+ | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.build__1hd7zk4) | protected internal | Builds the variable definition | 
  | [ForInput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.forinput__1ennt8x) | public | Flags variable for input | 
  | [CheckAndSetVariableType(Type)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.checkandsetvariabletype_system.type___1lewn9b) | public | Assigns the variable with [Type](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.type__qzg62l) corresponding to the <strong>newType</strong> and returns true. When the variable already contains the type information, it must match with the <strong>newType</strong> , otherwise the [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) is thrown. | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.tostring__dhobjw) | public | Returns a string that represents the current object. | 
@@ -5995,7 +6024,7 @@ Builds the variable definition
 
 
 ```csharp
-internal override DmnVariableDefinition Build()
+protected internal override DmnVariableDefinition Build()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88)</dt><dd>Variable definition built</dd></dl>Overrides: [DmnBuilderElement&lt;TBuilder,TResult&gt;.Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderelement-2.build__rlrom0)
@@ -6289,7 +6318,7 @@ Catalog holding the variable definitions (builders) used in [DmnDefinitionBuilde
 
 
 ```csharp
-public class VariableCatalog
+public sealed class VariableCatalog
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           

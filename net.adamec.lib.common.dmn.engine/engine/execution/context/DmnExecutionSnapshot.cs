@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.execution.result;
 
@@ -10,7 +9,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
     /// Snapshot of execution context generated at the beginning of <see cref="DmnExecutionContext.ExecuteDecision(string)">execution</see> and
     /// after execution of decision. The snapshot (step) is generated for each decision in dependency tree
     /// </summary>
-    public class DmnExecutionSnapshot
+    public sealed class DmnExecutionSnapshot
     {
         /// <summary>
         /// Zero based sequence number of the execution step

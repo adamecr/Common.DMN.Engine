@@ -30,8 +30,10 @@ namespace net.adamec.lib.common.dmn.engine.test.complex
             Action act = () => { result = ctx.ExecuteDecision("Test"); };
 
             if (!validIn && validOut)
-            {//Decision table Test, input #1: Input value '' is not in allo
-                act.Should().Throw<DmnExecutorException>().WithMessage("Decision table Test, *Input value * is not in allowed values list *");
+            {
+                act.Should().NotThrow();
+                result.HasResult.Should().BeFalse();
+                //act.Should().Throw<DmnExecutorException>().WithMessage("Decision table Test, *Input value * is not in allowed values list *");
                 return;
             }
 

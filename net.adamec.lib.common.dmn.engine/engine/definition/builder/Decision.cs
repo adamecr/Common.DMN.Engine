@@ -113,7 +113,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// it's more for better understanding the DMN model</remarks>
         /// <param name="input">Reference to the input variable</param>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        protected void Requires(Variable.Ref input)
+        protected void AddRequiredInput(Variable.Ref input)
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (input == null) throw new ArgumentNullException(nameof(input));
@@ -132,7 +132,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <remarks>When executing the decision, the engine checks for required decisions and executes them before executing this decision</remarks>
         /// <param name="decision">Reference to the decision this decision depends on </param>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        protected void Requires(Ref decision)
+        protected void AddRequiredDecision(Ref decision)
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (decision == null) throw new ArgumentNullException(nameof(decision));

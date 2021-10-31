@@ -9,7 +9,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// Definition of decision table input - contains index (order), mapping to the source variable or source expression, and optional list of allowed values
     /// </summary>
     /// <remarks>Source variable and source expression are mutually exclusive and one of them has to be provided.</remarks>
-    public class TableInput : DmnBuilderElement<TableInput, DmnDecisionTableInput>
+    public sealed class TableInput : DmnBuilderElement<TableInput, DmnDecisionTableInput>
     {
         /// <summary>
         /// Reference CTOR delegate
@@ -174,7 +174,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <returns>Decision table input definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when neither expression nor variable is defined for the input </exception>
-        internal override DmnDecisionTableInput Build()
+        protected internal override DmnDecisionTableInput Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
 

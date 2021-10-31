@@ -14,11 +14,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         /// <summary>
         /// Internal list of result variables
         /// </summary>
-        private readonly List<DmnResultVariable> variables = new List<DmnResultVariable>();
+        protected readonly List<DmnResultVariable> VariablesInternal = new List<DmnResultVariable>();
         /// <summary>
         /// List of result variables
         /// </summary>
-        public IReadOnlyList<DmnResultVariable> Variables => variables;
+        public IReadOnlyList<DmnResultVariable> Variables => VariablesInternal;
 
         /// <summary>
         /// Gets the variable by <paramref name="variableName"/>
@@ -30,11 +30,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         /// <summary>
         /// Internal list of table rules with the positive hit (based on hit policy) leading to this decision result. Empty for expression decisions
         /// </summary>
-        private readonly List<DmnDecisionTableRule> hitRules = new List<DmnDecisionTableRule>();
+        protected readonly List<DmnDecisionTableRule> HitRulesInternal = new List<DmnDecisionTableRule>();
         /// <summary>
         /// List of table rules with the positive hit (based on hit policy) leading to this decision result. Empty for expression decisions
         /// </summary>
-        public IReadOnlyList<DmnDecisionTableRule> HitRules =>hitRules;
+        public IReadOnlyList<DmnDecisionTableRule> HitRules =>HitRulesInternal;
 
         /// <summary>
         /// CTOR
@@ -52,7 +52,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         {
             if (variable == null) throw new ArgumentNullException(nameof(variable));
 
-            variables.Add(new DmnResultVariable(variable));
+            VariablesInternal.Add(new DmnResultVariable(variable));
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         {
             if (hitRule == null) throw new ArgumentNullException(nameof(hitRule));
 
-            hitRules.Add(hitRule);
+            HitRulesInternal.Add(hitRule);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         {
             if (hitRule == null) throw new ArgumentNullException(nameof(hitRule));
 
-            hitRules.Add(hitRule);
+            HitRulesInternal.Add(hitRule);
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         {
             if (multipleHitRules == null) throw new ArgumentNullException(nameof(multipleHitRules));
 
-            hitRules.AddRange(multipleHitRules);
+            HitRulesInternal.AddRange(multipleHitRules);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
             if (instance == null) throw new ArgumentNullException(nameof(instance));
             if (variable == null) throw new ArgumentNullException(nameof(variable));
 
-            instance.variables.Add(new DmnResultVariable(variable));
+            instance.VariablesInternal.Add(new DmnResultVariable(variable));
 
             return instance;
         }
@@ -112,11 +112,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         /// Clones the single result
         /// </summary>
         /// <returns>Cloned single result</returns>
-        public DmnDecisionSingleResult Clone()
+        public virtual DmnDecisionSingleResult Clone()
         {
             var retVal = new DmnDecisionSingleResult();
-            retVal.variables.AddRange(Variables.Select(v => v.Clone()).ToList());
-            retVal.hitRules.AddRange(HitRules);
+            retVal.VariablesInternal.AddRange(Variables.Select(v => v.Clone()).ToList());
+            retVal.HitRulesInternal.AddRange(HitRules);
             return retVal;
         }
     }

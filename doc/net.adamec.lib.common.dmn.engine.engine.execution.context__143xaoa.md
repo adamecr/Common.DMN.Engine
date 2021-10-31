@@ -95,6 +95,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [CacheParsedExpression(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4) | protected | Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong> | 
+ | [ConfigureInterpreter(Interpreter)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.configureinterpreter_dynamicexpresso.interpreter___1b53b3s) | protected | Configures the <em>DynamicExpresso.Interpreter</em> that will invoke the expression. Adds S-FEEL functions to the interpreter and some &quot;common&quot; references (types) | 
  | [CreateSnapshot(IDmnDecision, DmnDecisionResult)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.createsnapshot_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1bztsza) | internal | Creates the execution context snapshot - to be called by decision after the evaluation | 
  | [EvalExpression(string, Type, string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type-system.string___icbo1v) | public | Evaluates expression | 
  | [EvalExpression&lt;TOutputType&gt;(string, string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string-system.string___1iaf9wt) | public | Evaluates expression | 
@@ -105,6 +106,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | [GetVariable(IDmnVariable)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___qblh70) | public | Gets the runtime (execution) variable corresponding to its <strong>definition</strong> | 
  | [GetVariable(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_system.string___1pjw2vs) | public | Gets the runtime (execution) variable with given <strong>name</strong> | 
  | [Reset()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.reset__2lfhbq) | public | Resets the DMN execution context - clears all variables except the input parameters (sets them to null) and clears the snapshots | 
+ | [SetInterpreterParameters(List&lt;DynamicExpresso.Parameter&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.setinterpreterparameters_system.collections.generic.list_dynamicexpresso.parameter____g8t4d0) | protected | Prepares the parameters that will be used when invoking the expression. All [Variables](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh) are added to <strong>parameters</strong> . | 
  | [WithInputParameter(string, object)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameter_system.string-system.object___qjwb99) | public | Sets the named input parameter <strong>value</strong> | 
  | [WithInputParameters(IReadOnlyCollection&lt;System.Collections.Generic.KeyValuePair&lt;string,object&gt;&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameters_system.collections.generic.ireadonlycollection_system.collections.generic.keyvaluepair_system.string-system.object_____s0ztk9) | public | Sets the input parameters from key-value collection (key=name of parameter, value=value to be set) | 
 
@@ -384,6 +386,31 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.configureinterpreter_dynamicexpresso.interpreter___1b53b3s" />  DmnExecutionContext.ConfigureInterpreter(Interpreter) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Configures the <em>DynamicExpresso.Interpreter</em> that will invoke the expression. Adds S-FEEL functions to the interpreter and some &quot;common&quot; references (types)
+
+
+
+```csharp
+protected virtual void ConfigureInterpreter(Interpreter interpreter)
+```
+
+<strong>Method parameters</strong><dl><dt>DynamicExpresso.Interpreter <strong>interpreter</strong></dt><dd>Interpreter to be configured</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.createsnapshot_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1bztsza" />  DmnExecutionContext.CreateSnapshot(IDmnDecision, DmnDecisionResult) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -650,6 +677,31 @@ public virtual DmnExecutionContext Reset()
 ```
 
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)</dt><dd>[DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.setinterpreterparameters_system.collections.generic.list_dynamicexpresso.parameter____g8t4d0" />  DmnExecutionContext.SetInterpreterParameters(List&lt;DynamicExpresso.Parameter&gt;) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Prepares the parameters that will be used when invoking the expression. All [Variables](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh) are added to <strong>parameters</strong> .
+
+
+
+```csharp
+protected virtual void SetInterpreterParameters(List<DynamicExpresso.Parameter> parameters)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;DynamicExpresso.Parameter&gt;</a> <strong>parameters</strong></dt><dd>Set of parameters that will be used for expression invocation</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -1021,7 +1073,7 @@ Snapshot of execution context generated at the beginning of [execution](net.adam
 
 
 ```csharp
-public class DmnExecutionSnapshot
+public sealed class DmnExecutionSnapshot
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
@@ -1267,7 +1319,7 @@ Set of available snapshots
 
 
 ```csharp
-public class DmnExecutionSnapshots
+public sealed class DmnExecutionSnapshots
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
@@ -1868,10 +1920,11 @@ Returns a string that represents the current object.
 
 
 ```csharp
+[ExcludeFromCodeCoverage]
 public override string ToString()
 ```
 
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" target="_blank" >object.ToString</a>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

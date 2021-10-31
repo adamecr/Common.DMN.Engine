@@ -18,7 +18,7 @@ __Version-1__
   - `IReadOnlyCollection` is used for required inputs and decision
   - Arrays are used instead of lists for decision table - Inputs, Outpus, Rules, Allowed values
   - The DMN definition can be created also by code using the builders (`DmnDefinitionBuilder`)
- 
+
 
 - Execution context
   - Properties are published as `IReadOnlyDictionary` instead of `IDictionary`
@@ -26,9 +26,13 @@ __Version-1__
   - New method `WithInputParameters` allowing to set multiple parameters in one call using the dictionary (`IReadOnlyCollection<KeyValuePair<string,object>>`)
   - `DmnExecutionContextFactory` class is static now
   - Decision execution can be traced/audited using the snapshots
-  - Execution context can be configured using the `DmnExecutionContextOptions` when calling the factory - set the snapshots on/off, table rules parallel processing
+  - Execution context can be configured using the `DmnExecutionContextOptions` when calling the factory - set the snapshots on/off, table rules parallel processing, parsed expressions cache
   - FIX: when cloning the variables (for example from context to result), the ICloneable value is clonned properly
+  - Parsed expression cache is now configurable 
+  - The execution related classes have been better adapted for the support of extended/customized functionality using the inheritance
 
+- Decision table
+  - **Allowed input values checks don't throw the exception when the constraint is violated** (see the documentation for more details)
 
 - Other
   - DynamicExpresso, NLog packages to current versions 

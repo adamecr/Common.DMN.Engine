@@ -54,7 +54,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            return $"#{Index}:{Variable}";
+            return $"#{Index}:{(!string.IsNullOrWhiteSpace(Expression)?Expression:Variable.ToString())}";
         }
     }
 }

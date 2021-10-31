@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 
@@ -98,7 +99,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         {
             Definition = cloneFrom.Definition;
 
-            if (cloneFrom._value is ICloneable cloneableValue)
+            if (cloneFrom.Value is ICloneable cloneableValue)
             {
                 _value = cloneableValue.Clone();
             }
@@ -133,6 +134,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
 
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return $"{Name}{(Type == null ? "" : ":" + Type)}={Value ?? "[null]"}";

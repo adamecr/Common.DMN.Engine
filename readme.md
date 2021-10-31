@@ -653,10 +653,9 @@ var definition = new DmnDefinitionBuilder()
 ```
 
 ### Allowed Values Constraints ###
-It's possible to define the constraints for input a/or output values. When the constraint is defined and there is no match, the exception is thrown during the execution. The output allowed values might be also needed for the hit policy (see next chapter for details)
+It's possible to define the constraints for input a/or output values. When the input defines the constraint, it first gets the variable value as string for the variable inputs or evaluates the input expression and converts the result to string for the expression inputs. Then it's checked against the list of allowed values for the input. When the input value is not compliant with the constraint, the rule is marked as no-match and the processing contine with the next rule. When the values check is ok (or there is no constraint), the rule is evaluated "standard way"
 
-The input allowed values are checked when evaluating the rules (for each rule and for each input defined for the rule). When the input defines the constraint, it gets the variable value as string for the variable inputs or evaluates the input expression and converts the result to string for the expression inputs. Then it's checked against the list of allowed values for the input.
-If the table input is not used for the particular rule, the allowed values for that particular input are not checked for that rule.
+***This is the breaking change in version 1. In versions <1, the input not matching the constraint could throw the execution exception. I decided to change the logic, as per DMN standard, the intention of allowed input values is more to be another condition (satisfactory criteria) rather than the hard input validation. Also the logic when the exception was thrown was not quite consistent and intuitive.***
 
 The output allowed values are checked when processing the rules with positive hit (for each positive hit rule and for each output). The output result is calculated by evaluating the output expression (that's the way of calculating the output result). When the output defines the constraint, the result is converted to string and the string value is checked against the list of allowed values for the output.
 
@@ -854,3 +853,6 @@ As you can see, the cache key is composed from the expression text, output type 
  - `Context` - Cache parsed expressions within execution context only (cross execution runs)
  - `Definition` (default) - Cache parsed expressions for definition (cross execution contexts)
  - `Global` - Cache parsed expressions globally (cross definitions and execution contexts)
+
+### DynamoExpressions Customizations ###
+You can furter customize the expression evaluations by overriding the `DmnExecutionContext.ConfigureInterpreter` and `DmnExecutionContext.SetInterpreterParameters` methods.

@@ -7,7 +7,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
     /// <summary>
     /// Set of available snapshots
     /// </summary>
-    public class DmnExecutionSnapshots
+    public sealed class DmnExecutionSnapshots
     {
         /// <summary>
         /// Set of available snapshots

@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// <summary>
     /// Definition of decision table output - contains index (order), mapping to the variable and optional list of allowed values
     /// </summary>
-    public class TableOutput : DmnBuilderElement<TableOutput, DmnDecisionTableOutput>
+    public sealed class TableOutput : DmnBuilderElement<TableOutput, DmnDecisionTableOutput>
     {
         /// <summary>
         /// Reference CTOR delegate
@@ -147,7 +147,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <returns>Decision table output definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the output variable is not defined in builder</exception>
-        internal override DmnDecisionTableOutput Build()
+        protected internal override DmnDecisionTableOutput Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (VariableInternal == null) throw Logger.Error<DmnBuilderException>("Variable must be defined for decision table output");

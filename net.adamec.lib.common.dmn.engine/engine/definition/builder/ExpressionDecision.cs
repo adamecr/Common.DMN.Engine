@@ -15,7 +15,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// that can be used to configure the required inputs and decisions when needed and to fully build the expression decision 
     /// </para>
     /// </summary>
-    public class ExpressionDecision : Decision
+    public sealed class ExpressionDecision : Decision
     {
         /// <summary>
         /// Reference to the variable used to store the expression decision output
@@ -53,9 +53,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// it's more for better understanding the DMN model</remarks>
         /// <param name="input">Reference to the input variable</param>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public new ExpressionDecision Requires(Variable.Ref input)
+        public ExpressionDecision Requires(Variable.Ref input)
         {
-            base.Requires(input);
+            AddRequiredInput(input);
             return this;
         }
 
@@ -65,9 +65,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <remarks>When executing the decision, the engine checks for required decisions and executes them before executing this decision</remarks>
         /// <param name="decision">Reference to the decision this decision depends on </param>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public new ExpressionDecision Requires(Ref decision)
+        public ExpressionDecision Requires(Ref decision)
         {
-            base.Requires(decision);
+            AddRequiredDecision(decision);
             return this;
         }
 
@@ -175,7 +175,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <returns>Decision definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the expression or output variable is not defined in builder</exception>
-        internal override IDmnDecision Build()
+        protected internal override IDmnDecision Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
 

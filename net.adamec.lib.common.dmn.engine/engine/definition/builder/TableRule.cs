@@ -31,7 +31,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// <para><see cref="TableRuleAndOutputBuilder"/> inherits from <see cref="TableRuleOutputBuilder"/> and provides <see cref="TableRuleAndOutputBuilder.And"/> method to provide the additional output calculation and returns <see cref="TableRuleAndOutputBuilder"/>.</para>
     /// <para><see cref="TableRuleOutputBuilder"/> is the final rule builder.</para>
     /// </summary>
-    public class TableRule : DmnBuilderElement<TableRule, DmnDecisionTableRule>
+    public sealed class TableRule : DmnBuilderElement<TableRule, DmnDecisionTableRule>
     {
         /// <summary>
         /// Index (order) of the rule within the decision table
@@ -400,7 +400,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <returns>Decision table rule definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the rule name is not defined in the builder</exception>
-        internal override DmnDecisionTableRule Build()
+        protected internal override DmnDecisionTableRule Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Decision is already built");
             if (string.IsNullOrWhiteSpace(Name)) throw Logger.Error<DmnBuilderException>("Name must be defined for decision table rule");

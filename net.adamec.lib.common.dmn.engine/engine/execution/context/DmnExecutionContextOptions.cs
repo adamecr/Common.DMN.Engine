@@ -24,7 +24,6 @@
         /// <summary>
         /// Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)
         /// </summary>
-        public ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; set; } =
-            ParsedExpressionCacheScopeEnum.Definition;
+        public ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; set; } = ParsedExpressionCacheScopeEnum.Definition;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
 
 namespace net.adamec.lib.common.dmn.engine.engine.execution.result
@@ -69,7 +70,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         /// Clones the variable
         /// </summary>
         /// <returns>Cloned variable</returns>
-        public DmnResultVariable Clone()
+        public virtual DmnResultVariable Clone()
         {
             var retVal = new DmnResultVariable(this);
             return retVal;
@@ -77,6 +78,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
 
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return $"{Name}{(Type == null ? "" : ":" + Type)}={Value ?? "[null]"}";

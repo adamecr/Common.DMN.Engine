@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using net.adamec.lib.common.dmn.engine.engine.decisions.expression;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table;
 using net.adamec.lib.common.dmn.engine.engine.definition.builder;
+using net.adamec.lib.common.dmn.engine.engine.execution;
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
 using net.adamec.lib.common.dmn.engine.parser.dto;
 using Variable = net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable;
@@ -335,6 +337,470 @@ namespace net.adamec.lib.common.dmn.engine.test.builder
         }
 
         [TestMethod]
+        [DataRow(3, 6, false, false, 8, 0, false)]
+        [DataRow(4, 1, false, false, 3, 1, true)]
+        [DataRow(6, 1, false, true, 3, 1, true)]
+        [DataRow(6, 6, false, true, 8, 0, false)]
+        [DataRow(0.9, 7, false, false, 9, 1, false)]
+        [DataRow(6.1, 6, false, true, 8, 0, false)]
+        [DataRow("6", 6, true, true, 8, 0, false)] //input1 will be string, so the eval will fail
+        public void ExpressionDecisionTest(object input1, int input2, bool isExecErr, bool result1, int result2, int result3, bool result4)
+        {
+            var builder = new DmnDefinitionBuilder()
+                .WithInput("input1")
+                .WithInput<int>("input2", out var input2Ref)
+                .WithVariable<bool>("var1", out var var1Ref)
+                .WithVariable<int>("var2", out var var2Ref)
+                .WithExpressionDecision("decision1", "input1>5.1", var1Ref)
+                .WithExpressionDecision("decision2", "input2+2", var2Ref, out var decision2Ref)
+                .WithExpressionDecision("decision3", ed => ed
+                    .Put("input2 % 2")
+                    .To(var2Ref))
+                .WithExpressionDecision("decision4", ed => ed
+                    .Put("input1>var2")
+                    .To(var1Ref)
+                    .Requires(input2Ref)
+                    .Requires(decision2Ref));
+
+            var def = builder.Build();
+
+            var ctx = DmnExecutionContextFactory.CreateExecutionContext(def);
+
+            var inputParameters = new Dictionary<string, object>
+            {
+                { "input1", input1 },
+                { "input2", input2 }
+            };
+            ctx.WithInputParameters(inputParameters);
+
+            if (!isExecErr)
+            {
+                var execResult1 = ctx.ExecuteDecision("decision1");
+                var execResult2 = ctx.ExecuteDecision("decision2");
+                var execResult3 = ctx.ExecuteDecision("decision3");
+                var execResult4 = ctx.ExecuteDecision("decision4");
+
+
+                execResult1.First["var1"].Value.Should().Be(result1);
+                execResult2.First["var2"].Value.Should().Be(result2);
+                execResult3.First["var2"].Value.Should().Be(result3);
+                execResult4.First["var1"].Value.Should().Be(result4);
+            }
+            else
+            {
+                Action act = () => ctx.ExecuteDecision("decision1");
+                act.Should().Throw<DmnExecutorException>();
+            }
+        }
+
+        [TestMethod]
+        public void ExpressionDecisionAdvancedTest()
+        {
+
+            var builder = new DmnDefinitionBuilder()
+                .WithInput<int>("input1")
+                .WithInput<int>("input2")
+                .WithVariable<int>("var0", out var var0Ref);
+            var variables = new Dictionary<string, Variable.Ref>();
+            for (var i = 1; i <= 3; i++)
+            {
+                builder.WithVariable<int>($"var{i}", out var varRef);
+                variables.Add(varRef.Name, varRef);
+            }
+
+            builder.WithExpressionDecision("decision0", ExpressionDecisionBuilder, out var decision0Ref);
+            for (var i = 1; i <= 3; i++)
+            {
+                var varName = $"var{i}";
+                var op = i % 2;
+                var p = i;
+                builder.WithExpressionDecision($"decision{i}", ed => ExpressionDecisionBuilderFactory(ed, op, p, varName));
+            }
+
+            //0: input1*3 -> var0 
+            //1: input2+1 -> var1
+            //2: input2*2 -> var2
+            //3: input2+3 -> var3
+
+            var input1 = 5;
+            var input2 = 10;
+
+            var def = builder.Build();
+            var ctx = DmnExecutionContextFactory
+                .CreateExecutionContext(def)
+                .WithInputParameters(new Dictionary<string, object>
+                {
+                    { "input1", input1 },
+                    { "input2", input2}
+
+                });
+
+            var result0 = ctx.ExecuteDecision(def.Decisions[decision0Ref.Name]);
+            result0.First["var0"].Value.Should().Be(input1 * 3);
+            var result1 = ctx.ExecuteDecision("decision1");
+            result1.First["var1"].Value.Should().Be(input2 + 1);
+            var result2 = ctx.ExecuteDecision("decision2");
+            result2.First["var2"].Value.Should().Be(input2 * 2);
+            var result3 = ctx.ExecuteDecision("decision3");
+            result3.First["var3"].Value.Should().Be(input2 + 3);
+
+
+            ExpressionDecision ExpressionDecisionBuilder(ExpressionDecision.ExpressionDecisionSrcBuilder b)
+            {
+                return b.Put("input1*3").To(var0Ref);
+
+            }
+            ExpressionDecision ExpressionDecisionBuilderFactory(ExpressionDecision.ExpressionDecisionSrcBuilder b, int op, int param, string varName)
+            {
+                switch (op)
+                {
+                    case 1: return ExpressionDecisionBuilderAdd(b, param, variables[varName]);
+                    case 0: return ExpressionDecisionBuilderMultiply(b, param, variables[varName]);
+                }
+
+                throw new InvalidOperationException();
+            }
+            ExpressionDecision ExpressionDecisionBuilderAdd(ExpressionDecision.ExpressionDecisionSrcBuilder b, int i, Variable.Ref outVar)
+            {
+                return b.Put($"input2+{i}").To(outVar);
+            }
+            ExpressionDecision ExpressionDecisionBuilderMultiply(ExpressionDecision.ExpressionDecisionSrcBuilder b, int i, Variable.Ref outVar)
+            {
+                return b.Put($"input2*{i}").To(outVar);
+            }
+        }
+
+        [TestMethod]
+        [DataRow(6, "A", false, false, 11, "L", "r1")]
+        [DataRow(6, "B", false, false, 22, "M", "r2")] //B is not allowed for tbl input 2, so the "r1" rule is no-match, "r2" is catch
+        [DataRow(4, "C", false, false, 22, "M", "r2")]
+        [DataRow(4, null, false, false, 22, "M", "r2")] //null is not allowed for tbl input 2, so the "r1" rule is no-match, "r2" is catch
+        [DataRow(4, "A", true, false, 6, null, "r3")]
+        [DataRow(5, "A", true, false, null, "K", "r4")]
+        [DataRow(5, "B", true, false, null, "K", "r4")] //B is not allowed for tbl input 2, but fine with "r4" as the input is not used there
+        [DataRow(7, "A", true, false, null, null, "fallback")] // 3 (7%4) is no allowed for tbl input 4, so the "r4" rule is no-match, "fallback" is catch
+        [DataRow(2, "B", false, false, null, "K", "r4")] //B is not allowed for tbl input 2, but fine with "r4"
+        [DataRow(99, "A", false, true, null, "O", "error")] //O is not allowed output
+        public void TableTest(int input1, string input2, bool input3, bool isErr, int? resultOut1, string resultOut2, string match)
+        {
+            //i1 - input1:int
+            //i2 - input1%2==0 :bool (input1 is even)
+            //i3 - input2:string; "A","C","E"
+            //i4 - input1%4: int; 0,1,2 (input1 mod 4; 3 is not allowed)
+            //i5 - !input3 : bool
+
+            //"error" - input1 99->ERR(O is not allowed)
+            //"r1" - input1 (even && >3 && %4 = 2), input2 = A | E, input3 = false-> 11,L
+            //"r2" - input1 (even && >3), input3 = false-> 22,M
+            //"r3" - input1 (even && %4 = 0)-> input1+2,N/A
+            //"r4" - input1 %4 != 0 -> N/A, K
+            //"fallback" - no prev match, no output
+
+            var def = new DmnDefinitionBuilder()
+                .WithInput<int>("input1", out var input1Ref)
+                .WithInput<string>("input2", out var input2Ref)
+                .WithInput<bool>("input3")
+                .WithVariable<bool>("var1", out var var1Ref)
+                .WithVariable<int>("var2", out var var2Ref)
+                .WithVariable<string>("var3", out var var3Ref)
+                .WithExpressionDecision("ed", "(input1 % 2)==0", var1Ref, out var edRef)
+                .WithTableDecision("tbl", table =>
+                    table
+                        .WithInput(input1Ref, out var tblInput1Ref)
+                        .WithInput(var1Ref, out var tblInput2Ref)
+                        .WithInput(input2Ref, out var tblInput3Ref, "A", "C", "E")
+                        .WithInput("(input1 % 4)", out var tblInput4Ref, "0", "1", "2")
+                        .WithInput("!input3", out var tblInput5Ref)
+                        .WithOutput(var2Ref, out var tblOutput1Ref)
+                        .WithOutput(var3Ref, out var tblOutput2Ref, "K", "L", "M", "N")
+
+                        .WithRule("error", "input1 99 -> ERR (O is not allowed)", r => r
+                            .When(tblInput1Ref, "99")
+                            .Then(tblOutput2Ref, "\"O\""))
+
+                        .WithRule("r1", "input1 (even && >3 && %4 = 2), input2 = A | E, input3 = false-> 11,L", r => r
+                              .When(tblInput1Ref, ">3")
+                              .And(tblInput2Ref, "true")
+                              .And(tblInput3Ref, "\"A\",\"E\"")
+                              .And(tblInput4Ref, "2")
+                              .And(tblInput5Ref, "not(false)")
+                              .Then(tblOutput1Ref, "11")
+                              .And(tblOutput2Ref, "\"L\""))
+
+                        .WithRule("r2", "input1 (even && >3), input3 = false-> 22,M", r => r
+                            .When(tblInput1Ref, ">3")
+                            .And(tblInput2Ref, "true")
+                            .And(tblInput5Ref, "true")
+                            .Then(tblOutput1Ref, "22")
+                            .And(tblOutput2Ref, "\"M\""))
+
+                        .WithRule("r3", "input1 (even && %4 = 0)-> input1+2,N/A", r => r
+                            .When(tblInput2Ref, "true")
+                            .And(tblInput4Ref, "0")
+                            .Then(tblOutput1Ref, "input1+2"))
+
+                        .WithRule("r4", "input1 %4 != 0 -> N/A, K", r => r
+                            .When(tblInput4Ref, "not(0)")
+                            .Then(tblOutput2Ref, "\"K\""))
+
+                        .WithRule("fallback", r => r.Always().SkipOutput()) //no prev match, no output 
+
+                        .WithHitPolicy(HitPolicyEnum.First)
+                        .Requires(edRef))
+                .Build();
+
+            def.InputData.Should().HaveCount(3);
+            def.Variables.Should().HaveCount(3 + 3);
+            def.Variables["input1"].IsInputParameter.Should().BeTrue();
+            def.Variables["input1"].Type.Should().Be<int>();
+            def.Variables["input2"].IsInputParameter.Should().BeTrue();
+            def.Variables["input2"].Type.Should().Be<string>();
+            def.Variables["input3"].IsInputParameter.Should().BeTrue();
+            def.Variables["input3"].Type.Should().Be<bool>();
+
+            def.Variables["var1"].IsInputParameter.Should().BeFalse();
+            def.Variables["var1"].Type.Should().Be<bool>();
+            def.Variables["var2"].IsInputParameter.Should().BeFalse();
+            def.Variables["var2"].Type.Should().Be<int>();
+            def.Variables["var3"].IsInputParameter.Should().BeFalse();
+            def.Variables["var3"].Type.Should().Be<string>();
+            def.Decisions.Should().HaveCount(2);
+            def.Decisions["tbl"].Should().BeOfType<DmnDecisionTable>();
+
+            var tbl = (DmnDecisionTable)def.Decisions["tbl"];
+            tbl.HitPolicy.Should().Be(HitPolicyEnum.First);
+            // tbl.Aggregation.Should().Be(CollectHitPolicyAggregationEnum.Count);
+            tbl.Inputs.Should().HaveCount(5);
+            tbl.Inputs[0].Variable.Name.Should().Be("input1");
+            tbl.Inputs[0].Expression.Should().BeNull();
+            tbl.Inputs[0].AllowedValues.Should().BeNull();
+            tbl.Inputs[1].Variable.Name.Should().Be("var1");
+            tbl.Inputs[1].Expression.Should().BeNull();
+            tbl.Inputs[1].AllowedValues.Should().BeNull();
+            tbl.Inputs[2].Variable.Name.Should().Be("input2");
+            tbl.Inputs[2].Expression.Should().BeNull();
+            tbl.Inputs[2].AllowedValues.Should().HaveCount(3);
+            tbl.Inputs[2].AllowedValues.Should().Equal(new[] { "A", "C", "E" });
+
+            tbl.Inputs[3].Expression.Should().Be("(input1 % 4)");
+            tbl.Inputs[3].Variable.Should().BeNull();
+            tbl.Inputs[3].AllowedValues.Should().HaveCount(3);
+            tbl.Inputs[3].AllowedValues.Should().Equal(new[] { "0", "1", "2" });
+            tbl.Inputs[4].Expression.Should().Be("!input3");
+            tbl.Inputs[4].Variable.Should().BeNull();
+            tbl.Inputs[4].AllowedValues.Should().BeNull();
+
+            tbl.Outputs.Should().HaveCount(2);
+            tbl.Outputs[0].Variable.Name.Should().Be("var2");
+            tbl.Outputs[0].AllowedValues.Should().BeNull();
+            tbl.Outputs[1].Variable.Name.Should().Be("var3");
+            tbl.Outputs[1].AllowedValues.Should().Equal(new[] { "K", "L", "M", "N" });
+
+            tbl.Rules.Should().HaveCount(6);
+            tbl.Rules[0].Inputs.Should().HaveCount(1);
+            tbl.Rules[0].Outputs.Should().HaveCount(1);
+            tbl.Rules[1].Inputs.Should().HaveCount(5);
+            tbl.Rules[1].Outputs.Should().HaveCount(2);
+            tbl.Rules[2].Inputs.Should().HaveCount(3);
+            tbl.Rules[2].Outputs.Should().HaveCount(2);
+            tbl.Rules[3].Inputs.Should().HaveCount(2);
+            tbl.Rules[3].Outputs.Should().HaveCount(1);
+            tbl.Rules[4].Inputs.Should().HaveCount(1);
+            tbl.Rules[4].Outputs.Should().HaveCount(1);
+            tbl.Rules[5].Inputs.Should().HaveCount(0);
+            tbl.Rules[5].Outputs.Should().HaveCount(0);
+
+            var ctx = DmnExecutionContextFactory
+                .CreateExecutionContext(def)
+                .WithInputParameter("input1", input1)
+                .WithInputParameter("input2", input2)
+                .WithInputParameter("input3", input3);
+
+            if (!isErr)
+            {
+                var result = ctx.ExecuteDecision("tbl");
+                result.HasResult.Should().BeTrue();
+                if (resultOut1 != null)
+                {
+                    result.First["var2"].Value.Should().Be(resultOut1);
+                }
+                else
+                {
+                    result.First["var2"].Should().BeNull();
+                }
+                if (resultOut2 != null)
+                {
+                    result.First["var3"].Value.Should().Be(resultOut2);
+                }
+                else
+                {
+                    result.First["var3"].Should().BeNull();
+                }
+
+                result.First.HitRules.Should().HaveCount(1);
+                result.First.HitRules[0].Name.Should().Be(match);
+            }
+            else
+            {
+                Action act = () => ctx.ExecuteDecision("tbl");
+                act.Should().Throw<Exception>();
+            }
+
+        }
+
+
+        [TestMethod]
+        [DataRow(12, 3, 12 + 3 / 2 + 10 + 1000, "r1,r2,r3,r4")]
+        [DataRow(6, 6, 6 / 2 + 1000, "r2,r4")]
+        [DataRow(10, 10, 1000, "r4")]
+        [DataRow(10, 3, 3 / 2 + 10 + 1000, "r2,r3,r4")]
+        [DataRow(3, 3, 1000, "r4")]
+        [DataRow(11, 11, 11 + 1000, "r1,r4")]
+        public void TableTestCollectSum(int input1, int input2, int output, string match)
+        {
+            // input2 allowed 1-9 (incl.)
+            var l = new List<string>();
+            for (var i = 1; i < 10; i++)
+            {
+                l.Add(i.ToString());
+            }
+
+            // "r1" - input1 > 10 -> input1
+            // "r2" - input1 (>=5 && <15), input2 is 1|3|input1 -> input2/2
+            // "r3" - input2 (!5 && !input1) -> 10
+            // "r4" - always -> 1000
+            var def = new DmnDefinitionBuilder()
+               .WithInput<int>("input1", out var inputVar1Ref)
+               .WithInput<int>("input2", out var inputVar2Ref)
+               .WithVariable<int>("output", out var outputVarRef)
+               .WithTableDecision("tbl", table =>
+                   table
+                       .WithInput(inputVar1Ref, out var tblInput1Ref)
+                       .WithInput(inputVar2Ref, out var tblInput2Ref, l.ToArray())
+                       .WithOutput(outputVarRef, out var tblOutputRef)
+
+                       .WithRule("r1", "input1 > 10 -> input1", r => r
+                           .When(tblInput1Ref, ">10")
+                           .Then(tblOutputRef, "input1"))
+
+                       .WithRule("r2", "input1 >=5 && <15, input2 is 1|3|input1 -> input2/2", r => r
+                           .When(tblInput1Ref, "[5..15[")
+                           .And(tblInput2Ref, "1,3,input1")
+                           .Then(tblOutputRef, "input2/2"))
+
+                       .WithRule("r3", "input2 !5 && !input1 -> 10", r => r
+                           .When(tblInput2Ref, "not(5,input1)")
+                           .Then(tblOutputRef, "10"))
+
+                       .WithRule("r4", "always-> 1000", r => r
+                           .Always()
+                           .Then(tblOutputRef, "1000"))
+
+                       .WithHitPolicy(HitPolicyEnum.Collect)
+                       .WithAggregation(CollectHitPolicyAggregationEnum.Sum))
+               .Build();
+
+            var tbl = (DmnDecisionTable)def.Decisions["tbl"];
+            tbl.HitPolicy.Should().Be(HitPolicyEnum.Collect);
+            tbl.Aggregation.Should().Be(CollectHitPolicyAggregationEnum.Sum);
+
+            var ctx = DmnExecutionContextFactory
+                .CreateExecutionContext(def)
+                .WithInputParameter("input1", input1)
+                .WithInputParameter("input2", input2);
+
+            var result = ctx.ExecuteDecision("tbl");
+            result.HasResult.Should().BeTrue();
+            result.IsSingleResult.Should().BeTrue();
+            result.First["output"].Value.Should().Be(output);
+
+            var hits = match.Split(',');
+            result.First.HitRules.Should().HaveCount(hits.Length);
+            for (var i = 0; i < hits.Length; i++)
+            {
+                result.First.HitRules[i].Name.Should().Be(hits[i]);
+            }
+        }
+
+        [TestMethod]
+        [DataRow(12, 3, "r1,r2,r3,r4")]
+        [DataRow(6, 6, "r2,r4")]
+        [DataRow(10, 10, "r4")]
+        [DataRow(10, 3, "r2,r3,r4")]
+        [DataRow(3, 3, "r4")]
+        [DataRow(11, 11, "r1,r4")]
+        public void TableTestCollectList(int input1, int input2, string match)
+        {
+            // input2 allowed 1-9 (incl.)
+            var l = new List<string>();
+            for (var i = 1; i < 10; i++)
+            {
+                l.Add(i.ToString());
+            }
+
+            // "r1" - input1 > 10 -> input1
+            // "r2" - input1 (>=5 && <15), input2 is 1|3|input1 -> input2/2
+            // "r3" - input2 (!5 && !input1) -> 10
+            // "r4" - always -> 1000
+            var def = new DmnDefinitionBuilder()
+               .WithInput<int>("input1", out var inputVar1Ref)
+               .WithInput<int>("input2", out var inputVar2Ref)
+               .WithVariable<int>("output", out var outputVarRef)
+               .WithTableDecision("tbl", table =>
+                   table
+                       .WithInput(inputVar1Ref, out var tblInput1Ref)
+                       .WithInput(inputVar2Ref, out var tblInput2Ref, l.ToArray())
+                       .WithOutput(outputVarRef, out var tblOutputRef)
+
+                       .WithRule("r1", "input1 > 10 -> input1", r => r
+                           .When(tblInput1Ref, ">10")
+                           .Then(tblOutputRef, "input1"))
+
+                       .WithRule("r2", "input1 >=5 && <15, input2 is 1|3|input1 -> input2/2", r => r
+                           .When(tblInput1Ref, "[5..15[")
+                           .And(tblInput2Ref, "1,3,input1")
+                           .Then(tblOutputRef, "input2/2"))
+
+                       .WithRule("r3", "input2 !5 && !input1 -> 10", r => r
+                           .When(tblInput2Ref, "not(5,input1)")
+                           .Then(tblOutputRef, "10"))
+
+                       .WithRule("r4", "always-> 1000", r => r
+                           .Always()
+                           .Then(tblOutputRef, "1000"))
+
+                       .WithHitPolicy(HitPolicyEnum.Collect)
+                       .WithAggregation(CollectHitPolicyAggregationEnum.List))
+               .Build();
+
+            var tbl = (DmnDecisionTable)def.Decisions["tbl"];
+            tbl.HitPolicy.Should().Be(HitPolicyEnum.Collect);
+            tbl.Aggregation.Should().Be(CollectHitPolicyAggregationEnum.List);
+
+            var ctx = DmnExecutionContextFactory
+                .CreateExecutionContext(def)
+                .WithInputParameter("input1", input1)
+                .WithInputParameter("input2", input2);
+
+            var result = ctx.ExecuteDecision("tbl");
+            result.HasResult.Should().BeTrue();
+            var hits = match.Split(',');
+            result.Results.Should().HaveCount(hits.Length);
+
+            for (var i = 0; i < hits.Length; i++)
+            {
+                var singleResult = result.Results[i];
+                singleResult.HitRules.Should().HaveCount(1);
+                var ruleName = singleResult.HitRules[0].Name;
+                if (ruleName == "r1") singleResult["output"].Value.Should().Be(input1);
+                if (ruleName == "r2") singleResult["output"].Value.Should().Be(input2 / 2);
+                if (ruleName == "r3") singleResult["output"].Value.Should().Be(10);
+                if (ruleName == "r4") singleResult["output"].Value.Should().Be(1000);
+            }
+
+        }
+
+        [TestMethod]
         [DataRow(5, 2)]
         [DataRow(3, 2)]
         [DataRow(2, 1)]
@@ -474,18 +940,6 @@ namespace net.adamec.lib.common.dmn.engine.test.builder
             snap["output1"].Value.Should().Be(varInt);
             snap["output2"].Value.Should().Be(varBool);
             snap["output3"].Value.Should().Be(varStr);
-        }
-
-        private static TableDecision DummyTable(TableDecision t, Variable.Ref variableRef, out TableDecision tableDecision)
-        {
-            tableDecision = DummyTable(t, variableRef);
-            return tableDecision;
-        }
-        private static TableDecision DummyTable(TableDecision t, Variable.Ref variableRef)
-        {
-            var tableDecision = t.WithInput(variableRef, out _).WithOutput(variableRef, out _)
-                .WithRule("r", r => r.Always().SkipOutput());
-            return tableDecision;
         }
     }
 }

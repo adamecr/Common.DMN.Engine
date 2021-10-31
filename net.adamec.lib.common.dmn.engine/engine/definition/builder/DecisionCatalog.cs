@@ -9,7 +9,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// <summary>
     /// Catalog holding the decision definition builders used in <see cref="DmnDefinitionBuilder"/> and their reference
     /// </summary>
-    public class DecisionCatalog
+    public sealed class DecisionCatalog
     {
         /// <summary>
         /// Flag whether the definition has been already built.

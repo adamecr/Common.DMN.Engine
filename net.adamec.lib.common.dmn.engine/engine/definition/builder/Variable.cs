@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
     /// <summary>
     /// Variable definition builder
     /// </summary>
-    public class Variable : DmnBuilderElement<Variable, DmnVariableDefinition>
+    public sealed class Variable : DmnBuilderElement<Variable, DmnVariableDefinition>
     {
         /// <summary>
         /// Reference CTOR delegate
@@ -175,7 +175,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// </summary>
         /// <returns>Variable definition built</returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        internal override DmnVariableDefinition Build()
+        protected internal override DmnVariableDefinition Build()
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Variable is already built");
             if (string.IsNullOrWhiteSpace(Name))
