@@ -753,16 +753,16 @@ namespace net.adamec.lib.common.dmn.engine.test.builder
                        .WithOutput(outputVarRef, out var tblOutputRef)
 
                        .WithRule("r1", "input1 > 10 -> input1", r => r
-                           .When(tblInput1Ref, ">10")
+                           .When(tblInput1Ref, SFeel.Gt(10))
                            .Then(tblOutputRef, "input1"))
 
                        .WithRule("r2", "input1 >=5 && <15, input2 is 1|3|input1 -> input2/2", r => r
-                           .When(tblInput1Ref, "[5..15[")
-                           .And(tblInput2Ref, "1,3,input1")
+                           .When(tblInput1Ref, SFeel.RngIE(5,15))
+                           .And(tblInput2Ref, SFeel.Eq(1,3,inputVar1Ref))
                            .Then(tblOutputRef, "input2/2"))
 
                        .WithRule("r3", "input2 !5 && !input1 -> 10", r => r
-                           .When(tblInput2Ref, "not(5,input1)")
+                           .When(tblInput2Ref, SFeel.Not(5,inputVar1Ref))
                            .Then(tblOutputRef, "10"))
 
                        .WithRule("r4", "always-> 1000", r => r
@@ -776,6 +776,11 @@ namespace net.adamec.lib.common.dmn.engine.test.builder
             var tbl = (DmnDecisionTable)def.Decisions["tbl"];
             tbl.HitPolicy.Should().Be(HitPolicyEnum.Collect);
             tbl.Aggregation.Should().Be(CollectHitPolicyAggregationEnum.List);
+            
+            tbl.Rules[0].Inputs[0].UnparsedExpression.Should().Be("> 10");
+            tbl.Rules[1].Inputs[0].UnparsedExpression.Should().Be("[5..15[");
+            tbl.Rules[1].Inputs[1].UnparsedExpression.Should().Be("1,3,input1");
+            tbl.Rules[2].Inputs[0].UnparsedExpression.Should().Be("not(5,input1)");
 
             var ctx = DmnExecutionContextFactory
                 .CreateExecutionContext(def)
@@ -798,6 +803,163 @@ namespace net.adamec.lib.common.dmn.engine.test.builder
                 if (ruleName == "r4") singleResult["output"].Value.Should().Be(1000);
             }
 
+        }
+
+        [TestMethod]
+        public void SfeelInputExpressionHelperTest()
+        {
+            var dummy = new DmnDefinitionBuilder()
+                .WithInput("input", out var iRef)
+                .WithVariable<int>("var", out var vRef);
+
+            var s1 = SFeel.Eq("A");
+            s1.Should().Be("\"A\"");
+            var s2 = SFeel.Eq(1);
+            s2.Should().Be("1");
+            var s3 = SFeel.Eq(iRef);
+            s3.Should().Be("input");
+            var s4 = SFeel.Eq(false);
+            s4.Should().Be("false");
+            var s5 = SFeel.Eq(vRef, 1, "A");
+            s5.Should().Be("var,1,\"A\"");
+            var s6 = SFeel.Eq(SFeel.RngI(4, 8));
+            s6.Should().Be("[4..8]");
+            string s7 = SFeel.RngI(4, 8); //need to explicitly declare as string, otherwise the Token will be returned
+            s7.Should().Be("[4..8]");
+
+            var s8 = SFeel.Gt(2);
+            s8.Should().Be("> 2");
+            var s9 = SFeel.Le(7);
+            s9.Should().Be("<= 7");
+
+            var s10 = SFeel.Ne("A");
+            s10.Should().Be("not(\"A\")");
+            var s11 = SFeel.Ne(1);
+            s11.Should().Be("not(1)");
+            var s12 = SFeel.Ne(true);
+            s12.Should().Be("not(true)");
+            var s13 = SFeel.Ne(vRef);
+            s13.Should().Be("not(var)");
+            var s14 = SFeel.Ne(SFeel.RngIE(4, 8));
+            s14.Should().Be("not([4..8[)");
+            var s15 = SFeel.Ne(vRef, 1, "A");
+            s15.Should().Be("not(var,1,\"A\")");
+
+            //"b"
+            var r1 = SFeel.Eq("b");
+            r1.Should().Be("\"b\"");
+            //6
+            var r2 = SFeel.Eq(6);
+            r2.Should().Be("6");
+            //"6"
+            var r3 = SFeel.Eq("6");
+            r3.Should().Be("\"6\"");
+            //"a","aa","aaa"
+            var r4 = SFeel.Eq("a", "aa", "aaa");
+            r4.Should().Be("\"a\",\"aa\",\"aaa\"");
+            //6,8,3
+            var r5 = SFeel.Eq(6, 8, 3);
+            r5.Should().Be("6,8,3");
+
+            //< 5
+            var r6 = SFeel.Lt(5);
+            r6.Should().Be("< 5");
+            //<= 4
+            var r7 = SFeel.Le(4);
+            r7.Should().Be("<= 4");
+            //> 5
+            var r8 = SFeel.Gt(5);
+            r8.Should().Be("> 5");
+            //>= 7
+            var r9 = SFeel.Ge(7);
+            r9.Should().Be(">= 7");
+
+            //[2..5]
+            var r10 = SFeel.Eq(SFeel.RngI(2, 5));
+            r10.Should().Be("[2..5]");
+            //[2..5[
+            var r11 = SFeel.Eq(SFeel.RngIE(2, 5));
+            r11.Should().Be("[2..5[");
+            //]2..5]
+            var r12 = SFeel.Eq(SFeel.RngEI(2, 5));
+            r12.Should().Be("]2..5]");
+            //]2..5[
+            var r13 = SFeel.Eq(SFeel.RngE(2, 5));
+            r13.Should().Be("]2..5[");
+            
+            //not(6)
+            var r14 = SFeel.Not(6);
+            r14.Should().Be("not(6)");
+            //not("b","c","q","o","r","s","v")
+            var r15 = SFeel.Not("b", "c", "q", "o", "r", "s", "v");
+            r15.Should().Be("not(\"b\",\"c\",\"q\",\"o\",\"r\",\"s\",\"v\")");
+            //not(<= 5)
+            var r16 = SFeel.Not(SFeel.Le(5));
+            r16.Should().Be("not(<= 5)");
+            //not(> 4)
+            var r17 = SFeel.Not(SFeel.Gt(4));
+            r17.Should().Be("not(> 4)");
+            //not([2..5])
+            var r18 = SFeel.Not(SFeel.RngI(2, 5));
+            r18.Should().Be("not([2..5])");
+            //not(]2..5[)
+            var r19 = SFeel.Not(SFeel.RngE(2, 5));
+            r19.Should().Be("not(]2..5[)");
+           
+            //4,[6..9[,11
+            var r20 = SFeel.Eq(4, SFeel.RngIE(6, 9), 11);
+            r20.Should().Be("4,[6..9[,11");
+            //not(4,[6..9[,11)
+            var r21 = SFeel.Not(4, SFeel.RngIE(6, 9), 11);
+            r21.Should().Be("not(4,[6..9[,11)");
+           
+            //< date("2018-01-23")
+            var r22 = SFeel.Lt(SFeel.Date(new DateTime(2018, 01, 23)));
+            r22.Should().Be("< date(\"2018-01-23\")");
+            //not(> date("2018-01-23"))
+            var r23 = SFeel.Not(SFeel.Gt(SFeel.Date("2018-01-23")));
+            r23.Should().Be("not(> date(\"2018-01-23\"))");
+            //not(date("2018-01-23"))
+            var r24 = SFeel.Not(SFeel.Date(2018, 01, 23));
+            r24.Should().Be("not(date(\"2018-01-23\"))");
+
+            //>= date and time("2018-01-23T15:30:15")
+            var r25 = SFeel.Ge(SFeel.DateAndTime(new DateTime(2018, 01, 23,15,30,15)));
+            r25.Should().Be(">= date and time(\"2018-01-23T15:30:15\")");
+            //not(<= date and time("2018-01-23T15:30"))
+            var r26 = SFeel.Not(SFeel.Le(SFeel.DateAndTime(2018, 01, 23, 15, 30)));
+            r26.Should().Be("not(<= date and time(\"2018-01-23T15:30\"))");
+            //date and time("2018-01-23T15:30")
+            var r27 = SFeel.Eq(SFeel.DateAndTime("2018-01-23T15:30"));
+            r27.Should().Be("date and time(\"2018-01-23T15:30\")");
+
+            //time("13:00")
+            var r28 = SFeel.Eq(SFeel.Time("13:00"));
+            r28.Should().Be("time(\"13:00\")");
+            //< time("13:45")
+            var r29 = SFeel.Lt(SFeel.Time(13,45));
+            r29.Should().Be("< time(\"13:45\")");
+            //not(time("13:10:45"))
+            var r30 = SFeel.Not(SFeel.Time(new TimeSpan(13,10,45)));
+            r30.Should().Be("not(time(\"13:10:45\"))");
+
+            //duration("P3Y")
+            var r31 = SFeel.Eq(SFeel.Duration("P3Y"));
+            r31.Should().Be("duration(\"P3Y\")");
+            //duration("P92D")
+            var dt = new DateTime(2018, 01, 23);
+            var r32 = SFeel.Eq(SFeel.Duration((dt.AddMonths(3).AddDays(2))-dt));
+            r32.Should().Be("duration(\"P92D\")");
+            //duration("P5DT6H7M")
+            var r33 = SFeel.Eq(SFeel.Duration(5,6,7));
+            r33.Should().Be("duration(\"P5DT6H7M\")");
+            //duration("-P6M7DT9M10S")
+            var r34 = SFeel.Eq(SFeel.Duration(0, 6, 7,0,9,10,true));
+            r34.Should().Be("duration(\"-P6M7DT9M10S\")");
+            
+            //>= (date("2018-01-23") + duration("P3Y"))
+            var r35 = SFeel.Ge(SFeel.Expr($"({SFeel.Date(2018, 01, 23)} + {SFeel.Duration(3, 0, 0,0,0)})"));
+            r35.Should().Be(">= (date(\"2018-01-23\") + duration(\"P3Y\"))");
         }
 
         [TestMethod]

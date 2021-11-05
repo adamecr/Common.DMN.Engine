@@ -64,6 +64,12 @@ dd {grid-column-start: 2;}
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko" >VariableCatalog</a></td><td>public</td><td>Catalog holding the variable definitions (builders) used in <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4" >DmnDefinitionBuilder</a> and their reference</td></tr>
 </table>
 <p> </p>
+<h3>  Structures </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a></td><td>public</td><td>Helper struct for composing the SFeel input expressions</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td><td>public</td><td>Helper struct for composing the SFeel input expression tokens - the single &quot;constant&quot; or variable</td></tr>
+</table>
+<p> </p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x" ></a>  Decision Class </h2>
@@ -3024,6 +3030,776 @@ public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8" >DmnBuilderException</a></dt><dd>Throws <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8" >DmnBuilderException</a> when the definition has already been built</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" ></a>  SFeel Struct </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Helper struct for composing the SFeel input expressions</p>
+<pre><code class="csharp">public struct SFeel</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.valuetype" class="link-external" target="_blank" >ValueType</a><br />
+</p>
+<h3>  Remarks </h3>
+<p>The struct helps with the syntax, but don&#39;t check for semantics, so it&#39;s necessary to understand how to compose the valid expressions</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#f-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.expression__1bjlwj8" >expression</a></td><td>private</td><td>String expression represented by <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a></td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___kupwwq" >SFeel(SFeel.Token)</a></td><td>private</td><td>CTOR - creates an expression from <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.date_system.datetime___mh6epq" >Date(DateTime)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.date_system.int32-system.int32-system.int32___5ha35j" >Date(int, int, int)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.date_system.string___u49rim" >Date(string)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.datetime___1nqqh78" >DateAndTime(DateTime)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.int32-system.int32-system.int32-system.int32-system.int32___17q4gat" >DateAndTime(int, int, int, int, int)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32___1o4oi2m" >DateAndTime(int, int, int, int, int, int)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.string___3jczx4" >DateAndTime(string)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.datestr_system.int32-system.int32-system.int32___vxv8sm" >DateStr(int, int, int)</a></td><td>private static</td><td>Creates a date time string in <pre><code class="csharp">YYYY-MM-DD</code></pre> format</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.datetimestr_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32___1kizdym" >DateTimeStr(int, int, int, int, int, int)</a></td><td>private static</td><td>Creates a date time string in <pre><code class="csharp">YYYY-MM-DDTHHmmSS</code></pre> format or <pre><code class="csharp">YYYY-MM-DDTHHmm</code></pre> format if <strong>second</strong> is 0 or <pre><code class="csharp">YYYY-MM-DD</code></pre> format if all time parts are 0</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.int32-system.int32-system.int32-system.boolean___lzld36" >Duration(int, int, int, bool)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.int32-system.int32-system.int32-system.int32-system.int32-system.boolean___117u3w0" >Duration(int, int, int, int, int, bool)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32-system.boolean___ntixv" >Duration(int, int, int, int, int, int, bool)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.string___1efzila" >Duration(string)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.timespan___roecbu" >Duration(TimeSpan)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.durationstr_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32-system.boolean___cwfd6q" >DurationStr(int, int, int, int, int, int, bool)</a></td><td>private static</td><td>Creates a string representing the duration in XML (ISO 8601) format (see https://www.w3.org/TR/xmlschema-2/#duration)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.eq_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel___1604dy0" >Eq(SFeel)</a></td><td>public static</td><td>Creates an equality expression from existing <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.eq_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___sndcyx" >Eq(SFeel.Token)</a></td><td>public static</td><td>Creates an equality expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.eq_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____yx0afr" >Eq(SFeel.Token[])</a></td><td>public static</td><td></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.expr_system.string___8kyoy7" >Expr(string)</a></td><td>public static</td><td>Creates an expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> from string representing &quot;raw expression&quot;</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ge_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___z1vdhv" >Ge(SFeel.Token)</a></td><td>public static</td><td>Creates a greater-or-equal expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.gt_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___2ihwtg" >Gt(SFeel.Token)</a></td><td>public static</td><td>Creates a greater-than expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.le_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___17vvts" >Le(SFeel.Token)</a></td><td>public static</td><td>Creates a less-or-equal expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.lt_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___13pmh4h" >Lt(SFeel.Token)</a></td><td>public static</td><td>Creates a less-than expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ne_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel___sil8fb" >Ne(SFeel)</a></td><td>public static</td><td>Creates an inequality expression from existing <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ne_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___13bgavq" >Ne(SFeel.Token)</a></td><td>public static</td><td>Creates an inequality expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ne_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____1bmcsla" >Ne(SFeel.Token[])</a></td><td>public static</td><td></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel___1hi3q61" >Not(SFeel)</a></td><td>public static</td><td>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an existing <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___7yo50c" >Not(SFeel.Token)</a></td><td>public static</td><td>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____1bkcqok" >Not(SFeel.Token[])</a></td><td>public static</td><td>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> set</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_system.string___1ov2909" >Not(string)</a></td><td>public static</td><td>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an expression string</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rng_system.int32-system.int32-system.boolean-system.boolean___1rs7lil" >Rng(int, int, bool, bool)</a></td><td>private static</td><td>Creates an expression token representing the range of values</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rnge_system.int32-system.int32___101rux0" >RngE(int, int)</a></td><td>public static</td><td>Creates an expression token representing the range of values ( <pre><code class="csharp">]from..to[</code></pre> )</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rngei_system.int32-system.int32___1x670ql" >RngEI(int, int)</a></td><td>public static</td><td>Creates an expression token representing the range of values ( <pre><code class="csharp">]from..to]</code></pre> )</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rngi_system.int32-system.int32___58kgcw" >RngI(int, int)</a></td><td>public static</td><td>Creates an expression token representing the range of values ( <pre><code class="csharp">[from..to]</code></pre> )</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rngie_system.int32-system.int32___ke01bh" >RngIE(int, int)</a></td><td>public static</td><td>Creates an expression token representing the range of values ( <pre><code class="csharp">[from..to[</code></pre> )</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.int32-system.int32___1u92glb" >Time(int, int)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.int32-system.int32-system.int32___12wpb02" >Time(int, int, int)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.string___17dr4nd" >Time(string)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.timespan___1omp3kt" >Time(TimeSpan)</a></td><td>public static</td><td>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.timestr_system.int32-system.int32-system.int32___19n2r63" >TimeStr(int, int, int)</a></td><td>private static</td><td>Creates a time string in <pre><code class="csharp">HHmmSS</code></pre> format or <pre><code class="csharp">HHmm</code></pre> format if <strong>second</strong> is 0</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.tostring__7y1exh" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<h3>  Operators and Conversions </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__7re3vu" >From(SFeel.Token)</a></td><td>public static</td><td>Implicit conversion of <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel_dtorsystem.string__1l8wtlv" >ToString(SFeel)</a></td><td>public static</td><td>Implicit conversion of <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >System.String</a></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.expression__1bjlwj8" ></a>  SFeel.expression Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>String expression represented by <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a></p>
+<pre><code class="csharp">private readonly string expression</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___kupwwq" ></a>  SFeel.SFeel(SFeel.Token) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - creates an expression from <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">private SFeel(SFeel.Token t)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Token to create an expression from</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.date_system.datetime___mh6epq" ></a>  SFeel.Date(DateTime) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Date(DateTime dt)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a> <strong>dt</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >System.DateTime</a> to create an SFeel <pre><code class="csharp">date</code></pre> function from</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.date_system.int32-system.int32-system.int32___5ha35j" ></a>  SFeel.Date(int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Date(int year, int month, int day)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>year</strong></dt><dd>Years part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>month</strong></dt><dd>Months part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>day</strong></dt><dd>Days part</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.date_system.string___u49rim" ></a>  SFeel.Date(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Date(string s)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String representing the date in <pre><code class="csharp">YYYY-MM-DD</code></pre> format</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.datetime___1nqqh78" ></a>  SFeel.DateAndTime(DateTime) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token DateAndTime(DateTime dt)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >DateTime</a> <strong>dt</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime" class="link-external" target="_blank" >System.DateTime</a> to create an SFeel <pre><code class="csharp">date and time</code></pre> function from</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<h3>  Remarks </h3>
+<p>If all time parts are 0 the time part is not generated</p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.int32-system.int32-system.int32-system.int32-system.int32___17q4gat" ></a>  SFeel.DateAndTime(int, int, int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token DateAndTime(int year, int month, int day, int hour, int minute)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>year</strong></dt><dd>Years part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>month</strong></dt><dd>Months part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>day</strong></dt><dd>Days part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hour</strong></dt><dd>Hours part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minute</strong></dt><dd>Minutes part</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<h3>  Remarks </h3>
+<p>If all time parts are 0 the time part is not generated</p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32___1o4oi2m" ></a>  SFeel.DateAndTime(int, int, int, int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token DateAndTime(int year, int month, int day, int hour, int minute, int second)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>year</strong></dt><dd>Years part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>month</strong></dt><dd>Months part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>day</strong></dt><dd>Days part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hour</strong></dt><dd>Hours part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minute</strong></dt><dd>Minutes part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>second</strong></dt><dd>Seconds part or 0 to skip</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<h3>  Remarks </h3>
+<p>If all time parts are 0 the time part is not generated</p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.dateandtime_system.string___3jczx4" ></a>  SFeel.DateAndTime(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">date and time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token DateAndTime(string s)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String representing the date and time in <pre><code class="csharp">YYYY-MM-DDTHHmmSS</code></pre> , <pre><code class="csharp">YYYY-MM-DDTHHmm</code></pre> or <pre><code class="csharp">YYYY-MM-DD</code></pre> format</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.datestr_system.int32-system.int32-system.int32___vxv8sm" ></a>  SFeel.DateStr(int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a date time string in <pre><code class="csharp">YYYY-MM-DD</code></pre> format</p>
+<pre><code class="csharp">private static string DateStr(int year, int month, int day)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>year</strong></dt><dd>Years part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>month</strong></dt><dd>Months part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>day</strong></dt><dd>Days part</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.datetimestr_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32___1kizdym" ></a>  SFeel.DateTimeStr(int, int, int, int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a date time string in <pre><code class="csharp">YYYY-MM-DDTHHmmSS</code></pre> format or <pre><code class="csharp">YYYY-MM-DDTHHmm</code></pre> format if <strong>second</strong> is 0 or <pre><code class="csharp">YYYY-MM-DD</code></pre> format if all time parts are 0</p>
+<pre><code class="csharp">private static string DateTimeStr(int year, int month, int day, int hour, int minute, int second)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>year</strong></dt><dd>Years part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>month</strong></dt><dd>Months part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>day</strong></dt><dd>Days part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hour</strong></dt><dd>Hours part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minute</strong></dt><dd>Minutes part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>second</strong></dt><dd>Seconds part or 0 to skip</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.int32-system.int32-system.int32-system.boolean___lzld36" ></a>  SFeel.Duration(int, int, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Duration(int days, int hours, int minutes, bool negative = false)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>days</strong></dt><dd>Days part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hours</strong></dt><dd>Hours part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minutes</strong></dt><dd>Minutes part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>negative</strong></dt><dd>Flag whether the duration is negative</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.int32-system.int32-system.int32-system.int32-system.int32-system.boolean___117u3w0" ></a>  SFeel.Duration(int, int, int, int, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Duration(int years, int months, int days, int hours, int minutes, bool negative = false)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>years</strong></dt><dd>Years part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>months</strong></dt><dd>Months part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>days</strong></dt><dd>Days part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hours</strong></dt><dd>Hours part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minutes</strong></dt><dd>Minutes part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>negative</strong></dt><dd>Flag whether the duration is negative</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32-system.boolean___ntixv" ></a>  SFeel.Duration(int, int, int, int, int, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Duration(int years, int months, int days, int hours, int minutes, int seconds, bool negative = false)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>years</strong></dt><dd>Years part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>months</strong></dt><dd>Months part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>days</strong></dt><dd>Days part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hours</strong></dt><dd>Hours part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minutes</strong></dt><dd>Minutes part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>seconds</strong></dt><dd>Seconds part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>negative</strong></dt><dd>Flag whether the duration is negative</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.string___1efzila" ></a>  SFeel.Duration(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Duration(string s)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String representing the duration in XML (ISO 8601) format</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.duration_system.timespan___roecbu" ></a>  SFeel.Duration(TimeSpan) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">duration</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Duration(TimeSpan ts)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> <strong>ts</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> to create an SFeel <pre><code class="csharp">duration</code></pre> function from</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.durationstr_system.int32-system.int32-system.int32-system.int32-system.int32-system.int32-system.boolean___cwfd6q" ></a>  SFeel.DurationStr(int, int, int, int, int, int, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a string representing the duration in XML (ISO 8601) format (see https://www.w3.org/TR/xmlschema-2/#duration)</p>
+<pre><code class="csharp">private static string DurationStr(int years, int months, int days, int hours, int minutes, int seconds, bool negative = false)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>years</strong></dt><dd>Years part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>months</strong></dt><dd>Months part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>days</strong></dt><dd>Days part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hours</strong></dt><dd>Hours part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minutes</strong></dt><dd>Minutes part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>seconds</strong></dt><dd>Seconds part or 0 to skip</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>negative</strong></dt><dd>Flag whether the duration is negative</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.eq_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel___1604dy0" ></a>  SFeel.Eq(SFeel) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an equality expression from existing <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</p>
+<pre><code class="csharp">public static string Eq(SFeel e)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel</a> <strong>e</strong></dt><dd><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.eq_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___sndcyx" ></a>  SFeel.Eq(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an equality expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Eq(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.eq_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____yx0afr" ></a>  SFeel.Eq(SFeel.Token[]) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<pre><code class="csharp">public static string Eq(params SFeel.Token[] t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token[]</a> <strong>t</strong></dt><dd></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.expr_system.string___8kyoy7" ></a>  SFeel.Expr(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> from string representing &quot;raw expression&quot;</p>
+<pre><code class="csharp">public static SFeel.Token Expr(string s)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String representing &quot;raw expression&quot;</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ge_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___z1vdhv" ></a>  SFeel.Ge(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a greater-or-equal expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Ge(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.gt_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___2ihwtg" ></a>  SFeel.Gt(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a greater-than expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Gt(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.le_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___17vvts" ></a>  SFeel.Le(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a less-or-equal expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Le(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.lt_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___13pmh4h" ></a>  SFeel.Lt(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a less-than expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Lt(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ne_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel___sil8fb" ></a>  SFeel.Ne(SFeel) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an inequality expression from existing <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</p>
+<pre><code class="csharp">public static string Ne(SFeel e)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel</a> <strong>e</strong></dt><dd><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ne_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___13bgavq" ></a>  SFeel.Ne(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an inequality expression from existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Ne(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.ne_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____1bmcsla" ></a>  SFeel.Ne(SFeel.Token[]) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<pre><code class="csharp">public static string Ne(params SFeel.Token[] t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token[]</a> <strong>t</strong></dt><dd></dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel___1hi3q61" ></a>  SFeel.Not(SFeel) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an existing <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</p>
+<pre><code class="csharp">public static string Not(SFeel e)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel</a> <strong>e</strong></dt><dd><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression to negate</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___7yo50c" ></a>  SFeel.Not(SFeel.Token) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">public static string Not(SFeel.Token t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to negate</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____1bkcqok" ></a>  SFeel.Not(SFeel.Token[]) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an existing expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> set</p>
+<pre><code class="csharp">public static string Not(params SFeel.Token[] t)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token[]</a> <strong>t</strong></dt><dd>Expression <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> set to negate</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.not_system.string___1ov2909" ></a>  SFeel.Not(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a <pre><code class="csharp">not</code></pre> SFeel expression encapsulating an expression string</p>
+<pre><code class="csharp">public static string Not(string s)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>Expression to negate</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rng_system.int32-system.int32-system.boolean-system.boolean___1rs7lil" ></a>  SFeel.Rng(int, int, bool, bool) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing the range of values</p>
+<pre><code class="csharp">private static SFeel.Token Rng(int from, int to, bool fromInclusive = true, bool toInclusive = true)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>from</strong></dt><dd>Range opening value</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>to</strong></dt><dd>Range closing value</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>fromInclusive</strong></dt><dd>Flag whether the <strong>from</strong> value is to be included within the range</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>toInclusive</strong></dt><dd>Flag whether the <strong>to</strong> value is to be included within the range</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rnge_system.int32-system.int32___101rux0" ></a>  SFeel.RngE(int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing the range of values ( <pre><code class="csharp">]from..to[</code></pre> )</p>
+<pre><code class="csharp">public static SFeel.Token RngE(int from, int to)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>from</strong></dt><dd>Range opening value (excluding)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>to</strong></dt><dd>Range closing value (excluding)</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rngei_system.int32-system.int32___1x670ql" ></a>  SFeel.RngEI(int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing the range of values ( <pre><code class="csharp">]from..to]</code></pre> )</p>
+<pre><code class="csharp">public static SFeel.Token RngEI(int from, int to)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>from</strong></dt><dd>Range opening value (excluding)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>to</strong></dt><dd>Range closing value (including)</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rngi_system.int32-system.int32___58kgcw" ></a>  SFeel.RngI(int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing the range of values ( <pre><code class="csharp">[from..to]</code></pre> )</p>
+<pre><code class="csharp">public static SFeel.Token RngI(int from, int to)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>from</strong></dt><dd>Range opening value (including)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>to</strong></dt><dd>Range closing value (including)</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.rngie_system.int32-system.int32___ke01bh" ></a>  SFeel.RngIE(int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing the range of values ( <pre><code class="csharp">[from..to[</code></pre> )</p>
+<pre><code class="csharp">public static SFeel.Token RngIE(int from, int to)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>from</strong></dt><dd>Range opening value (including)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>to</strong></dt><dd>Range closing value (excluding)</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.int32-system.int32___1u92glb" ></a>  SFeel.Time(int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Time(int hour, int minute)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hour</strong></dt><dd>Hours part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minute</strong></dt><dd>Minutes part</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.int32-system.int32-system.int32___12wpb02" ></a>  SFeel.Time(int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Time(int hour, int minute, int second)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hour</strong></dt><dd>Hours part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minute</strong></dt><dd>Minutes part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>second</strong></dt><dd>Seconds part or 0 to skip</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.string___17dr4nd" ></a>  SFeel.Time(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Time(string s)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String representing the time in <pre><code class="csharp">HHmmSS</code></pre> format or <pre><code class="csharp">HHmm</code></pre> format</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.time_system.timespan___1omp3kt" ></a>  SFeel.Time(TimeSpan) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates an expression token representing SFeel <pre><code class="csharp">time</code></pre> function</p>
+<pre><code class="csharp">public static SFeel.Token Time(TimeSpan ts)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> <strong>ts</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.timespan" class="link-external" target="_blank" >System.TimeSpan</a> to create an SFeel <pre><code class="csharp">time</code></pre> function from</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.timestr_system.int32-system.int32-system.int32___19n2r63" ></a>  SFeel.TimeStr(int, int, int) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Creates a time string in <pre><code class="csharp">HHmmSS</code></pre> format or <pre><code class="csharp">HHmm</code></pre> format if <strong>second</strong> is 0</p>
+<pre><code class="csharp">private static string TimeStr(int hour, int minute, int second)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>hour</strong></dt><dd>Hours part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>minute</strong></dt><dd>Minutes part</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>second</strong></dt><dd>Seconds part or 0 to skip</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.tostring__7y1exh" ></a>  SFeel.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.valuetype.tostring#System_ValueType_ToString" class="link-external" target="_blank" >ValueType.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__7re3vu" ></a>  SFeel.From(SFeel.Token) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion of <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a> expression</p>
+<pre><code class="csharp">public static SFeel op_Implicit(SFeel.Token t)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Token to convert to SFeel expression</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel_dtorsystem.string__1l8wtlv" ></a>  SFeel.ToString(SFeel) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >SFeel</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion of <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >System.String</a></p>
+<pre><code class="csharp">public static string op_Implicit(SFeel e)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel__18mxoee" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel</a> <strong>e</strong></dt><dd>Expression representation to convert to string (expression)</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" ></a>  SFeel.Token Struct </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Helper struct for composing the SFeel input expression tokens - the single &quot;constant&quot; or variable</p>
+<pre><code class="csharp">public struct SFeel.Token</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.valuetype" class="link-external" target="_blank" >ValueType</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#f-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.value__1myu194" >value</a></td><td>private</td><td>String representation of the <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.boolean___18ln97d" >SFeel.Token(bool)</a></td><td>public</td><td>CTOR - create a new token representing a bool constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.int32___y5m58r" >SFeel.Token(int)</a></td><td>public</td><td>CTOR - create a new token representing an integer constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___hiwhsx" >SFeel.Token(SFeel.Token)</a></td><td>private</td><td>CTOR</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____17s1zcz" >SFeel.Token(SFeel.Token[])</a></td><td>public</td><td>CTOR - create a new token representing set of tokens (&quot;list of constants/variables&quot;)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.string___1l0frb8" >SFeel.Token(string)</a></td><td>public</td><td>CTOR - create a new token representing a string constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.string-system.boolean___16n4ch3" >SFeel.Token(string, bool)</a></td><td>internal</td><td>CTOR - creates a new <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> based on expression representation ( <strong>isValue</strong> is true) or string constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___1u21qju" >SFeel.Token(Variable.Ref)</a></td><td>public</td><td>CTOR - create a new token representing a reference to variable</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.tostring__4s6a6m" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<h3>  Operators and Conversions </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_addition_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___1fgkk07" >Add(SFeel.Token, SFeel.Token)</a></td><td>public static</td><td>Implicit &quot;+&quot; operator - creates a new set of constants/variables from <strong>token1</strong> and <strong>token2</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_system.boolean_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__19d0zy" >From(bool)</a></td><td>public static</td><td>Implicit conversion from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >System.Boolean</a> - creates a token representing a bool constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_system.int32_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__17pghj2" >From(int)</a></td><td>public static</td><td>Implicit conversion from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >System.Int32</a> - creates a token representing an int constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_system.string_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__1wwhitr" >From(string)</a></td><td>public static</td><td>Implicit conversion from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >System.String</a> - creates a token representing a string constant</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__1hr6p2r" >From(Variable.Ref)</a></td><td>public static</td><td>Implicit conversion from <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau" >Variable.Ref</a> - creates a token representing a reference to variable</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_dtorsystem.string__1c5a1b" >ToString(SFeel.Token)</a></td><td>public static</td><td>Implicit conversion of <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >System.String</a></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.value__1myu194" ></a>  SFeel.Token.value Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>String representation of the <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a></p>
+<pre><code class="csharp">private readonly string value</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.boolean___18ln97d" ></a>  SFeel.Token.SFeel.Token(bool) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - create a new token representing a bool constant</p>
+<pre><code class="csharp">public SFeel.Token(bool b)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>b</strong></dt><dd>Bool constant</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.int32___y5m58r" ></a>  SFeel.Token.SFeel.Token(int) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - create a new token representing an integer constant</p>
+<pre><code class="csharp">public SFeel.Token(int i)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>i</strong></dt><dd>Integer constant</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___hiwhsx" ></a>  SFeel.Token.SFeel.Token(SFeel.Token) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">private SFeel.Token(SFeel.Token t)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Existing token to clone</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_____17s1zcz" ></a>  SFeel.Token.SFeel.Token(SFeel.Token[]) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - create a new token representing set of tokens (&quot;list of constants/variables&quot;)</p>
+<pre><code class="csharp">public SFeel.Token(params SFeel.Token[] tokens)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token[]</a> <strong>tokens</strong></dt><dd>Tokens (&quot;list of constants/variables&quot;) to put into the set</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.string___1l0frb8" ></a>  SFeel.Token.SFeel.Token(string) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - create a new token representing a string constant</p>
+<pre><code class="csharp">public SFeel.Token(string s)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String constant</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_system.string-system.boolean___16n4ch3" ></a>  SFeel.Token.SFeel.Token(string, bool) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - creates a new <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> based on expression representation ( <strong>isValue</strong> is true) or string constant</p>
+<pre><code class="csharp">internal SFeel.Token(string s, bool isValue = false)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String constant ( <strong>isValue</strong> is true) or expression</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>isValue</strong></dt><dd>Flag whether represents the expression (value) or string constant</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___1u21qju" ></a>  SFeel.Token.SFeel.Token(Variable.Ref) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>CTOR - create a new token representing a reference to variable</p>
+<pre><code class="csharp">public SFeel.Token(Variable.Ref variableRef)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau" >net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref</a> <strong>variableRef</strong></dt><dd>Reference to existing variable</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.tostring__4s6a6m" ></a>  SFeel.Token.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.valuetype.tostring#System_ValueType_ToString" class="link-external" target="_blank" >ValueType.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_addition_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token___1fgkk07" ></a>  SFeel.Token.Add(SFeel.Token, SFeel.Token) Operator </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit &quot;+&quot; operator - creates a new set of constants/variables from <strong>token1</strong> and <strong>token2</strong></p>
+<pre><code class="csharp">public static SFeel.Token operator +(SFeel.Token token1, SFeel.Token token2)</code></pre>
+<strong>Operator parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>token1</strong></dt><dd>The first token to add to a new set</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>token2</strong></dt><dd>The second token to add to a new set</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<h3>  Remarks </h3>
+<p>The tokens can be either single constant/variable or already existing set</p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_system.boolean_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__19d0zy" ></a>  SFeel.Token.From(bool) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >System.Boolean</a> - creates a token representing a bool constant</p>
+<pre><code class="csharp">public static SFeel.Token op_Implicit(bool b)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a> <strong>b</strong></dt><dd>Bool constant</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_system.int32_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__17pghj2" ></a>  SFeel.Token.From(int) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >System.Int32</a> - creates a token representing an int constant</p>
+<pre><code class="csharp">public static SFeel.Token op_Implicit(int i)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>i</strong></dt><dd>Integer constant</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_system.string_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__1wwhitr" ></a>  SFeel.Token.From(string) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >System.String</a> - creates a token representing a string constant</p>
+<pre><code class="csharp">public static SFeel.Token op_Implicit(string s)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>s</strong></dt><dd>String constant</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref_dtornet.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__1hr6p2r" ></a>  SFeel.Token.From(Variable.Ref) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion from <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau" >Variable.Ref</a> - creates a token representing a reference to variable</p>
+<pre><code class="csharp">public static SFeel.Token op_Implicit(Variable.Ref variableRef)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau" >net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref</a> <strong>variableRef</strong></dt><dd>Reference to existing variable</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token.op_implicit_net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token_dtorsystem.string__1c5a1b" ></a>  SFeel.Token.ToString(SFeel.Token) Conversion </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx" >net.adamec.lib.common.dmn.engine.engine.definition.builder</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a><br />
+Sources: engine\definition\builder\Sfeel.cs</small></p>
+<p>Implicit conversion of <a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >SFeel.Token</a> to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >System.String</a></p>
+<pre><code class="csharp">public static string op_Implicit(SFeel.Token t)</code></pre>
+<strong>Conversion parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.html#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.sfeel.token__co8prp" >net.adamec.lib.common.dmn.engine.engine.definition.builder.SFeel.Token</a> <strong>t</strong></dt><dd>Token to convert to string (expression)</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 </body></html>

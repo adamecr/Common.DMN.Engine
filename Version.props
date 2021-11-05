@@ -10,10 +10,10 @@
     <RadMajor>1</RadMajor>
     <RadMinor>0</RadMinor>
     <RadPatch>0</RadPatch>
-    <RadBuild>695</RadBuild>
-    <PackageVersionShort>1.0.0-dev.695.211104162642</PackageVersionShort>
-    <PackageVersionFull>1.0.0-dev.695.211104162642+150.version-1.e74398d-dirty</PackageVersionFull>
-    <GitCommit>e74398d-dirty</GitCommit>
+    <RadBuild>735</RadBuild>
+    <PackageVersionShort>1.0.0-dev.735.211106104311</PackageVersionShort>
+    <PackageVersionFull>1.0.0-dev.735.211106104311+154.version-1.ef6605e-dirty</PackageVersionFull>
+    <GitCommit>ef6605e-dirty</GitCommit>
     <GitBranch>version-1</GitBranch>
   </PropertyGroup>
 </Project>

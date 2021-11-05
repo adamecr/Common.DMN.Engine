@@ -652,8 +652,138 @@ var definition = new DmnDefinitionBuilder()
  .Build();
 ```
 
+#### S-FEEL Expressions Helper ####
+The struct `SFeel` is a helper for composing the SFeel input expressions provided to `When` and input `And` methods of the rule builders as an alternative to raw string expressions. It ****helps with the syntax, but don't check for semantics****, so it's still necessary to understand how to compose the valid expressions.
+
+The expressions within helper are built from tokens, operations and functions reflecting the syntax of S-FEEL expressions as described above. The folowing sample demonstrates using the helper in the rule builder instead of providing the expressions as strings:
+
+```csharp
+var def = new DmnDefinitionBuilder()
+  .WithInput<int>("input1", out var inputVar1Ref)
+  .WithInput<int>("input2", out var inputVar2Ref)
+  .WithVariable<int>("output", out var outputVarRef)
+  .WithTableDecision("tbl", table =>
+     table
+       .WithInput(inputVar1Ref, out var tblInput1Ref)
+       .WithInput(inputVar2Ref, out var tblInput2Ref, l.ToArray())
+       .WithOutput(outputVarRef, out var tblOutputRef)
+
+       .WithRule("r1", "input1 > 10 -> input1", r => r
+          .When(tblInput1Ref, SFeel.Gt(10))
+          .Then(tblOutputRef, "input1"))
+
+       .WithRule("r2", "input1 >=5 && <15, input2 is 1|3|input1 -> input2/2", r => r
+          .When(tblInput1Ref, SFeel.RngIE(5,15))
+          .And(tblInput2Ref, SFeel.Eq(1,3,inputVar1Ref))
+          .Then(tblOutputRef, "input2/2"))
+
+       .WithRule("r3", "input2 !5 && !input1 -> 10", r => r
+          .When(tblInput2Ref, SFeel.Not(5,inputVar1Ref))
+          .Then(tblOutputRef, "10"))
+
+       .WithHitPolicy(HitPolicyEnum.Collect)
+       .WithAggregation(CollectHitPolicyAggregationEnum.List))
+  .Build();
+```
+
+Single tokens are the constants or variable references - for example `SFeel.Eq("A")` encapsulates a string token `"A"` (quotation marks are the part of the token/expression), `SFeel.Eq(1)` encapsulates the integer token `1` and `SFeel.Eq(varRef)` represents the token for the variable reference (`varRef` is of type `Variable.Ref`) that will render as variable name into the expression. `Eq` is the operation representing equality check and as this is the default one, the `==` is not used in input expressions, so the above mentioned samples will generate expressions `"A"`, `1` and `variableName`. 
+It's also possible to provide the token sets within the rule expressions like `1,2,3`, in such case simply use `SFeel.Eq(1,2,3)` or even for combined sets like `2,[5..10],variable1` use `SFeel.Eq(2,SFeel.RngI(5,10),variable1Ref)`. 
+
+The previous sample introduced `RngI(from,to)` function representing range `[from..to]`. Similar way `RngE(from,to)` generates the range excluding the opening and closing values `]from..to[` and functions `RngIE` and `RngEI` generate the ranges `[from..to[` and `]from..to]`.
+
+Besides the "main" operation `Eq`, the helper provides operations `Gt` (greater-than), `Ge` (greater-or-equal), `Lt` (less-than) and `Le` (less-or-equal) for comparison as well as `Not` representing `not()` in expression.
+
+The helper also provide methods (with several overloads) helping with the expression functions `date()`, `date and time()`, `time()` and `duration()`.
+
+See the samples below how to get the expression strings using the helper
+
+```csharp
+//"b"
+var r1 = SFeel.Eq("b");
+//6
+var r2 = SFeel.Eq(6);
+//"6"
+var r3 = SFeel.Eq("6");
+//"a","aa","aaa"
+var r4 = SFeel.Eq("a", "aa", "aaa");
+//6,8,3
+var r5 = SFeel.Eq(6, 8, 3);
+
+//< 5
+var r6 = SFeel.Lt(5);
+//<= 4
+var r7 = SFeel.Le(4);
+//> 5
+var r8 = SFeel.Gt(5);
+//>= 7
+var r9 = SFeel.Ge(7);
+
+//[2..5]
+var r10 = SFeel.Eq(SFeel.RngI(2, 5));
+//[2..5[
+var r11 = SFeel.Eq(SFeel.RngIE(2, 5));
+//]2..5]
+var r12 = SFeel.Eq(SFeel.RngEI(2, 5));
+//]2..5[
+var r13 = SFeel.Eq(SFeel.RngE(2, 5));
+            
+//not(6)
+var r14 = SFeel.Not(6);
+//not("b","c","q","o","r","s","v")
+var r15 = SFeel.Not("b", "c", "q", "o", "r", "s", "v");
+//not(<= 5)
+var r16 = SFeel.Not(SFeel.Le(5));
+//not(> 4)
+var r17 = SFeel.Not(SFeel.Gt(4));
+//not([2..5])
+var r18 = SFeel.Not(SFeel.RngI(2, 5));
+//not(]2..5[)
+var r19 = SFeel.Not(SFeel.RngE(2, 5));
+           
+//4,[6..9[,11
+var r20 = SFeel.Eq(4, SFeel.RngIE(6, 9), 11);
+//not(4,[6..9[,11)
+var r21 = SFeel.Not(4, SFeel.RngIE(6, 9), 11);
+           
+//< date("2018-01-23")
+var r22 = SFeel.Lt(SFeel.Date(new DateTime(2018, 01, 23)));
+//not(> date("2018-01-23"))
+var r23 = SFeel.Not(SFeel.Gt(SFeel.Date("2018-01-23")));
+//not(date("2018-01-23"))
+var r24 = SFeel.Not(SFeel.Date(2018, 01, 23));
+
+//>= date and time("2018-01-23T15:30:15")
+var r25 = SFeel.Ge(SFeel.DateAndTime(new DateTime(2018, 01, 23,15,30,15)));
+//not(<= date and time("2018-01-23T15:30"))
+var r26 = SFeel.Not(SFeel.Le(SFeel.DateAndTime(2018, 01, 23, 15, 30)));
+//date and time("2018-01-23T15:30")
+var r27 = SFeel.Eq(SFeel.DateAndTime("2018-01-23T15:30"));
+
+//time("13:00")
+var r28 = SFeel.Eq(SFeel.Time("13:00"));
+//< time("13:45")
+var r29 = SFeel.Lt(SFeel.Time(13,45));
+//not(time("13:10:45"))
+var r30 = SFeel.Not(SFeel.Time(new TimeSpan(13,10,45)));
+
+//duration("P3Y")
+var r31 = SFeel.Eq(SFeel.Duration("P3Y"));
+//duration("P92D")
+var dt = new DateTime(2018, 01, 23);
+var r32 = SFeel.Eq(SFeel.Duration((dt.AddMonths(3).AddDays(2))-dt));
+//duration("P5DT6H7M")
+var r33 = SFeel.Eq(SFeel.Duration(5,6,7));
+//duration("-P6M7DT9M10S")
+var r34 = SFeel.Eq(SFeel.Duration(0, 6, 7,0,9,10,true));
+            
+//>= (date("2018-01-23") + duration("P3Y"))
+var r35 = SFeel.Ge(SFeel.Expr($"({SFeel.Date(2018, 01, 23)} + {SFeel.Duration(3, 0, 0,0,0)})"));
+```
+
+
+
 ### Allowed Values Constraints ###
-It's possible to define the constraints for input a/or output values. When the input defines the constraint, it first gets the variable value as string for the variable inputs or evaluates the input expression and converts the result to string for the expression inputs. Then it's checked against the list of allowed values for the input. When the input value is not compliant with the constraint, the rule is marked as no-match and the processing contine with the next rule. When the values check is ok (or there is no constraint), the rule is evaluated "standard way"
+It's possible to define the constraints for input a/or output values. When the input defines the constraint, it first gets the variable value as string for the variable inputs or evaluates the input expression and converts the result to string for the expression inputs. Then it's checked against the list of allowed values for the input. When the input value is not compliant with the constraint, the rule is marked as no-match and the processing continue with the next rule. When the values check is ok (or there is no constraint), the rule is evaluated "standard way"
 
 ***This is the breaking change in version 1. In versions <1, the input not matching the constraint could throw the execution exception. I decided to change the logic, as per DMN standard, the intention of allowed input values is more to be another condition (satisfactory criteria) rather than the hard input validation. Also the logic when the exception was thrown was not quite consistent and intuitive.***
 
