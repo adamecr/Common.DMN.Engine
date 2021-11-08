@@ -30,6 +30,7 @@ __Version-1__
   - FIX: when cloning the variables (for example from context to result), the ICloneable value is clonned properly
   - Parsed expression cache is now configurable 
   - The execution related classes have been better adapted for the support of extended/customized functionality using the inheritance
+  - FIX: DmnExecutionVariable.SetInputParameterValue - type/cast check
 
 - Decision table
   - **Allowed input values checks don't throw the exception when the constraint is violated** (see the documentation for more details)
@@ -37,7 +38,7 @@ __Version-1__
 - Other
   - DynamicExpresso, NLog packages to current versions 
   - Solution now primary for VS2019 (was 2017)
-
+ 
 
 ## [0.1.2] - 2020-07-18 ##
 ### Added ###

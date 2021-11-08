@@ -776,6 +776,7 @@ Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7" >Clone()</a></td><td>public</td><td>Clones the variable</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.gethashcode__5b1sjh" >GetHashCode()</a></td><td>public</td><td>Gets the variable hashcode from name and value</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setinputparametervalue_system.object___6idjlt" >SetInputParameterValue(object)</a></td><td>public</td><td>Sets the input parameter variable value</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setvalueinternal_system.object___1k31hbt" >SetValueInternal(object)</a></td><td>protected</td><td>Sets the internal value without checking whether it&#39;s input param</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.tostring__1w2rhw2" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
 </table>
 <p> </p>
@@ -908,6 +909,19 @@ Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
 <p>It&#39;s not possible to set the input parameter variable value using the <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a> property setter by design. This dedicated method it to be used to ensure that the input parameter value is set intentionally (from <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a> )</p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Variable is not an input parameter</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setvalueinternal_system.object___1k31hbt" ></a>  DmnExecutionVariable.SetValueInternal(object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Sets the internal value without checking whether it&#39;s input param</p>
+<pre><code class="csharp">protected void SetValueInternal(object value)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>value</strong></dt><dd>New variable value</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Can&#39;t cast value to target type</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.tostring__1w2rhw2" ></a>  DmnExecutionVariable.ToString() Method </h2>

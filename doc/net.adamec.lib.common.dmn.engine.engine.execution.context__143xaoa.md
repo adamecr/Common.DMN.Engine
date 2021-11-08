@@ -1596,6 +1596,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | [Clone()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7) | public | Clones the variable | 
  | [GetHashCode()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.gethashcode__5b1sjh) | public | Gets the variable hashcode from name and value | 
  | [SetInputParameterValue(object)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setinputparametervalue_system.object___6idjlt) | public | Sets the input parameter variable value | 
+ | [SetValueInternal(object)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setvalueinternal_system.object___1k31hbt) | protected | Sets the internal value without checking whether it&#39;s input param | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.tostring__1w2rhw2) | public | Returns a string that represents the current object. | 
 
  
@@ -1900,6 +1901,35 @@ It&#39;s not possible to set the input parameter variable value using the [Value
 
 ###  Exceptions ###
 <dl><dt>[DmnExecutorException](net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.md#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y)</dt><dd>Variable is not an input parameter</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setvalueinternal_system.object___1k31hbt" />  DmnExecutionVariable.SetValueInternal(object) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionVariable](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn)           
+Sources: engine\execution\context\DmnExecutionVariable.cs</small>
+
+
+Sets the internal value without checking whether it&#39;s input param
+
+
+
+```csharp
+protected void SetValueInternal(object value)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd>New variable value</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnExecutorException](net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.md#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y)</dt><dd>Can&#39;t cast value to target type</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

@@ -51,26 +51,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             set
             {
                 if (IsInputParameter) throw Logger.Error<DmnExecutorException>("Can't override input parameter");
-                try
-                {
-                    _value = Type != null && value != null
-                        ? Convert.ChangeType(value, Type)
-                        : value;
-                }
-                catch (Exception ex)
-                    when (ex is InvalidCastException ||
-                          ex is FormatException ||
-                          ex is OverflowException ||
-                          ex is ArgumentNullException)
-                {
-                    //most probably from Convert.ChangeType
-                    throw Logger.Error<DmnExecutorException>(
-                        $"Can't cast value to target type: {Type?.Name ?? "[null]"}. Value is: {value}");
-                }
-                catch (Exception ex) when (Logger.FatalFltr(ex))
-                {
-                    //just log it and as Logger.FatalFltr returns false by default, the exception will not be catch (will be thrown)
-                }
+                SetValueInternal(value);
             }
         }
 
@@ -89,6 +70,35 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
                 throw Logger.Fatal<DmnExecutorException>($"Missing variable name");
 
             Definition = definition;
+        }
+
+        /// <summary>
+        /// Sets the internal value without checking whether it's input param
+        /// </summary>
+        /// <param name="value">New variable value</param>
+        /// <exception cref="DmnExecutorException">Can't cast value to target type</exception>
+        protected void SetValueInternal(object value)
+        {
+            try
+            {
+                _value = Type != null && value != null
+                    ? Convert.ChangeType(value, Type)
+                    : value;
+            }
+            catch (Exception ex)
+                when (ex is InvalidCastException ||
+                      ex is FormatException ||
+                      ex is OverflowException ||
+                      ex is ArgumentNullException)
+            {
+                //most probably from Convert.ChangeType
+                throw Logger.Error<DmnExecutorException>(
+                    $"Can't cast value to target type: {Type?.Name ?? "[null]"}. Value is: {value} of type {value?.GetType().Name??"null"}");
+            }
+            catch (Exception ex) when (Logger.FatalFltr(ex))
+            {
+                //just log it and as Logger.FatalFltr returns false by default, the exception will not be catch (will be thrown)
+            }
         }
 
         /// <summary>
@@ -129,7 +139,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         public virtual void SetInputParameterValue(object value)
         {
             if (!IsInputParameter) throw Logger.Error<DmnExecutorException>($"{Name} is not an input parameter");
-            _value = value;
+           // _value = value;
+           SetValueInternal(value);
         }
 
         /// <summary>Returns a string that represents the current object.</summary>

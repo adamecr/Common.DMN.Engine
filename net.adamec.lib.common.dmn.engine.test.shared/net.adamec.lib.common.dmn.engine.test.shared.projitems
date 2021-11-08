@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DummyPlaygroundToRemove.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestTools.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\CustomDecisionTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\ContextInputTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserDataTypesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserDataTypesTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserFileBasicTests.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserStringBasicTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\ExpressionCacheTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\SfeelParserTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\SnapshotTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)dmn\allowedValues.dmn">
