@@ -54,6 +54,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserStringBasicTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserStringBasicTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\ExpressionCacheTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\HitRulesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\SfeelParserTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\SnapshotTests.cs" />
   </ItemGroup>
