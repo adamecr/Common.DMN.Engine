@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
@@ -20,16 +19,16 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// Input source variable (the variable value is compared to the rules)
         /// </summary>
         /// <remarks>Source variable and source expression are mutually exclusive.</remarks>
-        public DmnVariableDefinition Variable { get; }
+        public IDmnVariable Variable { get; }
         /// <summary>
         /// Input source expression (the evaluated expression is compared to the rules)
         /// </summary>
         /// <remarks>Source variable and source expression are mutually exclusive.</remarks>
         public string Expression { get; }
         /// <summary>
-        /// Optional list of allowed values
+        /// Optional array of allowed values
         /// </summary>
-        public List<string> AllowedValues { get; }
+        public string[] AllowedValues { get; }
 
         /// <summary>
         /// CTOR
@@ -37,10 +36,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// <param name="index">Index of the input (order)</param>
         /// <param name="variable">Input source variable (the variable value is compared to the rules)</param>
         /// <param name="expression">Input source expression (the evaluated expression is compared to the rules)</param>
-        /// <param name="allowedValues">Optional list of allowed values</param>
+        /// <param name="allowedValues">Optional array of allowed values</param>
         public DmnDecisionTableInput(
-            int index, DmnVariableDefinition variable,
-            string expression = null, List<string> allowedValues = null)
+            int index, 
+            IDmnVariable variable,
+            string expression = null,
+            string[] allowedValues = null)
         {
             Index = index;
             Variable = variable;
@@ -53,7 +54,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            return $"#{Index}:{Variable}";
+            return $"#{Index}:{(!string.IsNullOrWhiteSpace(Expression)?Expression:Variable.ToString())}";
         }
     }
 }

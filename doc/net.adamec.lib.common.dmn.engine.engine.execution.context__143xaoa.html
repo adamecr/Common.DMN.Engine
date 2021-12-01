@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DMN Engine Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  DMN Engine Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" ></a>  net.adamec.lib.common.dmn.engine.engine.execution.context Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a></td><td>public</td><td>Context where is the DMN model executed</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72" >DmnExecutionContextFactory</a></td><td>public static</td><td>Factory creating the DMN Model execution context from <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >DmnModel</a> or <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >DmnDefinition</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >DmnExecutionContextOptions</a></td><td>public</td><td>Execution configuration options</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a></td><td>public</td><td>Snapshot of execution context generated at the beginning of <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_system.string___1olcv5p" >execution</a> and after execution of decision. The snapshot (step) is generated for each decision in dependency tree</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a></td><td>public</td><td>Set of available snapshots</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a></td><td>public</td><td>Runtime (execution) variable</td></tr>
+</table>
+<p> </p>
+<h3>  Interfaces </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >IDmnExecutionContextOptions</a></td><td>public abstract</td><td>Execution configuration options</td></tr>
+</table>
+<p> </p>
+<h3>  Enums </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >ParsedExpressionCacheScopeEnum</a></td><td>public</td><td>Scope of the parsed expression cache</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" ></a>  DmnExecutionContext Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Context where is the DMN model executed</p>
+<pre><code class="csharp">public class DmnExecutionContext</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.logger__1vnt2s8" >Logger</a></td><td>protected static</td><td>Logger</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__12wzwum" >options</a></td><td>private</td><td>Execution context options</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca" >ParsedExpressionsCache</a></td><td>protected static</td><td>Parsed (pre-processed) expressions cache</td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.decisions__170xpbn" >Decisions</a></td><td>public</td><td>Dictionary of available decisions by name</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.definition__1o87lf9" >Definition</a></td><td>public</td><td>DMN Model definition</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.id__ns9ba9" >Id</a></td><td>public</td><td>Unique identifier of the execution context (set at CTOR)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__nfq4qk" >Options</a></td><td>public</td><td>Execution context options</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.snapshots__yzrrjf" >Snapshots</a></td><td>public</td><td>Snapshots of the context state during the execution</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh" >Variables</a></td><td>public</td><td>Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable_-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision_-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____dcsjhx" >DmnExecutionContext(DmnDefinition, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)</a></td><td>public</td><td>CTOR</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4" >CacheParsedExpression(string, Lambda)</a></td><td>protected</td><td>Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.configureinterpreter_dynamicexpresso.interpreter___1b53b3s" >ConfigureInterpreter(Interpreter)</a></td><td>protected</td><td>Configures the <em>DynamicExpresso.Interpreter</em> that will invoke the expression. Adds S-FEEL functions to the interpreter and some &quot;common&quot; references (types)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.createsnapshot_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1bztsza" >CreateSnapshot(IDmnDecision, DmnDecisionResult)</a></td><td>internal</td><td>Creates the execution context snapshot - to be called by decision after the evaluation</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type-system.string___icbo1v" >EvalExpression(string, Type, string)</a></td><td>public</td><td>Evaluates expression</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string-system.string___1iaf9wt" >EvalExpression&lt;TOutputType&gt;(string, string)</a></td><td>public</td><td>Evaluates expression</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision___16z7t5v" >ExecuteDecision(IDmnDecision)</a></td><td>public</td><td>Executes (evaluates) given <strong>decision</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_system.string___1olcv5p" >ExecuteDecision(string)</a></td><td>public</td><td>Executes (evaluates) decision with given <strong>decisionName</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressioncachekey_system.string-system.string-system.type___pepfrp" >GetParsedExpressionCacheKey(string, string, Type)</a></td><td>protected</td><td>Compose the parsed expression key (based on <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p" >ParsedExpressionCacheScope</a> )</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressionsfromcache_system.string-dynamicexpresso.lambda-___1emk6yb" >GetParsedExpressionsFromCache(string, Lambda)</a></td><td>protected</td><td>Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___qblh70" >GetVariable(IDmnVariable)</a></td><td>public</td><td>Gets the runtime (execution) variable corresponding to its <strong>definition</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_system.string___1pjw2vs" >GetVariable(string)</a></td><td>public</td><td>Gets the runtime (execution) variable with given <strong>name</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.reset__2lfhbq" >Reset()</a></td><td>public</td><td>Resets the DMN execution context - clears all variables except the input parameters (sets them to null) and clears the snapshots</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.setinterpreterparameters_system.collections.generic.list_dynamicexpresso.parameter____g8t4d0" >SetInterpreterParameters(List&lt;DynamicExpresso.Parameter&gt;)</a></td><td>protected</td><td>Prepares the parameters that will be used when invoking the expression. All <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh" >Variables</a> are added to <strong>parameters</strong> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameter_system.string-system.object___qjwb99" >WithInputParameter(string, object)</a></td><td>public</td><td>Sets the named input parameter <strong>value</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameters_system.collections.generic.ireadonlycollection_system.collections.generic.keyvaluepair_system.string-system.object_____s0ztk9" >WithInputParameters(IReadOnlyCollection&lt;System.Collections.Generic.KeyValuePair&lt;string,object&gt;&gt;)</a></td><td>public</td><td>Sets the input parameters from key-value collection (key=name of parameter, value=value to be set)</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.logger__1vnt2s8" ></a>  DmnExecutionContext.Logger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Logger</p>
+<pre><code class="csharp">protected static ILogger Logger</code></pre>
+<p><strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__12wzwum" ></a>  DmnExecutionContext.options Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Execution context options</p>
+<pre><code class="csharp">private readonly DmnExecutionContextOptions options</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca" ></a>  DmnExecutionContext.ParsedExpressionsCache Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Parsed (pre-processed) expressions cache</p>
+<pre><code class="csharp">protected static readonly ConcurrentDictionary&lt;string,DynamicExpresso.Lambda&gt; ParsedExpressionsCache</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2" class="link-external" target="_blank" >System.Collections.Concurrent.ConcurrentDictionary&lt;string,DynamicExpresso.Lambda&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.decisions__170xpbn" ></a>  DmnExecutionContext.Decisions Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Dictionary of available decisions by name</p>
+<pre><code class="csharp">public IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; Decisions { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" class="link-external" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.definition__1o87lf9" ></a>  DmnExecutionContext.Definition Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>DMN Model definition</p>
+<pre><code class="csharp">public DmnDefinition Definition { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.id__ns9ba9" ></a>  DmnExecutionContext.Id Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Unique identifier of the execution context (set at CTOR)</p>
+<pre><code class="csharp">public string Id { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__nfq4qk" ></a>  DmnExecutionContext.Options Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Execution context options</p>
+<pre><code class="csharp">public IDmnExecutionContextOptions Options { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >net.adamec.lib.common.dmn.engine.engine.execution.context.IDmnExecutionContextOptions</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.snapshots__yzrrjf" ></a>  DmnExecutionContext.Snapshots Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Snapshots of the context state during the execution</p>
+<pre><code class="csharp">public DmnExecutionSnapshots Snapshots { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionSnapshots</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh" ></a>  DmnExecutionContext.Variables Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions</p>
+<pre><code class="csharp">public IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt; Variables { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" class="link-external" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable_-system.collections.generic.ireadonlydictionary_system.string-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision_-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____dcsjhx" ></a>  DmnExecutionContext.DmnExecutionContext(DmnDefinition, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">public DmnExecutionContext(DmnDefinition definition, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt; variables, IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; decisions, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt; configure = null)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition</a> <strong>definition</strong></dt><dd>DMN Model definition</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" class="link-external" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;</a> <strong>variables</strong></dt><dd>Variables used while executing the DMN model</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2" class="link-external" target="_blank" >System.Collections.Generic.IReadOnlyDictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>decisions</strong></dt><dd>Dictionary of available decisions by name</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" class="link-external" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd>Any of the parameters is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4" ></a>  DmnExecutionContext.CacheParsedExpression(string, Lambda) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong></p>
+<pre><code class="csharp">protected virtual void CacheParsedExpression(string cacheKey, Lambda parsedExpression)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>cacheKey</strong></dt><dd>Retrieval key of the <strong>parsedExpression</strong></dd><dt>DynamicExpresso.Lambda <strong>parsedExpression</strong></dt><dd>Parsed expression to cache</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.configureinterpreter_dynamicexpresso.interpreter___1b53b3s" ></a>  DmnExecutionContext.ConfigureInterpreter(Interpreter) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Configures the <em>DynamicExpresso.Interpreter</em> that will invoke the expression. Adds S-FEEL functions to the interpreter and some &quot;common&quot; references (types)</p>
+<pre><code class="csharp">protected virtual void ConfigureInterpreter(Interpreter interpreter)</code></pre>
+<strong>Method parameters</strong><dl><dt>DynamicExpresso.Interpreter <strong>interpreter</strong></dt><dd>Interpreter to be configured</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.createsnapshot_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1bztsza" ></a>  DmnExecutionContext.CreateSnapshot(IDmnDecision, DmnDecisionResult) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Creates the execution context snapshot - to be called by decision after the evaluation</p>
+<pre><code class="csharp">internal virtual void CreateSnapshot(IDmnDecision decision, DmnDecisionResult result)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision</a> <strong>decision</strong></dt><dd>Decision evaluated just before the snapshot</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a> <strong>result</strong></dt><dd><strong>decision</strong> result</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type-system.string___icbo1v" ></a>  DmnExecutionContext.EvalExpression(string, Type, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Evaluates expression</p>
+<pre><code class="csharp">public virtual object EvalExpression(string expression, Type outputType, string executionId)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to evaluate</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>outputType</strong></dt><dd>Output (result) type</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd>The expression result converted to <strong>outputType</strong></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd><strong>expression</strong> is null or empty</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>outputType</strong> is null</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Exception while invoking the expression</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Can&#39;t convert the expression result to <strong>outputType</strong></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression--1_system.string-system.string___1iaf9wt" ></a>  DmnExecutionContext.EvalExpression&lt;TOutputType&gt;(string, string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Evaluates expression</p>
+<pre><code class="csharp">public DmnExecutionContext.TOutputType EvalExpression&lt;TOutputType&gt;(string expression, string executionId)</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>TOutputType</strong></dt><dd>Output (result) type</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to evaluate</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<p><strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext.TOutputType</dt><dd>The expression result converted to <strong>TOutputType</strong></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>expression</strong> is null or empty</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision___16z7t5v" ></a>  DmnExecutionContext.ExecuteDecision(IDmnDecision) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Executes (evaluates) given <strong>decision</strong></p>
+<pre><code class="csharp">public virtual DmnDecisionResult ExecuteDecision(IDmnDecision decision)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision</a> <strong>decision</strong></dt><dd>Decision to execute</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>decision</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_system.string___1olcv5p" ></a>  DmnExecutionContext.ExecuteDecision(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Executes (evaluates) decision with given <strong>decisionName</strong></p>
+<pre><code class="csharp">public DmnDecisionResult ExecuteDecision(string decisionName)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>decisionName</strong></dt><dd>Name of the decision to execute</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd><strong>decisionName</strong> is null or empty</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Decision with <strong>decisionName</strong> not found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressioncachekey_system.string-system.string-system.type___pepfrp" ></a>  DmnExecutionContext.GetParsedExpressionCacheKey(string, string, Type) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Compose the parsed expression key (based on <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p" >ParsedExpressionCacheScope</a> )</p>
+<pre><code class="csharp">protected virtual string GetParsedExpressionCacheKey(string executionId, string expression, Type outputType)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Unparsed (raw) expression</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a> <strong>outputType</strong></dt><dd>Expression output type</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>Parsed expression key</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressionsfromcache_system.string-dynamicexpresso.lambda-___1emk6yb" ></a>  DmnExecutionContext.GetParsedExpressionsFromCache(string, Lambda) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong></p>
+<pre><code class="csharp">protected virtual bool GetParsedExpressionsFromCache(string cacheKey, out Lambda parsedExpression)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>cacheKey</strong></dt><dd>Retrieval key of the <strong>parsedExpression</strong></dd><dt>DynamicExpresso.Lambda <strong>parsedExpression</strong></dt><dd>Parsed expression retrieved from cache if successful</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True when the <strong>parsedExpression</strong> has been retrieved from cache, otherwise false</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___qblh70" ></a>  DmnExecutionContext.GetVariable(IDmnVariable) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Gets the runtime (execution) variable corresponding to its <strong>definition</strong></p>
+<pre><code class="csharp">public DmnExecutionVariable GetVariable(IDmnVariable definition)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a> <strong>definition</strong></dt><dd>Name of the variable</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable</a></dt><dd>Variable  corresponding to its <strong>definition</strong></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>definition</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_system.string___1pjw2vs" ></a>  DmnExecutionContext.GetVariable(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Gets the runtime (execution) variable with given <strong>name</strong></p>
+<pre><code class="csharp">public virtual DmnExecutionVariable GetVariable(string name)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the variable</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable</a></dt><dd>Variable with given <strong>name</strong></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd><strong>name</strong> is null or empty</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Variable not found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.reset__2lfhbq" ></a>  DmnExecutionContext.Reset() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Resets the DMN execution context - clears all variables except the input parameters (sets them to null) and clears the snapshots</p>
+<pre><code class="csharp">public virtual DmnExecutionContext Reset()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.setinterpreterparameters_system.collections.generic.list_dynamicexpresso.parameter____g8t4d0" ></a>  DmnExecutionContext.SetInterpreterParameters(List&lt;DynamicExpresso.Parameter&gt;) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Prepares the parameters that will be used when invoking the expression. All <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh" >Variables</a> are added to <strong>parameters</strong> .</p>
+<pre><code class="csharp">protected virtual void SetInterpreterParameters(List&lt;DynamicExpresso.Parameter&gt; parameters)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;DynamicExpresso.Parameter&gt;</a> <strong>parameters</strong></dt><dd>Set of parameters that will be used for expression invocation</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameter_system.string-system.object___qjwb99" ></a>  DmnExecutionContext.WithInputParameter(string, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Sets the named input parameter <strong>value</strong></p>
+<pre><code class="csharp">public virtual DmnExecutionContext WithInputParameter(string name, object value)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input parameter</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>value</strong></dt><dd>Value of the input parameter</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a></dd></dl></p>
+<h3>  Remarks </h3>
+<p>Variable <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a> setter doesn&#39;t allow to set the value for the input parameters to prevent the change of them, so <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setinputparametervalue_system.object___6idjlt" >SetInputParameterValue(object)</a> is to be used explicitly</p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd><strong>name</strong> is null or empty</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Input parameter with given <strong>name</strong> doesn&#39;t exist</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameters_system.collections.generic.ireadonlycollection_system.collections.generic.keyvaluepair_system.string-system.object_____s0ztk9" ></a>  DmnExecutionContext.WithInputParameters(IReadOnlyCollection&lt;System.Collections.Generic.KeyValuePair&lt;string,object&gt;&gt;) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a><br />
+Sources: engine\execution\context\DmnExecutionContext.cs</small></p>
+<p>Sets the input parameters from key-value collection (key=name of parameter, value=value to be set)</p>
+<pre><code class="csharp">public virtual DmnExecutionContext WithInputParameters(IReadOnlyCollection&lt;System.Collections.Generic.KeyValuePair&lt;string,object&gt;&gt; parameters)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;System.Collections.Generic.KeyValuePair&lt;string,object&gt;&gt;</a> <strong>parameters</strong></dt><dd>Collection of parameters - Key=name, Value=value</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a></dd></dl></p>
+<h3>  Remarks </h3>
+<p>Variable <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a> setter doesn&#39;t allow to set the value for the input parameters to prevent the change of them, so <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setinputparametervalue_system.object___6idjlt" >SetInputParameterValue(object)</a> is to be used explicitly</p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>parameters</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72" ></a>  DmnExecutionContextFactory Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small></p>
+<p>Factory creating the DMN Model execution context from <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >DmnModel</a> or <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >DmnDefinition</a></p>
+<pre><code class="csharp">public static class DmnExecutionContextFactory</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____zyyiig" >CreateCustomExecutionContext&lt;T&gt;(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)</a></td><td>public static</td><td>Creates the execution context from <strong>sourceDefinition</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____v6dyk7" >CreateCustomExecutionContext&lt;T&gt;(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)</a></td><td>public static</td><td>Creates the execution context from <strong>sourceModel</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createexecutioncontext_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____17my8oa" >CreateExecutionContext(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)</a></td><td>public static</td><td>Creates the execution context from <strong>sourceDefinition</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createexecutioncontext_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____1yuu2u9" >CreateExecutionContext(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;)</a></td><td>public static</td><td>Creates the execution context from <strong>sourceModel</strong></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____zyyiig" ></a>  DmnExecutionContextFactory.CreateCustomExecutionContext&lt;T&gt;(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72" >DmnExecutionContextFactory</a><br />
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small></p>
+<p>Creates the execution context from <strong>sourceDefinition</strong></p>
+<pre><code class="csharp">public static DmnExecutionContext CreateCustomExecutionContext&lt;T&gt;(DmnDefinition sourceDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt; configure = null) where T: DmnExecutionContext</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd>Type of the execution context to be created. Must be <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a> or its descendant</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition</a> <strong>sourceDefinition</strong></dt><dd>Source model definition  to create the execution context for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" class="link-external" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><strong>sourceDefinition</strong> execution context</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>sourceDefinition</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createcustomexecutioncontext--1_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____v6dyk7" ></a>  DmnExecutionContextFactory.CreateCustomExecutionContext&lt;T&gt;(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72" >DmnExecutionContextFactory</a><br />
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small></p>
+<p>Creates the execution context from <strong>sourceModel</strong></p>
+<pre><code class="csharp">public static DmnExecutionContext CreateCustomExecutionContext&lt;T&gt;(DmnModel sourceModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt; configure = null) where T: DmnExecutionContext</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd>Type of the execution context to be created. Must be <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a> or its descendant</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a> <strong>sourceModel</strong></dt><dd>Source model to create the execution context for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" class="link-external" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><strong>sourceModel</strong> execution context</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>sourceModel</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createexecutioncontext_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____17my8oa" ></a>  DmnExecutionContextFactory.CreateExecutionContext(DmnDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72" >DmnExecutionContextFactory</a><br />
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small></p>
+<p>Creates the execution context from <strong>sourceDefinition</strong></p>
+<pre><code class="csharp">public static DmnExecutionContext CreateExecutionContext(DmnDefinition sourceDefinition, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt; configure = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition</a> <strong>sourceDefinition</strong></dt><dd>Source model definition  to create the execution context for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" class="link-external" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><strong>sourceDefinition</strong> execution context</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>sourceDefinition</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory.createexecutioncontext_net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel-system.action_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions____1yuu2u9" ></a>  DmnExecutionContextFactory.CreateExecutionContext(DmnModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextfactory__zcbl72" >DmnExecutionContextFactory</a><br />
+Sources: engine\execution\context\DmnExecutionContextFactory.cs</small></p>
+<p>Creates the execution context from <strong>sourceModel</strong></p>
+<pre><code class="csharp">public static DmnExecutionContext CreateExecutionContext(DmnModel sourceModel, Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt; configure = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a> <strong>sourceModel</strong></dt><dd>Source model to create the execution context for</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1" class="link-external" target="_blank" >System.Action&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions&gt;</a> <strong>configure</strong></dt><dd>Optional configuration action</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a></dt><dd><strong>sourceModel</strong> execution context</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>sourceModel</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" ></a>  DmnExecutionContextOptions Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\DmnExecutionContextOptions.cs</small></p>
+<p>Execution configuration options</p>
+<pre><code class="csharp">public class DmnExecutionContextOptions : IDmnExecutionContextOptions</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+Implements: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >net.adamec.lib.common.dmn.engine.engine.execution.context.IDmnExecutionContextOptions</a></p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.evaluatetableoutputsinparallel__1t745k9" >EvaluateTableOutputsInParallel</a></td><td>public</td><td>Flag whether to evaluate the table outputs for positive rules in parallel (false by default). This option can be used for performance tuning.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.evaluatetablerulesinparallel__642z1w" >EvaluateTableRulesInParallel</a></td><td>public</td><td>Flag whether to evaluate the table rules in parallel (true by default). This option can be used for performance tuning.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p" >ParsedExpressionCacheScope</a></td><td>public</td><td>Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.recordsnapshots__owanre" >RecordSnapshots</a></td><td>public</td><td>Flag whether to record snapshots of variables and results during the execution (false by default). This option can be used for execution tracking/audit and/or debugging</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.evaluatetableoutputsinparallel__1t745k9" ></a>  DmnExecutionContextOptions.EvaluateTableOutputsInParallel Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >DmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\DmnExecutionContextOptions.cs</small></p>
+<p>Flag whether to evaluate the table outputs for positive rules in parallel (false by default). This option can be used for performance tuning.</p>
+<pre><code class="csharp">public bool EvaluateTableOutputsInParallel { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetableoutputsinparallel__35u85o" >IDmnExecutionContextOptions.EvaluateTableOutputsInParallel</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.evaluatetablerulesinparallel__642z1w" ></a>  DmnExecutionContextOptions.EvaluateTableRulesInParallel Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >DmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\DmnExecutionContextOptions.cs</small></p>
+<p>Flag whether to evaluate the table rules in parallel (true by default). This option can be used for performance tuning.</p>
+<pre><code class="csharp">public bool EvaluateTableRulesInParallel { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetablerulesinparallel__14h13gd" >IDmnExecutionContextOptions.EvaluateTableRulesInParallel</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p" ></a>  DmnExecutionContextOptions.ParsedExpressionCacheScope Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >DmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\DmnExecutionContextOptions.cs</small></p>
+<p>Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)</p>
+<pre><code class="csharp">public ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.parsedexpressioncachescope__is5v9o" >IDmnExecutionContextOptions.ParsedExpressionCacheScope</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.recordsnapshots__owanre" ></a>  DmnExecutionContextOptions.RecordSnapshots Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >DmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\DmnExecutionContextOptions.cs</small></p>
+<p>Flag whether to record snapshots of variables and results during the execution (false by default). This option can be used for execution tracking/audit and/or debugging</p>
+<pre><code class="csharp">public bool RecordSnapshots { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.recordsnapshots__194qspf" >IDmnExecutionContextOptions.RecordSnapshots</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" ></a>  DmnExecutionSnapshot Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Snapshot of execution context generated at the beginning of <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_system.string___1olcv5p" >execution</a> and after execution of decision. The snapshot (step) is generated for each decision in dependency tree</p>
+<pre><code class="csharp">public sealed class DmnExecutionSnapshot</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.decision__1wdzzon" >Decision</a></td><td>public</td><td>Decision executed just before snapshot (null for the snapshot #0 created at the beginning of execution)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.decisionname__tf23kg" >DecisionName</a></td><td>public</td><td>Name of the decision executed just before snapshot (null for the snapshot #0 created at the beginning of execution)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.decisionresult__11f9i2a" >DecisionResult</a></td><td>public</td><td>Result of the decision executed just before snapshot (null for the snapshot #0 created at the beginning of execution)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.step__foylex" >Step</a></td><td>public</td><td>Zero based sequence number of the execution step</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.variables__bdt46" >Variables</a></td><td>public</td><td>Snapshot (clone) of all execution variables in execution context</td></tr>
+</table>
+<p> </p>
+<h3>  Indexers </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.item_system.string___15rj7bd" >this[string]</a></td><td>public</td><td>Gets the variable by <strong>variableName</strong></td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext___1lzvesn" >DmnExecutionSnapshot(int, DmnExecutionContext)</a></td><td>internal</td><td>CTOR</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1r0ma51" >DmnExecutionSnapshot(int, DmnExecutionContext, IDmnDecision, DmnDecisionResult)</a></td><td>internal</td><td>CTOR</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.decision__1wdzzon" ></a>  DmnExecutionSnapshot.Decision Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Decision executed just before snapshot (null for the snapshot #0 created at the beginning of execution)</p>
+<pre><code class="csharp">public IDmnDecision Decision { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.decisionname__tf23kg" ></a>  DmnExecutionSnapshot.DecisionName Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Name of the decision executed just before snapshot (null for the snapshot #0 created at the beginning of execution)</p>
+<pre><code class="csharp">public string DecisionName { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.decisionresult__11f9i2a" ></a>  DmnExecutionSnapshot.DecisionResult Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Result of the decision executed just before snapshot (null for the snapshot #0 created at the beginning of execution)</p>
+<pre><code class="csharp">public DmnDecisionResult DecisionResult { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.step__foylex" ></a>  DmnExecutionSnapshot.Step Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Zero based sequence number of the execution step</p>
+<pre><code class="csharp">public int Step { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.item_system.string___15rj7bd" ></a>  DmnExecutionSnapshot.this[string] Indexer </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Gets the variable by <strong>variableName</strong></p>
+<pre><code class="csharp">public DmnExecutionVariable this[string variableName] { get; }</code></pre>
+<strong>Indexer parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <em>variableName</em></dt><dd>Name of the variable to retrieve</dd></dl>
+<p><strong>Indexer value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable</a></dt><dd></dd></dl>Returns: Variable with given <strong>variableName</strong> or null when not found<br />
+</p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.variables__bdt46" ></a>  DmnExecutionSnapshot.Variables Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>Snapshot (clone) of all execution variables in execution context</p>
+<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt; Variables { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext___1lzvesn" ></a>  DmnExecutionSnapshot.DmnExecutionSnapshot(int, DmnExecutionContext) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">internal DmnExecutionSnapshot(int step, DmnExecutionContext ctx)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>step</strong></dt><dd>Sequence number of the execution step</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>ctx</strong></dt><dd>Execution context to create snapshot for</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1r0ma51" ></a>  DmnExecutionSnapshot.DmnExecutionSnapshot(int, DmnExecutionContext, IDmnDecision, DmnDecisionResult) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >DmnExecutionSnapshot</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshot.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">internal DmnExecutionSnapshot(int step, DmnExecutionContext ctx, IDmnDecision decision, DmnDecisionResult result)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>step</strong></dt><dd>Sequence number of the execution step</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>ctx</strong></dt><dd>Execution context to create snapshot for</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision</a> <strong>decision</strong></dt><dd>Decision executed just before snapshot</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a> <strong>result</strong></dt><dd>Result of the decision executed just before snapshot</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" ></a>  DmnExecutionSnapshots Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Set of available snapshots</p>
+<pre><code class="csharp">public sealed class DmnExecutionSnapshots</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.snapshots__lwdmhp" >snapshots</a></td><td>private</td><td>Internal set of available snapshots</td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.last__4me03k" >Last</a></td><td>public</td><td>Last snapshot available or null when there are no snapshot</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.snapshots__1xtk5if" >Snapshots</a></td><td>public</td><td>Set of available snapshots</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.-ctor__4mm0n8" >DmnExecutionSnapshots()</a></td><td>internal</td><td>Internal CTOR</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.createsnapshot_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext___1cqnzqo" >CreateSnapshot(DmnExecutionContext)</a></td><td>internal</td><td>Creates the snapshot without the decision information</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.createsnapshot_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1lnbhpg" >CreateSnapshot(DmnExecutionContext, IDmnDecision, DmnDecisionResult)</a></td><td>internal</td><td>Creates the snapshot with the decision information</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.reset__7eocb4" >Reset()</a></td><td>internal</td><td>Clears the set of snapshots</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.snapshots__lwdmhp" ></a>  DmnExecutionSnapshots.snapshots Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Internal set of available snapshots</p>
+<pre><code class="csharp">private readonly List&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionSnapshot&gt; snapshots</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionSnapshot&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.last__4me03k" ></a>  DmnExecutionSnapshots.Last Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Last snapshot available or null when there are no snapshot</p>
+<pre><code class="csharp">public DmnExecutionSnapshot Last { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshot__1i0lwwl" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionSnapshot</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.snapshots__1xtk5if" ></a>  DmnExecutionSnapshots.Snapshots Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Set of available snapshots</p>
+<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionSnapshot&gt; Snapshots { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionSnapshot&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.-ctor__4mm0n8" ></a>  DmnExecutionSnapshots.DmnExecutionSnapshots() Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Internal CTOR</p>
+<pre><code class="csharp">internal DmnExecutionSnapshots()</code></pre>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.createsnapshot_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext___1cqnzqo" ></a>  DmnExecutionSnapshots.CreateSnapshot(DmnExecutionContext) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Creates the snapshot without the decision information</p>
+<pre><code class="csharp">internal void CreateSnapshot(DmnExecutionContext ctx)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>ctx</strong></dt><dd>Execution context to create snapshot for</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.createsnapshot_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1lnbhpg" ></a>  DmnExecutionSnapshots.CreateSnapshot(DmnExecutionContext, IDmnDecision, DmnDecisionResult) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Creates the snapshot with the decision information</p>
+<pre><code class="csharp">internal void CreateSnapshot(DmnExecutionContext ctx, IDmnDecision decision, DmnDecisionResult result)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>ctx</strong></dt><dd>Execution context to create snapshot for</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision</a> <strong>decision</strong></dt><dd>Decision executed just before snapshot</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a> <strong>result</strong></dt><dd>Result of the decision executed just before snapshot</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots.reset__7eocb4" ></a>  DmnExecutionSnapshots.Reset() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionsnapshots__wr7yxu" >DmnExecutionSnapshots</a><br />
+Sources: engine\execution\context\DmnExecutionSnapshots.cs</small></p>
+<p>Clears the set of snapshots</p>
+<pre><code class="csharp">internal void Reset()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" ></a>  DmnExecutionVariable Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Runtime (execution) variable</p>
+<pre><code class="csharp">public class DmnExecutionVariable</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Fields </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable._value__bzp68z" >_value</a></td><td>protected</td><td>Backing field for <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a> property</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.logger__1m5ji1b" >Logger</a></td><td>protected static</td><td>Logger</td></tr>
+</table>
+<p> </p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.definition__25wqos" >Definition</a></td><td>protected</td><td>Variable definition</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.isinputparameter__42owxq" >IsInputParameter</a></td><td>public</td><td>Flag whether the variable is input parameter</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.name__bp1gta" >Name</a></td><td>public</td><td>Unique variable name</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.type__zll1w1" >Type</a></td><td>public</td><td>Variable type or null if not defined</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a></td><td>public</td><td>Variable value</td></tr>
+</table>
+<p> </p>
+<h3>  Constructors </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable___1i5kgbp" >DmnExecutionVariable(DmnExecutionVariable)</a></td><td>protected</td><td>CTOR for <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7" >Clone()</a></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___1c49d5k" >DmnExecutionVariable(IDmnVariable)</a></td><td>public</td><td>CTOR</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7" >Clone()</a></td><td>public</td><td>Clones the variable</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.gethashcode__5b1sjh" >GetHashCode()</a></td><td>public</td><td>Gets the variable hashcode from name and value</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setinputparametervalue_system.object___6idjlt" >SetInputParameterValue(object)</a></td><td>public</td><td>Sets the input parameter variable value</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setvalueinternal_system.object___1k31hbt" >SetValueInternal(object)</a></td><td>protected</td><td>Sets the internal value without checking whether it&#39;s input param</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.tostring__1w2rhw2" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable._value__bzp68z" ></a>  DmnExecutionVariable._value Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Backing field for <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a> property</p>
+<pre><code class="csharp">protected object _value</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.logger__1m5ji1b" ></a>  DmnExecutionVariable.Logger Field </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Logger</p>
+<pre><code class="csharp">protected static ILogger Logger</code></pre>
+<p><strong>Field value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.definition__25wqos" ></a>  DmnExecutionVariable.Definition Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Variable definition</p>
+<pre><code class="csharp">protected IDmnVariable Definition { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.isinputparameter__42owxq" ></a>  DmnExecutionVariable.IsInputParameter Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Flag whether the variable is input parameter</p>
+<pre><code class="csharp">public bool IsInputParameter { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.name__bp1gta" ></a>  DmnExecutionVariable.Name Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Unique variable name</p>
+<pre><code class="csharp">public string Name { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.type__zll1w1" ></a>  DmnExecutionVariable.Type Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Variable type or null if not defined</p>
+<pre><code class="csharp">public Type Type { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" class="link-external" target="_blank" >System.Type</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" ></a>  DmnExecutionVariable.Value Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Variable value</p>
+<pre><code class="csharp">public virtual object Value { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a></dt><dd></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Setter: Can&#39;t override input parameter</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Setter: Can&#39;t cast value to target type</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable___1i5kgbp" ></a>  DmnExecutionVariable.DmnExecutionVariable(DmnExecutionVariable) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>CTOR for <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7" >Clone()</a></p>
+<pre><code class="csharp">protected DmnExecutionVariable(DmnExecutionVariable cloneFrom)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable</a> <strong>cloneFrom</strong></dt><dd>Variable to clone</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___1c49d5k" ></a>  DmnExecutionVariable.DmnExecutionVariable(IDmnVariable) Constructor </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>CTOR</p>
+<pre><code class="csharp">public DmnExecutionVariable(IDmnVariable definition)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a> <strong>definition</strong></dt><dd>Variable definition</dd></dl>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>definition</strong> is null</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Missing variable name</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.clone__691lg7" ></a>  DmnExecutionVariable.Clone() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Clones the variable</p>
+<pre><code class="csharp">public virtual DmnExecutionVariable Clone()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionVariable</a></dt><dd>Cloned variable</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.gethashcode__5b1sjh" ></a>  DmnExecutionVariable.GetHashCode() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Gets the variable hashcode from name and value</p>
+<pre><code class="csharp">public override int GetHashCode()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd>Variable hashcode</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode#System_Object_GetHashCode" class="link-external" target="_blank" >object.GetHashCode</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setinputparametervalue_system.object___6idjlt" ></a>  DmnExecutionVariable.SetInputParameterValue(object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Sets the input parameter variable value</p>
+<pre><code class="csharp">public virtual void SetInputParameterValue(object value)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>value</strong></dt><dd>Value to be set</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<h3>  Remarks </h3>
+<p>It&#39;s not possible to set the input parameter variable value using the <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq" >Value</a> property setter by design. This dedicated method it to be used to ensure that the input parameter value is set intentionally (from <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >DmnExecutionContext</a> )</p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Variable is not an input parameter</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.setvalueinternal_system.object___1k31hbt" ></a>  DmnExecutionVariable.SetValueInternal(object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Sets the internal value without checking whether it&#39;s input param</p>
+<pre><code class="csharp">protected void SetValueInternal(object value)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>value</strong></dt><dd>New variable value</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.html#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y" >DmnExecutorException</a></dt><dd>Can&#39;t cast value to target type</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.tostring__1w2rhw2" ></a>  DmnExecutionVariable.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn" >DmnExecutionVariable</a><br />
+Sources: engine\execution\context\DmnExecutionVariable.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" ></a>  IDmnExecutionContextOptions Interface </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\IDmnExecutionContextOptions.cs</small></p>
+<p>Execution configuration options</p>
+<pre><code class="csharp">public interface IDmnExecutionContextOptions</code></pre>
+<p>Implemented by: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions__13hymf6" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContextOptions</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetableoutputsinparallel__35u85o" >EvaluateTableOutputsInParallel</a></td><td>public abstract</td><td>Flag whether to evaluate the table outputs for positive rules in parallel (false by default). This option can be used for performance tuning.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetablerulesinparallel__14h13gd" >EvaluateTableRulesInParallel</a></td><td>public abstract</td><td>Flag whether to evaluate the table rules in parallel (true by default). This option can be used for performance tuning.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.parsedexpressioncachescope__is5v9o" >ParsedExpressionCacheScope</a></td><td>public abstract</td><td>Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.recordsnapshots__194qspf" >RecordSnapshots</a></td><td>public abstract</td><td>Flag whether to record snapshots of variables and results during the execution (false by default). This option can be used for execution tracking/audit and/or debugging</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetableoutputsinparallel__35u85o" ></a>  IDmnExecutionContextOptions.EvaluateTableOutputsInParallel Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >IDmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\IDmnExecutionContextOptions.cs</small></p>
+<p>Flag whether to evaluate the table outputs for positive rules in parallel (false by default). This option can be used for performance tuning.</p>
+<pre><code class="csharp">public abstract bool EvaluateTableOutputsInParallel { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.evaluatetablerulesinparallel__14h13gd" ></a>  IDmnExecutionContextOptions.EvaluateTableRulesInParallel Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >IDmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\IDmnExecutionContextOptions.cs</small></p>
+<p>Flag whether to evaluate the table rules in parallel (true by default). This option can be used for performance tuning.</p>
+<pre><code class="csharp">public abstract bool EvaluateTableRulesInParallel { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.parsedexpressioncachescope__is5v9o" ></a>  IDmnExecutionContextOptions.ParsedExpressionCacheScope Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >IDmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\IDmnExecutionContextOptions.cs</small></p>
+<p>Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)</p>
+<pre><code class="csharp">public abstract ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions.recordsnapshots__194qspf" ></a>  IDmnExecutionContextOptions.RecordSnapshots Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.idmnexecutioncontextoptions__1nc74ur" >IDmnExecutionContextOptions</a><br />
+Sources: engine\execution\context\IDmnExecutionContextOptions.cs</small></p>
+<p>Flag whether to record snapshots of variables and results during the execution (false by default). This option can be used for execution tracking/audit and/or debugging</p>
+<pre><code class="csharp">public abstract bool RecordSnapshots { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" ></a>  ParsedExpressionCacheScopeEnum Enum </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small></p>
+<p>Scope of the parsed expression cache</p>
+<pre><code class="csharp">public enum ParsedExpressionCacheScopeEnum: int</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.valuetype" class="link-external" target="_blank" >ValueType</a> -&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.enum" class="link-external" target="_blank" >Enum</a><br />
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.icomparable" class="link-external" target="_blank" >System.IComparable</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.iconvertible" class="link-external" target="_blank" >System.IConvertible</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.iformattable" class="link-external" target="_blank" >System.IFormattable</a></p>
+<h3>  Constants </h3>
+<table><tr><th>Name</th><th>Value</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.none__1di2vgo" >None</a></td><td>0</td><td>Don&#39;t cache parsed expressions</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.execution__1p8porw" >Execution</a></td><td>1</td><td>Cache parsed expressions within the single execution run only</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.context__1nigzat" >Context</a></td><td>2</td><td>Cache parsed expressions within execution context only</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv" >Definition</a></td><td>3</td><td>Cache parsed expressions for definition (cross execution contexts)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259" >Global</a></td><td>4</td><td>Cache parsed expressions globally (cross definitions and execution contexts)</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.context__1nigzat" ></a>  ParsedExpressionCacheScopeEnum.Context Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >ParsedExpressionCacheScopeEnum</a><br />
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small></p>
+<p>Cache parsed expressions within execution context only</p>
+<pre><code class="csharp"> Context = 2</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv" ></a>  ParsedExpressionCacheScopeEnum.Definition Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >ParsedExpressionCacheScopeEnum</a><br />
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small></p>
+<p>Cache parsed expressions for definition (cross execution contexts)</p>
+<pre><code class="csharp"> Definition = 3</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.execution__1p8porw" ></a>  ParsedExpressionCacheScopeEnum.Execution Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >ParsedExpressionCacheScopeEnum</a><br />
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small></p>
+<p>Cache parsed expressions within the single execution run only</p>
+<pre><code class="csharp"> Execution = 1</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259" ></a>  ParsedExpressionCacheScopeEnum.Global Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >ParsedExpressionCacheScopeEnum</a><br />
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small></p>
+<p>Cache parsed expressions globally (cross definitions and execution contexts)</p>
+<pre><code class="csharp"> Global = 4</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.none__1di2vgo" ></a>  ParsedExpressionCacheScopeEnum.None Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa" >net.adamec.lib.common.dmn.engine.engine.execution.context</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >ParsedExpressionCacheScopeEnum</a><br />
+Sources: engine\execution\context\ParsedExpressionCacheScopeEnum.cs</small></p>
+<p>Don&#39;t cache parsed expressions</p>
+<pre><code class="csharp"> None = 0</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum__li5aty" >net.adamec.lib.common.dmn.engine.engine.execution.context.ParsedExpressionCacheScopeEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+</body></html>

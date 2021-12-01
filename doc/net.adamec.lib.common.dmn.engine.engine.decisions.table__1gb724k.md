@@ -10,7 +10,7 @@
  
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -51,7 +51,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DmnDecisionTable(string, HitPolicyEnum, CollectHitPolicyAggregationEnum, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.-ctor_system.string-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____cso5rc) | public | CTOR | 
+ | [DmnDecisionTable(string, HitPolicyEnum, CollectHitPolicyAggregationEnum, DmnDecisionTableInput[], DmnDecisionTableOutput[], DmnDecisionTableRule[], IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.-ctor_system.string-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____21oatf) | public | CTOR | 
 
  
 
@@ -62,17 +62,19 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
  | ------ | ---------- | --------- | 
  | [CalculatePositiveRulesCollectCountValue(IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;, DmnDecisionTableRuleExecutionResults)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.calculatepositiverulescollectcountvalue_system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule_-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults___t20dfe) | private static | Calculates the distinct count of output values for Collect hit policy | 
  | [CalculatePositiveRulesCollectValues(IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;, DmnDecisionTableRuleExecutionResults)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.calculatepositiverulescollectvalues_system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule_-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults___10017b8) | private static | Calculates the aggregate output values for Collect hit policy | 
- | [Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___r3ruhd) | protected | Evaluates the decision table. | 
- | [EvaluateOutputsForPositiveRules(DmnExecutionContext, string, IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluateoutputsforpositiverules_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string-system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule____xq0hgy) | private | Evaluates the output expressions for  positive rules and stores generates the table execution results ( (rule, output)-&gt;temp variable with result) | 
- | [EvaluateRules(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluaterules_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___my7d4w) | private | Evaluates the rules and return the list of positive rules (rules that match the input) | 
- | [GetIndexOfOutputValue(IList&lt;string&gt;, object, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.getindexofoutputvalue_system.collections.generic.ilist_system.string_-system.object-system.string___es69ro) | private | Gets the index of output <strong>value</strong> within the list of <strong>allowedValues</strong> . When the output <strong>value</strong> is null, it returns <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32.maxvalue#System_Int32_MaxValue" target="_blank" >System.Int32.MaxValue</a> , so the items will be added to the end of the list when ordering by index. | 
+ | [Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___15i5vei) | protected | Evaluates the decision table. | 
+ | [EvaluateOutputsForPositiveRules(DmnExecutionContext, string, IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluateoutputsforpositiverules_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string-system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule____avs6of) | private | Evaluates the output expressions for  positive rules and stores generates the table execution results ( (rule, output)-&gt;temp variable with result) | 
+ | [EvaluateOutputsForPositiveRulesParallel(DmnExecutionContext, string, IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluateoutputsforpositiverulesparallel_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string-system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule____130dol6) | private | Evaluates the output expressions for  positive rules and stores generates the table execution results ( (rule, output)-&gt;temp variable with result) | 
+ | [EvaluateRules(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluaterules_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___11j8juf) | private | Evaluates the rules and return the list of positive rules (rules that match the input) | 
+ | [EvaluateRulesParallel(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluaterulesparallel_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___t2vmo) | private | Evaluates the rules and return the list of positive rules (rules that match the input) | 
+ | [GetIndexOfOutputValue(string[], object, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.getindexofoutputvalue_system.string__-system.object-system.string___1so6u2i) | private | Gets the index of output <strong>value</strong> within the list of <strong>allowedValues</strong> . When the output <strong>value</strong> is null, it returns <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32.maxvalue#System_Int32_MaxValue" target="_blank" >System.Int32.MaxValue</a> , so the items will be added to the end of the list when ordering by index. | 
  | [MatchRuleOutputs(IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;, DmnDecisionTableRuleExecutionResults)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.matchruleoutputs_system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule_-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults___gnnfg1) | private static | Checks whether all positive rule outputs match as required by Any hit policy | 
  | [OrderPositiveRulesByOutputPriority(IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;, DmnDecisionTableRuleExecutionResults, string)](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.orderpositiverulesbyoutputpriority_system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule_-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults-system.string___1d7km3g) | private | Orders the positive rules by output priorities for the Priority and Output order hit policies. | 
 
  
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -96,7 +98,7 @@ public CollectHitPolicyAggregationEnum Aggregation { get; }
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.CollectHitPolicyAggregationEnum](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9)</dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -120,7 +122,7 @@ public HitPolicyEnum HitPolicy { get; }
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.HitPolicyEnum](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz)</dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -138,13 +140,13 @@ Decision table inputs
 
 
 ```csharp
-public List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput> Inputs { get; }
+public DmnDecisionTableInput[] Inputs { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput&gt;</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput[]](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2)</dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -162,13 +164,13 @@ Decision table outputs
 
 
 ```csharp
-public List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput> Outputs { get; }
+public DmnDecisionTableOutput[] Outputs { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput&gt;</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput[]](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh)</dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -186,19 +188,19 @@ Decision table rules
 
 
 ```csharp
-public List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> Rules { get; }
+public DmnDecisionTableRule[] Rules { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule[]](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko)</dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.-ctor_system.string-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____cso5rc" />  DmnDecisionTable.DmnDecisionTable(string, HitPolicyEnum, CollectHitPolicyAggregationEnum, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.-ctor_system.string-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____21oatf" />  DmnDecisionTable.DmnDecisionTable(string, HitPolicyEnum, CollectHitPolicyAggregationEnum, DmnDecisionTableInput[], DmnDecisionTableOutput[], DmnDecisionTableRule[], IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
@@ -210,15 +212,15 @@ CTOR
 
 
 ```csharp
-public DmnDecisionTable(string name, HitPolicyEnum hitPolicy, CollectHitPolicyAggregationEnum aggregation, List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput> inputs, List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput> outputs, List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> rules, List<net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition> requiredInputs, List<net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision> requiredDecisions)
+public DmnDecisionTable(string name, HitPolicyEnum hitPolicy, CollectHitPolicyAggregationEnum aggregation, DmnDecisionTableInput[] inputs, DmnDecisionTableOutput[] outputs, DmnDecisionTableRule[] rules, IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable> requiredInputs, IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision> requiredDecisions)
 ```
 
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Decision table name</dd><dt>[net.adamec.lib.common.dmn.engine.parser.dto.HitPolicyEnum](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz) <strong>hitPolicy</strong></dt><dd>Decision table hit policy</dd><dt>[net.adamec.lib.common.dmn.engine.parser.dto.CollectHitPolicyAggregationEnum](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9) <strong>aggregation</strong></dt><dd>Aggregation type of Collect hit policy</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput&gt;</a> <strong>inputs</strong></dt><dd>Decision table inputs</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput&gt;</a> <strong>outputs</strong></dt><dd>Decision table outputs</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>rules</strong></dt><dd>Decision table rules</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;</a> <strong>requiredInputs</strong></dt><dd>Inputs the decision table depends on.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>requiredDecisions</strong></dt><dd>Decisions that needs to be evaluated before the decision table (provide the inputs to the table).</dd></dl>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Decision table name</dd><dt>[net.adamec.lib.common.dmn.engine.parser.dto.HitPolicyEnum](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum__g25tbz) <strong>hitPolicy</strong></dt><dd>Decision table hit policy</dd><dt>[net.adamec.lib.common.dmn.engine.parser.dto.CollectHitPolicyAggregationEnum](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum__1cnwis9) <strong>aggregation</strong></dt><dd>Aggregation type of Collect hit policy</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput[]](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2) <strong>inputs</strong></dt><dd>Decision table inputs</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput[]](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh) <strong>outputs</strong></dt><dd>Decision table outputs</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule[]](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko) <strong>rules</strong></dt><dd>Decision table rules</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;</a> <strong>requiredInputs</strong></dt><dd>Inputs the decision table depends on.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>requiredDecisions</strong></dt><dd>Decisions that needs to be evaluated before the decision table (provide the inputs to the table).</dd></dl>
 ###  Exceptions ###
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>inputs</strong> , <strong>outputs</strong> or <strong>rules</strong> is null</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>inputs</strong> , <strong>outputs</strong> or <strong>rules</strong> is empty</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -247,7 +249,7 @@ private static DmnDecisionTable.PositiveRulesCollectValues CalculatePositiveRule
 Based on the collect hit policy, the aggregated count is calculated for the first output.
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -276,13 +278,13 @@ private static DmnDecisionTable.PositiveRulesCollectValues CalculatePositiveRule
 Based on the collect hit policy, the aggregates are calculated for the first output
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___r3ruhd" />  DmnDecisionTable.Evaluate(DmnExecutionContext, string) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___15i5vei" />  DmnDecisionTable.Evaluate(DmnExecutionContext, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
@@ -294,11 +296,11 @@ Evaluates the decision table.
 
 
 ```csharp
-protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
+protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx) <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Optional correlation ID used while logging</dd></dl>
-<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm)</dt><dd>Decision result</dd></dl>Overrides: [DmnDecision.Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___svwyjn)
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka)</dt><dd>Decision result</dd></dl>Overrides: [DmnDecision.Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8)
 
 
 ###  Remarks ###
@@ -309,13 +311,13 @@ While evaluating the decision table, the [Rules](net.adamec.lib.common.dmn.engin
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>context</strong> is null</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluateoutputsforpositiverules_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string-system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule____xq0hgy" />  DmnDecisionTable.EvaluateOutputsForPositiveRules(DmnExecutionContext, string, IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluateoutputsforpositiverules_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string-system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule____avs6of" />  DmnDecisionTable.EvaluateOutputsForPositiveRules(DmnExecutionContext, string, IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
@@ -327,20 +329,45 @@ Evaluates the output expressions for  positive rules and stores generates the ta
 
 
 ```csharp
-private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string correlationId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
+private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string executionId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9)</dt><dd>Table execution results</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluaterules_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___my7d4w" />  DmnDecisionTable.EvaluateRules(DmnExecutionContext, string) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluateoutputsforpositiverulesparallel_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string-system.collections.generic.ienumerable_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule____130dol6" />  DmnDecisionTable.EvaluateOutputsForPositiveRulesParallel(DmnExecutionContext, string, IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
+Sources: engine\decisions\table\DmnDecisionTable.cs</small>
+
+
+Evaluates the output expressions for  positive rules and stores generates the table execution results ( (rule, output)-&gt;temp variable with result)
+
+
+
+```csharp
+private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRulesParallel(DmnExecutionContext context, string executionId, IEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules)
+```
+
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>List of positive rules</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9)</dt><dd>Table execution results</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluaterules_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___11j8juf" />  DmnDecisionTable.EvaluateRules(DmnExecutionContext, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
@@ -352,10 +379,43 @@ Evaluates the rules and return the list of positive rules (rules that match the 
 
 
 ```csharp
-private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string correlationId)
+private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd>List of positive rules (rules that match the input)</dd></dl>
+
+
+###  Remarks ###
+Decision table defines the set of rules - &quot;when the input values matches all input conditions, provide defined outputs&quot;. The input data are compared with corresponding rule expressions and when all match (comparison is true), the rule is evaluated as positive. Technically, when there is a negative comparison result, the rule is evaluates as negative and the rest of inputs is not evaluated. It&#39;s possible to omit all input expressions, so the rule will be always evaluated as positive match.
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>context</strong> is null</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.evaluaterulesparallel_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___t2vmo" />  DmnDecisionTable.EvaluateRulesParallel(DmnExecutionContext, string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
+Sources: engine\decisions\table\DmnDecisionTable.cs</small>
+
+
+Evaluates the rules and return the list of positive rules (rules that match the input)
+
+
+
+```csharp
+private List<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> EvaluateRulesParallel(DmnExecutionContext context, string executionId)
+```
+
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd>List of positive rules (rules that match the input)</dd></dl>
 
 
@@ -367,13 +427,13 @@ Decision table defines the set of rules - &quot;when the input values matches al
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>context</strong> is nul</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.getindexofoutputvalue_system.collections.generic.ilist_system.string_-system.object-system.string___es69ro" />  DmnDecisionTable.GetIndexOfOutputValue(IList&lt;string&gt;, object, string) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable.getindexofoutputvalue_system.string__-system.object-system.string___1so6u2i" />  DmnDecisionTable.GetIndexOfOutputValue(string[], object, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh)           
@@ -385,14 +445,14 @@ Gets the index of output <strong>value</strong> within the list of <strong>allow
 
 
 ```csharp
-private int GetIndexOfOutputValue(IList<string> allowedValues, object value, string correlationId)
+private int GetIndexOfOutputValue(string[] allowedValues, object value, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ilist-1" target="_blank" >IList&lt;string&gt;</a> <strong>allowedValues</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>value</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd>Index of output <strong>value</strong> within the list of <strong>allowedValues</strong> . When the output <strong>value</strong> is null, it returns <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32.maxvalue#System_Int32_MaxValue" target="_blank" >System.Int32.MaxValue</a> .</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -417,7 +477,7 @@ private static bool MatchRuleOutputs(IEnumerable<net.adamec.lib.common.dmn.engin
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>True when all positive rule outputs match</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -435,10 +495,10 @@ Orders the positive rules by output priorities for the Priority and Output order
 
 
 ```csharp
-private IOrderedEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> OrderPositiveRulesByOutputPriority(IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules, DmnDecisionTableRuleExecutionResults results, string correlationId)
+private IOrderedEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> OrderPositiveRulesByOutputPriority(IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule> positiveRules, DmnDecisionTableRuleExecutionResults results, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>Rules evaluates as positive match</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9) <strong>results</strong></dt><dd>Evaluated (calculated) results (rule outputs)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID used for logging</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a> <strong>positiveRules</strong></dt><dd>Rules evaluates as positive match</dd><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.DmnDecisionTableRuleExecutionResults](net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime__134n4am.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime.dmndecisiontableruleexecutionresults__1p37jl9) <strong>results</strong></dt><dd>Evaluated (calculated) results (rule outputs)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.iorderedenumerable-1" target="_blank" >System.Linq.IOrderedEnumerable&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRule&gt;</a></dt><dd>Positive rules ordered by output priorities for the Priority and Output order hit policies</dd></dl>
 
 
@@ -446,7 +506,7 @@ private IOrderedEnumerable<net.adamec.lib.common.dmn.engine.engine.decisions.tab
 For the Priority and Output order hit policies, priority is decided in compound output tables over all the outputs for which output values have been provided. The priority for each output is specified in the ordered list of output values in decreasing order of priority, and the overall priority is established by considering the ordered outputs from left to right. Outputs for which no output values are provided are not taken into account in the ordering, although their output entries are included in the ordered compound output.
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -491,7 +551,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -515,7 +575,7 @@ public readonly int Count
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -539,7 +599,7 @@ public readonly double Max
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -563,7 +623,7 @@ public readonly double Min
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -587,7 +647,7 @@ public readonly double Sum
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -609,7 +669,7 @@ public DmnDecisionTable.PositiveRulesCollectValues(double sum, double min, doubl
 ```
 
 <strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>sum</strong></dt><dd>Sum of evaluated values</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>min</strong></dt><dd>Min evaluated value</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>max</strong></dt><dd>Max evaluated value</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>count</strong></dt><dd>Count of distinct evaluated values</dd></dl>
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  

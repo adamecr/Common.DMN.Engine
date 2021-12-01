@@ -9,7 +9,7 @@
  
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -38,7 +38,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [Expression](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.expression__1s712kp) | public | Decision expression | 
- | [Output](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.output__pl5v14) | public | Decision output definition | 
+ | [Output](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.output__pl5v14) | public | Decision output variable | 
 
  
 
@@ -47,7 +47,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DmnExpressionDecision(string, string, DmnVariableDefinition, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.-ctor_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1d6ubok) | public | CTOR | 
+ | [DmnExpressionDecision(string, string, IDmnVariable, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.-ctor_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____17pbida) | public | CTOR | 
 
  
 
@@ -56,12 +56,12 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___3j62yx) | protected | Evaluates the decision. | 
+ | [Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___1wzqei8) | protected | Evaluates the decision. | 
 
  
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -85,7 +85,7 @@ public string Expression { get; }
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
@@ -98,24 +98,24 @@ Type: [DmnExpressionDecision](net.adamec.lib.common.dmn.engine.engine.decisions.
 Sources: engine\decisions\expression\DmnExpressionDecision.cs</small>
 
 
-Decision output definition
+Decision output variable
 
 
 
 ```csharp
-public DmnVariableDefinition Output { get; }
+public IDmnVariable Output { get; }
 ```
 
-<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88)</dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w)</dt><dd></dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.-ctor_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1d6ubok" />  DmnExpressionDecision.DmnExpressionDecision(string, string, DmnVariableDefinition, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.-ctor_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____17pbida" />  DmnExpressionDecision.DmnExpressionDecision(string, string, IDmnVariable, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.expression](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnExpressionDecision](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision__wqzfc9)           
@@ -127,17 +127,17 @@ CTOR
 
 
 ```csharp
-public DmnExpressionDecision(string name, string expression, DmnVariableDefinition output, List<net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition> requiredInputs, List<net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision> requiredDecisions)
+public DmnExpressionDecision(string name, string expression, IDmnVariable output, IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable> requiredInputs, IReadOnlyCollection<net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision> requiredDecisions)
 ```
 
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Decision expression</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88) <strong>output</strong></dt><dd>Decision output definition</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;</a> <strong>requiredInputs</strong></dt><dd>Decision required inputs (input variables)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>requiredDecisions</strong></dt><dd>List of decisions, the decision depends on</dd></dl>
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Decision expression</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w) <strong>output</strong></dt><dd>Decision output variable</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;</a> <strong>requiredInputs</strong></dt><dd>Decision required inputs (input variables)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>requiredDecisions</strong></dt><dd>List of decisions, the decision depends on</dd></dl>
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___3j62yx" />  DmnExpressionDecision.Evaluate(DmnExecutionContext, string) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___1wzqei8" />  DmnExpressionDecision.Evaluate(DmnExecutionContext, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.expression](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnExpressionDecision](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision__wqzfc9)           
@@ -149,18 +149,18 @@ Evaluates the decision.
 
 
 ```csharp
-protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
+protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string executionId)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.md#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx) <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Optional correlation ID used while logging</dd></dl>
-<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm)</dt><dd>Decision result</dd></dl>Overrides: [DmnDecision.Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___svwyjn)
+<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka)</dt><dd>Decision result</dd></dl>Overrides: [DmnDecision.Evaluate(DmnExecutionContext, string)](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8)
 
 
 ###  Exceptions ###
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>context</strong> is nul</dd></dl>
 
 
-Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list) or [source-only packages](net.adamec.lib.common.dmn.engine.md#package-list)
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
  

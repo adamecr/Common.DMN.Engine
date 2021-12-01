@@ -39,8 +39,6 @@ dd {grid-column-start: 2;}
 <h3>  Classes </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >DmnDecision</a></td><td>public abstract</td><td>DMN Decision definition</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a></td><td>public</td><td>Decision evaluation result (single or multiple)</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >DmnDecisionSingleResult</a></td><td>public</td><td>Single decision result</td></tr>
 </table>
 <p> </p>
 <h3>  Interfaces </h3>
@@ -48,7 +46,7 @@ dd {grid-column-start: 2;}
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >IDmnDecision</a></td><td>public abstract</td><td>Decision interface</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" ></a>  DmnDecision Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -69,16 +67,16 @@ Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.
 <p> </p>
 <h3>  Constructors </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.-ctor_system.string-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1w8i7j6" >DmnDecision(string, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)</a></td><td>protected</td><td>CTOR</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.-ctor_system.string-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1dokm2u" >DmnDecision(string, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)</a></td><td>protected</td><td>CTOR</td></tr>
 </table>
 <p> </p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___svwyjn" >Evaluate(DmnExecutionContext, string)</a></td><td>protected abstract</td><td>Evaluates the decision.</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.execute_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___8f53dn" >Execute(DmnExecutionContext, string)</a></td><td>public</td><td>Executes the decision. The execution wrapper around <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___svwyjn" >Evaluate(DmnExecutionContext, string)</a> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8" >Evaluate(DmnExecutionContext, string)</a></td><td>protected abstract</td><td>Evaluates the decision.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.execute_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___14nzync" >Execute(DmnExecutionContext, string)</a></td><td>public</td><td>Executes the decision. The execution wrapper around <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8" >Evaluate(DmnExecutionContext, string)</a> .</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.logger__1xp222x" ></a>  DmnDecision.Logger Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -88,7 +86,7 @@ Sources: engine\decisions\DmnDecision.cs</small></p>
 <p>Logger</p>
 <pre><code class="csharp">protected ILogger Logger { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt>net.adamec.lib.common.core.logging.ILogger</dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.name__11d67s8" ></a>  DmnDecision.Name Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -98,7 +96,7 @@ Sources: engine\decisions\DmnDecision.cs</small></p>
 <p>Decision unique name</p>
 <pre><code class="csharp">public string Name { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.name__oi3x33" >IDmnDecision.Name</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.requireddecisions__6uus9z" ></a>  DmnDecision.RequiredDecisions Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -106,9 +104,9 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >DmnDecision</a><br />
 Sources: engine\decisions\DmnDecision.cs</small></p>
 <p>List of decisions, the decision depends on</p>
-<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; RequiredDecisions { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.requireddecisions__fxqsi4" >IDmnDecision.RequiredDecisions</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; RequiredDecisions { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.requireddecisions__fxqsi4" >IDmnDecision.RequiredDecisions</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.requiredinputs__1kiuu49" ></a>  DmnDecision.RequiredInputs Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -116,196 +114,45 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >DmnDecision</a><br />
 Sources: engine\decisions\DmnDecision.cs</small></p>
 <p>Decision required inputs (input variables)</p>
-<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt; RequiredInputs { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.requiredinputs__nfywic" >IDmnDecision.RequiredInputs</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt; RequiredInputs { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;</a></dt><dd></dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.requiredinputs__nfywic" >IDmnDecision.RequiredInputs</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.-ctor_system.string-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1w8i7j6" ></a>  DmnDecision.DmnDecision(string, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;) Constructor </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.-ctor_system.string-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1dokm2u" ></a>  DmnDecision.DmnDecision(string, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;) Constructor </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >DmnDecision</a><br />
 Sources: engine\decisions\DmnDecision.cs</small></p>
 <p>CTOR</p>
-<pre><code class="csharp">protected DmnDecision(string name, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt; requiredInputs, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; requiredDecisions)</code></pre>
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Decision unique name</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;</a> <strong>requiredInputs</strong></dt><dd>Decision required inputs (input variables)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>requiredDecisions</strong></dt><dd>List of decisions, the decision depends on</dd></dl>
+<pre><code class="csharp">protected DmnDecision(string name, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt; requiredInputs, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; requiredDecisions)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Decision unique name</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;</a> <strong>requiredInputs</strong></dt><dd>Decision required inputs (input variables)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a> <strong>requiredDecisions</strong></dt><dd>List of decisions, the decision depends on</dd></dl>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>name</strong> , <strong>requiredInputs</strong> or <strong>requiredDecisions</strong> is null</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd>Name is empty</dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___svwyjn" ></a>  DmnDecision.Evaluate(DmnExecutionContext, string) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8" ></a>  DmnDecision.Evaluate(DmnExecutionContext, string) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >DmnDecision</a><br />
 Sources: engine\decisions\DmnDecision.cs</small></p>
 <p>Evaluates the decision.</p>
-<pre><code class="csharp">protected abstract DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)</code></pre>
-<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx" >net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext</a> <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Optional correlation ID used while logging</dd></dl>
-<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">protected abstract DmnDecisionResult Evaluate(DmnExecutionContext context, string executionId)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.execute_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___8f53dn" ></a>  DmnDecision.Execute(DmnExecutionContext, string) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.execute_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___14nzync" ></a>  DmnDecision.Execute(DmnExecutionContext, string) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >DmnDecision</a><br />
 Sources: engine\decisions\DmnDecision.cs</small></p>
-<p>Executes the decision. The execution wrapper around <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___svwyjn" >Evaluate(DmnExecutionContext, string)</a> .</p>
-<pre><code class="csharp">public DmnDecisionResult Execute(DmnExecutionContext context, string correlationId = null)</code></pre>
-<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx" >net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext</a> <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Optional correlation ID used while logging</dd></dl>
-<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult</a></dt><dd>Decision result</dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.execute_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___omcsfw" >IDmnDecision.Execute(DmnExecutionContext, string)</a></p>
+<p>Executes the decision. The execution wrapper around <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.evaluate_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___4pf6g8" >Evaluate(DmnExecutionContext, string)</a> .</p>
+<pre><code class="csharp">public DmnDecisionResult Execute(DmnExecutionContext context, string executionId = null)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identified of the execution run</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a></dt><dd>Decision result</dd></dl>Implements: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.execute_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___1924ukl" >IDmnDecision.Execute(DmnExecutionContext, string)</a></p>
 <h3>  Exceptions </h3>
 <p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>context</strong> is null</dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" ></a>  DmnDecisionResult Class </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>Decision evaluation result (single or multiple)</p>
-<pre><code class="csharp">public class DmnDecisionResult</code></pre>
-<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-</p>
-<h3>  Fields </h3>
-<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#f-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.results__1ebt9pk" >results</a></td><td>private</td><td>Internal list of results. The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.singleresult__1ojq3kz" >SingleResult</a></td></tr>
-</table>
-<p> </p>
-<h3>  Properties </h3>
-<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.hasresult__1sfykxj" >HasResult</a></td><td>public</td><td>Flag whether there is any result available</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.issingleresult__91fvfx" >IsSingleResult</a></td><td>public</td><td>Flag whether the decision  has single result</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.results__1kp9eou" >Results</a></td><td>public</td><td>List of decision evaluation results.</td></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.singleresult__1ojq3kz" >SingleResult</a></td><td>public</td><td>Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable__15aolfc" >variables</a> is returned.</td></tr>
-</table>
-<p> </p>
-<h3>  Operators and Conversions </h3>
-<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.op_addition_net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult___8283oa" >Add(DmnDecisionResult, DmnDecisionSingleResult)</a></td><td>public static</td><td>Adds a single (one) result into the list of results</td></tr>
-</table>
-<p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.results__1ebt9pk" ></a>  DmnDecisionResult.results Field </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a><br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>Internal list of results. The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.singleresult__1ojq3kz" >SingleResult</a></p>
-<pre><code class="csharp">private readonly List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult&gt; results</code></pre>
-<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.hasresult__1sfykxj" ></a>  DmnDecisionResult.HasResult Property </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a><br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>Flag whether there is any result available</p>
-<pre><code class="csharp">public bool HasResult { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.issingleresult__91fvfx" ></a>  DmnDecisionResult.IsSingleResult Property </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a><br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>Flag whether the decision  has single result</p>
-<pre><code class="csharp">public bool IsSingleResult { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.results__1kp9eou" ></a>  DmnDecisionResult.Results Property </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a><br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>List of decision evaluation results.</p>
-<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult&gt; Results { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult&gt;</a></dt><dd></dd></dl></p>
-<h3>  Remarks </h3>
-<p>The first item represents the <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.singleresult__1ojq3kz" >SingleResult</a> , however it&#39;s recommended to use the <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.singleresult__1ojq3kz" >SingleResult</a> when expecting the single result.</p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.singleresult__1ojq3kz" ></a>  DmnDecisionResult.SingleResult Property </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a><br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>Decision evaluation single (first) result variables. When there is no result, the empty list of <a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable__15aolfc" >variables</a> is returned.</p>
-<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt; SingleResult { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult.op_addition_net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult___8283oa" ></a>  DmnDecisionResult.Add(DmnDecisionResult, DmnDecisionSingleResult) Operator </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >DmnDecisionResult</a><br />
-Sources: engine\decisions\DmnDecisionResult.cs</small></p>
-<p>Adds a single (one) result into the list of results</p>
-<pre><code class="csharp">public static DmnDecisionResult operator +(DmnDecisionResult instance, DmnDecisionSingleResult result)</code></pre>
-<strong>Operator parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult</a> <strong>instance</strong></dt><dd>Decision result</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult</a> <strong>result</strong></dt><dd>Decision result to add</dd></dl>
-<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
-<h3>  Exceptions </h3>
-<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd><strong>instance</strong> or <strong>result</strong> is null</dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" ></a>  DmnDecisionSingleResult Class </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Sources: engine\decisions\DmnDecisionSingleResult.cs</small></p>
-<p>Single decision result</p>
-<pre><code class="csharp">public class DmnDecisionSingleResult</code></pre>
-<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
-</p>
-<h3>  Fields </h3>
-<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#f-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult.variables__qyuu15" >variables</a></td><td>private</td><td>Internal list of result variables</td></tr>
-</table>
-<p> </p>
-<h3>  Properties </h3>
-<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult.variables__2ygsfn" >Variables</a></td><td>public</td><td>List of result variables</td></tr>
-</table>
-<p> </p>
-<h3>  Operators and Conversions </h3>
-<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult.op_addition_net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable___18sze4q" >Add(DmnDecisionSingleResult, DmnExecutionVariable)</a></td><td>public static</td><td>Add result variable into the decision result</td></tr>
-</table>
-<p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="f-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult.variables__qyuu15" ></a>  DmnDecisionSingleResult.variables Field </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >DmnDecisionSingleResult</a><br />
-Sources: engine\decisions\DmnDecisionSingleResult.cs</small></p>
-<p>Internal list of result variables</p>
-<pre><code class="csharp">private readonly List&lt;net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt; variables</code></pre>
-<p><strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult.variables__2ygsfn" ></a>  DmnDecisionSingleResult.Variables Property </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >DmnDecisionSingleResult</a><br />
-Sources: engine\decisions\DmnDecisionSingleResult.cs</small></p>
-<p>List of result variables</p>
-<pre><code class="csharp">public IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt; Variables { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1" class="link-external" target="_blank" >IReadOnlyList&lt;net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
-<p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult.op_addition_net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable___18sze4q" ></a>  DmnDecisionSingleResult.Add(DmnDecisionSingleResult, DmnExecutionVariable) Operator </h2>
-<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
-Assembly: net.adamec.lib.common.dmn.engine<br />
-Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >DmnDecisionSingleResult</a><br />
-Sources: engine\decisions\DmnDecisionSingleResult.cs</small></p>
-<p>Add result variable into the decision result</p>
-<pre><code class="csharp">public static DmnDecisionSingleResult operator +(DmnDecisionSingleResult instance, DmnExecutionVariable variable)</code></pre>
-<strong>Operator parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult</a> <strong>instance</strong></dt><dd>Single decision result</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutionvariable__15aolfc" >net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionVariable</a> <strong>variable</strong></dt><dd>Result variable to add</dd></dl>
-<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionsingleresult__12jrmrq" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionSingleResult</a></dt><dd>Decision result</dd></dl></p>
-<h3>  Exceptions </h3>
-<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" class="link-external" target="_blank" >System.ArgumentException</a></dt><dd><strong>instance</strong> or <strong>variable</strong> is null</dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" ></a>  IDmnDecision Interface </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -324,10 +171,10 @@ Sources: engine\decisions\IDmnDecision.cs</small></p>
 <p> </p>
 <h3>  Methods </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.execute_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___omcsfw" >Execute(DmnExecutionContext, string)</a></td><td>public abstract</td><td>Executes the decision.</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.execute_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___1924ukl" >Execute(DmnExecutionContext, string)</a></td><td>public abstract</td><td>Executes the decision.</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.name__oi3x33" ></a>  IDmnDecision.Name Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -337,7 +184,7 @@ Sources: engine\decisions\IDmnDecision.cs</small></p>
 <p>Unique name of the decision</p>
 <pre><code class="csharp">public abstract string Name { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.requireddecisions__fxqsi4" ></a>  IDmnDecision.RequiredDecisions Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -345,9 +192,9 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >IDmnDecision</a><br />
 Sources: engine\decisions\IDmnDecision.cs</small></p>
 <p>List of decisions, the decision depends on</p>
-<pre><code class="csharp">public abstract List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; RequiredDecisions { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public abstract IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt; RequiredDecisions { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.requiredinputs__nfywic" ></a>  IDmnDecision.RequiredInputs Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
@@ -355,19 +202,19 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >IDmnDecision</a><br />
 Sources: engine\decisions\IDmnDecision.cs</small></p>
 <p>Decision required inputs (input variables)</p>
-<pre><code class="csharp">public abstract List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt; RequiredInputs { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public abstract IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt; RequiredInputs { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1" class="link-external" target="_blank" >IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.execute_net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext-system.string___omcsfw" ></a>  IDmnDecision.Execute(DmnExecutionContext, string) Method </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision.execute_net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext-system.string___1924ukl" ></a>  IDmnDecision.Execute(DmnExecutionContext, string) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q" >net.adamec.lib.common.dmn.engine.engine.decisions</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >IDmnDecision</a><br />
 Sources: engine\decisions\IDmnDecision.cs</small></p>
 <p>Executes the decision.</p>
-<pre><code class="csharp">public abstract DmnDecisionResult Execute(DmnExecutionContext context, string correlationId = null)</code></pre>
-<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.runtime__1b6yzkr.html#t-net.adamec.lib.common.dmn.engine.engine.runtime.dmnexecutioncontext__10tpicx" >net.adamec.lib.common.dmn.engine.engine.runtime.DmnExecutionContext</a> <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Optional correlation ID used while logging</dd></dl>
-<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecisionresult__rhbcm" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public abstract DmnDecisionResult Execute(DmnExecutionContext context, string executionId)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.html#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88" >net.adamec.lib.common.dmn.engine.engine.execution.context.DmnExecutionContext</a> <strong>context</strong></dt><dd>DMN Engine execution context</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Identifier of the execution run</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.html#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult__1v2ltka" >net.adamec.lib.common.dmn.engine.engine.execution.result.DmnDecisionResult</a></dt><dd>Decision result</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 </body></html>

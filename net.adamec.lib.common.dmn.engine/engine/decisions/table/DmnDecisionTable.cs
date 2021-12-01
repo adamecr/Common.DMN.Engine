@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime;
 using net.adamec.lib.common.dmn.engine.engine.definition;
-using net.adamec.lib.common.dmn.engine.engine.runtime;
+using net.adamec.lib.common.dmn.engine.engine.execution;
+using net.adamec.lib.common.dmn.engine.engine.execution.context;
+using net.adamec.lib.common.dmn.engine.engine.execution.result;
 using net.adamec.lib.common.dmn.engine.parser.dto;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
@@ -26,15 +30,15 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <summary>
         /// Decision table outputs
         /// </summary>
-        public List<DmnDecisionTableOutput> Outputs { get; }
+        public DmnDecisionTableOutput[] Outputs { get; }
         /// <summary>
         /// Decision table inputs
         /// </summary>
-        public List<DmnDecisionTableInput> Inputs { get; }
+        public DmnDecisionTableInput[] Inputs { get; }
         /// <summary>
         /// Decision table rules
         /// </summary>
-        public List<DmnDecisionTableRule> Rules { get; }
+        public DmnDecisionTableRule[] Rules { get; }
 
         /// <summary>
         /// CTOR
@@ -52,10 +56,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         public DmnDecisionTable(
             string name,
             HitPolicyEnum hitPolicy, CollectHitPolicyAggregationEnum aggregation,
-            List<DmnDecisionTableInput> inputs,
-            List<DmnDecisionTableOutput> outputs,
-            List<DmnDecisionTableRule> rules,
-            List<DmnVariableDefinition> requiredInputs, List<IDmnDecision> requiredDecisions)
+            DmnDecisionTableInput[] inputs,
+            DmnDecisionTableOutput[] outputs,
+            DmnDecisionTableRule[] rules,
+            IReadOnlyCollection<IDmnVariable> requiredInputs,
+            IReadOnlyCollection<IDmnDecision> requiredDecisions)
             : base(name, requiredInputs, requiredDecisions)
         {
             HitPolicy = hitPolicy;
@@ -64,9 +69,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             Outputs = outputs ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(outputs)} is null");
             Rules = rules ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(rules)} is null");
 
-            if (inputs.Count < 1) throw Logger.Fatal<ArgumentException>("No inputs for the table");
-            if (outputs.Count < 1) throw Logger.Fatal<ArgumentException>("No outputs for the table");
-            if (rules.Count < 1) throw Logger.Fatal<ArgumentException>("No rules for the table");
+            if (inputs.Length < 1) throw Logger.Fatal<ArgumentException>("No inputs for the table");
+            if (outputs.Length < 1) throw Logger.Fatal<ArgumentException>("No outputs for the table");
+            if (rules.Length < 1) throw Logger.Fatal<ArgumentException>("No rules for the table");
         }
 
         /// <summary>
@@ -77,18 +82,23 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// Then it evaluates (calculates) the outputs for positive rules and applies the hit policy.
         /// </remarks>
         /// <param name="context">DMN Engine execution context</param>
-        /// <param name="correlationId">Optional correlation ID used while logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>Decision result</returns>
         /// <exception cref="ArgumentNullException"><paramref name="context"/> is null</exception>
-        protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string correlationId = null)
+        protected override DmnDecisionResult Evaluate(DmnExecutionContext context, string executionId)
         {
-            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(correlationId,$"{nameof(context)} is null");
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(executionId, $"{nameof(context)} is null");
 
             //EVALUATE RULES
-            var positiveRules = EvaluateRules(context, correlationId);
-
+            var positiveRules =
+                context.Options.EvaluateTableRulesInParallel ?
+                    EvaluateRulesParallel(context, executionId) :
+                    EvaluateRules(context, executionId);
             //EVALUATE OUTPUTS for positive rules
-            var results = EvaluateOutputsForPositiveRules(context, correlationId, positiveRules);
+            var results =
+                context.Options.EvaluateTableOutputsInParallel ?
+                    EvaluateOutputsForPositiveRulesParallel(context, executionId, positiveRules) :
+                    EvaluateOutputsForPositiveRules(context, executionId, positiveRules);
 
             //APPLY HIT POLICY
             if (positiveRules.Count <= 0) return new DmnDecisionResult();
@@ -103,7 +113,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     // Overlapping rules represent an error.
                     if (positiveRules.Count > 1)
                         throw Logger.ErrorCorr<DmnExecutorException>(
-                            correlationId,
+                            executionId,
                             $"UNIQUE hit policy violation - {positiveRules.Count} matches");
                     positiveMatchOutputRules.Add(positiveRules[0]);
                     break;
@@ -115,12 +125,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     // Multiple rules can match, with different output entries. This policy returns the matching rule with the highest output priority.
                     //  Output priorities are specified in the ordered list of output values, in decreasing order of priority. Note that priorities are independent from rule sequence
                     // A P table that omits allowed output values is an error.
-                    var orderedPositiveRules = OrderPositiveRulesByOutputPriority(positiveRules, results, correlationId);
+                    var orderedPositiveRules = OrderPositiveRulesByOutputPriority(positiveRules, results, executionId);
                     if (orderedPositiveRules == null)
                     {
                         //A P table that omits allowed output values is an error.
                         throw Logger.ErrorCorr<DmnExecutorException>(
-                            correlationId,
+                            executionId,
                             $"PRIORITY hit policy violation - no outputs with Allowed Values");
                     }
                     positiveMatchOutputRules.Add(orderedPositiveRules.ToArray()[0]);
@@ -130,7 +140,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     //  If the output entries are non-equal, the hit policy is incorrect and the result is an error.
                     if (!MatchRuleOutputs(positiveRules, results))
                         throw Logger.ErrorCorr<DmnExecutorException>(
-                            correlationId,
+                            executionId,
                             $"ANY hit policy violation - the outputs don't match");
                     positiveMatchOutputRules.Add(positiveRules[0]);
                     break;
@@ -141,9 +151,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     // If an aggregator is specified, the decision table result will only contain a single output entry. The aggregator will generate the output entry from all satisfied rules.
                     // Except for C-count and C-list, the rules must have numeric output values (bool is also allowed - 0=false, 1=true).    
                     // If the Collect hit policy is used with an aggregator, the decision table can only have one output.
-                    if (Outputs.Count > 1 && Aggregation != CollectHitPolicyAggregationEnum.List)
+                    if (Outputs.Length > 1 && Aggregation != CollectHitPolicyAggregationEnum.List)
                         throw Logger.ErrorCorr<DmnExecutorException>(
-                            correlationId,
+                            executionId,
                             $"COLLECT hit policy violation - multiple outputs not allowed for aggregation {Aggregation}");
 
                     var outType = Outputs[0].Variable.Type;
@@ -159,7 +169,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         (Aggregation == CollectHitPolicyAggregationEnum.Count && isAllowedForCount) ||
                          Aggregation != CollectHitPolicyAggregationEnum.List && Aggregation != CollectHitPolicyAggregationEnum.Count && isAllowedForSumMinMax))
                         throw Logger.ErrorCorr<DmnExecutorException>(
-                            correlationId,
+                            executionId,
                             $"COLLECT hit policy violation - type {outType.Name} not allowed for aggregation {Aggregation}");
 
 
@@ -179,7 +189,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         {
                             //no value for sum, min, max
                             outputVariable.Value = null;
-                            retVal += new DmnDecisionSingleResult() + outputVariable.Clone();
+                            retVal += new DmnDecisionSingleResult(outputVariable.Clone(), positiveRules);
                             return retVal;
                         }
                         // ReSharper disable once SwitchStatementMissingSomeCases
@@ -199,7 +209,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                                 break;
                         }
 
-                        retVal += new DmnDecisionSingleResult() + outputVariable.Clone();
+                        retVal += new DmnDecisionSingleResult(outputVariable.Clone(), positiveRules);
                         return retVal;
 
                     }
@@ -213,12 +223,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 case HitPolicyEnum.OutputOrder:
                     //Returns all hits in decreasing output priority order. 
                     // Output priorities are specified in the ordered list of output values in decreasing order of priority
-                    var orderedPositiveRules2 = OrderPositiveRulesByOutputPriority(positiveRules, results, correlationId);
+                    var orderedPositiveRules2 = OrderPositiveRulesByOutputPriority(positiveRules, results, executionId);
                     if (orderedPositiveRules2 == null)
                     {
                         //A P table that omits allowed output values is an error.
                         throw Logger.ErrorCorr<DmnExecutorException>(
-                            correlationId,
+                            executionId,
                             $"OUTPUT ORDER hit policy violation - no outputs with Allowed Values");
                     }
                     positiveMatchOutputRules.AddRange(orderedPositiveRules2);
@@ -228,7 +238,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             //Return (multiple) matches
             foreach (var multiMatchOutputRule in positiveMatchOutputRules)
             {
-                var singleResult = new DmnDecisionSingleResult();
+                var singleResult = new DmnDecisionSingleResult(multiMatchOutputRule);
                 foreach (var ruleOutput in multiMatchOutputRule.Outputs)
                 {
                     var resultOutput = results.GetResult(multiMatchOutputRule, ruleOutput);
@@ -255,17 +265,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// It's possible to omit all input expressions, so the rule will be always evaluated as positive match.
         /// </remarks>
         /// <param name="context">Engine execution context</param>
-        /// <param name="correlationId">Correlation ID used for logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>List of positive rules (rules that match the input)</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
-        private List<DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string correlationId)
+        /// <exception cref="ArgumentNullException"><paramref name="context"/> is null</exception>
+        private List<DmnDecisionTableRule> EvaluateRules(DmnExecutionContext context, string executionId)
         {
-            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(correlationId,$"{nameof(context)} is null");
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(executionId, $"{nameof(context)} is null");
 
             var positiveRules = new List<DmnDecisionTableRule>();
 
             //EVALUATE RULES
-            Logger.InfoCorr(correlationId, $"Evaluating decision table {Name} rules...");
+            Logger.InfoCorr(executionId, $"Evaluating decision table {Name} rules...");
             foreach (var rule in Rules)
             {
                 var match = true;
@@ -273,13 +283,13 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                 {
                     //check allowed input values
                     var allowedValues = ruleInput.Input.AllowedValues;
-                    if (allowedValues != null && allowedValues.Count > 0)
+                    if (allowedValues != null && allowedValues.Length > 0)
                     {
                         string value = null;
                         if (!string.IsNullOrWhiteSpace(ruleInput.Input.Expression))
                         {
                             //input is mapped to expression, so evaluate it to ger the value
-                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression);
+                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression, executionId);
                             if (valueObj != null) value = valueObj.ToString();
                         }
                         else
@@ -287,17 +297,24 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                             //input is mapped to variable
                             value = context.GetVariable(ruleInput.Input.Variable).Value?.ToString();
                         }
+
                         if (!allowedValues.Contains(value))
-                            throw Logger.ErrorCorr<DmnExecutorException>(
-                                correlationId,
+                        {
+                            match = false;
+                            Logger.WarnCorr(
+                                executionId,
                                 $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
+                            break;
+                        }
                     }
+
                     if (Logger.IsTraceEnabled)
-                        Logger.TraceCorr(correlationId, $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
-                    var result =
-                        context.EvalExpression<bool>(ruleInput.Expression); //TODO ?pre-parse and use the inputs as parameters?
+                        Logger.TraceCorr(executionId,
+                            $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
+                    var result = context.EvalExpression<bool>(ruleInput.Expression, executionId);
                     if (Logger.IsTraceEnabled)
-                        Logger.TraceCorr(correlationId, $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+                        Logger.TraceCorr(executionId,
+                            $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
 
                     // ReSharper disable once InvertIf
                     if (!result)
@@ -307,28 +324,116 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     }
                 }
 
-                Logger.InfoCorr(correlationId,
-                     $"Evaluated decision table {Name} rule: {(match ? "POSITIVE" : "NEGATIVE")} - {rule}");
+                Logger.InfoCorr(executionId,
+                    $"Evaluated decision table {Name} rule: {(match ? "POSITIVE" : "NEGATIVE")} - {rule}");
                 if (match)
                 {
                     positiveRules.Add(rule);
                 }
             }
 
-            Logger.InfoCorr(correlationId, $"Evaluated decision table {Name} rules");
+            Logger.InfoCorr(executionId, $"Evaluated decision table {Name} rules");
             return positiveRules;
+        }
+
+        /// <summary>
+        /// Evaluates the rules and return the list of positive rules (rules that match the input)
+        /// </summary>
+        /// <remarks>
+        /// Decision table defines the set of rules - "when the input values matches all input conditions, provide defined outputs".
+        /// The input data are compared with corresponding rule expressions and when all match (comparison is true), the rule is evaluated
+        /// as positive.
+        /// Technically, when there is a negative comparison result, the rule is evaluates as negative and the rest of inputs is not evaluated.
+        /// It's possible to omit all input expressions, so the rule will be always evaluated as positive match.
+        /// </remarks>
+        /// <param name="context">Engine execution context</param>
+        /// <param name="executionId">Identifier of the execution run</param>
+        /// <returns>List of positive rules (rules that match the input)</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="context"/> is nul</exception>
+        private List<DmnDecisionTableRule> EvaluateRulesParallel(DmnExecutionContext context, string executionId)
+        {
+            if (context == null) throw Logger.FatalCorr<ArgumentNullException>(executionId, $"{nameof(context)} is null");
+
+            var positiveRules = new ConcurrentBag<DmnDecisionTableRule>(); // List<DmnDecisionTableRule>();
+
+            //EVALUATE RULES
+            Logger.InfoCorr(executionId, $"Evaluating decision table {Name} rules...");
+            Parallel.ForEach(Rules, rule =>
+            //foreach (var rule in Rules)
+            {
+                var match = true;
+                foreach (var ruleInput in rule.Inputs)
+                {
+                    //check allowed input values
+                    var allowedValues = ruleInput.Input.AllowedValues;
+                    if (allowedValues != null && allowedValues.Length > 0)
+                    {
+                        string value = null;
+                        if (!string.IsNullOrWhiteSpace(ruleInput.Input.Expression))
+                        {
+                            //input is mapped to expression, so evaluate it to ger the value
+                            var valueObj = context.EvalExpression<object>(ruleInput.Input.Expression, executionId);
+                            if (valueObj != null) value = valueObj.ToString();
+                        }
+                        else
+                        {
+                            //input is mapped to variable
+                            value = context.GetVariable(ruleInput.Input.Variable).Value?.ToString();
+                        }
+
+                        if (!allowedValues.Contains(value))
+                        {
+                            match = false;
+                            Logger.WarnCorr(
+                                  executionId,
+                                  $"Decision table {Name}, rule #{rule.Index}: Input value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
+                            break;
+                        }
+                    }
+
+
+
+                    if (Logger.IsTraceEnabled)
+                        Logger.TraceCorr(executionId,
+                            $"Evaluating decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression}... ");
+                    var result = context.EvalExpression<bool>(ruleInput.Expression, executionId);
+                    if (Logger.IsTraceEnabled)
+                        Logger.TraceCorr(executionId,
+                            $"Evaluated decision table {Name} rule {rule} input #{ruleInput.Input.Index}: {ruleInput.Expression} with result {result}");
+
+
+                    // ReSharper disable once InvertIf
+                    if (!result)
+                    {
+                        match = false;
+                        break;
+                    }
+
+                }
+
+                Logger.InfoCorr(executionId,
+                    $"Evaluated decision table {Name} rule: {(match ? "POSITIVE" : "NEGATIVE")} - {rule}");
+                if (match)
+                {
+                    positiveRules.Add(rule);
+                }
+            });
+
+
+            Logger.InfoCorr(executionId, $"Evaluated decision table {Name} rules");
+            return positiveRules.OrderBy(r => r.Index).ToList();
         }
 
         /// <summary>
         /// Evaluates the output expressions for  positive rules and stores generates the table execution results ( (rule, output)-&gt;temp variable with result)
         /// </summary>
         /// <param name="context">Engine execution context</param>
-        /// <param name="correlationId">Correlation ID used for logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <param name="positiveRules">List of positive rules</param>
         /// <returns>Table execution results</returns>
-        private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string correlationId, IEnumerable<DmnDecisionTableRule> positiveRules)
+        private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRules(DmnExecutionContext context, string executionId, IEnumerable<DmnDecisionTableRule> positiveRules)
         {
-            Logger.InfoCorr(correlationId, $"Evaluating decision table {Name} positive rules outputs...");
+            Logger.InfoCorr(executionId, $"Evaluating decision table {Name} positive rules outputs...");
             var results = new DmnDecisionTableRuleExecutionResults();
             foreach (var positiveRule in positiveRules)
             {
@@ -341,17 +446,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         continue;
                     }
 
-                    var result = context.EvalExpression(ruleOutput.Expression, ruleOutput.Output.Variable.Type ?? typeof(object));
+                    var result = context.EvalExpression(ruleOutput.Expression, ruleOutput.Output.Variable.Type ?? typeof(object), executionId);
 
                     // check allowed output values
                     var allowedValues = ruleOutput.Output.AllowedValues;
-                    if (allowedValues != null && allowedValues.Count > 0 &&
+                    if (allowedValues != null && allowedValues.Length > 0 &&
                         !string.IsNullOrWhiteSpace(result?.ToString()))
                     {
                         if (!ruleOutput.Output.AllowedValues.Contains(result.ToString()))
                         {
                             throw Logger.ErrorCorr<DmnExecutorException>(
-                                correlationId,
+                                executionId,
                                 $"Decision table {Name}, rule {positiveRule}: Output value '{result}' is not in allowed values list ({string.Join(",", allowedValues)})");
                         }
                     }
@@ -359,13 +464,71 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     var output = new DmnExecutionVariable(ruleOutput.Output.Variable) { Value = result };
                     results.SetResult(positiveRule, ruleOutput, output);
                     if (Logger.IsTraceEnabled)
-                        Logger.TraceCorr(correlationId,
+                        Logger.TraceCorr(executionId,
                              $"Positive decision table {Name} rule {positiveRule}: output {output.Name}, value {output.Value}");
                 }
             }
 
-            Logger.InfoCorr(correlationId, $"Evaluated decision table {Name} positive rules outputs");
+            Logger.InfoCorr(executionId, $"Evaluated decision table {Name} positive rules outputs");
             return results;
+        }
+
+        /// <summary>
+        /// Evaluates the output expressions for  positive rules and stores generates the table execution results ( (rule, output)-&gt;temp variable with result)
+        /// </summary>
+        /// <param name="context">Engine execution context</param>
+        /// <param name="executionId">Identifier of the execution run</param>
+        /// <param name="positiveRules">List of positive rules</param>
+        /// <returns>Table execution results</returns>
+        private DmnDecisionTableRuleExecutionResults EvaluateOutputsForPositiveRulesParallel(DmnExecutionContext context, string executionId, IEnumerable<DmnDecisionTableRule> positiveRules)
+        {
+            Logger.InfoCorr(executionId, $"Evaluating decision table {Name} positive rules outputs...");
+            var results = new DmnDecisionTableRuleExecutionResultsParallel();
+            var rulesAndOutputs = positiveRules.SelectMany(
+                r => r.Outputs,
+                (rule, output) => new { rule, output });
+            Parallel.ForEach(rulesAndOutputs, ruleAndOutput =>
+
+
+            {
+                var positiveRule = ruleAndOutput.rule;
+                var ruleOutput = ruleAndOutput.output;
+
+                if (string.IsNullOrWhiteSpace(ruleOutput.Expression))
+                {
+                    results.SetResult(positiveRule, ruleOutput, null);
+
+                }
+                else
+                {
+                    var result = context.EvalExpression(ruleOutput.Expression,
+                        ruleOutput.Output.Variable.Type ?? typeof(object),
+                        executionId);
+
+                    // check allowed output values
+                    var allowedValues = ruleOutput.Output.AllowedValues;
+                    if (allowedValues != null && allowedValues.Length > 0 &&
+                        !string.IsNullOrWhiteSpace(result?.ToString()))
+                    {
+                        if (!ruleOutput.Output.AllowedValues.Contains(result.ToString()))
+                        {
+                            throw Logger.ErrorCorr<DmnExecutorException>(
+                                executionId,
+                                $"Decision table {Name}, rule {positiveRule}: Output value '{result}' is not in allowed values list ({string.Join(",", allowedValues)})");
+                        }
+                    }
+
+                    var output = new DmnExecutionVariable(ruleOutput.Output.Variable) { Value = result };
+                    results.SetResult(positiveRule, ruleOutput, output);
+                    if (Logger.IsTraceEnabled)
+                        Logger.TraceCorr(executionId,
+                            $"Positive decision table {Name} rule {positiveRule}: output {output.Name}, value {output.Value}");
+                }
+
+            });
+
+            Logger.InfoCorr(executionId, $"Evaluated decision table {Name} positive rules outputs");
+            return results.FinalizeConcurrentResults();
         }
 
         //------------------------------------------------------------------------
@@ -405,18 +568,18 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// </remarks>
         /// <param name="positiveRules">Rules evaluates as positive match</param>
         /// <param name="results">Evaluated (calculated) results (rule outputs)</param>
-        /// <param name="correlationId">Correlation ID used for logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>Positive rules ordered by output priorities for the Priority and Output order hit policies</returns>
         private IOrderedEnumerable<DmnDecisionTableRule> OrderPositiveRulesByOutputPriority(
             IReadOnlyCollection<DmnDecisionTableRule> positiveRules,
             DmnDecisionTableRuleExecutionResults results,
-            string correlationId)
+            string executionId)
         {
             IOrderedEnumerable<DmnDecisionTableRule> ordered = null;
             foreach (var output in Outputs)
             {
                 //outputs without allowed values list are not part of ordering
-                if (output.AllowedValues == null || output.AllowedValues.Count <= 0) continue;
+                if (output.AllowedValues == null || output.AllowedValues.Length <= 0) continue;
 
                 if (ordered == null)
                 {
@@ -428,7 +591,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                         //no output result in positive rule (ruleOutput.ResultOutput==null) - at the end of the list
                         //no output result value in positive rule (ruleOutput.ResultOutput.Value==null) - at the end of the list 
                         //all handled in GetIndexOfOutputValue: if (value == null) return int.MaxValue;
-                        return GetIndexOfOutputValue(output.AllowedValues, results.GetResult(i, ruleOutput)?.Value, correlationId);
+                        return GetIndexOfOutputValue(output.AllowedValues, results.GetResult(i, ruleOutput)?.Value, executionId);
                     });
                 }
                 else
@@ -436,7 +599,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
                     ordered = ordered.ThenBy(i =>
                     {
                         var ruleOutput = i.Outputs.FirstOrDefault(o => o.Output.Index == output.Index);
-                        return GetIndexOfOutputValue(output.AllowedValues, results.GetResult(i, ruleOutput)?.Value, correlationId);
+                        return GetIndexOfOutputValue(output.AllowedValues, results.GetResult(i, ruleOutput)?.Value, executionId);
                     });
                 }
             }
@@ -451,19 +614,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// </summary>
         /// <param name="allowedValues"></param>
         /// <param name="value"></param>
-        /// <param name="correlationId">Correlation ID used for logging</param>
+        /// <param name="executionId">Identifier of the execution run</param>
         /// <returns>Index of output <paramref name="value"/> within the list of <paramref name="allowedValues"/>.
         /// When the output <paramref name="value"/> is null, it returns <see cref="int.MaxValue"/>.</returns>
-        private int GetIndexOfOutputValue(IList<string> allowedValues, object value, string correlationId)
+        private int GetIndexOfOutputValue(string[] allowedValues, object value, string executionId)
         {
             //null value at the end
             if (value == null) return int.MaxValue;
 
             var strVal = value.ToString().Trim();
-            var idx = allowedValues.IndexOf(strVal);
+            var idx = Array.IndexOf(allowedValues, strVal, 0, allowedValues.Length);
             //not found - exception, but should not happen
             if (idx == -1) throw Logger.FatalCorr<DmnExecutorException>(
-                correlationId,
+                executionId,
                 $"GetIndexOfOutputValue: Output value '{value}' is not in allowed values list ({string.Join(",", allowedValues)})");
 
             return idx;
@@ -492,7 +655,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
 
             foreach (var positiveRule in positiveRules)
             {
-                var valueRaw = results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value;
+                var valueRaw = positiveRule.Outputs.Length > 0 ? results.GetResult(positiveRule, positiveRule.Outputs[0])?.Value : null;
                 if (valueRaw == null) continue; //ignore null results/values
 
                 double value;
@@ -532,7 +695,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             DmnDecisionTableRuleExecutionResults results)
         {
             var count = positiveRules.ToList()
-                 .Select(r => results.GetResult(r, r.Outputs[0])?.Value?.ToString())
+                 .Select(r => r.Outputs.Length > 0 ? results.GetResult(r, r.Outputs[0])?.Value?.ToString() : null)
                  .Where(v => v != null)
                  .Distinct()
                  .ToList()

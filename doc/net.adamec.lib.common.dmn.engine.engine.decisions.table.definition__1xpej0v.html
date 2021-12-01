@@ -45,7 +45,7 @@ dd {grid-column-start: 2;}
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb" >DmnDecisionTableRuleOutput</a></td><td>public</td><td>Definition of decision table rule output - contains the calculation expression and mapping to table output</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" ></a>  DmnDecisionTableInput Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -56,10 +56,10 @@ Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
 </p>
 <h3>  Remarks </h3>
-<p>Source variable and source expression are mutually exclusive and one of them has to be provided. When the definition contains both variable and expression, the expression is used. See <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.createdecisiontable_net.adamec.lib.common.dmn.engine.parser.dto.decisiontable-system.string-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____2r7jwn" >CreateDecisionTable(DecisionTable, string, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)</a> for details.</p>
+<p>Source variable and source expression are mutually exclusive and one of them has to be provided. When the definition contains both variable and expression, the expression is used. See <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.createdecisiontable_net.adamec.lib.common.dmn.engine.parser.dto.decisiontable-system.string-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____1f55han" >CreateDecisionTable(DecisionTable, string, List&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)</a> for details.</p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.allowedvalues__1ew66cu" >AllowedValues</a></td><td>public</td><td>Optional list of allowed values</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.allowedvalues__1ew66cu" >AllowedValues</a></td><td>public</td><td>Optional array of allowed values</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.expression__1cn0pci" >Expression</a></td><td>public</td><td>Input source expression (the evaluated expression is compared to the rules)</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.index__azcv2w" >Index</a></td><td>public</td><td>Index of the input (order)</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.variable__1k6dlgo" >Variable</a></td><td>public</td><td>Input source variable (the variable value is compared to the rules)</td></tr>
@@ -67,7 +67,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <p> </p>
 <h3>  Constructors </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.string-system.collections.generic.list_system.string____19w7pn1" >DmnDecisionTableInput(int, DmnVariableDefinition, string, List&lt;string&gt;)</a></td><td>public</td><td>CTOR</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string-system.string_____1s0h2ko" >DmnDecisionTableInput(int, IDmnVariable, string, string[])</a></td><td>public</td><td>CTOR</td></tr>
 </table>
 <p> </p>
 <h3>  Methods </h3>
@@ -75,17 +75,17 @@ Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.tostring__1hvoill" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.allowedvalues__1ew66cu" ></a>  DmnDecisionTableInput.AllowedValues Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" >DmnDecisionTableInput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
-<p>Optional list of allowed values</p>
-<pre><code class="csharp">public List&lt;string&gt; AllowedValues { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;string&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Optional array of allowed values</p>
+<pre><code class="csharp">public string[] AllowedValues { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string[]</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.expression__1cn0pci" ></a>  DmnDecisionTableInput.Expression Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -97,7 +97,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
 <h3>  Remarks </h3>
 <p>Source variable and source expression are mutually exclusive.</p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.index__azcv2w" ></a>  DmnDecisionTableInput.Index Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -107,7 +107,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <p>Index of the input (order)</p>
 <pre><code class="csharp">public int Index { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.variable__1k6dlgo" ></a>  DmnDecisionTableInput.Variable Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -115,21 +115,21 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" >DmnDecisionTableInput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <p>Input source variable (the variable value is compared to the rules)</p>
-<pre><code class="csharp">public DmnVariableDefinition Variable { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88" >net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition</a></dt><dd></dd></dl></p>
+<pre><code class="csharp">public IDmnVariable Variable { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a></dt><dd></dd></dl></p>
 <h3>  Remarks </h3>
 <p>Source variable and source expression are mutually exclusive.</p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.string-system.collections.generic.list_system.string____19w7pn1" ></a>  DmnDecisionTableInput.DmnDecisionTableInput(int, DmnVariableDefinition, string, List&lt;string&gt;) Constructor </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string-system.string_____1s0h2ko" ></a>  DmnDecisionTableInput.DmnDecisionTableInput(int, IDmnVariable, string, string[]) Constructor </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" >DmnDecisionTableInput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <p>CTOR</p>
-<pre><code class="csharp">public DmnDecisionTableInput(int index, DmnVariableDefinition variable, string expression = null, List&lt;string&gt; allowedValues = null)</code></pre>
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the input (order)</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88" >net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition</a> <strong>variable</strong></dt><dd>Input source variable (the variable value is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Input source expression (the evaluated expression is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;string&gt;</a> <strong>allowedValues</strong></dt><dd>Optional list of allowed values</dd></dl>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public DmnDecisionTableInput(int index, IDmnVariable variable, string expression = null, string[] allowedValues = null)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the input (order)</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a> <strong>variable</strong></dt><dd>Input source variable (the variable value is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Input source expression (the evaluated expression is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Optional array of allowed values</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.tostring__1hvoill" ></a>  DmnDecisionTableInput.ToString() Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -140,7 +140,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small></p>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh" ></a>  DmnDecisionTableOutput Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -152,14 +152,14 @@ Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
 </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.allowedvalues__1r9ae17" >AllowedValues</a></td><td>public</td><td>Optional list of allowed values</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.allowedvalues__1r9ae17" >AllowedValues</a></td><td>public</td><td>Optional array of allowed values</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.index__jk2zpd" >Index</a></td><td>public</td><td>Index of the output (order)</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.variable__1q0vo3l" >Variable</a></td><td>public</td><td>Variable to store the output to</td></tr>
 </table>
 <p> </p>
 <h3>  Constructors </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.collections.generic.list_system.string____2p2aeo" >DmnDecisionTableOutput(int, DmnVariableDefinition, List&lt;string&gt;)</a></td><td>public</td><td>CTOR</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string_____65w6mf" >DmnDecisionTableOutput(int, IDmnVariable, string[])</a></td><td>public</td><td>CTOR</td></tr>
 </table>
 <p> </p>
 <h3>  Methods </h3>
@@ -167,17 +167,17 @@ Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.tostring__120d08q" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.allowedvalues__1r9ae17" ></a>  DmnDecisionTableOutput.AllowedValues Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh" >DmnDecisionTableOutput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
-<p>Optional list of allowed values</p>
-<pre><code class="csharp">public List&lt;string&gt; AllowedValues { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;string&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Optional array of allowed values</p>
+<pre><code class="csharp">public string[] AllowedValues { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string[]</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.index__jk2zpd" ></a>  DmnDecisionTableOutput.Index Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -187,7 +187,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
 <p>Index of the output (order)</p>
 <pre><code class="csharp">public int Index { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.variable__1q0vo3l" ></a>  DmnDecisionTableOutput.Variable Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -195,19 +195,19 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh" >DmnDecisionTableOutput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
 <p>Variable to store the output to</p>
-<pre><code class="csharp">public DmnVariableDefinition Variable { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88" >net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public IDmnVariable Variable { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.collections.generic.list_system.string____2p2aeo" ></a>  DmnDecisionTableOutput.DmnDecisionTableOutput(int, DmnVariableDefinition, List&lt;string&gt;) Constructor </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string_____65w6mf" ></a>  DmnDecisionTableOutput.DmnDecisionTableOutput(int, IDmnVariable, string[]) Constructor </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh" >DmnDecisionTableOutput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
 <p>CTOR</p>
-<pre><code class="csharp">public DmnDecisionTableOutput(int index, DmnVariableDefinition variable, List&lt;string&gt; allowedValues = null)</code></pre>
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the output (order)</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88" >net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition</a> <strong>variable</strong></dt><dd>Variable to store the output to</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;string&gt;</a> <strong>allowedValues</strong></dt><dd>Optional list of allowed values</dd></dl>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public DmnDecisionTableOutput(int index, IDmnVariable variable, string[] allowedValues = null)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the output (order)</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a> <strong>variable</strong></dt><dd>Variable to store the output to</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Optional array of allowed values</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.tostring__120d08q" ></a>  DmnDecisionTableOutput.ToString() Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -218,7 +218,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small></p>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" ></a>  DmnDecisionTableRule Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -239,7 +239,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p> </p>
 <h3>  Constructors </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.-ctor_system.int32-system.string-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput_-system.string___4tn0in" >DmnDecisionTableRule(int, string, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput&gt;, string)</a></td><td>public</td><td>CTOR</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.-ctor_system.int32-system.string-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__-system.string___1fed6xz" >DmnDecisionTableRule(int, string, DmnDecisionTableRuleInput[], DmnDecisionTableRuleOutput[], string)</a></td><td>public</td><td>CTOR</td></tr>
 </table>
 <p> </p>
 <h3>  Methods </h3>
@@ -247,7 +247,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.tostring__1l47m4p" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.description__uhwbkg" ></a>  DmnDecisionTableRule.Description Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -255,9 +255,9 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >DmnDecisionTableRule</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p>Optional rule description (annotation)</p>
-<pre><code class="csharp">public string Description { get; set; }</code></pre>
+<pre><code class="csharp">public string Description { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.index__24u1wy" ></a>  DmnDecisionTableRule.Index Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -267,7 +267,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p>Index (order) of the rule within the decision table</p>
 <pre><code class="csharp">public int Index { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.inputs__u5s2hn" ></a>  DmnDecisionTableRule.Inputs Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -275,9 +275,9 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >DmnDecisionTableRule</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p>Definition of decision table rule inputs (each input contains the input match evaluation expression and mapping to table input)</p>
-<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput&gt; Inputs { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public DmnDecisionTableRuleInput[] Inputs { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__11odv5c" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput[]</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.name__t2vzyp" ></a>  DmnDecisionTableRule.Name Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -285,9 +285,9 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >DmnDecisionTableRule</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p>Rule name</p>
-<pre><code class="csharp">public string Name { get; set; }</code></pre>
+<pre><code class="csharp">public string Name { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.outputs__kx35i0" ></a>  DmnDecisionTableRule.Outputs Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -295,19 +295,19 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >DmnDecisionTableRule</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p>Definition of decision table rule outputs (each output contains the calculation expression and mapping to table output)</p>
-<pre><code class="csharp">public List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput&gt; Outputs { get; }</code></pre>
-<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput&gt;</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public DmnDecisionTableRuleOutput[] Outputs { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput[]</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
-<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.-ctor_system.int32-system.string-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput_-system.collections.generic.list_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput_-system.string___4tn0in" ></a>  DmnDecisionTableRule.DmnDecisionTableRule(int, string, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput&gt;, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput&gt;, string) Constructor </h2>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.-ctor_system.int32-system.string-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__-system.string___1fed6xz" ></a>  DmnDecisionTableRule.DmnDecisionTableRule(int, string, DmnDecisionTableRuleInput[], DmnDecisionTableRuleOutput[], string) Constructor </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule__9p0gko" >DmnDecisionTableRule</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <p>CTOR</p>
-<pre><code class="csharp">public DmnDecisionTableRule(int index, string name, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput&gt; inputs, List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput&gt; outputs, string description = null)</code></pre>
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>index</strong></dt><dd>Index (order) of the rule within the decision table</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Rule name</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput&gt;</a> <strong>inputs</strong></dt><dd>Definition of decision table rule inputs</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput&gt;</a> <strong>outputs</strong></dt><dd>Definition of decision table rule outputs</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>description</strong></dt><dd>Optional rule description (annotation)</dd></dl>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public DmnDecisionTableRule(int index, string name, DmnDecisionTableRuleInput[] inputs, DmnDecisionTableRuleOutput[] outputs, string description = null)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a> <strong>index</strong></dt><dd>Index (order) of the rule within the decision table</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>name</strong></dt><dd>Rule name</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__11odv5c" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleInput[]</a> <strong>inputs</strong></dt><dd>Definition of decision table rule inputs</dd><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableRuleOutput[]</a> <strong>outputs</strong></dt><dd>Definition of decision table rule outputs</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>description</strong></dt><dd>Optional rule description (annotation)</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontablerule.tostring__1l47m4p" ></a>  DmnDecisionTableRule.ToString() Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -318,7 +318,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRule.cs</small></p>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__11odv5c" ></a>  DmnDecisionTableRuleInput Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -330,8 +330,9 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small><
 </p>
 <h3>  Properties </h3>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
-<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.expression__gj6d2o" >Expression</a></td><td>public</td><td>Expression used to evaluate the rule input match</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.expression__gj6d2o" >Expression</a></td><td>public</td><td>Expression used to evaluate the rule input match (&quot;both sides&quot;)</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.input__1y72dxq" >Input</a></td><td>public</td><td>Corresponding table input</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.unparsedexpression__vkfm9q" >UnparsedExpression</a></td><td>public</td><td>Unparsed expression used to evaluate the rule input match (&quot;right side&quot;)</td></tr>
 </table>
 <p> </p>
 <h3>  Constructors </h3>
@@ -344,17 +345,17 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small><
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.tostring__1ogy34r" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.expression__gj6d2o" ></a>  DmnDecisionTableRuleInput.Expression Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__11odv5c" >DmnDecisionTableRuleInput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small></p>
-<p>Expression used to evaluate the rule input match</p>
+<p>Expression used to evaluate the rule input match (&quot;both sides&quot;)</p>
 <pre><code class="csharp">public string Expression { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.input__1y72dxq" ></a>  DmnDecisionTableRuleInput.Input Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -364,7 +365,17 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small><
 <p>Corresponding table input</p>
 <pre><code class="csharp">public DmnDecisionTableInput Input { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.unparsedexpression__vkfm9q" ></a>  DmnDecisionTableRuleInput.UnparsedExpression Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__11odv5c" >DmnDecisionTableRuleInput</a><br />
+Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small></p>
+<p>Unparsed expression used to evaluate the rule input match (&quot;right side&quot;)</p>
+<pre><code class="csharp">public string UnparsedExpression { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.-ctor_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput-system.string___1tqtgil" ></a>  DmnDecisionTableRuleInput.DmnDecisionTableRuleInput(DmnDecisionTableInput, string) Constructor </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -372,9 +383,9 @@ Assembly: net.adamec.lib.common.dmn.engine<br />
 Type: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput__11odv5c" >DmnDecisionTableRuleInput</a><br />
 Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small></p>
 <p>CTOR</p>
-<pre><code class="csharp">public DmnDecisionTableRuleInput(DmnDecisionTableInput input, string expression)</code></pre>
-<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput</a> <strong>input</strong></dt><dd>Corresponding table input</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression used to evaluate the rule input match</dd></dl>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<pre><code class="csharp">public DmnDecisionTableRuleInput(DmnDecisionTableInput input, string unparsedExpression)</code></pre>
+<strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableInput</a> <strong>input</strong></dt><dd>Corresponding table input</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>unparsedExpression</strong></dt><dd>Expression used to evaluate the rule input match (&quot;right side&quot;)</dd></dl>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleinput.tostring__1ogy34r" ></a>  DmnDecisionTableRuleInput.ToString() Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -385,7 +396,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleInput.cs</small><
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput__1gob6sb" ></a>  DmnDecisionTableRuleOutput Class </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -411,7 +422,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleOutput.cs</small>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput.tostring__1ri5kxs" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
 </table>
 <p> </p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput.expression__1dimker" ></a>  DmnDecisionTableRuleOutput.Expression Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -421,7 +432,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleOutput.cs</small>
 <p>Expression used to calculate the value of rule output</p>
 <pre><code class="csharp">public string Expression { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput.output__i8y76c" ></a>  DmnDecisionTableRuleOutput.Output Property </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -431,7 +442,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleOutput.cs</small>
 <p>Corresponding table output</p>
 <pre><code class="csharp">public DmnDecisionTableOutput Output { get; }</code></pre>
 <p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput</a></dt><dd></dd></dl></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput.-ctor_net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput-system.string___1eexcsx" ></a>  DmnDecisionTableRuleOutput.DmnDecisionTableRuleOutput(DmnDecisionTableOutput, string) Constructor </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -441,7 +452,7 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleOutput.cs</small>
 <p>CTOR</p>
 <pre><code class="csharp">public DmnDecisionTableRuleOutput(DmnDecisionTableOutput output, string expression)</code></pre>
 <strong>Constructor parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.DmnDecisionTableOutput</a> <strong>output</strong></dt><dd>Corresponding table output</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression used to calculate the value of rule output</dd></dl>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableruleoutput.tostring__1ri5kxs" ></a>  DmnDecisionTableRuleOutput.ToString() Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.html#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v" >net.adamec.lib.common.dmn.engine.engine.decisions.table.definition</a><br />
@@ -452,6 +463,6 @@ Sources: engine\decisions\table\definition\DmnDecisionTableRuleOutput.cs</small>
 <pre><code class="csharp">[ExcludeFromCodeCoverage]
 public override string ToString()</code></pre>
 <p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
-<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a> or <a href="net.adamec.lib.common.dmn.engine.html#package-list" >source-only packages</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
 </body></html>
