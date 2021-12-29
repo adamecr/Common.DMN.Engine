@@ -9,11 +9,11 @@
   <PropertyGroup>
     <RadMajor>1</RadMajor>
     <RadMinor>0</RadMinor>
-    <RadPatch>0</RadPatch>
-    <RadBuild>849</RadBuild>
-    <PackageVersionShort>1.0.0</PackageVersionShort>
-    <PackageVersionFull>1.0.0+849.211229014443.release.33f2fba</PackageVersionFull>
-    <GitCommit>33f2fba</GitCommit>
-    <GitBranch>release</GitBranch>
+    <RadPatch>1</RadPatch>
+    <RadBuild>850</RadBuild>
+    <PackageVersionShort>1.0.1-dev.850.211229035054</PackageVersionShort>
+    <PackageVersionFull>1.0.1-dev.850.211229035054+175.master.86e3398-dirty</PackageVersionFull>
+    <GitCommit>86e3398-dirty</GitCommit>
+    <GitBranch>master</GitBranch>
   </PropertyGroup>
 </Project>
