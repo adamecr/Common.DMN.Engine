@@ -10,10 +10,10 @@
     <RadMajor>1</RadMajor>
     <RadMinor>0</RadMinor>
     <RadPatch>0</RadPatch>
-    <RadBuild>848</RadBuild>
-    <PackageVersionShort>1.0.0-dev.848.211229014240</PackageVersionShort>
-    <PackageVersionFull>1.0.0-dev.848.211229014240+171.master.beb04b8-dirty</PackageVersionFull>
-    <GitCommit>beb04b8-dirty</GitCommit>
-    <GitBranch>master</GitBranch>
+    <RadBuild>849</RadBuild>
+    <PackageVersionShort>1.0.0</PackageVersionShort>
+    <PackageVersionFull>1.0.0+849.211229014443.release.33f2fba</PackageVersionFull>
+    <GitCommit>33f2fba</GitCommit>
+    <GitBranch>release</GitBranch>
   </PropertyGroup>
 </Project>
