@@ -8,7 +8,7 @@
   <PropertyGroup>
     <Authors>Radek Adamec</Authors>
     <Company>Radek Adamec</Company>
-    <Copyright>Radek Adamec 2018</Copyright>
+    <Copyright>Radek Adamec 2021</Copyright>
     <Description>DMN Engine is a rule engine allowing to execute and evaluate the decisions defined in a DMN  model. It's primary target is to evaluate the decision tables that transform the inputs into the output(s) using the decision rules</Description>
     <PackageLicenseUrl>https://github.com/adamecr/Common.DMN.Engine/blob/master/license.txt</PackageLicenseUrl>
     <PackageLicense>MIT</PackageLicense>
