@@ -10,7 +10,7 @@ See the latest changes in [changelog](changelog.md)
 ### Quick start ###
 The basic use case is:
 1. Parse the DMN model from file.
-2. Create and engine execution context and load (and validate) the model into engine context.
+2. Create an engine execution context and load (and validate) the model into engine context.
 3. Provide the input parameter(s).
 4. Execute (and evaluate) the decision and get the result(s).
 
@@ -265,7 +265,7 @@ var result = parsedExpression.Invoke(parameters.ToArray());
 ```
 
 The Engine context keeps the list of variables as triplets:
-- `Name` - name of the variable that is used as a reference as well as the name of the variable for the expression interpreter. The variable names are "normalized" (`name.Trim().Replace(' ', '_')`), so it might cause the un-intentional duplicity if not taken into the consideration 
+- `Name` - name of the variable that is used as a reference as well as the name of the variable for the expression interpreter. 
 - `Type` - the variable values are stored within the Engine context as `object`, however, it provides some support for the data types. It's possible to define the data type in some parts of model - output variable for the expression decision, inputs and outputs for decision tables. The XML parser sets the type of variable at the first place where known and then checks that the data type is the same if set somwhere else. The definition builder for variable requires the type to be specified. When the variable value is set during the execution and the type is known, the Engine tries to cast (`Convert.ChangeType(value, Type)`) the value to required type. 
 - `Value` - current value of the variable. When provided to the expression interpreter, the value type (non-nullable) variables are set to default value of the value type when the current value stored within the context is null
 
@@ -285,7 +285,13 @@ var def = new DmnDefinitionBuilder()
 ```
 
 *Note: The expressions are not parsed/analyzed when the definition is being prepared, so there is no kind of detection/validation of the variables within the expressions*
- 
+
+### Variable Names ###
+The names of the variables can contain the letters (`char.IsLetter()`), digits (`char.IsDigit()`) and underscore (`_`). The first character must be a letter. 
+
+As it's quite common (although not recommended) to use the space in the variable names, the variable names are "normalized" - the trailing spaces are removed and the inner spaces are replaced by underscore (`name.Trim().Replace(' ', '_')`). This is to keep the variable name "compact" when used in expressions (either implicit ones used when evaluating the decision table rules or explicit ones defined in the DMN definition). This is important to be kept in mind when designing the definition - for example when there will be a variable `Some Variable_1  with spaces `, it must be referred as `Some_Variable_1__with_spaces` within the expressions. The normalization might also cause the un-intentional duplicity if not taken into the consideration - for example variables `A B` and `A_B` will be duplicates as the first one will be normalized to `A_B`.
+
+As the input names are used for backing variables, the above mentioned applies for the DMN input names as well.
 
 ### Data Types for Variables ###
 When the data type is defined in DMN model (attribute `typeRef`), the parser maps the types to the .NET types using the function below
