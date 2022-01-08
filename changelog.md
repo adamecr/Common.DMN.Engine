@@ -3,7 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] ##
+
+## [1.0.1] - 2022-01-08 ##
+### Fixed ###
+- [Issue#11 NormalizeVariableName(string name)](https://github.com/adamecr/Common.DMN.Engine/issues/11) -  with the main fix in [PR#12 
+allowing international letters like זרו](https://github.com/adamecr/Common.DMN.Engine/pull/12) by [@samuelsen](https://github.com/samuelsen). 
 
 ## [1.0.0] - 2021-12-29 ##
 As this is a major update, it's recommended to go through the [documentation](readme.md) for both "big picture" and the details.
@@ -66,6 +70,7 @@ As this is a major update, it's recommended to go through the [documentation](re
 ### Added ###
 - Initial release
 
+[1.0.1]: https://github.com/adamecr/Common.DMN.Engine/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/adamecr/Common.DMN.Engine/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/adamecr/Common.DMN.Engine/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/adamecr/Common.DMN.Engine/compare/v0.1.0...v0.1.1
