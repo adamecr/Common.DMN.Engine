@@ -18,11 +18,19 @@
     <GitBranch>release</GitBranch>
 =======
     <RadPatch>1</RadPatch>
+<<<<<<< HEAD
     <RadBuild>852</RadBuild>
     <PackageVersionShort>1.0.1-dev.852.220108151712</PackageVersionShort>
     <PackageVersionFull>1.0.1-dev.852.220108151712+183.master.7e211af-dirty</PackageVersionFull>
     <GitCommit>7e211af-dirty</GitCommit>
     <GitBranch>master</GitBranch>
 >>>>>>> 3c54c87 (Updated documentation)
+=======
+    <RadBuild>853</RadBuild>
+    <PackageVersionShort>1.0.1</PackageVersionShort>
+    <PackageVersionFull>1.0.1+853.220108152756.release.3c54c87</PackageVersionFull>
+    <GitCommit>3c54c87</GitCommit>
+    <GitBranch>release</GitBranch>
+>>>>>>> fb14264 (updated version and changelog)
   </PropertyGroup>
 </Project>
