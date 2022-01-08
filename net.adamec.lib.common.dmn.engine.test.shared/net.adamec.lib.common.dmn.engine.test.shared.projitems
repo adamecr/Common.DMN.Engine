@@ -42,6 +42,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)complex\SfeelExpressionsTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DmnTestBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DummyPlaygroundToRemove.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)issue\Issue11NonAsciiVariableTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)issue\Issue11NonAsciiVariableTestsDmn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestTools.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\CustomDecisionTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\ContextInputTests.cs" />
@@ -165,6 +167,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\hitpolicy_WrongPolicy.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\issue11expressions.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\issue11tbl.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\parallel.dmn">
