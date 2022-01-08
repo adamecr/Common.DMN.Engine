@@ -140,10 +140,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             if (string.IsNullOrWhiteSpace(retVal))
                 throw new ArgumentException($"Variable name is null or empty",nameof(name));
 
-            if (retVal.Any(c => !(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9' || c == '_')))
+            if (retVal.Any(c => !(char.IsLetter(c) || char.IsDigit(c)  || c == '_')))
                 throw new ArgumentException($"Variable name '{name}' contains invalid character", nameof(name));
 
-            if (!(retVal[0] >= 'a' && retVal[0] <= 'z' || retVal[0] >= 'A' && retVal[0] <= 'Z'))
+            if (!char.IsLetter(retVal[0]))
                 throw new ArgumentException($"Variable name '{nameof(name)}' must start with letter", nameof(name));
 
             return retVal;
