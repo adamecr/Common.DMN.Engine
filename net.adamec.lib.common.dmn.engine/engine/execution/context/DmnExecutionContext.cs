@@ -22,9 +22,15 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         protected static ILogger Logger = CommonLogging.CreateLogger<DmnExecutionContext>();
 
         /// <summary>
-        /// Parsed (pre-processed) expressions cache
+        /// Parsed (pre-processed) expressions cache (Global and Definition)
         /// </summary>
         protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache =
+            new ConcurrentDictionary<string, Lambda>();
+
+        /// <summary>
+        /// Parsed (pre-processed) expressions cache (Context and Definitions)
+        /// </summary>
+        protected readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsInstanceCache =
             new ConcurrentDictionary<string, Lambda>();
 
         /// <summary>
@@ -193,6 +199,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             var result = decision.Execute(this, correlationId);
             //note: the decision-after-execute snapshot is created by decision (for each decision in "dependency graph")
 
+            //clear execution cache
+            PurgeExpressionCacheExecutionScope(correlationId);
+
             return result;
         }
 
@@ -226,11 +235,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
 
             var interpreter = new Interpreter();
             ConfigureInterpreter(interpreter);
-            
+
             var parameters = new List<Parameter>();
             SetInterpreterParameters(parameters);
 
-           
+
 
             //Check parsed expression cache
             var cacheKey = GetParsedExpressionCacheKey(executionId, expression, outputType);
@@ -319,24 +328,43 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         }
 
         /// <summary>
-        /// Tries to retrieve the <paramref name="parsedExpression"/> from the parsed expression cache using the <paramref name="cacheKey"/>
+        /// Tries to retrieve the <paramref name="parsedExpression"/> from the parsed expression cache using the <paramref name="cacheKey"/>.
+        /// <see cref="ParsedExpressionCacheScopeEnum.Global"/> and <see cref="ParsedExpressionCacheScopeEnum.Definition"/> scopes use static <see cref="ParsedExpressionsCache"/>,
+        /// otherwise the <see cref="ParsedExpressionsInstanceCache"/> is used.
         /// </summary>
         /// <param name="cacheKey">Retrieval key of the <paramref name="parsedExpression"/></param>
         /// <param name="parsedExpression">Parsed expression retrieved from cache if successful</param>
         /// <returns>True when the <paramref name="parsedExpression"/> has been retrieved from cache, otherwise false</returns>
         protected virtual bool GetParsedExpressionsFromCache(string cacheKey, out Lambda parsedExpression)
         {
-            return ParsedExpressionsCache.TryGetValue(cacheKey, out parsedExpression);
+
+            if (Options.ParsedExpressionCacheScope == ParsedExpressionCacheScopeEnum.Global ||
+                Options.ParsedExpressionCacheScope == ParsedExpressionCacheScopeEnum.Definition)
+            {
+                return ParsedExpressionsCache.TryGetValue(cacheKey, out parsedExpression);
+            }
+
+            return ParsedExpressionsInstanceCache.TryGetValue(cacheKey, out parsedExpression);
         }
 
         /// <summary>
-        /// Store the <paramref name="parsedExpression"/> into parsed expression cache using the <paramref name="cacheKey"/>
+        /// Store the <paramref name="parsedExpression"/> into parsed expression cache using the <paramref name="cacheKey"/>.
+        /// <see cref="ParsedExpressionCacheScopeEnum.Global"/> and <see cref="ParsedExpressionCacheScopeEnum.Definition"/> scopes use static <see cref="ParsedExpressionsCache"/>,
+        /// otherwise the <see cref="ParsedExpressionsInstanceCache"/> is used.
         /// </summary>
         /// <param name="cacheKey">Retrieval key of the <paramref name="parsedExpression"/></param>
         /// <param name="parsedExpression">Parsed expression to cache</param>
         protected virtual void CacheParsedExpression(string cacheKey, Lambda parsedExpression)
         {
-            ParsedExpressionsCache[cacheKey] = parsedExpression;
+            if (Options.ParsedExpressionCacheScope == ParsedExpressionCacheScopeEnum.Global ||
+                Options.ParsedExpressionCacheScope == ParsedExpressionCacheScopeEnum.Definition)
+            {
+                ParsedExpressionsCache[cacheKey] = parsedExpression;
+            }
+            else
+            {
+                ParsedExpressionsInstanceCache[cacheKey] = parsedExpression;
+            }
         }
 
         /// <summary>
@@ -371,6 +399,82 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
             }
 
             return $"{prefix}||{expression}||{outputType.AssemblyQualifiedName}";
+        }
+
+        /// <summary>
+        /// Purge all cached expressions belonging to given Execution <paramref name="executionId"/> scope
+        /// </summary>
+        /// <param name="executionId">Execution Id</param>
+        public virtual void PurgeExpressionCacheExecutionScope(string executionId)
+        {
+            var keys = ParsedExpressionsInstanceCache.Keys.Where(k => k.StartsWith($"{executionId}||"));
+            foreach (var key in keys)
+            {
+                ParsedExpressionsInstanceCache.TryRemove(key, out _);
+            }
+        }
+
+
+        /// <summary>
+        /// Purge all cached expressions belonging to any Execution scope
+        /// </summary>
+        public virtual void PurgeExpressionCacheExecutionScopeAll()
+        {
+            var keys = ParsedExpressionsInstanceCache.Keys.Where(k => !k.StartsWith($"{Id}||")); //anything that doesn't belongs to Context should be Execution scope (None scope is not stored)
+            foreach (var key in keys)
+            {
+                ParsedExpressionsInstanceCache.TryRemove(key, out _);
+            }
+        }
+
+        /// <summary>
+        /// Purge all cached expressions belonging to this Context scope
+        /// </summary>
+        public virtual void PurgeExpressionCacheContextScope()
+        {
+            var keys = ParsedExpressionsInstanceCache.Keys.Where(k => k.StartsWith($"{Id}||")); 
+            foreach (var key in keys)
+            {
+                ParsedExpressionsInstanceCache.TryRemove(key, out _);
+            }
+        }
+        
+        /// <summary>
+        /// Purge all cached expressions belonging to given Definition <paramref name="definitionId"/> scope
+        /// </summary>
+        /// <param name="definitionId">Definition Id</param>
+        public static void PurgeExpressionCacheDefinitionScope(string definitionId)
+        {
+            var keys = ParsedExpressionsCache.Keys.Where(k => k.StartsWith($"{definitionId}||"));
+            foreach (var key in keys)
+            {
+                ParsedExpressionsCache.TryRemove(key, out _);
+            }
+        }
+
+
+        /// <summary>
+        /// Purge all cached expressions belonging to any Definition scope
+        /// </summary>
+        public static void PurgeExpressionCacheDefinitionScopeAll()
+        {
+            var keys = ParsedExpressionsCache.Keys.Where(k => !k.StartsWith($"||")); //anything that doesn't belongs to Global should be Definition scope
+            foreach (var key in keys)
+            {
+                ParsedExpressionsCache.TryRemove(key, out _);
+            }
+        }
+
+        /// <summary>
+        /// Purge all cached expressions belonging to Global scope
+        /// </summary>
+        public static void PurgeExpressionCacheGlobalScope()
+        {
+            var keys = ParsedExpressionsCache.Keys.Where(k => k.StartsWith($"||"));
+            foreach (var key in keys)
+            {
+                ParsedExpressionsCache.TryRemove(key, out _);
+            }
         }
         /// <summary>
         /// Evaluates expression
