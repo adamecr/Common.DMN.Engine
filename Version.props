@@ -10,10 +10,10 @@
     <RadMajor>1</RadMajor>
     <RadMinor>0</RadMinor>
     <RadPatch>2</RadPatch>
-    <RadBuild>863</RadBuild>
-    <PackageVersionShort>1.0.2-dev.863.220207190909</PackageVersionShort>
-    <PackageVersionFull>1.0.2-dev.863.220207190909+192.github-issue-15-cache-lifecycle.a5aea7c-dirty</PackageVersionFull>
-    <GitCommit>a5aea7c-dirty</GitCommit>
+    <RadBuild>903</RadBuild>
+    <PackageVersionShort>1.0.2-dev.903.220209235221</PackageVersionShort>
+    <PackageVersionFull>1.0.2-dev.903.220209235221+193.github-issue-15-cache-lifecycle.8e27534-dirty</PackageVersionFull>
+    <GitCommit>8e27534-dirty</GitCommit>
     <GitBranch>github-issue-15-cache-lifecycle</GitBranch>
   </PropertyGroup>
 </Project>
