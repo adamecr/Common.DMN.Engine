@@ -952,7 +952,8 @@ The execution engine uses the [Dynamic Expresso](https://github.com/davideicardi
 Parsing the expression is time consuming operation and a lot of expressions (for example the ones in decision tables) are evaluated multiple times. For that reason, the execution context contains the cache of the parsed expressions, so it doesn't need to be parsed again when used next time.
 
 The cache is a dictionary of parsed expressions (`DynamicExpresso.Lambda`) - 
-`protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache = new ConcurrentDictionary<string, Lambda>();`. The context `ParsedExpressionCacheScope` option drives how the dictionary key is constructed
+` protected readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsInstanceCache =new ConcurrentDictionary<string, Lambda>();` for (context) instance cache and 
+`protected static readonly ConcurrentDictionary<string, Lambda> ParsedExpressionsCache = new ConcurrentDictionary<string, Lambda>();` for (context) static cache. The context `ParsedExpressionCacheScope` option drives how the dictionary key is constructed and what cache dictionary (instance or static) is gonna be used.
 
 ```csharp
  protected virtual string GetParsedExpressionCacheKey(string executionId, string expression, Type outputType)
@@ -985,10 +986,25 @@ The cache is a dictionary of parsed expressions (`DynamicExpresso.Lambda`) -
 As you can see, the cache key is composed from the expression text, output type and the prefix depending of the `ParsedExpressionCacheScopeEnum` option.
 
  - `None` - Don't cache parsed expressions
- - `Execution` - Cache parsed expressions within the single execution run only
- - `Context` - Cache parsed expressions within execution context only (cross execution runs)
- - `Definition` (default) - Cache parsed expressions for definition (cross execution contexts)
- - `Global` - Cache parsed expressions globally (cross definitions and execution contexts)
+ - `Execution` - Cache parsed expressions within the single execution run only. The (context) instance cache dictionary is used.
+ - `Context` - Cache parsed expressions within execution context only (cross execution runs) The (context) instance cache dictionary is used.
+ - `Definition` (default) - Cache parsed expressions for definition (cross execution contexts). The (context) static cache dictionary is used.
+ - `Global` - Cache parsed expressions globally (cross definitions and execution contexts).The (context) static cache dictionary is used.
+
+As mentioned above, two cache storages (dictionaries) are used
+ - `ParsedExpressionsInstanceCache` (instance cache) - used to store the parsed expressions for `Context` and `Execution`s within the context. As it's an instance field, each context object (instance) has own cache used to cache its `Context` or `Execution` parsed expressions.
+ - `ParsedExpressionsCache` (static cache) - used to store the parsed expressions for `Global` and `Definition` cache. As it's a static field, it's shared between the contexts (context object instances).
+
+The instance cache folows the lifecycle of context object and the `Execution` cache is auto-purged (see below), however it's still possible to purge the cache on demand if needed:
+ - `public virtual void PurgeExpressionCacheExecutionScope(string executionId)` - Purge all cached expressions belonging to given `Execution` scope. This method is called within the `DmnExecutionContext.ExecuteDecision` methods, so the execution scope cache is auto-purged at the end of execution.
+ - `public virtual void PurgeExpressionCacheExecutionScopeAll()` - Purge all cached expressions belonging to any `Execution` scope (within the context)
+ - `public virtual void PurgeExpressionCacheContextScope()` - Purge all cached expressions belonging to "current" `Context` scope.
+
+On the other hand, the static cache follows the `AppDomain` life cycle so it can grow and contain a buch of obsolete items over the time. The static cache can be also purged on demand:
+ - `public static void PurgeExpressionCacheDefinitionScope(string definitionId)` - Purge all cached expressions belonging to given Definition scope
+ - `public static void PurgeExpressionCacheDefinitionScopeAll()` - Purge all cached expressions belonging to any Definition scope
+ - `public static void PurgeExpressionCacheGlobalScope()` - Purge all cached expressions belonging to Global scope
+
 
 ### DynamoExpressions Customizations ###
 You can furter customize the expression evaluations by overriding the `DmnExecutionContext.ConfigureInterpreter` and `DmnExecutionContext.SetInterpreterParameters` methods.
