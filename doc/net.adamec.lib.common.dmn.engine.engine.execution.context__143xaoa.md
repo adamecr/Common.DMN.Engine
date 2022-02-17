@@ -62,7 +62,8 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [Logger](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.logger__1vnt2s8) | protected static | Logger | 
  | [options](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.options__12wzwum) | private | Execution context options | 
- | [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) | protected static | Parsed (pre-processed) expressions cache | 
+ | [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) | protected static | Parsed (pre-processed) expressions cache (Global and Definition) | 
+ | [ParsedExpressionsInstanceCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionsinstancecache__bqtrb7) | protected | Parsed (pre-processed) expressions cache (Context and Definitions) | 
 
  
 
@@ -94,7 +95,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [CacheParsedExpression(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4) | protected | Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong> | 
+ | [CacheParsedExpression(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.cacheparsedexpression_system.string-dynamicexpresso.lambda___159dnk4) | protected | Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong> . [Global](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259) and [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv) scopes use static [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) , otherwise the [ParsedExpressionsInstanceCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionsinstancecache__bqtrb7) is used. | 
  | [ConfigureInterpreter(Interpreter)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.configureinterpreter_dynamicexpresso.interpreter___1b53b3s) | protected | Configures the <em>DynamicExpresso.Interpreter</em> that will invoke the expression. Adds S-FEEL functions to the interpreter and some &quot;common&quot; references (types) | 
  | [CreateSnapshot(IDmnDecision, DmnDecisionResult)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.createsnapshot_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision-net.adamec.lib.common.dmn.engine.engine.execution.result.dmndecisionresult___1bztsza) | internal | Creates the execution context snapshot - to be called by decision after the evaluation | 
  | [EvalExpression(string, Type, string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.evalexpression_system.string-system.type-system.string___icbo1v) | public | Evaluates expression | 
@@ -102,9 +103,15 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | [ExecuteDecision(IDmnDecision)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision___16z7t5v) | public | Executes (evaluates) given <strong>decision</strong> | 
  | [ExecuteDecision(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.executedecision_system.string___1olcv5p) | public | Executes (evaluates) decision with given <strong>decisionName</strong> | 
  | [GetParsedExpressionCacheKey(string, string, Type)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressioncachekey_system.string-system.string-system.type___pepfrp) | protected | Compose the parsed expression key (based on [ParsedExpressionCacheScope](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontextoptions.parsedexpressioncachescope__1i7b48p) ) | 
- | [GetParsedExpressionsFromCache(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressionsfromcache_system.string-dynamicexpresso.lambda-___1emk6yb) | protected | Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong> | 
+ | [GetParsedExpressionsFromCache(string, Lambda)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getparsedexpressionsfromcache_system.string-dynamicexpresso.lambda-___1emk6yb) | protected | Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong> . [Global](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259) and [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv) scopes use static [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) , otherwise the [ParsedExpressionsInstanceCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionsinstancecache__bqtrb7) is used. | 
  | [GetVariable(IDmnVariable)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable___qblh70) | public | Gets the runtime (execution) variable corresponding to its <strong>definition</strong> | 
  | [GetVariable(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.getvariable_system.string___1pjw2vs) | public | Gets the runtime (execution) variable with given <strong>name</strong> | 
+ | [PurgeExpressionCacheContextScope()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncachecontextscope__122h9jv) | public | Purge all cached expressions belonging to this Context scope | 
+ | [PurgeExpressionCacheDefinitionScope(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncachedefinitionscope_system.string___1khcjlo) | public static | Purge all cached expressions belonging to given Definition <strong>definitionId</strong> scope | 
+ | [PurgeExpressionCacheDefinitionScopeAll()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncachedefinitionscopeall__ual138) | public static | Purge all cached expressions belonging to any Definition scope | 
+ | [PurgeExpressionCacheExecutionScope(string)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncacheexecutionscope_system.string___1g6h7zp) | public | Purge all cached expressions belonging to given Execution <strong>executionId</strong> scope | 
+ | [PurgeExpressionCacheExecutionScopeAll()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncacheexecutionscopeall__2zws8b) | public | Purge all cached expressions belonging to any Execution scope | 
+ | [PurgeExpressionCacheGlobalScope()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncacheglobalscope__11j6uir) | public static | Purge all cached expressions belonging to Global scope | 
  | [Reset()](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.reset__2lfhbq) | public | Resets the DMN execution context - clears all variables except the input parameters (sets them to null) and clears the snapshots | 
  | [SetInterpreterParameters(List&lt;DynamicExpresso.Parameter&gt;)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.setinterpreterparameters_system.collections.generic.list_dynamicexpresso.parameter____g8t4d0) | protected | Prepares the parameters that will be used when invoking the expression. All [Variables](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.variables__1o7e2gh) are added to <strong>parameters</strong> . | 
  | [WithInputParameter(string, object)](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.withinputparameter_system.string-system.object___qjwb99) | public | Sets the named input parameter <strong>value</strong> | 
@@ -174,12 +181,36 @@ Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.co
 Sources: engine\execution\context\DmnExecutionContext.cs</small>
 
 
-Parsed (pre-processed) expressions cache
+Parsed (pre-processed) expressions cache (Global and Definition)
 
 
 
 ```csharp
 protected static readonly ConcurrentDictionary<string,DynamicExpresso.Lambda> ParsedExpressionsCache
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2" target="_blank" >System.Collections.Concurrent.ConcurrentDictionary&lt;string,DynamicExpresso.Lambda&gt;</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionsinstancecache__bqtrb7" />  DmnExecutionContext.ParsedExpressionsInstanceCache Field ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Parsed (pre-processed) expressions cache (Context and Definitions)
+
+
+
+```csharp
+protected readonly ConcurrentDictionary<string,DynamicExpresso.Lambda> ParsedExpressionsInstanceCache
 ```
 
 <strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2" target="_blank" >System.Collections.Concurrent.ConcurrentDictionary&lt;string,DynamicExpresso.Lambda&gt;</a></dt><dd></dd></dl>
@@ -368,7 +399,7 @@ Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.co
 Sources: engine\execution\context\DmnExecutionContext.cs</small>
 
 
-Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong>
+Store the <strong>parsedExpression</strong> into parsed expression cache using the <strong>cacheKey</strong> . [Global](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259) and [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv) scopes use static [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) , otherwise the [ParsedExpressionsInstanceCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionsinstancecache__bqtrb7) is used.
 
 
 
@@ -585,7 +616,7 @@ Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.co
 Sources: engine\execution\context\DmnExecutionContext.cs</small>
 
 
-Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong>
+Tries to retrieve the <strong>parsedExpression</strong> from the parsed expression cache using the <strong>cacheKey</strong> . [Global](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.global__1mtr259) and [Definition](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.parsedexpressioncachescopeenum.definition__1muftjv) scopes use static [ParsedExpressionsCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionscache__t9bsca) , otherwise the [ParsedExpressionsInstanceCache](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#f-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.parsedexpressionsinstancecache__bqtrb7) is used.
 
 
 
@@ -653,6 +684,152 @@ public virtual DmnExecutionVariable GetVariable(string name)
 
 ###  Exceptions ###
 <dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>name</strong> is null or empty</dd><dt>[DmnExecutorException](net.adamec.lib.common.dmn.engine.engine.execution__b8ylzp.md#t-net.adamec.lib.common.dmn.engine.engine.execution.dmnexecutorexception__kkv81y)</dt><dd>Variable not found</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncachecontextscope__122h9jv" />  DmnExecutionContext.PurgeExpressionCacheContextScope() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Purge all cached expressions belonging to this Context scope
+
+
+
+```csharp
+public virtual void PurgeExpressionCacheContextScope()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncachedefinitionscope_system.string___1khcjlo" />  DmnExecutionContext.PurgeExpressionCacheDefinitionScope(string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Purge all cached expressions belonging to given Definition <strong>definitionId</strong> scope
+
+
+
+```csharp
+public static void PurgeExpressionCacheDefinitionScope(string definitionId)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>definitionId</strong></dt><dd>Definition Id</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncachedefinitionscopeall__ual138" />  DmnExecutionContext.PurgeExpressionCacheDefinitionScopeAll() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Purge all cached expressions belonging to any Definition scope
+
+
+
+```csharp
+public static void PurgeExpressionCacheDefinitionScopeAll()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncacheexecutionscope_system.string___1g6h7zp" />  DmnExecutionContext.PurgeExpressionCacheExecutionScope(string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Purge all cached expressions belonging to given Execution <strong>executionId</strong> scope
+
+
+
+```csharp
+public virtual void PurgeExpressionCacheExecutionScope(string executionId)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>executionId</strong></dt><dd>Execution Id</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncacheexecutionscopeall__2zws8b" />  DmnExecutionContext.PurgeExpressionCacheExecutionScopeAll() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Purge all cached expressions belonging to any Execution scope
+
+
+
+```csharp
+public virtual void PurgeExpressionCacheExecutionScopeAll()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext.purgeexpressioncacheglobalscope__11j6uir" />  DmnExecutionContext.PurgeExpressionCacheGlobalScope() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88)           
+Sources: engine\execution\context\DmnExecutionContext.cs</small>
+
+
+Purge all cached expressions belonging to Global scope
+
+
+
+```csharp
+public static void PurgeExpressionCacheGlobalScope()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
