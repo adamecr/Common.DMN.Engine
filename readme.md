@@ -46,7 +46,7 @@ Tests are implemented using [MS Test Framework](https://github.com/microsoft/tes
 
 Note: adjust the `LogHome` variable in `nlog.config` of test project as you need.
 
-The test code is in shared code project that is "linked" to test projects targetting different platforms (.net core 2.1, 3.1, 5; .net framework 4.6.2, 4.7.2).
+The test code is in shared code project that is "linked" to test projects targetting different platforms (.net core 3.1, 5, 6; .net framework 4.6.2, 4.7.2).
 `DmnTestBase` class provides abstraction allowing to simply apply the same tests using the different sources (DMN XML 1.1/1.3 or builders). 
 
 The "primary" test class inherits from `DmnTestBase` and contains the test code and is set to test against DMN XML 1.1.

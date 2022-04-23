@@ -18,7 +18,10 @@ namespace net.adamec.lib.common.dmn.engine.test
             }
             catch (TargetInvocationException ex)
             {
-                throw ex.InnerException;
+                if (ex.InnerException != null)
+                    throw ex.InnerException;
+                else
+                    throw ex;
             }
         }
 
@@ -33,7 +36,10 @@ namespace net.adamec.lib.common.dmn.engine.test
             }
             catch (TargetInvocationException ex)
             {
-                throw ex.InnerException;
+                if (ex.InnerException != null)
+                    throw ex.InnerException;
+                else
+                    throw ex;
             }
         }
     }

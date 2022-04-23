@@ -8,12 +8,12 @@
     -->
   <PropertyGroup>
     <RadMajor>1</RadMajor>
-    <RadMinor>0</RadMinor>
-    <RadPatch>2</RadPatch>
-    <RadBuild>903</RadBuild>
-    <PackageVersionShort>1.0.2-dev.903.220209235221</PackageVersionShort>
-    <PackageVersionFull>1.0.2-dev.903.220209235221+193.github-issue-15-cache-lifecycle.8e27534-dirty</PackageVersionFull>
-    <GitCommit>8e27534-dirty</GitCommit>
-    <GitBranch>github-issue-15-cache-lifecycle</GitBranch>
+    <RadMinor>1</RadMinor>
+    <RadPatch>0</RadPatch>
+    <RadBuild>915</RadBuild>
+    <PackageVersionShort>1.1.0-dev.915.220423093028</PackageVersionShort>
+    <PackageVersionFull>1.1.0-dev.915.220423093028+196.master.96dc1a4-dirty</PackageVersionFull>
+    <GitCommit>96dc1a4-dirty</GitCommit>
+    <GitBranch>master</GitBranch>
   </PropertyGroup>
 </Project>

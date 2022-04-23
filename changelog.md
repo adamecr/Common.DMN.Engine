@@ -3,8 +3,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased ##
+### Breaking change ###
+- Removed support for .Net Core 2.1 
+  - The library still migh work when used in .Net Core 2.1 apps, however it's not being tested against .Net Core 2.1 anymore and no related fixes/updates are exected in future
+
 ### Fixed ###
 - [Issue#15 Memory leak detected within DmnExecutionContext class](https://github.com/adamecr/Common.DMN.Engine/issues/15) - The (static) parsed expression cache have been split to instance dictionary (for Execution and Context scopes) and to static dictionary (for Definition and Global scopes). The purge methods for individual scopes have been added to `DmnExecutionContext` class. Thanks [@JoanRosell](https://github.com/JoanRosell) for identifying the issue. 
+
+### Added ###
+- Support (and test project) for .Net 6.0
+
+### Changed ###
+- Other
+  - Referenced NuGet packages versions update
+  - Solution now primary for VS2022 (was 2019)
 
 
 ## [1.0.1] - 2022-01-08 ##
