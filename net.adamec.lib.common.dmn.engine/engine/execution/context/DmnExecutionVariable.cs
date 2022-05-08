@@ -24,6 +24,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// Unique variable name
         /// </summary>
         public string Name => Definition.Name;
+        
+        /// <summary>
+        /// Label of the variable (used for input parameters)
+        /// </summary>
+        public string Label => Definition.Label;
+
         /// <summary>
         /// Variable type or null if not defined
         /// </summary>

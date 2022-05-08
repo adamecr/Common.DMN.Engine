@@ -73,7 +73,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// </summary>
         /// <remarks>The outputs are "indexed" in the order as added to the table definition builder</remarks>
         public int Index { get; }
-
+        
+        /// <summary>
+        /// Output label, "Output#{Index}" will be used if not provided
+        /// </summary>
+        public string Label { get; }
         /// <summary>
         /// Reference to variable to store the output to
         /// </summary>
@@ -94,10 +98,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="variables"><see cref="VariableCatalog"/> managing the definition builder variables</param>
         /// <param name="decisions"><see cref="DecisionCatalog"/> managing the definition builder decisions</param>
         /// <param name="index">Index of the output (order)</param>
-        internal TableOutput(VariableCatalog variables, DecisionCatalog decisions, int index)
+        /// <param name="label">Output label, "Output#{Index}" will be used if not provided</param>
+        internal TableOutput(VariableCatalog variables, DecisionCatalog decisions, int index,string label=null)
             : base(variables, decisions)
         {
             Index = index;
+            Label = string.IsNullOrWhiteSpace(label) ? $"Output#{Index}" : label;
             Reference = RefCtor(this);
         }
 
@@ -155,7 +161,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             var output = new DmnDecisionTableOutput(
                 Index,
                 VariableInternal.GetResultOrBuild(),
-                AllowedValues);
+                AllowedValues,
+                Label);
             ResultInternal = output;
             return output;
         }

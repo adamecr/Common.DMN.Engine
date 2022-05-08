@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <decision id="beverages" name="Beverages">
+    <informationRequirement id="InformationRequirement_1xvojck">
+      <requiredInput href="#InputData_0pgvdj9" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_083jsex">
+      <requiredDecision href="#dish" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_07q05jb" hitPolicy="COLLECT">
+      <input id="InputClause_1acmlkd" label="desiredDish" camunda:inputVariable="desiredDish">
+        <inputExpression id="LiteralExpression_0bqgrlg" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0bo3uen" label="guestsWithChildren" camunda:inputVariable="guestsWithChildren">
+        <inputExpression id="LiteralExpression_0d6l79o" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OuputClause_99999" label="beverages" name="beverages" typeRef="string" />
+      <rule id="row-506282952-7">
+        <description>Tough Stuff</description>
+        <inputEntry id="UnaryTests_03g3ci0">
+          <text>"Spareribs"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jb8hau">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kr45vj">
+          <text>"Aecht Schlenkerla Rauchbier"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-8">
+        <inputEntry id="UnaryTests_1ckv0bb">
+          <text>"Stew"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1joyits">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_139n7gl">
+          <text>"Guiness"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-9">
+        <inputEntry id="UnaryTests_05rspiy">
+          <text>"Roastbeef"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15yl6ki">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bzfo47">
+          <text>"Bordeaux"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-10">
+        <inputEntry id="UnaryTests_0mk75lc">
+          <text>"Steak","Dry Aged Gourmet Steak","Light Salad and a nice Steak"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18uxmko">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00nwn3e">
+          <text>"Pinot Noir"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-11">
+        <inputEntry id="UnaryTests_11o8pqj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1298ow3">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z18erz">
+          <text>"Apple Juice"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-12">
+        <inputEntry id="UnaryTests_0shocr0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nblyrk">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0s2fq8r">
+          <text>"Water"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="dish" name="Dish">
+    <informationRequirement id="InformationRequirement_0xbr982">
+      <requiredInput href="#InputData_0rin549" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0s36klr">
+      <requiredInput href="#InputData_1axnom3" />
+    </informationRequirement>
+    <authorityRequirement id="AuthorityRequirement_0h647jo">
+      <requiredAuthority href="#KnowledgeSource_0b8hnqo" />
+    </authorityRequirement>
+    <decisionTable id="DecisionTable_040j91i">
+      <input id="InputClause_0bbq1z8" label="season" camunda:inputVariable="season">
+        <inputExpression id="LiteralExpression_1iwaqcz" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0pcbpc9" label="guestCount" camunda:inputVariable="guestCount">
+        <inputExpression id="LiteralExpression_1uu3xe6" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0lfar1z" label="desiredDish" name="desiredDish" typeRef="string" />
+      <rule id="row-884555325-1">
+        <description>Default value</description>
+        <inputEntry id="UnaryTests_0cy7usy">
+          <text>not("Fall", "Winter", "Spring", "Summer")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ww352f">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07xyqqp">
+          <text>"Instant Soup"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-1">
+        <inputEntry id="UnaryTests_06z2ju4">
+          <text>"Fall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ph5qbt">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sntjhd">
+          <text>"Spareribs"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-2">
+        <inputEntry id="UnaryTests_0o5o0mm">
+          <text>"Winter"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rtyr8x">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15nybba">
+          <text>"Roastbeef"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-3">
+        <inputEntry id="UnaryTests_1f00omt">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03yxt5d">
+          <text>&lt;= 4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ki86jo">
+          <text>"Dry Aged Gourmet Steak"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-4">
+        <description>Save money</description>
+        <inputEntry id="UnaryTests_18csep1">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lt4o3q">
+          <text>[5..8]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h969t1">
+          <text>"Steak"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-5">
+        <description>Less effort</description>
+        <inputEntry id="UnaryTests_0cp9scy">
+          <text>"Fall","Winter","Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1to1xxg">
+          <text>&gt; 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fjt4uo">
+          <text>"Stew"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-6">
+        <description>Hey, why not?</description>
+        <inputEntry id="UnaryTests_0s5azk4">
+          <text>"Summer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nuzyri">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nspzk1">
+          <text>"Light Salad and a nice Steak"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0rin549" name="season" />
+  <inputData id="InputData_1axnom3" name="guestCount" />
+  <inputData id="InputData_0pgvdj9" name="guestsWithChildren" />
+  <knowledgeSource id="KnowledgeSource_0b8hnqo" name="Men&#39;s Cookbook" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_0i21c0s">
+      <dmndi:DMNShape id="DMNShape_0a1lk6d" dmnElementRef="beverages">
+        <dc:Bounds height="80" width="180" x="540" y="86" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1czaglz" dmnElementRef="InformationRequirement_1xvojck">
+        <di:waypoint x="713" y="239" />
+        <di:waypoint x="660" y="186" />
+        <di:waypoint x="660" y="166" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_03cgt9t" dmnElementRef="InformationRequirement_083jsex">
+        <di:waypoint x="473" y="240" />
+        <di:waypoint x="600" y="186" />
+        <di:waypoint x="600" y="166" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0rz3blq" dmnElementRef="dish">
+        <dc:Bounds height="80" width="180" x="383" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0f7wakd" dmnElementRef="AuthorityRequirement_0h647jo">
+        <di:waypoint x="261" y="285" />
+        <di:waypoint x="383" y="278" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0c10itu" dmnElementRef="InformationRequirement_0xbr982">
+        <di:waypoint x="359" y="399" />
+        <di:waypoint x="443" y="340" />
+        <di:waypoint x="443" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1uk8cqg" dmnElementRef="InformationRequirement_0s36klr">
+        <di:waypoint x="582" y="399" />
+        <di:waypoint x="503" y="340" />
+        <di:waypoint x="503" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_00sc46j" dmnElementRef="InputData_0rin549">
+        <dc:Bounds height="45" width="125" x="296" y="399" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_095ntfb" dmnElementRef="InputData_1axnom3">
+        <dc:Bounds height="45" width="125" x="519" y="399" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0aea4xy" dmnElementRef="InputData_0pgvdj9">
+        <dc:Bounds height="45" width="125" x="650" y="239" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0bugmbv" dmnElementRef="KnowledgeSource_0b8hnqo">
+        <dc:Bounds height="63" width="100" x="161" y="253" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

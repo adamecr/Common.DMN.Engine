@@ -75,8 +75,10 @@ Sources: parser\DmnParser.cs</small></p>
 <table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse_system.string-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum___1tvf0mj" >Parse(string, DmnParser.DmnVersionEnum)</a></td><td>public static</td><td>Parse the file with DMN Model XML definition based on DMN standard version .</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse13_system.string___3jyezv" >Parse13(string)</a></td><td>public static</td><td>Parse the file with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3</a> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse13ext_system.string___f2z1fm" >Parse13ext(string)</a></td><td>public static</td><td>Parse the file with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3 with extensions</a> .</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring_system.string-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum___1ldin6" >ParseString(string, DmnParser.DmnVersionEnum)</a></td><td>public static</td><td>Parse the string with DMN Model XML definition based on DMN standard version .</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring13_system.string___1cswehw" >ParseString13(string)</a></td><td>public static</td><td>Parse the string with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3</a> .</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring13ext_system.string___1quh80z" >ParseString13ext(string)</a></td><td>public static</td><td>Parse the string with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3 with extensions</a> .</td></tr>
 </table>
 <p> </p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
@@ -156,6 +158,19 @@ Sources: parser\DmnParser.cs</small></p>
 <p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing file path ( <strong>filePath</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>File doesn&#39;t exist</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse file</dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse13ext_system.string___f2z1fm" ></a>  DmnParser.Parse13ext(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<p>Parse the file with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3 with extensions</a> .</p>
+<pre><code class="csharp">public static DmnModel Parse13ext(string filePath)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>filePath</strong></dt><dd>Path to the file to be parsed</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a></dt><dd>Parsed DMN Model</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing file path ( <strong>filePath</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>File doesn&#39;t exist</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse file</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
 <h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring_system.string-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum___1ldin6" ></a>  DmnParser.ParseString(string, DmnParser.DmnVersionEnum) Method </h2>
 <p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
 Assembly: net.adamec.lib.common.dmn.engine<br />
@@ -176,6 +191,19 @@ Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec
 Sources: parser\DmnParser.cs</small></p>
 <p>Parse the string with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3</a> .</p>
 <pre><code class="csharp">public static DmnModel ParseString13(string dmnDefinition)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>dmnDefinition</strong></dt><dd>DMN Model XML definition</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a></dt><dd>Parsed DMN Model</dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Missing DMN Model definition ( <strong>dmnDefinition</strong> is null or empty)</dd><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7" >DmnParserException</a></dt><dd>Can&#39;t parse DMN definition</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring13ext_system.string___1quh80z" ></a>  DmnParser.ParseString13ext(string) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga" >DmnParser</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<p>Parse the string with DMN Model XML definition based on <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >DMN standard version 1.3 with extensions</a> .</p>
+<pre><code class="csharp">public static DmnModel ParseString13ext(string dmnDefinition)</code></pre>
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a> <strong>dmnDefinition</strong></dt><dd>DMN Model XML definition</dd></dl>
 <p><strong>Return value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9" >net.adamec.lib.common.dmn.engine.parser.dto.DmnModel</a></dt><dd>Parsed DMN Model</dd></dl></p>
 <h3>  Exceptions </h3>
@@ -314,6 +342,7 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.icompara
 <table><tr><th>Name</th><th>Value</th><th>Summary</th></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_1__14p7r3d" >V1_1</a></td><td>0</td><td>DMN version 1.1</td></tr>
 <tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b" >V1_3</a></td><td>1</td><td>DMN version 1.3</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3ext__is8jxm" >V1_3ext</a></td><td>2</td><td>DMN version 1.3 with extensions</td></tr>
 </table>
 <p> </p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
@@ -335,6 +364,16 @@ Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec
 Sources: parser\DmnParser.cs</small></p>
 <p>DMN version 1.3</p>
 <pre><code class="csharp"> V1_3 = 1</code></pre>
+<p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g" >net.adamec.lib.common.dmn.engine.parser.DmnParser.DmnVersionEnum</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3ext__is8jxm" ></a>  DmnParser.DmnVersionEnum.V1_3ext Constant </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#n-net.adamec.lib.common.dmn.engine.parser__src1fa" >net.adamec.lib.common.dmn.engine.parser</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g" >DmnParser.DmnVersionEnum</a><br />
+Sources: parser\DmnParser.cs</small></p>
+<p>DMN version 1.3 with extensions</p>
+<pre><code class="csharp"> V1_3ext = 2</code></pre>
 <p><strong>Field value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser__src1fa.html#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g" >net.adamec.lib.common.dmn.engine.parser.DmnParser.DmnVersionEnum</a></dt><dd></dd></dl></p>
 <p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
 <p> </p>

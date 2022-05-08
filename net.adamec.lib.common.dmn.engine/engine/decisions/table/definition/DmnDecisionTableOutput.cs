@@ -12,6 +12,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// Index of the output (order)
         /// </summary>
         public int Index { get; }
+
+        /// <summary>
+        /// Output label, "Output#{Index+1}" will be used if not provided (1-based index)
+        /// </summary>
+        public string Label { get; }
+
         /// <summary>
         /// Variable to store the output to
         /// </summary>
@@ -27,9 +33,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.definition
         /// <param name="index">Index of the output (order)</param>
         /// <param name="variable">Variable to store the output to</param>
         /// <param name="allowedValues">Optional array of allowed values</param>
-        public DmnDecisionTableOutput(int index, IDmnVariable variable, string[] allowedValues = null)
+        /// <param name="label">Output label, "Output#{Index+1}" will be used if not provided</param>
+        public DmnDecisionTableOutput(int index, IDmnVariable variable, string[] allowedValues = null,string label=null)
         {
             Index = index;
+            Label = string.IsNullOrWhiteSpace(label) ? $"Output#{Index+1}" : label;
             Variable = variable;
             AllowedValues = allowedValues;
         }

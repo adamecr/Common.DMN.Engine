@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using net.adamec.lib.common.dmn.engine.engine.definition;
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
 using net.adamec.lib.common.dmn.engine.parser;
+using net.adamec.lib.common.dmn.engine.parser.dto;
 
 namespace net.adamec.lib.common.dmn.engine.test.unit
 {
@@ -52,7 +53,9 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
 
         private static void InvokeCheckAndUpdateVariableType(DmnVariableDefinition var, string typeStr)
         {
-            TestTools.InvokeNonPublicStaticMethod<DmnDefinitionFactory>("CheckAndUpdateVariableType", var, typeStr);
+            var dummyModel = new DmnModel();
+            var definitionFactory = TestTools.InvokeNonPublicCtor<DmnDefinitionFactory>(dummyModel) as DmnDefinitionFactory;
+            TestTools.InvokeNonPublicMethod(definitionFactory,"CheckAndUpdateVariableType", var, typeStr);
         }
 
         [TestMethod]

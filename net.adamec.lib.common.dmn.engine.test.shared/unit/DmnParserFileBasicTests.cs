@@ -13,8 +13,9 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
         [TestMethod]
         public void ParseFileHappyTest()
         {
-            var def = MODEL("test.dmn");
-            def.Should().NotBeNull();
+            var model = MODEL("test.dmn");
+            model.Should().NotBeNull();
+            model.DmnVersion.Should().Be(ParserVersion);
         }
 
         [TestMethod]

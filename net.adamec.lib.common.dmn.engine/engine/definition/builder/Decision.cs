@@ -78,7 +78,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// Decision unique name
         /// </summary>
         public string Name { get; }
-
+        /// <summary>
+        /// Label of the decision
+        /// </summary>
+        public string Label { get; }
         /// <summary>
         /// Decision required inputs (input variables)
         /// </summary>
@@ -95,13 +98,15 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="variables"><see cref="VariableCatalog"/> managing the definition builder variables</param>
         /// <param name="decisions"><see cref="DecisionCatalog"/> managing the definition builder decisions</param>
         /// <param name="name">Unique name of the decision</param>
-        protected Decision(VariableCatalog variables, DecisionCatalog decisions, string name) : base(variables,
+        /// <param name="label">Optional label for the decision, <paramref name="name"/> is used when not provided</param>
+        protected Decision(VariableCatalog variables, DecisionCatalog decisions, string name,string label=null) : base(variables,
             decisions)
         {
             if (name is null) throw new ArgumentNullException(nameof(name));
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Missing name", nameof(name));
 
             Name = name;
+            Label = string.IsNullOrWhiteSpace(label) ? name : label;
             Reference = RefCtor(this);
         }
 

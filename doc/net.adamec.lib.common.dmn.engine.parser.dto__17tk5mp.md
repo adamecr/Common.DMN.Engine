@@ -942,6 +942,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [AllowedInputValues](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput.allowedinputvalues__c6w9c9) | public | Optional list of allowed input values If the expression input is used, the allowed input values are checked after the expression evaluation | 
  | [InputExpression](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput.inputexpression__11ipo6n) | public | Input expression without the [Text](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.expression.text__oc7916) subelement just defines the data type of the input. When  the [Text](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.expression.text__oc7916) subelement is provided the expression is used as the input | 
+ | [InputVariable](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput.inputvariable__3707tj) | public | Name of the input variable if present | 
  | [Label](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput.label__azd7ah) | public | Label used to map to variable when the expression is not used | 
 
  
@@ -1004,6 +1005,31 @@ public Expression InputExpression { get; set; }
 ```
 
 <strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.Expression](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.expression__tql32b)</dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput.inputvariable__3707tj" />  DecisionTableInput.InputVariable Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.parser.dto](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DecisionTableInput](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49)           
+Sources: parser\dto\DecisionTableInput.cs</small>
+
+
+Name of the input variable if present
+
+
+
+```csharp
+[XmlAttribute("inputVariable", Namespace = "http://camunda.org/schema/1.0/dmn")]
+public string InputVariable { get; set; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -1085,7 +1111,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [AllowedOutputValues](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput.allowedoutputvalues__1bxjand) | public | Allowed output values | 
- | [Label](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput.label__18qzvgi) | public | Label used to map to output variable | 
+ | [Label](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput.label__18qzvgi) | public | Label ouf the output | 
  | [TypeRef](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableoutput.typeref__19e17wf) | public | Type of the output variable | 
 
  
@@ -1138,7 +1164,7 @@ Type: [DecisionTableOutput](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp
 Sources: parser\dto\DecisionTableOutput.cs</small>
 
 
-Label used to map to output variable
+Label ouf the output
 
 
 
@@ -1395,6 +1421,8 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [Decisions](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.decisions__cplqsq) | public | List of [decisions](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decision__132ore9) within DMN Model | 
+ | [DiagramExtension](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.diagramextension__1tdoo3v) | public | Diagrams within DMN Model | 
+ | [DmnVersion](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.dmnversion__1qhlawq) | public | DMN Version used by parser | 
  | [InputData](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.inputdata__1pcg5ip) | public | List of input data parameters to be used by [Decisions](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.decisions__cplqsq) for DMN Model | 
 
  
@@ -1423,6 +1451,56 @@ public List<net.adamec.lib.common.dmn.engine.parser.dto.Decision> Decisions { ge
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.Decision&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.diagramextension__1tdoo3v" />  DmnModel.DiagramExtension Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.parser.dto](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9)           
+Sources: parser\dto\DmnModel.cs</small>
+
+
+Diagrams within DMN Model
+
+
+
+```csharp
+[XmlElement("DMNDI", Namespace = "https://www.omg.org/spec/DMN/20191111/DMNDI/")]
+public DmnDi DiagramExtension { get; set; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.diagram.DmnDi](net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.md#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi__x0v2yy)</dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel.dmnversion__1qhlawq" />  DmnModel.DmnVersion Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.parser.dto](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9)           
+Sources: parser\dto\DmnModel.cs</small>
+
+
+DMN Version used by parser
+
+
+
+```csharp
+[XmlIgnore]
+public DmnParser.DmnVersionEnum DmnVersion { get; set; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.DmnParser.DmnVersionEnum](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g)</dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlignoreattribute" target="_blank" >System.Xml.Serialization.XmlIgnoreAttribute</a>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -1616,7 +1694,7 @@ public abstract class IdedElement
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
-Derived: [net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisionrule__ug9ttn), [net.adamec.lib.common.dmn.engine.parser.dto.DecisionTable](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr), [net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49), [net.adamec.lib.common.dmn.engine.parser.dto.Expression](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.expression__tql32b), [net.adamec.lib.common.dmn.engine.parser.dto.NamedElement](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.namedelement__11eai0o)           
+Derived: [net.adamec.lib.common.dmn.engine.parser.dto.DecisionRule](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisionrule__ug9ttn), [net.adamec.lib.common.dmn.engine.parser.dto.DecisionTable](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontable__x8zzrr), [net.adamec.lib.common.dmn.engine.parser.dto.DecisionTableInput](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.decisiontableinput__csk49), [net.adamec.lib.common.dmn.engine.parser.dto.Expression](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.expression__tql32b), [net.adamec.lib.common.dmn.engine.parser.dto.NamedElement](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.namedelement__11eai0o), [net.adamec.lib.common.dmn.engine.parser.dto.diagram.Diagram](net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.md#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj), [net.adamec.lib.common.dmn.engine.parser.dto.diagram.Edge](net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.md#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5), [net.adamec.lib.common.dmn.engine.parser.dto.diagram.Shape](net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.md#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp)           
 
 
 

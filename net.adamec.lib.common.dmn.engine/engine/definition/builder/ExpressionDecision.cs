@@ -39,8 +39,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="variables"><see cref="VariableCatalog"/> managing the definition builder variables</param>
         /// <param name="decisions"><see cref="DecisionCatalog"/> managing the definition builder decisions</param>
         /// <param name="name">Unique name of the decision</param>
-        internal ExpressionDecision(VariableCatalog variables, DecisionCatalog decisions, string name)
-            : base(variables, decisions, name)
+        /// <param name="label">Optional label of the decision, name is used when not provided</param>
+        internal ExpressionDecision(VariableCatalog variables, DecisionCatalog decisions, string name,string label=null)
+            : base(variables, decisions, name,label)
         {
 
         }
@@ -191,7 +192,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
                 Expression,
                 OutputVariableInternal.GetResultOrBuild(),
                 RequiredInputs.Select(i => Variables[i].GetResultOrBuild()).ToArray(),
-                RequiredDecisions.Select(d => Decisions[d].GetResultOrBuild()).ToArray());
+                RequiredDecisions.Select(d => Decisions[d].GetResultOrBuild()).ToArray(),
+                Label);
             ResultInternal = expressionDecision;
             return expressionDecision;
         }

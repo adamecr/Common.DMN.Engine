@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_1k3ls5v" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <inputData id="InputData_1upwrsh" name="Age" />
+  <decision id="mainDt" name="MainDT">
+    <informationRequirement id="InformationRequirement_0a2lhiz">
+      <requiredDecision href="#doubleAge" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_06jbohl">
+      <requiredInput href="#InputData_1upwrsh" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ye47pg">
+      <requiredInput href="#InputData_1x748jr" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13aygxz">
+      <requiredInput href="#InputData_1njw5fl" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08glpzs">
+      <requiredInput href="#InputData_04nkn0p" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0efjbeq">
+      <requiredInput href="#InputData_0f213e0" />
+    </informationRequirement>
+    <authorityRequirement id="AuthorityRequirement_0kx2dkd">
+      <requiredAuthority href="#KnowledgeSource_1wfrd44" />
+    </authorityRequirement>
+    <decisionTable id="decisionTable" hitPolicy="FIRST">
+      <input id="InputClause_1slqbhv" label="Pocet" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1w2fn48" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="input1" label="Greeting" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="string">
+          <text>Greeting</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1xmdzan">
+          <text></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_16g98gl" label="Rano">
+        <inputExpression id="LiteralExpression_0p71gxn" typeRef="boolean">
+          <text>Rano</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ppxwm8" label="Test" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_150o1ch" typeRef="string">
+          <text>Test</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1aaxlcu">
+          <text>"prvni","druhy","treti"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0k5ugki" label="Age" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0m67jgu" typeRef="integer" expressionLanguage="">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0k6a3e1" label="Double Age" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_16tqyj7" typeRef="integer">
+          <text>Age2</text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="Category" name="" typeRef="string">
+        <outputValues id="UnaryTests_0pt0mnp">
+          <text>"a","b","c"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0d1uy1v" label="Eligible" name="" typeRef="boolean" />
+      <output id="OutputClause_1bjkmty" label="Tout" typeRef="integer" />
+      <rule id="row-137040852-1">
+        <description>Rule 1</description>
+        <inputEntry id="UnaryTests_08pa3f2">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18ltork">
+          <text>"ahoj", "cau"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ldstsc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1390x6k">
+          <text>"druhy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a5azw3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ffhqf1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0glp3xr">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10m9wrr">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13thyrv">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-2">
+        <inputEntry id="UnaryTests_1ry2wj5">
+          <text>&lt; 4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tqu64i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zywtpc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07djj8p">
+          <text>"prvni"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ys1zfy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r47u5r">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0up89ur">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1blmeyn">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_090d7nv">
+          <text>Age*2</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-4">
+        <inputEntry id="UnaryTests_0upcnuy">
+          <text>&lt;= 3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kwc4ju">
+          <text>not("sss", "www")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o5jzrq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tco686">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ldokjw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z24fi4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13k9nin">
+          <text>"c"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1r466jy">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0emfbjl">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-3">
+        <inputEntry id="UnaryTests_0q8lwfr" expressionLanguage="javascript">
+          <text>]4..7]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18fxlkj">
+          <text>not("po")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uxacf3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ll6x9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zyuzns">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g2ru79">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rewo0f">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15953ej">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0gg5ntx">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-6">
+        <inputEntry id="UnaryTests_075pds8">
+          <text>[2..6]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vn8ew8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s8th8o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1901bx2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b84eqf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tzajpb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09cyt42">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rly8gu">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ab5tc4">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-5">
+        <inputEntry id="UnaryTests_1q7tln8">
+          <text>]3..4]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wl25ba">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f6rvbp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m8ag3o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tqyrnc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wgcx4u">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0r8y9hp">
+          <text>"b"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1suqmzy">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1g6p601">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-7">
+        <inputEntry id="UnaryTests_09g4kz9">
+          <text>43</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bqmeob">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18o6746">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01ze4b2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c8nty3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18s9f89">
+          <text>&gt;30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06ataf2">
+          <text>"a"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10whyu8">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tlbyti">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-12">
+        <description>Fallback</description>
+        <inputEntry id="UnaryTests_1ubfsge">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xv8r23">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eik67g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ji8qkn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lfxbc5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g6t2q6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pizbms">
+          <text>"c"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02r8xka">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tjkclo">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="doubleAge" name="Double (Age+10)">
+    <variable id="InformationItem_06gbpkx" name="Age2" typeRef="integer" />
+    <informationRequirement id="InformationRequirement_052ms87">
+      <requiredDecision href="#Decision_1gzn618" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_1av7s2s" expressionLanguage="feel">
+      <text>age10*2</text>
+    </literalExpression>
+  </decision>
+  <decision id="secDt" name="Secondary DT">
+    <informationRequirement id="InformationRequirement_1m69vo0">
+      <requiredDecision href="#Decision_1emd3al" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_195uyyi">
+      <input id="InputClause_05jjz5x" label="Eligible" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0qmn7mi" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0434as9" label="Category">
+        <inputExpression id="LiteralExpression_1ktdnu5" typeRef="string" />
+        <inputValues id="UnaryTests_050f797">
+          <text>"a","b","c"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_12aqwrc" label="Amount" name="" typeRef="integer" />
+      <rule id="row-137040852-8">
+        <inputEntry id="UnaryTests_1gm5q0e">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bmgpnw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_002fh4g">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-9">
+        <inputEntry id="UnaryTests_1l2git8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bjm5u7">
+          <text>"a"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v7i5o7">
+          <text>100</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-10">
+        <inputEntry id="UnaryTests_1d077hc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_108zzr5">
+          <text>"b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01l6z3k">
+          <text>200</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-137040852-11">
+        <inputEntry id="UnaryTests_0d2w9ky">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kvpc0g">
+          <text>"c"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mgo8gf">
+          <text>300</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1x748jr" name="Pocet" />
+  <inputData id="InputData_04nkn0p" name="Rano" />
+  <inputData id="InputData_1njw5fl" name="Greeting" />
+  <inputData id="InputData_0f213e0" name="Test" />
+  <decision id="Decision_1gzn618" name="Age +10">
+    <variable id="InformationItem_0gyrmai" name="age10" typeRef="integer" />
+    <informationRequirement id="InformationRequirement_1s6oeme">
+      <requiredInput href="#InputData_1upwrsh" />
+    </informationRequirement>
+    <knowledgeRequirement id="KnowledgeRequirement_1e7pokw">
+      <requiredKnowledge href="#BusinessKnowledgeModel_0iqfefl" />
+    </knowledgeRequirement>
+    <literalExpression id="LiteralExpression_08cspp5">
+      <text>Age+10</text>
+    </literalExpression>
+  </decision>
+  <decision id="Decision_0rmto5u" name="Category + suffix">
+    <variable id="InformationItem_0m76ppy" name="CategoryExt" typeRef="string" />
+    <informationRequirement id="InformationRequirement_1n86rew">
+      <requiredDecision href="#mainDt" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_14csqtz">
+      <requiredInput href="#InputData_02wrtls" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_0pwm1u3">
+      <text>Category+Suffix</text>
+    </literalExpression>
+  </decision>
+  <inputData id="InputData_02wrtls" name="Suffix" />
+  <decision id="Decision_1emd3al" name="Ensure Eligible">
+    <variable id="InformationItem_1x9zv25" name="Eligible" typeRef="boolean" />
+    <informationRequirement id="InformationRequirement_0lyzph6">
+      <requiredDecision href="#mainDt" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_0wdfv8i">
+      <text>Eligible==null?false:Eligible</text>
+    </literalExpression>
+  </decision>
+  <knowledgeSource id="KnowledgeSource_1wfrd44" name="MainDT">
+    <authorityRequirement id="AuthorityRequirement_1tyf42l">
+      <requiredInput href="#InputData_1x748jr" />
+    </authorityRequirement>
+  </knowledgeSource>
+  <businessKnowledgeModel id="BusinessKnowledgeModel_0iqfefl" name="dummy" />
+</definitions>

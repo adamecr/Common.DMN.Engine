@@ -10,6 +10,8 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
     [TestCategory("Code tests - parser")]
     public class DmnParserFileBasicTests13 : DmnParserFileBasicTests
     {
+        protected override SourceEnum Source => SourceEnum.File13;
+
         [TestMethod]
         [DataRow(null)]
         [DataRow("")]

@@ -20,26 +20,34 @@
     <Compile Include="$(MSBuildThisFileDirectory)builder\ParallelTestsBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\SfeelExpressionsTestsBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\AllowedValuesTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\AllowedValuesTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\AllowedValuesTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\AllowedValuesTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\CircularReferenceTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\CircularReferenceTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\CircularReferenceTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\CircularReferenceTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\ComplexInputsTests13Ext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\ComplexInputsTestsCtxOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\ComplexInputsTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\ComplexInputsTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\ComplexInputsTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\EndToEndTests13Ext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\EndToEndTestsCtxOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\EndToEndTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\EndToEndTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\EndToEndTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\HitPolicyMultiOutTests13Ext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\HitPolicyMultiOutTestsCtxOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\HitPolicyMultiOutTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\HitPolicyMultiOutTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\HitPolicyMultiOutTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\HitPolicyTest13Ext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\HitPolicyTestCtxOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\HitPolicyTest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\HitPolicyTest13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\HitPolicyTest13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\ParallelTests13Ext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\ParallelTestsCtxOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\ParallelTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\ParallelTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\ParallelTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)complex\SfeelExpressionsTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)complex\SfeelExpressionsTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13ext\SfeelExpressionsTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)complex\v13\SfeelExpressionsTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DmnTestBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DummyPlaygroundToRemove.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)issue\Issue11NonAsciiVariableTests.cs" />
@@ -47,14 +55,25 @@
     <Compile Include="$(MSBuildThisFileDirectory)TestTools.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)builder\CustomDecisionTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\ContextInputTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnDiagramExtensionTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnMappingAndLabelTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnDiagramExtensionTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnInformationRequirementsTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnInformationRequirementsTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserDataTypesTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserDataTypesTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnParserDataTypesTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnMappingAndLabelTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnParserDataTypesTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserFileBasicTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserFileBasicTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnParserFileBasicTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnParserFileBasicTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\DmnInformationRequirementsTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserInformationRequirementsTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserInformationRequirementsTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnParserInformationRequirementsTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnParserInformationRequirementsTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserStringBasicTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)unit\DmnParserStringBasicTests13.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13ext\DmnParserStringBasicTests13Ext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)unit\v13\DmnParserStringBasicTests13.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\ExpressionCacheTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\HitRulesTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)unit\SfeelParserTests.cs" />
@@ -73,6 +92,144 @@
     <None Include="$(MSBuildThisFileDirectory)dmn\datatypes_err.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\allowedValues.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\circular_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\datatypes.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\datatypes_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\diagram.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\diagram_empty.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\diagram_partial.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\dynamictypes.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Any.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_Count.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_CountBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_CountStr.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_List.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_Max.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_MaxBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_Min.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_MinBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_Sum.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_SumBool.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Collect_SumStr.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_First.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_MultiOut_Any.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_MultiOut_First.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_MultiOut_OutputOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_MultiOut_Priority.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_MultiOut_RuleOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_MultiOut_Unique.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_OutputOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_OutputOrder_NoOutWithAllowed.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Priority.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Priority_NoOutWithAllowed.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_RuleOrder.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_Unique.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_WrongAggregation.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\hitpolicy_WrongPolicy.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\issue11expressions.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\issue11tbl.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\mappingAndLabel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\mappingAndLabel_wrong_tblInputId.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\mappingAndLabel_wrong_tblInputInputVarName.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\parallel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\sfeel.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\simulation.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\test.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\test2.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\test2a.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\allowedValues.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -83,6 +240,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\datatypes_err.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\diagram.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\diagram_empty.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\diagram_partial.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\dynamictypes.dmn">
@@ -173,6 +339,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\issue11tbl.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\mappingAndLabel.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\parallel.dmn">
@@ -280,5 +449,10 @@
     <None Include="$(MSBuildThisFileDirectory)nlog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)complex\v13ext\" />
+    <Folder Include="$(MSBuildThisFileDirectory)complex\v13\" />
+    <Folder Include="$(MSBuildThisFileDirectory)unit\v13ext\" />
   </ItemGroup>
 </Project>

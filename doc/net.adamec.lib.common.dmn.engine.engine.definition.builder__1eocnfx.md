@@ -71,6 +71,7 @@ Derived: [net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionD
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.label__ob44qp) | public | Label of the decision | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.name__1jjvncw) | public | Decision unique name | 
  | [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.refctor__ey2dwy) | private static | Reference CTOR delegate | 
  | [Reference](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.reference__1w631w8) | public | Decision reference that can be used in other builders | 
@@ -85,7 +86,7 @@ Derived: [net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionD
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [Decision()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.-cctor__b2dbx2) | private static | Static CTOR - forces the run of [Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) static CTOR to ensure that [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.refctor__ey2dwy) is properly initialized | 
- | [Decision(VariableCatalog, DecisionCatalog, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string___a7690m) | protected | CTOR | 
+ | [Decision(VariableCatalog, DecisionCatalog, string, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.string___1as30wi) | protected | CTOR | 
 
  
 
@@ -99,6 +100,30 @@ Derived: [net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionD
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.tostring__1gi326q) | public | Returns a string that represents the current object. | 
 
  
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.label__ob44qp" />  Decision.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [Decision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x)           
+Sources: engine\definition\builder\Decision.cs</small>
+
+
+Label of the decision
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -256,7 +281,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string___a7690m" />  Decision.Decision(VariableCatalog, DecisionCatalog, string) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.string___1as30wi" />  Decision.Decision(VariableCatalog, DecisionCatalog, string, string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [Decision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision__10m2s6x)           
@@ -268,10 +293,10 @@ CTOR
 
 
 ```csharp
-protected Decision(VariableCatalog variables, DecisionCatalog decisions, string name)
+protected Decision(VariableCatalog variables, DecisionCatalog decisions, string name, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd></dl>
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Optional label for the decision, <strong>name</strong> is used when not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -1292,19 +1317,25 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [Build()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.build__y4d87v) | public | Builds the DMN definition as prepared in [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4) and returns [DmnDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4) that can be executed within [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) | 
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.tostring__1cekl3f) | public | Returns a string that represents the current object. | 
- | [WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision____e0g0jq) | public | Adds the expression decision into the definition | 
- | [WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;, Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref-___k5vm0o) | public | Adds the expression decision into the definition | 
- | [WithExpressionDecision(string, string, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___pmkuqo) | public | Adds the expression decision into the definition | 
- | [WithExpressionDecision(string, string, Variable.Ref, Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref-___1ua0mxi) | public | Adds the expression decision into the definition | 
+ | [WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;, Decision.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref--system.string___ym8ftk) | public | Adds the expression decision into the definition | 
+ | [WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision_-system.string___amqdfi) | public | Adds the expression decision into the definition | 
+ | [WithExpressionDecision(string, string, Variable.Ref, Decision.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref--system.string___xh1eeu) | public | Adds the expression decision into the definition | 
+ | [WithExpressionDecision(string, string, Variable.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-system.string___1525lag) | public | Adds the expression decision into the definition | 
  | [WithInput(string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string___1so0sks) | public | Adds the untyped input with given <strong>name</strong> into the definition. Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) , so this needs to be taken into the consideration when defining the decisions | 
+ | [WithInput(string, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string___1s32rkw) | public | Adds the untyped input with given <strong>name</strong> into the definition. Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) , so this needs to be taken into the consideration when defining the decisions | 
+ | [WithInput(string, string, Type)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string-system.type___4sjo7f) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
+ | [WithInput(string, string, Type, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string-system.type-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___1hx7q51) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
+ | [WithInput(string, string, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___1248cvw) | public | Adds the untyped input with given <strong>name</strong> into the definition. Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) , so this needs to be taken into the consideration when defining the decisions | 
  | [WithInput(string, Type)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.type___d9veyd) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
  | [WithInput(string, Type, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.type-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___1kb93qj) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
  | [WithInput(string, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___ek73e8) | public | Adds the untyped input with given <strong>name</strong> into the definition. Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) , so this needs to be taken into the consideration when defining the decisions | 
  | [WithInput&lt;TVariableType&gt;(string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string___11r2m3n) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
+ | [WithInput&lt;TVariableType&gt;(string, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string-system.string___ahdiwh) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
+ | [WithInput&lt;TVariableType&gt;(string, string, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___x21f9v) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
  | [WithInput&lt;TVariableType&gt;(string, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___14vhmap) | public | Adds the inputs of given <strong>name</strong> and type into the definition | 
  | [WithInputs&lt;TVariableType&gt;(string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinputs--1_system.string_____kjx7pc) | public | Adds the inputs of <strong>TVariableType</strong> with given <strong>names</strong> into the definition | 
  | [WithTableDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withtabledecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision____rvj83d) | public | Adds the decision table into the definition | 
- | [WithTableDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;, Decision.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withtabledecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref-___87o4wh) | public | Adds the decision table into the definition | 
+ | [WithTableDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;, Decision.Ref, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withtabledecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref--system.string___1xzhvtf) | public | Adds the decision table into the definition | 
  | [WithVariable(string, Type)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withvariable_system.string-system.type___1eqz8ul) | public | Adds the (non-input) variable of given <strong>name</strong> and type into the definition | 
  | [WithVariable(string, Type, Variable.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withvariable_system.string-system.type-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___gpl9mj) | public | Adds the (non-input) variable of given <strong>name</strong> and type into the definition | 
  | [WithVariable&lt;TVariableType&gt;(string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withvariable--1_system.string___1u2d1cr) | public | Adds the (non-input) variable of given <strong>name</strong> and type into the definition | 
@@ -1473,7 +1504,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision____e0g0jq" />  DmnDefinitionBuilder.WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref--system.string___ym8ftk" />  DmnDefinitionBuilder.WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;, Decision.Ref, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
@@ -1485,10 +1516,10 @@ Adds the expression decision into the definition
 
 
 ```csharp
-public DmnDefinitionBuilder WithExpressionDecision(string name, Func<net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision> builder)
+public DmnDefinitionBuilder WithExpressionDecision(string name, Func<net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision> builder, out Decision.Ref decisionRef, string label = null)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2" target="_blank" >System.Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;</a> <strong>builder</strong></dt><dd>Builder to be used to fully configure the expression decision definition</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2" target="_blank" >System.Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;</a> <strong>builder</strong></dt><dd>Builder to be used to fully configure the expression decision definition</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decisionRef</strong></dt><dd>Reference to the decision added</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the decision, name is used when not provided</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
 
 
@@ -1502,7 +1533,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref-___k5vm0o" />  DmnDefinitionBuilder.WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;, Decision.Ref) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.expressiondecisionsrcbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision_-system.string___amqdfi" />  DmnDefinitionBuilder.WithExpressionDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
@@ -1514,10 +1545,10 @@ Adds the expression decision into the definition
 
 
 ```csharp
-public DmnDefinitionBuilder WithExpressionDecision(string name, Func<net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision> builder, out Decision.Ref decisionRef)
+public DmnDefinitionBuilder WithExpressionDecision(string name, Func<net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision> builder, string label = null)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2" target="_blank" >System.Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;</a> <strong>builder</strong></dt><dd>Builder to be used to fully configure the expression decision definition</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decisionRef</strong></dt><dd>Reference to the decision added</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2" target="_blank" >System.Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision.ExpressionDecisionSrcBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.ExpressionDecision&gt;</a> <strong>builder</strong></dt><dd>Builder to be used to fully configure the expression decision definition</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the decision, name is used when not provided</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
 
 
@@ -1531,7 +1562,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref___pmkuqo" />  DmnDefinitionBuilder.WithExpressionDecision(string, string, Variable.Ref) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref--system.string___xh1eeu" />  DmnDefinitionBuilder.WithExpressionDecision(string, string, Variable.Ref, Decision.Ref, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
@@ -1543,10 +1574,10 @@ Adds the expression decision into the definition
 
 
 ```csharp
-public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable)
+public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable, out Decision.Ref decisionRef, string label = null)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to be evaluated during the decision execution</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>outputVariable</strong></dt><dd>Reference to existing variable to store the output of the decision evaluation</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to be evaluated during the decision execution</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>outputVariable</strong></dt><dd>Reference to existing variable to store the output of the decision evaluation</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decisionRef</strong></dt><dd>Reference to the decision added</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the decision, name is used when not provided</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
 
 
@@ -1560,7 +1591,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref-___1ua0mxi" />  DmnDefinitionBuilder.WithExpressionDecision(string, string, Variable.Ref, Decision.Ref) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withexpressiondecision_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-system.string___1525lag" />  DmnDefinitionBuilder.WithExpressionDecision(string, string, Variable.Ref, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
@@ -1572,10 +1603,10 @@ Adds the expression decision into the definition
 
 
 ```csharp
-public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable, out Decision.Ref decisionRef)
+public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable, string label = null)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to be evaluated during the decision execution</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>outputVariable</strong></dt><dd>Reference to existing variable to store the output of the decision evaluation</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decisionRef</strong></dt><dd>Reference to the decision added</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to be evaluated during the decision execution</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>outputVariable</strong></dt><dd>Reference to existing variable to store the output of the decision evaluation</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the decision, name is used when not provided</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
 
 
@@ -1605,6 +1636,122 @@ public DmnDefinitionBuilder WithInput(string name)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string___1s32rkw" />  DmnDefinitionBuilder.WithInput(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
+Sources: engine\definition\builder\DmnDefinitionBuilder.cs</small>
+
+
+Adds the untyped input with given <strong>name</strong> into the definition. Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) , so this needs to be taken into the consideration when defining the decisions
+
+
+
+```csharp
+public DmnDefinitionBuilder WithInput(string name, string label)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the input, name is used when not provided</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string-system.type___4sjo7f" />  DmnDefinitionBuilder.WithInput(string, string, Type) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
+Sources: engine\definition\builder\DmnDefinitionBuilder.cs</small>
+
+
+Adds the inputs of given <strong>name</strong> and type into the definition
+
+
+
+```csharp
+public DmnDefinitionBuilder WithInput(string name, string label, Type variableType)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the input, name is used when not provided</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>variableType</strong></dt><dd>Type of the input to add</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string-system.type-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___1hx7q51" />  DmnDefinitionBuilder.WithInput(string, string, Type, Variable.Ref) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
+Sources: engine\definition\builder\DmnDefinitionBuilder.cs</small>
+
+
+Adds the inputs of given <strong>name</strong> and type into the definition
+
+
+
+```csharp
+public DmnDefinitionBuilder WithInput(string name, string label, Type variableType, out Variable.Ref inputVariable)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the input, name is used when not provided</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>variableType</strong></dt><dd>Type of the input to add</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>inputVariable</strong></dt><dd>Reference to the input variable backing the input added</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___1248cvw" />  DmnDefinitionBuilder.WithInput(string, string, Variable.Ref) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
+Sources: engine\definition\builder\DmnDefinitionBuilder.cs</small>
+
+
+Adds the untyped input with given <strong>name</strong> into the definition. Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the [DmnExecutionContext](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutioncontext__17lps88) , so this needs to be taken into the consideration when defining the decisions
+
+
+
+```csharp
+public DmnDefinitionBuilder WithInput(string name, string label, out Variable.Ref inputVariable)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the input, name is used when not provided</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>inputVariable</strong></dt><dd>Reference to the input variable backing the input added</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
 
 
@@ -1735,6 +1882,66 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string-system.string___ahdiwh" />  DmnDefinitionBuilder.WithInput&lt;TVariableType&gt;(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
+Sources: engine\definition\builder\DmnDefinitionBuilder.cs</small>
+
+
+Adds the inputs of given <strong>name</strong> and type into the definition
+
+
+
+```csharp
+public DmnDefinitionBuilder WithInput<TVariableType>(string name, string label)
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TVariableType</strong></dt><dd>Type of the input to add</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the input, name is used when not provided</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___x21f9v" />  DmnDefinitionBuilder.WithInput&lt;TVariableType&gt;(string, string, Variable.Ref) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
+Sources: engine\definition\builder\DmnDefinitionBuilder.cs</small>
+
+
+Adds the inputs of given <strong>name</strong> and type into the definition
+
+
+
+```csharp
+public DmnDefinitionBuilder WithInput<TVariableType>(string name, string label, out Variable.Ref inputVariable)
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TVariableType</strong></dt><dd>Type of the input to add</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the input to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the input, name is used when not provided</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>inputVariable</strong></dt><dd>Reference to the input variable backing the input added</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withinput--1_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-___14vhmap" />  DmnDefinitionBuilder.WithInput&lt;TVariableType&gt;(string, Variable.Ref) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -1824,7 +2031,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withtabledecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref-___87o4wh" />  DmnDefinitionBuilder.WithTableDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;, Decision.Ref) Method ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder.withtabledecision_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision_-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref--system.string___1xzhvtf" />  DmnDefinitionBuilder.WithTableDecision(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;, Decision.Ref, string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)           
@@ -1836,10 +2043,10 @@ Adds the decision table into the definition
 
 
 ```csharp
-public DmnDefinitionBuilder WithTableDecision(string name, Func<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision> builder, out Decision.Ref decisionRef)
+public DmnDefinitionBuilder WithTableDecision(string name, Func<net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision> builder, out Decision.Ref decisionRef, string label = null)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision table to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2" target="_blank" >System.Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;</a> <strong>builder</strong></dt><dd>Builder to be used to fully configure the decision table definition</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decisionRef</strong></dt><dd>Reference to the decision added</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the decision table to add</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2" target="_blank" >System.Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision&gt;</a> <strong>builder</strong></dt><dd>Builder to be used to fully configure the decision table definition</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Decision.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decision.ref__fi37g4) <strong>decisionRef</strong></dt><dd>Reference to the decision added</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the decision, name is used when not provided</dd></dl>
 <strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dt><dd>The current [DmnDefinitionBuilder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmndefinitionbuilder__1ic9dr4)</dd></dl>
 
 
@@ -2044,7 +2251,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [ExpressionDecision(VariableCatalog, DecisionCatalog, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string___10zf2i0) | internal | CTOR | 
+ | [ExpressionDecision(VariableCatalog, DecisionCatalog, string, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.string___155k5kk) | internal | CTOR | 
 
  
 
@@ -2141,7 +2348,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string___10zf2i0" />  ExpressionDecision.ExpressionDecision(VariableCatalog, DecisionCatalog, string) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.string___155k5kk" />  ExpressionDecision.ExpressionDecision(VariableCatalog, DecisionCatalog, string, string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [ExpressionDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.expressiondecision__1s8ywub)           
@@ -2153,10 +2360,10 @@ CTOR
 
 
 ```csharp
-internal ExpressionDecision(VariableCatalog variables, DecisionCatalog decisions, string name)
+internal ExpressionDecision(VariableCatalog variables, DecisionCatalog decisions, string name, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd></dl>
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Optional label of the decision, name is used when not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -2632,7 +2839,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [TableDecision(VariableCatalog, DecisionCatalog, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string___1oe3koy) | internal | CTOR | 
+ | [TableDecision(VariableCatalog, DecisionCatalog, string, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.string___155akoa) | internal | CTOR | 
 
  
 
@@ -2647,10 +2854,16 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | [ToString()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.tostring__12dgu3i) | public | Returns a string that represents the current object. | 
  | [WithAggregation(CollectHitPolicyAggregationEnum)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withaggregation_net.adamec.lib.common.dmn.engine.parser.dto.collecthitpolicyaggregationenum___h94lek) | public | Sets the hit policy aggregation type of the decision table | 
  | [WithHitPolicy(HitPolicyEnum)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withhitpolicy_net.adamec.lib.common.dmn.engine.parser.dto.hitpolicyenum___iicj6b) | public | Sets the hit policy of the decision table | 
+ | [WithInput(string, string, TableInput.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___m0ytt1) | public | Adds the expression based table input | 
+ | [WithInput(string, string, TableInput.Ref, string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref--system.string_____12t3i0x) | public | Adds the expression based table input | 
  | [WithInput(string, TableInput.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___doh04v) | public | Adds the expression based table input | 
  | [WithInput(string, TableInput.Ref, string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref--system.string_____s6xlm3) | public | Adds the expression based table input | 
+ | [WithInput(string, Variable.Ref, TableInput.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___1etnm8x) | public | Adds the variable based table input | 
+ | [WithInput(string, Variable.Ref, TableInput.Ref, string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref--system.string_____ptv0yl) | public | Adds the variable based table input | 
  | [WithInput(Variable.Ref, TableInput.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___ki40pf) | public | Adds the variable based table input | 
  | [WithInput(Variable.Ref, TableInput.Ref, string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref--system.string_____12svflb) | public | Adds the variable based table input | 
+ | [WithOutput(string, Variable.Ref, TableOutput.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withoutput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-___qspahh) | public | Adds the table output with reference to the variable to store the output value to | 
+ | [WithOutput(string, Variable.Ref, TableOutput.Ref, string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withoutput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref--system.string_____1ex7ad5) | public | Adds the table output with reference to the variable to store the output value to | 
  | [WithOutput(Variable.Ref, TableOutput.Ref)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withoutput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-___1nspfcj) | public | Adds the table output with reference to the variable to store the output value to | 
  | [WithOutput(Variable.Ref, TableOutput.Ref, string[])](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withoutput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref--system.string_____17tdb2v) | public | Adds the table output with reference to the variable to store the output value to | 
  | [WithRule(string, Func&lt;net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleInputBuilder,net.adamec.lib.common.dmn.engine.engine.definition.builder.TableRule.TableRuleOutputBuilder&gt;)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withrule_system.string-system.func_net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleinputbuilder-net.adamec.lib.common.dmn.engine.engine.definition.builder.tablerule.tableruleoutputbuilder____1381d49) | public | Adds the table rule. | 
@@ -2905,7 +3118,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string___1oe3koy" />  TableDecision.TableDecision(VariableCatalog, DecisionCatalog, string) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.string___155akoa" />  TableDecision.TableDecision(VariableCatalog, DecisionCatalog, string, string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
@@ -2917,10 +3130,10 @@ CTOR
 
 
 ```csharp
-internal TableDecision(VariableCatalog variables, DecisionCatalog decisions, string name)
+internal TableDecision(VariableCatalog variables, DecisionCatalog decisions, string name, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd></dl>
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Unique name of the decision</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Optional label of the decision, name is used when not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -3104,6 +3317,72 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___m0ytt1" />  TableDecision.WithInput(string, string, TableInput.Ref) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
+Sources: engine\definition\builder\TableDecision.cs</small>
+
+
+Adds the expression based table input
+
+
+
+```csharp
+public TableDecision WithInput(string label, string expression, out TableInput.Ref inputRef)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Input label, &quot;Input#{Index}&quot; will be used if not provided</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to be used as table input</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) <strong>inputRef</strong></dt><dd>Reference to added table input that can be used in rule builders</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The inputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>when the <strong>expression</strong> is not provided</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd>when the <strong>expression</strong> is empty or whitespace</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref--system.string_____12t3i0x" />  TableDecision.WithInput(string, string, TableInput.Ref, string[]) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
+Sources: engine\definition\builder\TableDecision.cs</small>
+
+
+Adds the expression based table input
+
+
+
+```csharp
+public TableDecision WithInput(string label, string expression, out TableInput.Ref inputRef, params string[] allowedValues)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Input label, &quot;Input#{Index}&quot; will be used if not provided</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Expression to be used as table input</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) <strong>inputRef</strong></dt><dd>Reference to added table input that can be used in rule builders</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Allowed input values</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The inputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>when the <strong>expression</strong> is not provided</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd>when the <strong>expression</strong> is empty or whitespace</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___doh04v" />  TableDecision.WithInput(string, TableInput.Ref) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -3170,6 +3449,72 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___1etnm8x" />  TableDecision.WithInput(string, Variable.Ref, TableInput.Ref) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
+Sources: engine\definition\builder\TableDecision.cs</small>
+
+
+Adds the variable based table input
+
+
+
+```csharp
+public TableDecision WithInput(string label, Variable.Ref variableRef, out TableInput.Ref inputRef)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Input label, &quot;Input#{Index}&quot; will be used if not provided</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>variableRef</strong></dt><dd>Reference to variable used as table input</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) <strong>inputRef</strong></dt><dd>Reference to added table input that can be used in rule builders</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The inputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref--system.string_____ptv0yl" />  TableDecision.WithInput(string, Variable.Ref, TableInput.Ref, string[]) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
+Sources: engine\definition\builder\TableDecision.cs</small>
+
+
+Adds the variable based table input
+
+
+
+```csharp
+public TableDecision WithInput(string label, Variable.Ref variableRef, out TableInput.Ref inputRef, params string[] allowedValues)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Input label, &quot;Input#{Index}&quot; will be used if not provided</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>variableRef</strong></dt><dd>Reference to variable used as table input</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) <strong>inputRef</strong></dt><dd>Reference to added table input that can be used in rule builders</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Allowed input values</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The inputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>when the <strong>variableRef</strong> is not provided</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withinput_net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref-___ki40pf" />  TableDecision.WithInput(Variable.Ref, TableInput.Ref) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -3224,6 +3569,72 @@ public TableDecision WithInput(Variable.Ref variableRef, out TableInput.Ref inpu
 
 ###  Remarks ###
 The inputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>when the <strong>variableRef</strong> is not provided</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withoutput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref-___qspahh" />  TableDecision.WithOutput(string, Variable.Ref, TableOutput.Ref) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
+Sources: engine\definition\builder\TableDecision.cs</small>
+
+
+Adds the table output with reference to the variable to store the output value to
+
+
+
+```csharp
+public TableDecision WithOutput(string label, Variable.Ref variableRef, out TableOutput.Ref outputRef)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Output label, &quot;Output#{Index}&quot; will be used if not provided</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>variableRef</strong></dt><dd>Reference to variable used to store the table output to</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref__1pq6cff) <strong>outputRef</strong></dt><dd>Reference to added table output that can be used in rule builders</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The outputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+###  Exceptions ###
+<dl><dt>[DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8)</dt><dd>Throws [DmnBuilderException](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.dmnbuilderexception__u6eai8) when the definition has already been built</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd>when the <strong>variableRef</strong> is not provided</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision.withoutput_system.string-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref--system.string_____1ex7ad5" />  TableDecision.WithOutput(string, Variable.Ref, TableOutput.Ref, string[]) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)           
+Sources: engine\definition\builder\TableDecision.cs</small>
+
+
+Adds the table output with reference to the variable to store the output value to
+
+
+
+```csharp
+public TableDecision WithOutput(string label, Variable.Ref variableRef, out TableOutput.Ref outputRef, params string[] allowedValues)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Output label, &quot;Output#{Index}&quot; will be used if not provided</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) <strong>variableRef</strong></dt><dd>Reference to variable used to store the table output to</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableOutput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref__1pq6cff) <strong>outputRef</strong></dt><dd>Reference to added table output that can be used in rule builders</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Allowed output values</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.TableDecision](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tabledecision__1yrne6b)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The outputs are &quot;indexed&quot; in the order as added to the table definition builder
 
 
 ###  Exceptions ###
@@ -3389,6 +3800,7 @@ Source variable and source expression are mutually exclusive and one of them has
  | [AllowedValues](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.allowedvalues__op80rn) | public | Optional array of allowed values | 
  | [Expression](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.expression__1qyeeix) | public | Input source expression (the evaluated expression is compared to the rules) | 
  | [Index](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.index__1ni5qtd) | public | Index of the input (order) | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.label__5x8usx) | public | Input label, &quot;Input#{Index}&quot; will be used if not provided | 
  | [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.refctor__jm8zq0) | private static | Reference CTOR delegate | 
  | [Reference](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.reference__7vrh5e) | public | Table input reference that can be used in other builders | 
  | [Variable](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.variable__51nqyh) | public | Reference to input source variable (the variable value is compared to the rules) | 
@@ -3402,7 +3814,7 @@ Source variable and source expression are mutually exclusive and one of them has
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [TableInput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.-cctor__1vahg3g) | private static | Static CTOR - forces the run of [TableInput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.ref__1ylq0m6) static CTOR to ensure that [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.refctor__jm8zq0) is properly initialized | 
- | [TableInput(VariableCatalog, DecisionCatalog, int)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32___ypraix) | internal | CTOR | 
+ | [TableInput(VariableCatalog, DecisionCatalog, int, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32-system.string___jlourj) | internal | CTOR | 
 
  
 
@@ -3499,6 +3911,30 @@ public int Index { get; }
 
 ###  Remarks ###
 The inputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.label__5x8usx" />  TableInput.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableInput](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput__5wt9j5)           
+Sources: engine\definition\builder\TableInput.cs</small>
+
+
+Input label, &quot;Input#{Index}&quot; will be used if not provided
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -3640,7 +4076,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32___ypraix" />  TableInput.TableInput(VariableCatalog, DecisionCatalog, int) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32-system.string___jlourj" />  TableInput.TableInput(VariableCatalog, DecisionCatalog, int, string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [TableInput](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableinput__5wt9j5)           
@@ -3652,10 +4088,10 @@ CTOR
 
 
 ```csharp
-internal TableInput(VariableCatalog variables, DecisionCatalog decisions, int index)
+internal TableInput(VariableCatalog variables, DecisionCatalog decisions, int index, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the input (order)</dd></dl>
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the input (order)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Input label, &quot;Input#{Index}&quot; will be used if not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -3989,6 +4425,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [AllowedValues](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.allowedvalues__1kwrsb6) | public | Optional array of allowed values | 
  | [Index](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.index__jqbhjg) | public | Index of the output (order) | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.label__1xlvsdy) | public | Output label, &quot;Output#{Index}&quot; will be used if not provided | 
  | [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.refctor__1rhfe95) | private static | Reference CTOR delegate | 
  | [Reference](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.reference__1jho6w1) | public | Table output reference that can be used in other builders | 
  | [Variable](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.variable__yjr5g4) | public | Reference to variable to store the output to | 
@@ -4002,7 +4439,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [TableOutput()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.-cctor__kms0td) | private static | Static CTOR - forces the run of [TableOutput.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.ref__1pq6cff) static CTOR to ensure that [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.refctor__1rhfe95) is properly initialized | 
- | [TableOutput(VariableCatalog, DecisionCatalog, int)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32___zaauiq) | internal | CTOR | 
+ | [TableOutput(VariableCatalog, DecisionCatalog, int, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32-system.string___1njjmq) | internal | CTOR | 
 
  
 
@@ -4070,6 +4507,30 @@ public int Index { get; }
 
 ###  Remarks ###
 The outputs are &quot;indexed&quot; in the order as added to the table definition builder
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.label__1xlvsdy" />  TableOutput.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [TableOutput](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput__1sn9ecu)           
+Sources: engine\definition\builder\TableOutput.cs</small>
+
+
+Output label, &quot;Output#{Index}&quot; will be used if not provided
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -4203,7 +4664,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32___zaauiq" />  TableOutput.TableOutput(VariableCatalog, DecisionCatalog, int) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.int32-system.string___1njjmq" />  TableOutput.TableOutput(VariableCatalog, DecisionCatalog, int, string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [TableOutput](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.tableoutput__1sn9ecu)           
@@ -4215,10 +4676,10 @@ CTOR
 
 
 ```csharp
-internal TableOutput(VariableCatalog variables, DecisionCatalog decisions, int index)
+internal TableOutput(VariableCatalog variables, DecisionCatalog decisions, int index, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the output (order)</dd></dl>
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the output (order)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Output label, &quot;Output#{Index}&quot; will be used if not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -5757,6 +6218,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [IsInputParameter](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.isinputparameter__1g10ohq) | public | Flag whether the variable represents the input parameter of the decision model. Such variable will be read-only | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.label__mb926b) | public | Label of the variable | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.name__15zhreq) | public | Name of the variable | 
  | [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.refctor__k3d4tw) | private static | Reference CTOR delegate | 
  | [Reference](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.reference__16954m) | public | Variable reference that can be used in other builders | 
@@ -5770,7 +6232,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [Variable()](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.-cctor__rp0g48) | private static | Static CTOR - forces the run of [Variable.Ref](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.ref__ekhvau) static CTOR to ensure that [RefCtor](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.refctor__k3d4tw) is properly initialized | 
- | [Variable(VariableCatalog, DecisionCatalog, string, Type)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.type___1scp1w7) | internal | CTOR | 
+ | [Variable(VariableCatalog, DecisionCatalog, string, Type, string)](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.type-system.string___8nokk5) | internal | CTOR | 
 
  
 
@@ -5838,6 +6300,30 @@ public bool IsInputParameter { get; private set; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.label__mb926b" />  Variable.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [Variable](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable__irqhjr)           
+Sources: engine\definition\builder\Variable.cs</small>
+
+
+Label of the variable
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -5971,7 +6457,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.type___1scp1w7" />  Variable.Variable(VariableCatalog, DecisionCatalog, string, Type) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable.-ctor_net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog-system.string-system.type-system.string___8nokk5" />  Variable.Variable(VariableCatalog, DecisionCatalog, string, Type, string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.builder](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#n-net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [Variable](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variable__irqhjr)           
@@ -5983,10 +6469,10 @@ CTOR
 
 
 ```csharp
-internal Variable(VariableCatalog variables, DecisionCatalog decisions, string name, Type type = null)
+internal Variable(VariableCatalog variables, DecisionCatalog decisions, string name, Type type = null, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the variable</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>type</strong></dt><dd>Optional Type of the variable if known</dd></dl>
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) <strong>variables</strong></dt><dd>[VariableCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.variablecatalog__abzpko) managing the definition builder variables</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.builder.DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) <strong>decisions</strong></dt><dd>[DecisionCatalog](net.adamec.lib.common.dmn.engine.engine.definition.builder__1eocnfx.md#t-net.adamec.lib.common.dmn.engine.engine.definition.builder.decisioncatalog__1ghg76) managing the definition builder decisions</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Name of the variable</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>type</strong></dt><dd>Optional Type of the variable if known</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Label of the variable (input parameter), name is used when not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 

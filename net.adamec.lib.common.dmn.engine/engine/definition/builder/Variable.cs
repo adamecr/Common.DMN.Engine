@@ -52,6 +52,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             /// Name of the variable
             /// </summary>
             public string Name => Variable.Name;
+
             /// <summary>
             /// Type of the variable
             /// </summary>
@@ -80,7 +81,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// Name of the variable
         /// </summary>
         public string Name { get; }
-
+        /// <summary>
+        /// Label of the variable
+        /// </summary>
+        public string Label { get; }
         /// <summary>
         /// Type of the variable
         /// </summary>
@@ -107,7 +111,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="decisions"><see cref="DecisionCatalog"/> managing the definition builder decisions</param>
         /// <param name="name">Name of the variable</param>
         /// <param name="type">Optional Type of the variable if known</param>
-        internal Variable(VariableCatalog variables, DecisionCatalog decisions, string name, Type type = null)
+        /// <param name="label">Label of the variable (input parameter), name is used when not provided</param>
+        internal Variable(VariableCatalog variables, DecisionCatalog decisions, string name, Type type = null, string label=null)
             : base(variables, decisions)
         {
             name = DmnVariableDefinition.NormalizeVariableName(name ?? throw new ArgumentNullException(nameof(name)));
@@ -115,6 +120,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
 
             Reference = RefCtor(this);
             Name = name;
+            Label = string.IsNullOrWhiteSpace(label) ? name : label;
             Type = type;
         }
 
@@ -181,7 +187,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             if (string.IsNullOrWhiteSpace(Name))
                 throw new InvalidOperationException("Missing name in variable to be built");
 
-            ResultInternal = new DmnVariableDefinition(Name, Type, IsInputParameter, valueSetters);
+            ResultInternal = new DmnVariableDefinition(Name, Type, IsInputParameter, valueSetters,Label);
             return ResultInternal;
         }
 

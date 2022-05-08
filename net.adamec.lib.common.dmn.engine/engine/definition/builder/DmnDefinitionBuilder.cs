@@ -53,7 +53,6 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
 
             return this;
         }
-
         /// <summary>
         /// Adds the untyped input with given <paramref name="name"/> into the definition.
         /// Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the <see cref="execution.context.DmnExecutionContext"/>,
@@ -64,9 +63,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinitionBuilder WithInput(string name)
         {
-            return WithInput(name, null, out _);
+            return WithInput(name, null, null, out _);
         }
-
+        /// <summary>
+        /// Adds the untyped input with given <paramref name="name"/> into the definition.
+        /// Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the <see cref="execution.context.DmnExecutionContext"/>,
+        /// so this needs to be taken into the consideration when defining the decisions
+        /// </summary>
+        /// <param name="name">Name of the input to add</param>
+        /// <param name="label">Label of the input, name is used when not provided</param>
+        /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public DmnDefinitionBuilder WithInput(string name, string label)
+        {
+            return WithInput(name, label, null, out _);
+        }
         /// <summary>
         /// Adds the untyped input with given <paramref name="name"/> into the definition.
         /// Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the <see cref="execution.context.DmnExecutionContext"/>,
@@ -78,7 +89,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinitionBuilder WithInput(string name, out Variable.Ref inputVariable)
         {
-            return WithInput(name, null, out inputVariable);
+            return WithInput(name, null, null, out inputVariable);
+        }
+        /// <summary>
+        /// Adds the untyped input with given <paramref name="name"/> into the definition.
+        /// Avoid using the untyped inputs where possible - the input type will be set based on the value assigned to the <see cref="execution.context.DmnExecutionContext"/>,
+        /// so this needs to be taken into the consideration when defining the decisions
+        /// </summary>
+        /// <param name="name">Name of the input to add</param>
+        /// <param name="inputVariable">Reference to the input variable backing the input added</param>
+        /// <param name="label">Label of the input, name is used when not provided</param>
+        /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public DmnDefinitionBuilder WithInput(string name, string label, out Variable.Ref inputVariable)
+        {
+            return WithInput(name, label, null, out inputVariable);
         }
 
         /// <summary>
@@ -90,7 +115,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinitionBuilder WithInput(string name, Type variableType)
         {
-            return WithInput(name, variableType, out _);
+            return WithInput(name, null, variableType, out _);
+        }
+        /// <summary>
+        /// Adds the inputs of given <paramref name="name"/> and <paramref name="variableType">type</paramref> into the definition
+        /// </summary>
+        /// <param name="name">Name of the input to add</param>
+        /// <param name="variableType">Type of the input to add</param>
+        /// <param name="label">Label of the input, name is used when not provided</param>
+        /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public DmnDefinitionBuilder WithInput(string name, string label, Type variableType)
+        {
+            return WithInput(name, label, variableType, out _);
         }
 
         /// <summary>
@@ -102,7 +139,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinitionBuilder WithInput<TVariableType>(string name)
         {
-            return WithInput(name, typeof(TVariableType), out _);
+            return WithInput(name, null, typeof(TVariableType), out _);
+        }
+        /// <summary>
+        /// Adds the inputs of given <paramref name="name"/> and <typeparamref name="TVariableType">type</typeparamref> into the definition
+        /// </summary>
+        /// <param name="name">Name of the input to add</param>
+        /// <param name="label">Label of the input, name is used when not provided</param>
+        /// <typeparam name="TVariableType">Type of the input to add</typeparam>
+        /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public DmnDefinitionBuilder WithInput<TVariableType>(string name, string label)
+        {
+            return WithInput(name, label, typeof(TVariableType), out _);
         }
 
         /// <summary>
@@ -115,9 +164,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinitionBuilder WithInput<TVariableType>(string name, out Variable.Ref inputVariable)
         {
-            return WithInput(name, typeof(TVariableType), out inputVariable);
+            return WithInput(name, null, typeof(TVariableType), out inputVariable);
         }
-
+        /// <summary>
+        /// Adds the inputs of given <paramref name="name"/> and <typeparamref name="TVariableType">type</typeparamref> into the definition
+        /// </summary>
+        /// <param name="name">Name of the input to add</param>
+        /// <param name="inputVariable">Reference to the input variable backing the input added</param>
+        /// <param name="label">Label of the input, name is used when not provided</param>
+        /// <typeparam name="TVariableType">Type of the input to add</typeparam>
+        /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public DmnDefinitionBuilder WithInput<TVariableType>(string name, string label, out Variable.Ref inputVariable)
+        {
+            return WithInput(name, label, typeof(TVariableType), out inputVariable);
+        }
         /// <summary>
         /// Adds the inputs of given <paramref name="name"/> and <paramref name="variableType">type</paramref> into the definition
         /// </summary>
@@ -128,6 +189,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public DmnDefinitionBuilder WithInput(string name, Type variableType, out Variable.Ref inputVariable)
         {
+            return WithInput(name, null, variableType, out inputVariable);
+        }
+        /// <summary>
+        /// Adds the inputs of given <paramref name="name"/> and <paramref name="variableType">type</paramref> into the definition
+        /// </summary>
+        /// <param name="name">Name of the input to add</param>
+        /// <param name="variableType">Type of the input to add</param>
+        /// <param name="inputVariable">Reference to the input variable backing the input added</param>
+        /// <param name="label">Label of the input, name is used when not provided</param>
+        /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public DmnDefinitionBuilder WithInput(string name, string label, Type variableType, out Variable.Ref inputVariable)
+        {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Definition is already built");
             if (name == null) throw new ArgumentNullException(nameof(name));
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Missing input name", nameof(name));
@@ -136,18 +210,17 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             var existingInputs = Variables.InputData;
             if (existingInputs.ContainsKey(variableName))
                 throw Logger.Error<DmnBuilderException>($"Duplicate input variable name {variableName} (normalized from {name})");
-            
+
             var existingVariables = Variables.Variables;
             if (existingVariables.ContainsKey(variableName)) throw Logger.Error<DmnBuilderException>($"Duplicate variable name {variableName} (normalized from {name})");
 
 
-            var variable = new Variable(Variables, Decisions, variableName, variableType).ForInput();
+            var variable = new Variable(Variables, Decisions, variableName, variableType, label).ForInput();
             inputVariable = variable.Reference;
             Variables.AddVariable(variable);
 
             return this;
         }
-
         /// <summary>
         /// Adds the (non-input) variables of <typeparamref name="TVariableType"/> with given <paramref name="names"/> into the definition
         /// </summary>
@@ -238,11 +311,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="name">Name of the decision to add</param>
         /// <param name="expression">Expression to be evaluated during the decision execution</param>
         /// <param name="outputVariable">Reference to existing variable to store the output of the decision evaluation</param>
+        /// <param name="label">Label of the decision, name is used when not provided</param>
         /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable)
+        public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable, string label = null)
         {
-            return WithExpressionDecision(name, e => e.Put(expression).To(outputVariable), out _);
+            return WithExpressionDecision(name, e => e.Put(expression).To(outputVariable), out _, label);
         }
 
         /// <summary>
@@ -252,11 +326,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="expression">Expression to be evaluated during the decision execution</param>
         /// <param name="outputVariable">Reference to existing variable to store the output of the decision evaluation</param>
         /// <param name="decisionRef">Reference to the decision added</param>
+        /// <param name="label">Label of the decision, name is used when not provided</param>
         /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable, out Decision.Ref decisionRef)
+        public DmnDefinitionBuilder WithExpressionDecision(string name, string expression, Variable.Ref outputVariable, out Decision.Ref decisionRef, string label = null)
         {
-            return WithExpressionDecision(name, e => e.Put(expression).To(outputVariable), out decisionRef);
+            return WithExpressionDecision(name, e => e.Put(expression).To(outputVariable), out decisionRef, label);
         }
 
         /// <summary>
@@ -264,11 +339,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// </summary>
         /// <param name="name">Name of the decision to add</param>
         /// <param name="builder">Builder to be used to fully configure the expression decision definition</param>
+        /// <param name="label">Label of the decision, name is used when not provided</param>
         /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public DmnDefinitionBuilder WithExpressionDecision(string name, Func<ExpressionDecision.ExpressionDecisionSrcBuilder, ExpressionDecision> builder)
+        public DmnDefinitionBuilder WithExpressionDecision(string name, Func<ExpressionDecision.ExpressionDecisionSrcBuilder, ExpressionDecision> builder, string label = null)
         {
-            return WithExpressionDecision(name, builder, out _);
+            return WithExpressionDecision(name, builder, out _, label);
         }
 
         /// <summary>
@@ -277,9 +353,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="name">Name of the decision to add</param>
         /// <param name="builder">Builder to be used to fully configure the expression decision definition</param>
         /// <param name="decisionRef">Reference to the decision added</param>
+        /// <param name="label">Label of the decision, name is used when not provided</param>
         /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public DmnDefinitionBuilder WithExpressionDecision(string name, Func<ExpressionDecision.ExpressionDecisionSrcBuilder, ExpressionDecision> builder, out Decision.Ref decisionRef)
+        public DmnDefinitionBuilder WithExpressionDecision(string name, Func<ExpressionDecision.ExpressionDecisionSrcBuilder, ExpressionDecision> builder, out Decision.Ref decisionRef, string label = null)
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Definition is already built");
             if (name == null) throw new ArgumentNullException(nameof(name));
@@ -288,7 +365,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
 
             if (Decisions.Decisions.ContainsKey(name)) throw Logger.Error<DmnBuilderException>($"Decision {name} already exists");
 
-            var decision = new ExpressionDecision(Variables, Decisions, name);
+            var decision = new ExpressionDecision(Variables, Decisions, name, label);
             decisionRef = decision.Reference;
             Decisions.AddDecision(decision);
             builder.Invoke(new ExpressionDecision.ExpressionDecisionSrcBuilder(decision));
@@ -314,9 +391,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="name">Name of the decision table to add</param>
         /// <param name="builder">Builder to be used to fully configure the decision table definition</param>
         /// <param name="decisionRef">Reference to the decision added</param>
+        /// <param name="label">Label of the decision, name is used when not provided</param>
         /// <returns>The current <see cref="DmnDefinitionBuilder"/></returns>
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
-        public DmnDefinitionBuilder WithTableDecision(string name, Func<TableDecision, TableDecision> builder, out Decision.Ref decisionRef)
+        public DmnDefinitionBuilder WithTableDecision(string name, Func<TableDecision, TableDecision> builder, out Decision.Ref decisionRef, string label = null)
         {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>("Definition is already built");
             if (name == null) throw new ArgumentNullException(nameof(name));
@@ -325,7 +403,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
 
             if (Decisions.Decisions.ContainsKey(name)) throw Logger.Error<DmnBuilderException>($"Decision {name} already exists");
 
-            var decision = new TableDecision(Variables, Decisions, name);
+            var decision = new TableDecision(Variables, Decisions, name, label);
             decisionRef = decision.Reference;
             Decisions.AddDecision(decision);
             builder.Invoke(decision);

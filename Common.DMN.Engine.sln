@@ -34,7 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net.adamec.lib.common.dmn.e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net.adamec.lib.common.dmn.engine.test.net462", "net.adamec.lib.common.dmn.engine.test.net462\net.adamec.lib.common.dmn.engine.test.net462.csproj", "{A9294388-1E6E-4741-AC95-9AE0BA28428B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net.adamec.lib.common.dmn.engine.test.netcore6", "net.adamec.lib.common.dmn.engine.test.netcore6\net.adamec.lib.common.dmn.engine.test.netcore6.csproj", "{18167E52-EF73-4612-9C77-7C4D14F8C316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net.adamec.lib.common.dmn.engine.test.netcore6", "net.adamec.lib.common.dmn.engine.test.netcore6\net.adamec.lib.common.dmn.engine.test.netcore6.csproj", "{18167E52-EF73-4612-9C77-7C4D14F8C316}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using net.adamec.lib.common.dmn.engine.engine.decisions;
+using net.adamec.lib.common.dmn.engine.engine.definition.extensions;
 
 namespace net.adamec.lib.common.dmn.engine.engine.definition
 {
     /// <summary>
     /// DMN model definition for execution engine - encapsulates Decisions, Variables and Input data
     /// </summary>
-    public interface IDmnDefinition
+    public interface IDmnDefinition : IDmnExtendable
     {
         /// <summary>
         /// Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions

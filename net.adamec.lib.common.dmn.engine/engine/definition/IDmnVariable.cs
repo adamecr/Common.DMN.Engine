@@ -6,13 +6,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
     /// <summary>
     /// Read only definition DMN model variable
     /// </summary>
-    public interface IDmnVariable
+    public interface IDmnVariable : IDmnElement
     {
-        /// <summary>
-        /// Name of the variable
-        /// </summary>
-        string Name { get; }
-
         /// <summary>
         /// Type of the variable when recognized from the decisions
         /// </summary>

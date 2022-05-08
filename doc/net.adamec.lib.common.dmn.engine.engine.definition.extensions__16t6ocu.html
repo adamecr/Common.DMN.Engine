@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DMN Engine Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  DMN Engine Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" ></a>  net.adamec.lib.common.dmn.engine.engine.definition.extensions Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions__18z3obb" >DmnExtendableExtensions</a></td><td>public static</td><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >IDmnExtendable</a> extension methods to access the <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#p-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable.extensions__1fyoyrc" >Extensions</a></td></tr>
+</table>
+<p> </p>
+<h3>  Interfaces </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >IDmnExtendable</a></td><td>public abstract</td><td>DMN definition classes that can have extensions</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions__18z3obb" ></a>  DmnExtendableExtensions Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\definition\extensions\DmnExtendableExtensions.cs</small></p>
+<p><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >IDmnExtendable</a> extension methods to access the <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#p-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable.extensions__1fyoyrc" >Extensions</a></p>
+<pre><code class="csharp">public static class DmnExtendableExtensions</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.addextension_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable-system.object___eyzeu9" >AddExtension(IDmnExtendable, object)</a></td><td>public static</td><td>Adds <strong>extension</strong> to <strong>element</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.getextension--1_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable___1fm96rp" >GetExtension&lt;TExtension&gt;(IDmnExtendable)</a></td><td>public static</td><td>Get the first extension of type <strong>TExtension</strong> from <strong>element</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.getextensions--1_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable___7pp1ws" >GetExtensions&lt;TExtension&gt;(IDmnExtendable)</a></td><td>public static</td><td>Get all extensions of type <strong>TExtension</strong> from <strong>element</strong></td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.hasextension--1_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable___1f14ct5" >HasExtension&lt;TExtension&gt;(IDmnExtendable)</a></td><td>public static</td><td>Check whether <strong>element</strong> has the extension of type <strong>TExtension</strong></td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.addextension_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable-system.object___eyzeu9" ></a>  DmnExtendableExtensions.AddExtension(IDmnExtendable, object) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions__18z3obb" >DmnExtendableExtensions</a><br />
+Sources: engine\definition\extensions\DmnExtendableExtensions.cs</small></p>
+<p>Adds <strong>extension</strong> to <strong>element</strong></p>
+<pre><code class="csharp">public static void AddExtension(this IDmnExtendable element, object extension)</code></pre>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >net.adamec.lib.common.dmn.engine.engine.definition.extensions.IDmnExtendable</a> <strong>element</strong></dt><dd>DMN element to add the extension to</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> <strong>extension</strong></dt><dd>Extension to add</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" class="link-external" target="_blank" >void</a></dt><dd></dd></dl></p>
+<h3>  Exceptions </h3>
+<p><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" class="link-external" target="_blank" >System.ArgumentNullException</a></dt><dd>When <strong>element</strong> or <strong>extension</strong> is null</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.getextension--1_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable___1fm96rp" ></a>  DmnExtendableExtensions.GetExtension&lt;TExtension&gt;(IDmnExtendable) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions__18z3obb" >DmnExtendableExtensions</a><br />
+Sources: engine\definition\extensions\DmnExtendableExtensions.cs</small></p>
+<p>Get the first extension of type <strong>TExtension</strong> from <strong>element</strong></p>
+<pre><code class="csharp">public static DmnExtendableExtensions.TExtension GetExtension&lt;TExtension&gt;(this IDmnExtendable element)</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>TExtension</strong></dt><dd>Type of the extension</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >net.adamec.lib.common.dmn.engine.engine.definition.extensions.IDmnExtendable</a> <strong>element</strong></dt><dd>DMN element</dd></dl>
+<p><strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.definition.extensions.DmnExtendableExtensions.TExtension</dt><dd>The first extension of type <strong>TExtension</strong> from <strong>element</strong> or default value of <strong>TExtension</strong></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.getextensions--1_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable___7pp1ws" ></a>  DmnExtendableExtensions.GetExtensions&lt;TExtension&gt;(IDmnExtendable) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions__18z3obb" >DmnExtendableExtensions</a><br />
+Sources: engine\definition\extensions\DmnExtendableExtensions.cs</small></p>
+<p>Get all extensions of type <strong>TExtension</strong> from <strong>element</strong></p>
+<pre><code class="csharp">public static DmnExtendableExtensions.TExtension[] GetExtensions&lt;TExtension&gt;(this IDmnExtendable element)</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>TExtension</strong></dt><dd>Type of the extension</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >net.adamec.lib.common.dmn.engine.engine.definition.extensions.IDmnExtendable</a> <strong>element</strong></dt><dd>DMN element</dd></dl>
+<p><strong>Return value</strong><dl><dt>net.adamec.lib.common.dmn.engine.engine.definition.extensions.DmnExtendableExtensions.TExtension[]</dt><dd>All extensions of type <strong>TExtension</strong> from <strong>element</strong> or empty array when no such extension is found</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions.hasextension--1_net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable___1f14ct5" ></a>  DmnExtendableExtensions.HasExtension&lt;TExtension&gt;(IDmnExtendable) Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.dmnextendableextensions__18z3obb" >DmnExtendableExtensions</a><br />
+Sources: engine\definition\extensions\DmnExtendableExtensions.cs</small></p>
+<p>Check whether <strong>element</strong> has the extension of type <strong>TExtension</strong></p>
+<pre><code class="csharp">public static bool HasExtension&lt;TExtension&gt;(this IDmnExtendable element)</code></pre>
+<strong>Type parameters</strong><dl><dt><strong>TExtension</strong></dt><dd>Type of the extension</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >net.adamec.lib.common.dmn.engine.engine.definition.extensions.IDmnExtendable</a> <strong>element</strong></dt><dd>DMN element</dd></dl>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" class="link-external" target="_blank" >bool</a></dt><dd>True when <strong>element</strong> has the extension of type <strong>TExtension</strong> otherwise false</dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" ></a>  IDmnExtendable Interface </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: engine\definition\extensions\IDmnExtendable.cs</small></p>
+<p>DMN definition classes that can have extensions</p>
+<pre><code class="csharp">public interface IDmnExtendable</code></pre>
+<p>Implemented by: <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj" >net.adamec.lib.common.dmn.engine.engine.decisions.DmnDecision</a>, <a href="net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision__13vf8a6" >net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision</a>, <a href="net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision__wqzfc9" >net.adamec.lib.common.dmn.engine.engine.decisions.expression.DmnExpressionDecision</a>, <a href="net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.html#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh" >net.adamec.lib.common.dmn.engine.engine.decisions.table.DmnDecisionTable</a>, <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4" >net.adamec.lib.common.dmn.engine.engine.definition.DmnDefinition</a>, <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88" >net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition</a>, <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmndefinition__81b50x" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnDefinition</a>, <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement__1odpnhw" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnElement</a>, <a href="net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.html#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w" >net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#p-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable.extensions__1fyoyrc" >Extensions</a></td><td>public abstract</td><td>List of extensions that can be used to any related data. Engine doesn&#39;t neither manage nor touches the extensions</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable.extensions__1fyoyrc" ></a>  IDmnExtendable.Extensions Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu" >net.adamec.lib.common.dmn.engine.engine.definition.extensions</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.engine.definition.extensions__16t6ocu.html#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.idmnextendable__1x6o04o" >IDmnExtendable</a><br />
+Sources: engine\definition\extensions\IDmnExtendable.cs</small></p>
+<p>List of extensions that can be used to any related data. Engine doesn&#39;t neither manage nor touches the extensions</p>
+<pre><code class="csharp">public abstract List&lt;object&gt; Extensions { get; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;object&gt;</a></dt><dd></dd></dl></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+</body></html>

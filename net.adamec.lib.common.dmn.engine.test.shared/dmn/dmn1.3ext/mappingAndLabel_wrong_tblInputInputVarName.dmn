@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1u4la9v" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <decision id="Decision_1r3naco" name="Decision 1">
+    <informationRequirement id="InformationRequirement_02uk2x5">
+      <requiredInput href="#InputData_11qoncz" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1pgha9o" hitPolicy="FIRST">
+      <input id="InputClause_0825uv5" label="a" camunda:inputVariable="b">
+        <inputExpression id="LiteralExpression_1dxlz95" typeRef="string" />
+      </input>
+      <output id="OutputClause_07mrgf7" name="o" typeRef="string" />
+      <rule id="DecisionRule_0h4p5jm">
+        <inputEntry id="UnaryTests_0q4xema">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bzkhl5">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_11qoncz" name="a" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1xfklxh" dmnElementRef="Decision_1r3naco">
+        <dc:Bounds height="80" width="180" x="160" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0unuctj" dmnElementRef="InputData_11qoncz">
+        <dc:Bounds height="45" width="125" x="188" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09d2zsp" dmnElementRef="InformationRequirement_02uk2x5">
+        <di:waypoint x="251" y="123" />
+        <di:waypoint x="250" y="220" />
+        <di:waypoint x="250" y="240" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

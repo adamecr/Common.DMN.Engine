@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Linq;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
-using net.adamec.lib.common.dmn.engine.engine.execution;
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions.table.runtime

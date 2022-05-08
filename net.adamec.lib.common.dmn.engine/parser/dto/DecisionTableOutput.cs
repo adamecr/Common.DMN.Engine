@@ -10,7 +10,7 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
     public class DecisionTableOutput : NamedElement
     {
         /// <summary>
-        /// Label used to map to output variable
+        /// Label ouf the output 
         /// </summary>
         [XmlAttribute("label")]
         public string Label { get; set; }

@@ -51,6 +51,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
         /// <param name="rules">Decision table rules</param>
         /// <param name="requiredInputs">Inputs the decision table depends on.</param>
         /// <param name="requiredDecisions">Decisions that needs to be evaluated before the decision table (provide the inputs to the table).</param>
+        /// <param name="label">Optional decision table label. Name is used when not provided</param>
         /// <exception cref="ArgumentNullException"><paramref name="inputs"/>, <paramref name="outputs"/> or <paramref name="rules"/> is null</exception>
         /// <exception cref="ArgumentException"><paramref name="inputs"/>, <paramref name="outputs"/> or <paramref name="rules"/> is empty</exception>
         public DmnDecisionTable(
@@ -60,8 +61,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.table
             DmnDecisionTableOutput[] outputs,
             DmnDecisionTableRule[] rules,
             IReadOnlyCollection<IDmnVariable> requiredInputs,
-            IReadOnlyCollection<IDmnDecision> requiredDecisions)
-            : base(name, requiredInputs, requiredDecisions)
+            IReadOnlyCollection<IDmnDecision> requiredDecisions,
+            string label=null)
+            : base(name, requiredInputs, requiredDecisions, label)
         {
             HitPolicy = hitPolicy;
             Aggregation = aggregation;

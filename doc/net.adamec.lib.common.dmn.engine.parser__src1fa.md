@@ -71,8 +71,10 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [Parse(string, DmnParser.DmnVersionEnum)](net.adamec.lib.common.dmn.engine.parser__src1fa.md#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse_system.string-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum___1tvf0mj) | public static | Parse the file with DMN Model XML definition based on DMN standard version . | 
  | [Parse13(string)](net.adamec.lib.common.dmn.engine.parser__src1fa.md#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse13_system.string___3jyezv) | public static | Parse the file with DMN Model XML definition based on [DMN standard version 1.3](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) . | 
+ | [Parse13ext(string)](net.adamec.lib.common.dmn.engine.parser__src1fa.md#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse13ext_system.string___f2z1fm) | public static | Parse the file with DMN Model XML definition based on [DMN standard version 1.3 with extensions](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) . | 
  | [ParseString(string, DmnParser.DmnVersionEnum)](net.adamec.lib.common.dmn.engine.parser__src1fa.md#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring_system.string-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum___1ldin6) | public static | Parse the string with DMN Model XML definition based on DMN standard version . | 
  | [ParseString13(string)](net.adamec.lib.common.dmn.engine.parser__src1fa.md#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring13_system.string___1cswehw) | public static | Parse the string with DMN Model XML definition based on [DMN standard version 1.3](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) . | 
+ | [ParseString13ext(string)](net.adamec.lib.common.dmn.engine.parser__src1fa.md#m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring13ext_system.string___1quh80z) | public static | Parse the string with DMN Model XML definition based on [DMN standard version 1.3 with extensions](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) . | 
 
  
 
@@ -258,6 +260,35 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parse13ext_system.string___f2z1fm" />  DmnParser.Parse13ext(string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.parser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#n-net.adamec.lib.common.dmn.engine.parser__src1fa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga)           
+Sources: parser\DmnParser.cs</small>
+
+
+Parse the file with DMN Model XML definition based on [DMN standard version 1.3 with extensions](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) .
+
+
+
+```csharp
+public static DmnModel Parse13ext(string filePath)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>filePath</strong></dt><dd>Path to the file to be parsed</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9)</dt><dd>Parsed DMN Model</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnParserException](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7)</dt><dd>Missing file path ( <strong>filePath</strong> is null or empty)</dd><dt>[DmnParserException](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7)</dt><dd>File doesn&#39;t exist</dd><dt>[DmnParserException](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7)</dt><dd>Can&#39;t parse file</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring_system.string-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum___1ldin6" />  DmnParser.ParseString(string, DmnParser.DmnVersionEnum) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.parser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#n-net.adamec.lib.common.dmn.engine.parser__src1fa)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -300,6 +331,35 @@ Parse the string with DMN Model XML definition based on [DMN standard version 1.
 
 ```csharp
 public static DmnModel ParseString13(string dmnDefinition)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>dmnDefinition</strong></dt><dd>DMN Model XML definition</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.dto.DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9)</dt><dd>Parsed DMN Model</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt>[DmnParserException](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7)</dt><dd>Missing DMN Model definition ( <strong>dmnDefinition</strong> is null or empty)</dd><dt>[DmnParserException](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7)</dt><dd>Can&#39;t parse DMN definition</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.dmn.engine.parser.dmnparser.parsestring13ext_system.string___1quh80z" />  DmnParser.ParseString13ext(string) Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.parser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#n-net.adamec.lib.common.dmn.engine.parser__src1fa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga)           
+Sources: parser\DmnParser.cs</small>
+
+
+Parse the string with DMN Model XML definition based on [DMN standard version 1.3 with extensions](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) .
+
+
+
+```csharp
+public static DmnModel ParseString13ext(string dmnDefinition)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>dmnDefinition</strong></dt><dd>DMN Model XML definition</dd></dl>
@@ -602,6 +662,7 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.icompara
  | ------ | ------- | --------- | 
  | [V1_1](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_1__14p7r3d) | 0 | DMN version 1.1 | 
  | [V1_3](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3__14p7r3b) | 1 | DMN version 1.3 | 
+ | [V1_3ext](net.adamec.lib.common.dmn.engine.parser__src1fa.md#f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3ext__is8jxm) | 2 | DMN version 1.3 with extensions | 
 
  
 
@@ -649,6 +710,30 @@ DMN version 1.3
 
 ```csharp
  V1_3 = 1
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.DmnParser.DmnVersionEnum](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum.v1_3ext__is8jxm" />  DmnParser.DmnVersionEnum.V1_3ext Constant ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.parser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#n-net.adamec.lib.common.dmn.engine.parser__src1fa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnParser.DmnVersionEnum](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g)           
+Sources: parser\DmnParser.cs</small>
+
+
+DMN version 1.3 with extensions
+
+
+
+```csharp
+ V1_3ext = 2
 ```
 
 <strong>Field value</strong><dl><dt>[net.adamec.lib.common.dmn.engine.parser.DmnParser.DmnVersionEnum](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser.dmnversionenum__1a1w78g)</dt><dd></dd></dl>

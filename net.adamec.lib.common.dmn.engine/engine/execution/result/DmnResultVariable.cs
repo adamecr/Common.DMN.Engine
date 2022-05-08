@@ -15,6 +15,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         public string Name { get; }
 
         /// <summary>
+        /// Label of the variable (used for input parameters)
+        /// </summary>
+        public string Label { get; }
+    
+        /// <summary>
         /// Variable type or null if not defined
         /// </summary>
         public Type Type { get; }
@@ -42,6 +47,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
                 throw new ArgumentException("Missing variable name",nameof(executionVariable));
            
             Name = executionVariable.Name;
+            Label = executionVariable.Label;
             Type = executionVariable.Type;
             IsInputParameter = executionVariable.IsInputParameter;
             Value = executionVariable.Value;
@@ -55,6 +61,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         {
             if (cloneFrom == null) throw new ArgumentNullException(nameof(cloneFrom));
             Name = cloneFrom.Name;
+            Label= cloneFrom.Label;
             Type = cloneFrom.Type;
             IsInputParameter = cloneFrom.IsInputParameter;
             if (cloneFrom.Value is ICloneable cloneableValue)

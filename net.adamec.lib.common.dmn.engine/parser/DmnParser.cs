@@ -34,7 +34,11 @@ namespace net.adamec.lib.common.dmn.engine.parser
             /// <summary>
             /// DMN version 1.3
             /// </summary>
-            V1_3
+            V1_3,
+            /// <summary>
+            /// DMN version 1.3 with extensions
+            /// </summary>
+            V1_3ext
         }
 
         internal static ILogger Logger = CommonLogging.CreateLogger<DmnParser>();
@@ -69,6 +73,20 @@ namespace net.adamec.lib.common.dmn.engine.parser
         }
 
         /// <summary>
+        /// Parse the <paramref name="filePath">file</paramref> with DMN Model XML definition based on <see cref="DmnVersionEnum.V1_3">DMN standard version 1.3 with extensions</see>.
+        /// </summary>
+        /// <param name="filePath">Path to the file to be parsed</param>
+        /// <returns> Parsed DMN Model</returns>
+        /// <exception cref="DmnParserException">Missing file path (<paramref name="filePath"/> is null or empty)</exception>
+        /// <exception cref="DmnParserException">File doesn't exist</exception>
+        /// <exception cref="DmnParserException">Can't parse file</exception>
+        // ReSharper disable once InconsistentNaming
+        public static DmnModel Parse13ext(string filePath)
+        {
+            return Parse(filePath, DmnVersionEnum.V1_3ext);
+        }
+
+        /// <summary>
         /// Parse the <paramref name="filePath">file</paramref> with DMN Model XML definition based on <paramref name="dmnVersion">DMN standard version</paramref>.
         /// </summary>
         /// <param name="filePath">Path to the file to be parsed</param>
@@ -96,6 +114,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
                             def = (DmnModel)DmnDefinitionsSerializer.Deserialize(rdr);
                             break;
                         case DmnVersionEnum.V1_3:
+                        case DmnVersionEnum.V1_3ext:
                             def = (DmnModel)DmnDefinitionsSerializer13.Deserialize(rdr);
                             break;
                         default:
@@ -110,6 +129,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
                 }
             }
 
+            def.DmnVersion=dmnVersion;
             return def;
         }
 
@@ -123,6 +143,19 @@ namespace net.adamec.lib.common.dmn.engine.parser
         public static DmnModel ParseString13(string dmnDefinition)
         {
             return ParseString(dmnDefinition, DmnVersionEnum.V1_3);
+        }
+
+        /// <summary>
+        /// Parse the <paramref name="dmnDefinition">string</paramref> with DMN Model XML definition based on <see cref="DmnVersionEnum.V1_3">DMN standard version 1.3 with extensions</see>.
+        /// </summary>
+        /// <param name="dmnDefinition">DMN Model XML definition</param>
+        /// <returns>Parsed DMN Model</returns>
+        /// <exception cref="DmnParserException">Missing DMN Model definition (<paramref name="dmnDefinition"/> is null or empty)</exception>
+        /// <exception cref="DmnParserException">Can't parse DMN definition</exception>
+        // ReSharper disable once InconsistentNaming
+        public static DmnModel ParseString13ext(string dmnDefinition)
+        {
+            return ParseString(dmnDefinition, DmnVersionEnum.V1_3ext);
         }
 
         /// <summary>
@@ -154,6 +187,7 @@ namespace net.adamec.lib.common.dmn.engine.parser
                             def = (DmnModel)DmnDefinitionsSerializer.Deserialize(rdr);
                             break;
                         case DmnVersionEnum.V1_3:
+                        case DmnVersionEnum.V1_3ext:
                             def = (DmnModel)DmnDefinitionsSerializer13.Deserialize(rdr);
                             break;
                         default:
@@ -167,7 +201,8 @@ namespace net.adamec.lib.common.dmn.engine.parser
                     throw Logger.Fatal<DmnParserException>($"Can't parse definition from given string: {ex.Message}", ex);
                 }
             }
-
+            
+            def.DmnVersion=dmnVersion;
             return def;
         }
     }

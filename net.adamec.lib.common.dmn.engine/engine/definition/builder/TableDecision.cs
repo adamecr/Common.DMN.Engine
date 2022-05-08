@@ -63,8 +63,9 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="variables"><see cref="VariableCatalog"/> managing the definition builder variables</param>
         /// <param name="decisions"><see cref="DecisionCatalog"/> managing the definition builder decisions</param>
         /// <param name="name">Unique name of the decision</param>
-        internal TableDecision(VariableCatalog variables, DecisionCatalog decisions, string name)
-            : base(variables, decisions, name)
+        /// <param name="label">Optional label of the decision, name is used when not provided</param>
+        internal TableDecision(VariableCatalog variables, DecisionCatalog decisions, string name, string label = null)
+            : base(variables, decisions, name, label)
         {
 
         }
@@ -127,9 +128,20 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
         public TableDecision WithInput(Variable.Ref variableRef, out TableInput.Ref inputRef)
         {
-            return WithInput(variableRef, out inputRef, null);
+            return WithInput(null,variableRef, out inputRef, null);
         }
-
+        /// <summary>
+        /// Adds the variable based table input
+        /// </summary>
+        /// <remarks>The inputs are "indexed" in the order as added to the table definition builder</remarks>
+        /// <param name="label">Input label, "Input#{Index}" will be used if not provided</param>
+        /// <param name="variableRef">Reference to variable used as table input</param>
+        /// <param name="inputRef">Reference to added table input that can be used in rule builders</param>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        public TableDecision WithInput(string label, Variable.Ref variableRef, out TableInput.Ref inputRef)
+        {
+            return WithInput(label, variableRef, out inputRef, null);
+        }
         /// <summary>
         /// Adds the variable based table input
         /// </summary>
@@ -141,10 +153,25 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="ArgumentNullException"> when the <paramref name="variableRef"/> is not provided</exception>
         public TableDecision WithInput(Variable.Ref variableRef, out TableInput.Ref inputRef, params string[] allowedValues)
         {
+            return WithInput(null, variableRef, out inputRef, allowedValues);
+        }
+
+        /// <summary>
+        /// Adds the variable based table input
+        /// </summary>
+        /// <remarks>The inputs are "indexed" in the order as added to the table definition builder</remarks>
+        /// <param name="label">Input label, "Input#{Index}" will be used if not provided</param>
+        /// <param name="variableRef">Reference to variable used as table input</param>
+        /// <param name="inputRef">Reference to added table input that can be used in rule builders</param>
+        /// <param name="allowedValues">Allowed input values</param>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        /// <exception cref="ArgumentNullException"> when the <paramref name="variableRef"/> is not provided</exception>
+        public TableDecision WithInput(string label, Variable.Ref variableRef, out TableInput.Ref inputRef, params string[] allowedValues)
+        {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>($"Decision is already built");
             if (variableRef == null) throw new ArgumentNullException(nameof(variableRef));
 
-            var input = new TableInput(Variables, Decisions, InputsInternal.Count).WithVariable(variableRef);
+            var input = new TableInput(Variables, Decisions, InputsInternal.Count, label).WithVariable(variableRef);
             _ = allowedValues != null && allowedValues.Length > 0
                 ? input.WithAllowedValues(allowedValues)
                 : input.WithoutAllowedValuesConstraint();
@@ -154,7 +181,6 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
             InputsByRef.Add(inputRef, input);
             return this;
         }
-
         /// <summary>
         /// Adds the expression based table input
         /// </summary>
@@ -166,7 +192,22 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="ArgumentException"> when the <paramref name="expression"/> is empty or whitespace</exception>
         public TableDecision WithInput(string expression, out TableInput.Ref inputRef)
         {
-            return WithInput(expression, out inputRef, null);
+            return WithInput(null, expression, out inputRef, null);
+        }
+
+        /// <summary>
+        /// Adds the expression based table input
+        /// </summary>
+        /// <remarks>The inputs are "indexed" in the order as added to the table definition builder</remarks>
+        /// <param name="label">Input label, "Input#{Index}" will be used if not provided</param>
+        /// <param name="expression">Expression to be used as table input</param>
+        /// <param name="inputRef">Reference to added table input that can be used in rule builders</param>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        /// <exception cref="ArgumentNullException"> when the <paramref name="expression"/> is not provided</exception>
+        /// <exception cref="ArgumentException"> when the <paramref name="expression"/> is empty or whitespace</exception>
+        public TableDecision WithInput(string label, string expression, out TableInput.Ref inputRef)
+        {
+            return WithInput(label, expression, out inputRef, null);
         }
 
         /// <summary>
@@ -181,12 +222,28 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="ArgumentException"> when the <paramref name="expression"/> is empty or whitespace</exception>
         public TableDecision WithInput(string expression, out TableInput.Ref inputRef, params string[] allowedValues)
         {
+            return WithInput(null, expression, out inputRef, allowedValues);
+        }
+
+        /// <summary>
+        /// Adds the expression based table input
+        /// </summary>
+        /// <remarks>The inputs are "indexed" in the order as added to the table definition builder</remarks>
+        /// <param name="label">Input label, "Input#{Index}" will be used if not provided</param>
+        /// <param name="expression">Expression to be used as table input</param>
+        /// <param name="inputRef">Reference to added table input that can be used in rule builders</param>
+        /// <param name="allowedValues">Allowed input values</param>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        /// <exception cref="ArgumentNullException"> when the <paramref name="expression"/> is not provided</exception>
+        /// <exception cref="ArgumentException"> when the <paramref name="expression"/> is empty or whitespace</exception>
+        public TableDecision WithInput(string label, string expression, out TableInput.Ref inputRef, params string[] allowedValues)
+        {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>($"Decision is already built");
             if (expression == null) throw new ArgumentNullException(nameof(expression));
             if (string.IsNullOrWhiteSpace(expression))
                 throw new ArgumentException("Missing expression", nameof(expression));
 
-            var input = new TableInput(Variables, Decisions, InputsInternal.Count).WithExpression(expression);
+            var input = new TableInput(Variables, Decisions, InputsInternal.Count, label).WithExpression(expression);
             _ = allowedValues != null && allowedValues.Length > 0
                 ? input.WithAllowedValues(allowedValues)
                 : input.WithoutAllowedValuesConstraint();
@@ -207,9 +264,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="ArgumentNullException"> when the <paramref name="variableRef"/> is not provided</exception>
         public TableDecision WithOutput(Variable.Ref variableRef, out TableOutput.Ref outputRef)
         {
-            return WithOutput(variableRef, out outputRef, null);
+            return WithOutput(null, variableRef, out outputRef, null);
         }
-
+        /// <summary>
+        /// Adds the table output with reference to the variable to store the output value to
+        /// </summary>
+        /// <remarks>The outputs are "indexed" in the order as added to the table definition builder</remarks>
+        /// <param name="label">Output label, "Output#{Index}" will be used if not provided</param>
+        /// <param name="variableRef">Reference to variable used to store the table output to</param>
+        /// <param name="outputRef">Reference to added table output that can be used in rule builders</param>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        /// <exception cref="ArgumentNullException"> when the <paramref name="variableRef"/> is not provided</exception>
+        public TableDecision WithOutput(string label, Variable.Ref variableRef, out TableOutput.Ref outputRef)
+        {
+            return WithOutput(label, variableRef, out outputRef, null);
+        }
         /// <summary>
         /// Adds the table output with reference to the variable to store the output value to
         /// </summary>
@@ -221,10 +290,25 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <exception cref="ArgumentNullException"> when the <paramref name="variableRef"/> is not provided</exception>
         public TableDecision WithOutput(Variable.Ref variableRef, out TableOutput.Ref outputRef, params string[] allowedValues)
         {
+            return WithOutput(null, variableRef, out outputRef, allowedValues);
+        }
+
+        /// <summary>
+        /// Adds the table output with reference to the variable to store the output value to
+        /// </summary>
+        /// <remarks>The outputs are "indexed" in the order as added to the table definition builder</remarks>
+        /// <param name="variableRef">Reference to variable used to store the table output to</param>
+        /// <param name="outputRef">Reference to added table output that can be used in rule builders</param>
+        /// <param name="allowedValues">Allowed output values</param>
+        /// <param name="label">Output label, "Output#{Index}" will be used if not provided</param>
+        /// <exception cref="DmnBuilderException">Throws <see cref="DmnBuilderException"/> when the definition has already been built</exception>
+        /// <exception cref="ArgumentNullException"> when the <paramref name="variableRef"/> is not provided</exception>
+        public TableDecision WithOutput(string label, Variable.Ref variableRef, out TableOutput.Ref outputRef, params string[] allowedValues)
+        {
             if (IsBuilt) throw Logger.Error<DmnBuilderException>($"Decision is already built");
             if (variableRef == null) throw new ArgumentNullException(nameof(variableRef));
 
-            var output = new TableOutput(Variables, Decisions, OutputsInternal.Count).WithVariable(variableRef);
+            var output = new TableOutput(Variables, Decisions, OutputsInternal.Count, label).WithVariable(variableRef);
             _ = allowedValues != null && allowedValues.Length > 0
                 ? output.WithAllowedValues(allowedValues)
                 : output.WithoutAllowedValuesConstraint();
@@ -299,7 +383,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
                 OutputsInternal.Select(o => o.GetResultOrBuild()).ToArray(),
                 RulesInternal.Select(r => r.GetResultOrBuild()).ToArray(),
                 RequiredInputs.Select(i => Variables[i].GetResultOrBuild()).ToArray(),
-                RequiredDecisions.Select(d => Decisions[d].GetResultOrBuild()).ToArray());
+                RequiredDecisions.Select(d => Decisions[d].GetResultOrBuild()).ToArray(),
+                Label);
             ResultInternal = tableDecision;
             return tableDecision;
         }

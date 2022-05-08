@@ -14,6 +14,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// Name of the variable
         /// </summary>
         public string Name { get; }
+
+        /// <summary>
+        /// Label of the variable (used for input parameters)
+        /// </summary>
+        public string Label { get; }
+
         /// <summary>
         /// Type of the variable when recognized from the decisions
         /// </summary>
@@ -46,16 +52,24 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         private readonly List<string> valueSetters = new List<string>();
 
         /// <summary>
+        /// List of extensions that can be used to any related data.
+        /// Engine doesn't neither manage nor touches the extensions
+        /// </summary>
+        public List<object> Extensions { get; } = new List<object>();
+
+        /// <summary>
         /// CTOR
         /// </summary>
         /// <param name="name">Name of the variable</param>
         /// <param name="type">Optional Type of the variable if known</param>
-        public DmnVariableDefinition(string name, Type type = null)
+        /// <param name="label">Optional variable label. Name is used when not set</param>
+        public DmnVariableDefinition(string name, Type type = null, string label = null)
         {
             if (name == null) throw new ArgumentNullException(nameof(name));
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Name not provided", nameof(name));
 
             Name = name;
+            Label = string.IsNullOrWhiteSpace(label) ? name : label;
             Type = type;
         }
 
@@ -65,7 +79,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <param name="name">Name of the variable</param>
         /// <param name="inputName">Name of the input</param>
         /// <param name="type">Optional Type of the variable if known</param>
-        public DmnVariableDefinition(string name, string inputName, Type type = null) : this(name, type)
+        /// <param name="label">Optional variable label. Name is used when not set</param>
+        public DmnVariableDefinition(string name, string inputName, Type type = null, string label = null) : this(name, type, label)
         {
             if (inputName == null) throw new ArgumentNullException(nameof(inputName));
             if (string.IsNullOrWhiteSpace(inputName)) throw new ArgumentException("Input name not provided", nameof(inputName));
@@ -81,15 +96,16 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <param name="type">Optional Type of the variable if known</param>
         /// <param name="isInputParameter">Flag whether the variable is backing the input</param>
         /// <param name="valueSetters">List of the information about the value setters</param>
-        public DmnVariableDefinition(string name, Type type , bool isInputParameter, List<string> valueSetters) : this(name, type)
+        /// <param name="label">Optional variable label. Name is used when not set</param>
+        public DmnVariableDefinition(string name, Type type, bool isInputParameter, List<string> valueSetters, string label = null) : this(name, type, label)
         {
             if (name == null) throw new ArgumentNullException(nameof(name));
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Name not provided", nameof(name));
-            
+
             IsInputParameter = isInputParameter;
             this.valueSetters = valueSetters;
         }
-        
+
 
         /// <summary>
         /// Adds a value setter information to variable definition
@@ -127,26 +143,63 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         }
 
         /// <summary>
-        /// Normalize the variable name (trim and replace space with underscore) and
+        /// Normalize the variable name (trim, replace space with underscore and remove some special characters) and
         /// check that all characters are letters, digits or underscore and that the first character is letter
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Proposed variable name to be normalized</param>
         /// <exception cref="ArgumentException"><paramref name="name"/> is null or empty or invalid</exception>
         /// <returns>Normalized variable name</returns>
         public static string NormalizeVariableName(string name)
         {
-            var retVal = name?.Trim().Replace(' ', '_');
+            if (CanNormalizeVariableName(name, out var normalizedName, out var error)) return normalizedName;
+            throw new ArgumentException(error, nameof(name));
+        }
+
+        /// <summary>
+        /// Tries to normalize the variable name (trim, replace space with underscore and remove some special characters) and
+        /// check that all characters are letters, digits or underscore and that the first character is letter.
+        /// </summary>
+        /// <param name="name">Proposed variable name to be normalized</param>
+        /// <param name="normalizedName">Normalized variable name when valid</param>
+        /// <param name="error">Validation error message when invalid</param>
+        /// <returns>True when the <paramref name="name"/> can be normalized (together with <paramref name="normalizedName"/>)
+        /// or false when the normalization failed (together with <paramref name="error"/>)</returns>
+        public static bool CanNormalizeVariableName(string name, out string normalizedName, out string error)
+        {
+            error = null;
+            var retVal = name?.Trim()
+                .Replace(' ', '_')
+                .Replace("?", "")
+                .Replace("#", "")
+                .Replace("$", "")
+                .Replace("%", "")
+                .Replace("&", "")
+                .Replace("*", "")
+                .Replace("(", "")
+                .Replace(")", "");
 
             if (string.IsNullOrWhiteSpace(retVal))
-                throw new ArgumentException($"Variable name is null or empty",nameof(name));
+            {
+                error = $"Variable name is null or empty"; 
 
-            if (retVal.Any(c => !(char.IsLetter(c) || char.IsDigit(c)  || c == '_')))
-                throw new ArgumentException($"Variable name '{name}' contains invalid character", nameof(name));
+            }
+            else if (retVal.Any(c => !(char.IsLetter(c) || char.IsDigit(c) || c == '_')))
+            {
+                error = $"Variable name '{name}' contains invalid character";
+            }
+            else if (!char.IsLetter(retVal[0]))
+            {
+                error = $"Variable name '{nameof(name)}' must start with letter";
+            }
 
-            if (!char.IsLetter(retVal[0]))
-                throw new ArgumentException($"Variable name '{nameof(name)}' must start with letter", nameof(name));
+            if (error == null)
+            {
+                normalizedName = retVal;
+                return true;
+            }
 
-            return retVal;
+            normalizedName = null;
+            return false;
         }
     }
 }

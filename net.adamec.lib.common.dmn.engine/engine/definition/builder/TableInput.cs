@@ -74,7 +74,10 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// </summary>
         /// <remarks>The inputs are "indexed" in the order as added to the table definition builder</remarks>
         public int Index { get; }
-
+        /// <summary>
+        /// Input label, "Input#{Index}" will be used if not provided
+        /// </summary>
+        public string Label { get; }
         /// <summary>
         /// Reference to input source variable (the variable value is compared to the rules)
         /// </summary>
@@ -102,10 +105,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
         /// <param name="variables"><see cref="VariableCatalog"/> managing the definition builder variables</param>
         /// <param name="decisions"><see cref="DecisionCatalog"/> managing the definition builder decisions</param>
         /// <param name="index">Index of the input (order)</param>
-        internal TableInput(VariableCatalog variables, DecisionCatalog decisions, int index)
+        /// <param name="label">Input label, "Input#{Index}" will be used if not provided</param>
+        internal TableInput(VariableCatalog variables, DecisionCatalog decisions, int index,string label=null)
             : base(variables, decisions)
         {
             Index = index;
+            Label = string.IsNullOrWhiteSpace(label) ? $"Input#{Index}" : label;
             Reference = RefCtor(this);
         }
 
@@ -185,7 +190,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.builder
                 Index,
                 VariableInternal?.GetResultOrBuild(),
                 Expression,
-                AllowedValues);
+                AllowedValues,
+                Label);
             ResultInternal = input;
             return input;
         }

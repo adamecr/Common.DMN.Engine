@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DMN Engine Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" >
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js" ></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+body { color: #24292e;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size: 16px;line-height: 1.5; word-wrap: break-word;margin: 20px;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h4 {font-size: 1.25em;}
+h1, h2 {border-bottom: 1px solid #eaecef; padding-bottom: .3em;}
+h1, h2, h3,  h4{font-weight: 600;line-height: 1.25;margin-bottom: 16px;margin-top: 24px;}
+blockquote, ol, p, pre, table, ul {margin-bottom: 16px;margin-top: 0;}
+a{color: #0366d6;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a.link-external:hover{text-decoration: underline; color:gray;}
+pre code {border: 0;display: inline;line-height: inherit;margin: 2px;overflow: visible;padding: 5px ;word-wrap: normal;}
+pre>code {font-size: 100%;white-space: pre;word-break: normal;padding: 0px}
+code {border-radius: 3px;}
+code, pre {font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;}
+pre {background-color: #f6f8fa;border-radius: 3px;font-size: 85%;line-height: 1.45;overflow: auto;padding: 0px;word-wrap: normal;}
+table {display: block;overflow: auto;width: 100%;border-collapse: collapse;border-spacing: 0;border-color: grey;}
+table tr {background-color: #fff;border-top: 1px solid #c6cbd1;}
+table tr:nth-child(2n) {background-color: #f6f8fa;}
+table td, table th {border: 1px solid #dfe2e5;padding: 6px 13px;}
+dl {display: grid; grid-template-columns: max-content auto; margin: 5px;}
+p+dl {margin-top: -15px;}
+dt {grid-column-start: 1;}
+dd {grid-column-start: 2;}
+</style>
+</head>
+<body>
+
+<h1>  DMN Engine Documentation </h1>
+<h2>  <a id="n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" ></a>  net.adamec.lib.common.dmn.engine.parser.dto.diagram Namespace </h2>
+<h3>  Classes </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >Bounds</a></td><td>public</td><td>Represents dc:Bounds element of <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" >Shape</a> in DMN XML</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" >Diagram</a></td><td>public</td><td>Represents dmndi:DMNDiagram element in DMN XML</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi__x0v2yy" >DmnDi</a></td><td>public</td><td>Represents dmndi:DMNDI element in DMN XML</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" >Edge</a></td><td>public</td><td>Represents dmndi:DMNEdge element in DMN XML</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" >Shape</a></td><td>public</td><td>Represents dmndi:DMNShape element in DMN XML</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint__wmsg1p" >Waypoint</a></td><td>public</td><td>Represents di:waypoint element of <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" >Edge</a> in DMN XML</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" ></a>  Bounds Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\diagram\Bounds.cs</small></p>
+<p>Represents dc:Bounds element of <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" >Shape</a> in DMN XML</p>
+<pre><code class="csharp">public class Bounds</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.height__19v1bao" >Height</a></td><td>public</td><td>Height of shape</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.width__r4prsf" >Width</a></td><td>public</td><td>Width of shape</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.x__1rfblwp" >X</a></td><td>public</td><td>X position of shape</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.y__iam61a" >Y</a></td><td>public</td><td>Y position of shape</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.tostring__1nf2v3w" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.height__19v1bao" ></a>  Bounds.Height Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >Bounds</a><br />
+Sources: parser\dto\diagram\Bounds.cs</small></p>
+<p>Height of shape</p>
+<pre><code class="csharp">[XmlAttribute(&quot;height&quot;)]
+public int Height { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.width__r4prsf" ></a>  Bounds.Width Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >Bounds</a><br />
+Sources: parser\dto\diagram\Bounds.cs</small></p>
+<p>Width of shape</p>
+<pre><code class="csharp">[XmlAttribute(&quot;width&quot;)]
+public int Width { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.x__1rfblwp" ></a>  Bounds.X Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >Bounds</a><br />
+Sources: parser\dto\diagram\Bounds.cs</small></p>
+<p>X position of shape</p>
+<pre><code class="csharp">[XmlAttribute(&quot;x&quot;)]
+public int X { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.y__iam61a" ></a>  Bounds.Y Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >Bounds</a><br />
+Sources: parser\dto\diagram\Bounds.cs</small></p>
+<p>Y position of shape</p>
+<pre><code class="csharp">[XmlAttribute(&quot;y&quot;)]
+public int Y { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds.tostring__1nf2v3w" ></a>  Bounds.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >Bounds</a><br />
+Sources: parser\dto\diagram\Bounds.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" ></a>  Diagram Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\diagram\Diagram.cs</small></p>
+<p>Represents dmndi:DMNDiagram element in DMN XML</p>
+<pre><code class="csharp">public class Diagram : IdedElement</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.idedelement__1e85r4v" >net.adamec.lib.common.dmn.engine.parser.dto.IdedElement</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram.edges__w2j7kp" >Edges</a></td><td>public</td><td>List of elements within the diagram</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram.shapes__167im0p" >Shapes</a></td><td>public</td><td>List of shapes within the diagram</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram.tostring__7toy3m" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram.edges__w2j7kp" ></a>  Diagram.Edges Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" >Diagram</a><br />
+Sources: parser\dto\diagram\Diagram.cs</small></p>
+<p>List of elements within the diagram</p>
+<pre><code class="csharp">[XmlElement(&quot;DMNEdge&quot;, Namespace = &quot;https://www.omg.org/spec/DMN/20191111/DMNDI/&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Edge&gt; Edges { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Edge&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram.shapes__167im0p" ></a>  Diagram.Shapes Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" >Diagram</a><br />
+Sources: parser\dto\diagram\Diagram.cs</small></p>
+<p>List of shapes within the diagram</p>
+<pre><code class="csharp">[XmlElement(&quot;DMNShape&quot;, Namespace = &quot;https://www.omg.org/spec/DMN/20191111/DMNDI/&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Shape&gt; Shapes { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Shape&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram.tostring__7toy3m" ></a>  Diagram.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" >Diagram</a><br />
+Sources: parser\dto\diagram\Diagram.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.idedelement.tostring__11jwa8k" >IdedElement.ToString()</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi__x0v2yy" ></a>  DmnDi Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\diagram\DmnDi.cs</small></p>
+<p>Represents dmndi:DMNDI element in DMN XML</p>
+<pre><code class="csharp">public class DmnDi</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi.diagrams__9sdz9e" >Diagrams</a></td><td>public</td><td>List of <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" >diagrams</a> within DMN Model</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi.tostring__uw0ww9" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi.diagrams__9sdz9e" ></a>  DmnDi.Diagrams Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi__x0v2yy" >DmnDi</a><br />
+Sources: parser\dto\diagram\DmnDi.cs</small></p>
+<p>List of <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.diagram__1il17tj" >diagrams</a> within DMN Model</p>
+<pre><code class="csharp">[XmlElement(&quot;DMNDiagram&quot;, Namespace = &quot;https://www.omg.org/spec/DMN/20191111/DMNDI/&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Diagram&gt; Diagrams { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Diagram&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi.tostring__uw0ww9" ></a>  DmnDi.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.dmndi__x0v2yy" >DmnDi</a><br />
+Sources: parser\dto\diagram\DmnDi.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" ></a>  Edge Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\diagram\Edge.cs</small></p>
+<p>Represents dmndi:DMNEdge element in DMN XML</p>
+<pre><code class="csharp">public class Edge : IdedElement</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.idedelement__1e85r4v" >net.adamec.lib.common.dmn.engine.parser.dto.IdedElement</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge.dmnelementref__1ds1r5b" >DmnElementRef</a></td><td>public</td><td>Reference to DMN element in model (typically information requirement)</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge.waypoints__1r8pj6z" >Waypoints</a></td><td>public</td><td>List of waypoints of the edge</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge.tostring__1fim5j4" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge.dmnelementref__1ds1r5b" ></a>  Edge.DmnElementRef Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" >Edge</a><br />
+Sources: parser\dto\diagram\Edge.cs</small></p>
+<p>Reference to DMN element in model (typically information requirement)</p>
+<pre><code class="csharp">[XmlAttribute(&quot;dmnElementRef&quot;)]
+public string DmnElementRef { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge.waypoints__1r8pj6z" ></a>  Edge.Waypoints Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" >Edge</a><br />
+Sources: parser\dto\diagram\Edge.cs</small></p>
+<p>List of waypoints of the edge</p>
+<pre><code class="csharp">[XmlElement(&quot;waypoint&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20180521/DI/&quot;)]
+public List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Waypoint&gt; Waypoints { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" class="link-external" target="_blank" >List&lt;net.adamec.lib.common.dmn.engine.parser.dto.diagram.Waypoint&gt;</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge.tostring__1fim5j4" ></a>  Edge.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" >Edge</a><br />
+Sources: parser\dto\diagram\Edge.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.idedelement.tostring__11jwa8k" >IdedElement.ToString()</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" ></a>  Shape Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\diagram\Shape.cs</small></p>
+<p>Represents dmndi:DMNShape element in DMN XML</p>
+<pre><code class="csharp">public class Shape : IdedElement</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a> -&gt; <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#t-net.adamec.lib.common.dmn.engine.parser.dto.idedelement__1e85r4v" >net.adamec.lib.common.dmn.engine.parser.dto.IdedElement</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape.bounds__erva56" >Bounds</a></td><td>public</td><td>Boundaries of the shape</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape.dmnelementref__ob994v" >DmnElementRef</a></td><td>public</td><td>Reference to DMN element in model (typically decision or input parameter)</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape.tostring__h1ma8i" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape.bounds__erva56" ></a>  Shape.Bounds Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" >Shape</a><br />
+Sources: parser\dto\diagram\Shape.cs</small></p>
+<p>Boundaries of the shape</p>
+<pre><code class="csharp">[XmlElement(&quot;Bounds&quot;, Namespace = &quot;http://www.omg.org/spec/DMN/20180521/DC/&quot;)]
+public Bounds Bounds { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.bounds__iejac7" >net.adamec.lib.common.dmn.engine.parser.dto.diagram.Bounds</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlelementattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlElementAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape.dmnelementref__ob994v" ></a>  Shape.DmnElementRef Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" >Shape</a><br />
+Sources: parser\dto\diagram\Shape.cs</small></p>
+<p>Reference to DMN element in model (typically decision or input parameter)</p>
+<pre><code class="csharp">[XmlAttribute(&quot;dmnElementRef&quot;)]
+public string DmnElementRef { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape.tostring__h1ma8i" ></a>  Shape.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.shape__1751ksp" >Shape</a><br />
+Sources: parser\dto\diagram\Shape.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.html#m-net.adamec.lib.common.dmn.engine.parser.dto.idedelement.tostring__11jwa8k" >IdedElement.ToString()</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint__wmsg1p" ></a>  Waypoint Class </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Sources: parser\dto\diagram\Waypoint.cs</small></p>
+<p>Represents di:waypoint element of <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5" >Edge</a> in DMN XML</p>
+<pre><code class="csharp">public class Waypoint</code></pre>
+<p>Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" class="link-external" target="_blank" >object</a><br />
+</p>
+<h3>  Properties </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint.x__14je5pr" >X</a></td><td>public</td><td>X position of waypoint</td></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint.y__1ufsrtg" >Y</a></td><td>public</td><td>Y position of waypoint</td></tr>
+</table>
+<p> </p>
+<h3>  Methods </h3>
+<table><tr><th>Name</th><th>Modifier</th><th>Summary</th></tr>
+<tr><td><a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint.tostring__lb5jgm" >ToString()</a></td><td>public</td><td>Returns a string that represents the current object.</td></tr>
+</table>
+<p> </p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint.x__14je5pr" ></a>  Waypoint.X Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint__wmsg1p" >Waypoint</a><br />
+Sources: parser\dto\diagram\Waypoint.cs</small></p>
+<p>X position of waypoint</p>
+<pre><code class="csharp">[XmlAttribute(&quot;x&quot;)]
+public int X { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="p-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint.y__1ufsrtg" ></a>  Waypoint.Y Property </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint__wmsg1p" >Waypoint</a><br />
+Sources: parser\dto\diagram\Waypoint.cs</small></p>
+<p>Y position of waypoint</p>
+<pre><code class="csharp">[XmlAttribute(&quot;y&quot;)]
+public int Y { get; set; }</code></pre>
+<p><strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" class="link-external" target="_blank" >int</a></dt><dd></dd></dl>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlattributeattribute" class="link-external" target="_blank" >System.Xml.Serialization.XmlAttributeAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+<h2>  <a id="m-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint.tostring__lb5jgm" ></a>  Waypoint.ToString() Method </h2>
+<p><small>Namespace: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq" >net.adamec.lib.common.dmn.engine.parser.dto.diagram</a><br />
+Assembly: net.adamec.lib.common.dmn.engine<br />
+Type: <a href="net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.html#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.waypoint__wmsg1p" >Waypoint</a><br />
+Sources: parser\dto\diagram\Waypoint.cs</small></p>
+<p>Returns a string that represents the current object.</p>
+<pre><code class="csharp">[ExcludeFromCodeCoverage]
+public override string ToString()</code></pre>
+<p><strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" class="link-external" target="_blank" >string</a></dt><dd>A string that represents the current object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" class="link-external" target="_blank" >object.ToString</a>Attributes: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.excludefromcodecoverageattribute" class="link-external" target="_blank" >System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</a></p>
+<p>Go to <a href="net.adamec.lib.common.dmn.engine.html#namespace-list" >namespaces</a> or <a href="net.adamec.lib.common.dmn.engine.html#type-list" >types</a></p>
+<p> </p>
+</body></html>

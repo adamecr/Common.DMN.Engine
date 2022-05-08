@@ -42,6 +42,25 @@ namespace net.adamec.lib.common.dmn.engine.test
                     throw ex;
             }
         }
+
+        public static object InvokeNonPublicCtor<TType>(params object[] parameters)
+        {
+            var factoryType = typeof(TType);
+            var parameterTypes = (parameters ?? Array.Empty<object>()).Select(p => p?.GetType() ?? typeof(object)).ToArray();
+            try
+            {
+                return factoryType
+                    .GetConstructor(BindingFlags.NonPublic| BindingFlags.CreateInstance | BindingFlags.Instance, null,parameterTypes,null)
+                    .Invoke(parameters);
+            }
+            catch (TargetInvocationException ex)
+            {
+                if (ex.InnerException != null)
+                    throw ex.InnerException;
+                else
+                    throw ex;
+            }
+        }
     }
 
     public static class TestExtensions

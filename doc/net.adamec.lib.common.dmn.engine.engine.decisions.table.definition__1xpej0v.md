@@ -48,6 +48,7 @@ Source variable and source expression are mutually exclusive and one of them has
  | [AllowedValues](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.allowedvalues__1ew66cu) | public | Optional array of allowed values | 
  | [Expression](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.expression__1cn0pci) | public | Input source expression (the evaluated expression is compared to the rules) | 
  | [Index](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.index__azcv2w) | public | Index of the input (order) | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.label__wgih96) | public | Input label, &quot;Input#{Index+1}&quot; will be used if not provided (1-based index) | 
  | [Variable](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.variable__1k6dlgo) | public | Input source variable (the variable value is compared to the rules) | 
 
  
@@ -57,7 +58,7 @@ Source variable and source expression are mutually exclusive and one of them has
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DmnDecisionTableInput(int, IDmnVariable, string, string[])](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string-system.string_____1s0h2ko) | public | CTOR | 
+ | [DmnDecisionTableInput(int, IDmnVariable, string, string[], string)](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string-system.string__-system.string___1urvpyg) | public | CTOR | 
 
  
 
@@ -120,7 +121,7 @@ public string Expression { get; }
 
 
 ###  Remarks ###
-Source variable and source expression are mutually exclusive.
+Source variable and source expression are mutually exclusive. Expression has the priority over the variable
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -153,6 +154,30 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.label__wgih96" />  DmnDecisionTableInput.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table.definition](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDecisionTableInput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2)           
+Sources: engine\decisions\table\definition\DmnDecisionTableInput.cs</small>
+
+
+Input label, &quot;Input#{Index+1}&quot; will be used if not provided (1-based index)
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.variable__1k6dlgo" />  DmnDecisionTableInput.Variable Property ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table.definition](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -172,7 +197,7 @@ public IDmnVariable Variable { get; }
 
 
 ###  Remarks ###
-Source variable and source expression are mutually exclusive.
+Source variable and source expression are mutually exclusive. Expression has the priority over the variable
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -181,7 +206,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string-system.string_____1s0h2ko" />  DmnDecisionTableInput.DmnDecisionTableInput(int, IDmnVariable, string, string[]) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string-system.string__-system.string___1urvpyg" />  DmnDecisionTableInput.DmnDecisionTableInput(int, IDmnVariable, string, string[], string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table.definition](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTableInput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableinput__qptrq2)           
@@ -193,10 +218,10 @@ CTOR
 
 
 ```csharp
-public DmnDecisionTableInput(int index, IDmnVariable variable, string expression = null, string[] allowedValues = null)
+public DmnDecisionTableInput(int index, IDmnVariable variable, string expression = null, string[] allowedValues = null, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the input (order)</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w) <strong>variable</strong></dt><dd>Input source variable (the variable value is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Input source expression (the evaluated expression is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Optional array of allowed values</dd></dl>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the input (order)</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w) <strong>variable</strong></dt><dd>Input source variable (the variable value is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>expression</strong></dt><dd>Input source expression (the evaluated expression is compared to the rules)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Optional array of allowed values</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Input label, &quot;Input#{Index+1}&quot; will be used if not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 
@@ -252,6 +277,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | ------ | ---------- | --------- | 
  | [AllowedValues](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.allowedvalues__1r9ae17) | public | Optional array of allowed values | 
  | [Index](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.index__jk2zpd) | public | Index of the output (order) | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.label__wc79s1) | public | Output label, &quot;Output#{Index+1}&quot; will be used if not provided (1-based index) | 
  | [Variable](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.variable__1q0vo3l) | public | Variable to store the output to | 
 
  
@@ -261,7 +287,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DmnDecisionTableOutput(int, IDmnVariable, string[])](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string_____65w6mf) | public | CTOR | 
+ | [DmnDecisionTableOutput(int, IDmnVariable, string[], string)](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string__-system.string___vzrzed) | public | CTOR | 
 
  
 
@@ -329,6 +355,30 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.label__wc79s1" />  DmnDecisionTableOutput.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table.definition](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDecisionTableOutput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh)           
+Sources: engine\decisions\table\definition\DmnDecisionTableOutput.cs</small>
+
+
+Output label, &quot;Output#{Index+1}&quot; will be used if not provided (1-based index)
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.variable__1q0vo3l" />  DmnDecisionTableOutput.Variable Property ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table.definition](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -353,7 +403,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string_____65w6mf" />  DmnDecisionTableOutput.DmnDecisionTableOutput(int, IDmnVariable, string[]) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput.-ctor_system.int32-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable-system.string__-system.string___vzrzed" />  DmnDecisionTableOutput.DmnDecisionTableOutput(int, IDmnVariable, string[], string) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions.table.definition](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#n-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DmnDecisionTableOutput](net.adamec.lib.common.dmn.engine.engine.decisions.table.definition__1xpej0v.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.definition.dmndecisiontableoutput__nhnleh)           
@@ -365,10 +415,10 @@ CTOR
 
 
 ```csharp
-public DmnDecisionTableOutput(int index, IDmnVariable variable, string[] allowedValues = null)
+public DmnDecisionTableOutput(int index, IDmnVariable variable, string[] allowedValues = null, string label = null)
 ```
 
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the output (order)</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w) <strong>variable</strong></dt><dd>Variable to store the output to</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Optional array of allowed values</dd></dl>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>index</strong></dt><dd>Index of the output (order)</dd><dt>[net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable__xmkw7w) <strong>variable</strong></dt><dd>Variable to store the output to</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string[]</a> <strong>allowedValues</strong></dt><dd>Optional array of allowed values</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>label</strong></dt><dd>Output label, &quot;Output#{Index+1}&quot; will be used if not provided</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 

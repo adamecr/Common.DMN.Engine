@@ -747,6 +747,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [IsInputParameter](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable.isinputparameter__ng5v81) | public | Flag whether the variable is input parameter | 
+ | [Label](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable.label__741128) | public | Label of the variable (used for input parameters) | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable.name__1lrrp4r) | public | Unique variable name | 
  | [Type](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable.type__tv6yj2) | public | Variable type or null if not defined | 
  | [Value](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable.value__88aq3z) | public | Variable value | 
@@ -796,6 +797,30 @@ public bool IsInputParameter { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable.label__741128" />  DmnResultVariable.Label Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.result](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#n-net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnResultVariable](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg)           
+Sources: engine\execution\result\DmnResultVariable.cs</small>
+
+
+Label of the variable (used for input parameters)
+
+
+
+```csharp
+public string Label { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

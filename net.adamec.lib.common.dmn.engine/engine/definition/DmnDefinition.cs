@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
     /// <summary>
     /// DMN model definition for execution engine - encapsulates Decisions, Variables (incl. Input data)
     /// </summary>
-    public class DmnDefinition
+    public class DmnDefinition : IDmnDefinition
     {
         /// <summary>
         /// Unique identifier of the definition (set at CTOR)
@@ -34,6 +34,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// Dictionary of available decisions by name
         /// </summary>
         public IReadOnlyDictionary<string, IDmnDecision> Decisions { get; }
+
+        /// <summary>
+        /// List of extensions that can be used to any related data.
+        /// Engine doesn't neither manage nor touches the extensions
+        /// </summary>
+        public List<object> Extensions { get; } = new List<object>();
 
         /// <summary>
         /// CTOR

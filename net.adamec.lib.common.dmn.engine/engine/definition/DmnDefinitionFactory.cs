@@ -6,13 +6,15 @@ using net.adamec.lib.common.dmn.engine.engine.decisions;
 using net.adamec.lib.common.dmn.engine.engine.decisions.expression;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table;
 using net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;
+using net.adamec.lib.common.dmn.engine.engine.definition.extensions;
+using net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram;
 using net.adamec.lib.common.dmn.engine.parser;
 using net.adamec.lib.common.dmn.engine.parser.dto;
 
 namespace net.adamec.lib.common.dmn.engine.engine.definition
 {
     /// <summary>
-    /// Factory that validates and transforms the <see cref="DmnModel"/> to <see cref="DmnDefinition"/> that can be executed within <see cref="runtime.DmnExecutionContext"/>
+    /// Factory that validates and transforms the <see cref="DmnModel"/> to <see cref="DmnDefinition"/> that can be executed within <see cref="execution.context.DmnExecutionContext"/>
     /// </summary>
     /// <remarks>
     /// As the <see cref="DmnParser"/> is responsible for parsing the XML with the model, the <see cref="DmnDefinitionFactory"/> contains the
@@ -27,13 +29,19 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         protected static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
 
         /// <summary>
+        /// Source DMN Model parsed from XML
+        /// </summary>
+        protected DmnModel SourceModel { get; }
+
+        /// <summary>
         /// Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions
         /// In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions
+        /// Dictionary by Variable name
         /// </summary>
         protected Dictionary<string, DmnVariableDefinition> Variables { get; } = new Dictionary<string, DmnVariableDefinition>();
 
         /// <summary>
-        /// Input data interface. Input data will be stored as Variables, complex objects are supported
+        /// Input data interface. Input data will be stored as Variables, complex objects are supported. Dictionary by Input/Variable name
         /// </summary>
         protected Dictionary<string, IDmnVariable> InputData { get; } = new Dictionary<string, IDmnVariable>();
 
@@ -43,73 +51,109 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         protected Dictionary<string, IDmnDecision> Decisions { get; } = new Dictionary<string, IDmnDecision>();
 
         /// <summary>
+        /// Dictionary of input data variable definitions (by ID)
+        /// </summary>
+        protected Dictionary<string, DmnVariableDefinition> InputDataById { get; } = new Dictionary<string, DmnVariableDefinition>();
+
+        /// <summary>
+        /// Dictionary of decision definitions (by ID)
+        /// </summary>
+        protected Dictionary<string, IDmnDecision> DecisionsById { get; } = new Dictionary<string, IDmnDecision>();
+
+        /// <summary>
+        /// Protected CTOR
+        /// </summary>
+        /// <param name="sourceModel">Source DMN Model parsed from XML</param>
+        /// <exception cref="ArgumentNullException"><paramref name="sourceModel"/> is null.</exception> 
+        protected DmnDefinitionFactory(DmnModel sourceModel)
+        {
+            SourceModel = sourceModel ?? throw Logger.Fatal<ArgumentNullException>($"{nameof(sourceModel)} is null");
+        }
+
+
+        /// <summary>
         /// Validates the <paramref name="source"/> model and creates the <see cref="DmnDefinition"/> from <see cref="DmnModel"/>
         /// </summary>
         /// <param name="source">Source DMN Model parsed from XML</param>
-        ///<exception cref="ArgumentNullException"><paramref name="source"/> is null.</exception>    
-        /// <returns>DMN model definition that can be used to execute the decisions within the <see cref="runtime.DmnExecutionContext"/></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="source"/> is null.</exception>    
+        /// <returns>DMN model definition that can be used to execute the decisions within the <see cref="execution.context.DmnExecutionContext"/></returns>
         public static DmnDefinition CreateDmnDefinition(DmnModel source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
             var factory = new DmnDefinitionFactory(source);
-            return new DmnDefinition(
-                factory.Variables.ToDictionary(
-                    v => v.Key,
-                    v => (IDmnVariable)v.Value),
-                factory.Decisions);
+            return factory.ProcessModel();
         }
 
         /// <summary>
-        /// CTOR - Validates the <paramref name="source"/> model and creates the <see cref="DmnDefinition"/> from <see cref="DmnModel"/>
+        /// Validates the <see cref="SourceModel"/> model and creates the <see cref="DmnDefinition"/> from <see cref="DmnModel"/>
         /// </summary>
-        /// <param name="source">Source DMN Model parsed from XML</param>
-        ///<exception cref="ArgumentNullException"><paramref name="source"/> is null.</exception>   
-        protected DmnDefinitionFactory(DmnModel source)
+        /// <exception cref="InvalidOperationException"><see cref="SourceModel"/> is null.</exception>   
+        /// <returns>DMN model definition that can be used to execute the decisions within the <see cref="execution.context.DmnExecutionContext"/></returns>
+        protected virtual DmnDefinition ProcessModel()
         {
-            if (source == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(source)} is null");
+            if (SourceModel == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(SourceModel)} is null");
+
+            //-----------------------------------------------------------------
+            // Process DMN Model
+            //-----------------------------------------------------------------
 
             //Process input data
-            var inputDataById = new Dictionary<string, DmnVariableDefinition>();
-            if (source.InputData != null) //it's not common, but OK to have no input data
+            if (SourceModel.InputData != null) //it's not common, but OK to have no input data
             {
-                ProcessInputDataSource(source, inputDataById);
+                ProcessInputDataSource();
             }
 
             //Process decisions
-            var decisionsById = new Dictionary<string, IDmnDecision>();
-            // ReSharper disable once InvertIf
-            if (source.Decisions != null && source.Decisions.Count > 0)
+            if (SourceModel.Decisions != null && SourceModel.Decisions.Count > 0)
             {
-                foreach (var sourceDecision in source.Decisions)
+                foreach (var sourceDecision in SourceModel.Decisions)
                 {
-                    ProcessDecision(sourceDecision, source.Decisions, decisionsById, inputDataById);
+                    ProcessDecision(sourceDecision);
                 }
             }
             else
             {
                 throw Logger.Fatal<DmnParserException>($"No decision in DMN model.");
             }
+
+            //-----------------------------------------------------------------
+            // Create DMN Definition
+            //-----------------------------------------------------------------
+            var definition = new DmnDefinition(
+                Variables.ToDictionary(
+                    v => v.Key,
+                    v => (IDmnVariable)v.Value),
+                Decisions);
+
+            //-----------------------------------------------------------------
+            // Process extensions
+            //-----------------------------------------------------------------
+
+            // Process diagram (and shape) extension
+            if (SourceModel.DmnVersion >= DmnParser.DmnVersionEnum.V1_3)
+            {
+                ProcessDiagramExtension(definition);
+            }
+
+            return definition;
         }
 
-
-
         /// <summary>
-        /// Validates the inputs of the <see cref="DmnModel"/> (<paramref name="source"/> and populates <see cref="InputData"/> and related <see cref="Variables"/>
+        /// Validates the inputs of the <see cref="DmnModel"/> (<see cref="SourceModel"/>)
+        /// and populates <see cref="InputData"/>, <see cref="InputDataById"/> and related <see cref="Variables"/>
         /// </summary>
-        /// <param name="source">Source DMN Model parsed from XML</param>
-        /// <param name="inputDataById">Temporary dictionary of input data (by ID) - input data are populated here</param>
-        /// <exception cref="ArgumentNullException"><paramref name="source"/> or <paramref name="inputDataById"/> is null.</exception>
+        /// <exception cref="InvalidOperationException"><see cref="SourceModel"/>, <see cref="InputData"/> is null.</exception>
         /// <exception cref="DmnParserException">Missing input id</exception> 
         /// <exception cref="DmnParserException">Duplicate input data name</exception> 
-        protected void ProcessInputDataSource(DmnModel source, IDictionary<string, DmnVariableDefinition> inputDataById)
+        protected virtual void ProcessInputDataSource()
         {
-            if (source == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(source)} is null");
-            if (inputDataById == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(inputDataById)} is null");
-            if (source.InputData == null || source.InputData.Count == 0) return;//it's not common, but OK to have no input data
+            if (SourceModel == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(SourceModel)} is null");
+            if (InputDataById == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(InputDataById)} is null");
+            if (SourceModel.InputData == null || SourceModel.InputData.Count == 0) return;//it's not common, but OK to have no input data
 
             //TODO    ?Input name in form varName:varType for (complex) input types
-            foreach (var sourceInput in source.InputData)
+            foreach (var sourceInput in SourceModel.InputData)
             {
                 if (string.IsNullOrWhiteSpace(sourceInput.Id)) throw Logger.Fatal<DmnParserException>($"Missing input id");
 
@@ -118,39 +162,38 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 if (InputData.ContainsKey(variableName))
                     throw Logger.Fatal<DmnParserException>($"Duplicate input data name {variableName} (from {inputName})");
 
-                var variable = new DmnVariableDefinition(variableName, inputName);
+                var variable = new DmnVariableDefinition(variableName, inputName, label: inputName);
                 InputData.Add(variableName, variable);
                 Variables.Add(variableName, variable);
-                inputDataById.Add(sourceInput.Id, variable);
+                InputDataById.Add(sourceInput.Id, variable);
             }
         }
 
         /// <summary>
         /// Validates the <paramref name="sourceDecision"/> within the <see cref="DmnModel"/>
-        /// and creates <see cref="DmnExpressionDecision"/> or <see cref="DmnDecisionTable"/>
+        /// and creates <see cref="DmnExpressionDecision"/> or <see cref="DmnDecisionTable"/>.
+        /// Populates <see cref="Decisions"/> and <see cref="DecisionsById"/>
         /// </summary>
         /// <param name="sourceDecision">Decision source parsed from XML</param>
-        /// <param name="allDecisions">All decisions parsed from XML source</param>
-        /// <param name="decisionsById">Temporary dictionary of decisions (by ID) - decisions are added here</param>
-        /// <param name="inputDataById">Temporary dictionary of input data (by ID)</param>
-        ///<exception cref="ArgumentNullException"><paramref name="sourceDecision"/>, <paramref name="decisionsById"/> or <paramref name="inputDataById"/> is null.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="sourceDecision"/> is null.</exception>
+        /// <exception cref="InvalidOperationException"><see cref="SourceModel"/>, <see cref="InputData"/> or <see cref="DecisionsById"/> is null.</exception>
         /// <exception cref="DmnParserException">Missing decision id</exception> 
         /// <exception cref="DmnParserException">Duplicate decision name</exception> 
         /// <exception cref="DmnParserException">Missing required decision reference</exception> 
         /// <exception cref="DmnParserException">Decision with given reference id not found</exception> 
         /// <exception cref="DmnParserException">Missing required input reference for</exception> 
         /// <exception cref="DmnParserException">Input with given reference id not found</exception> 
-        protected IDmnDecision ProcessDecision(
-             Decision sourceDecision, IReadOnlyCollection<Decision> allDecisions,
-             IDictionary<string, IDmnDecision> decisionsById, IReadOnlyDictionary<string, DmnVariableDefinition> inputDataById)
+        protected virtual IDmnDecision ProcessDecision(Decision sourceDecision)
         {
-
             if (sourceDecision == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(sourceDecision)} is null");
-            if (decisionsById == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(decisionsById)} is null");
-            if (inputDataById == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(inputDataById)} is null");
+            if (SourceModel == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(SourceModel)} is null");
+            if (InputDataById == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(InputDataById)} is null");
+            if (DecisionsById == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(DecisionsById)} is null");
+
+            var allSourceDecisions = SourceModel.Decisions ?? new List<Decision>(); //All decisions parsed from XML source
 
             if (string.IsNullOrWhiteSpace(sourceDecision.Id)) throw Logger.Fatal<DmnParserException>($"Missing decision id");
-            if (decisionsById.ContainsKey(sourceDecision.Id)) return decisionsById[sourceDecision.Id]; //already processed
+            if (DecisionsById.ContainsKey(sourceDecision.Id)) return DecisionsById[sourceDecision.Id]; //already processed
 
             var decisionName = !string.IsNullOrWhiteSpace(sourceDecision.Name) ? sourceDecision.Name : sourceDecision.Id;
             if (Decisions.ContainsKey(decisionName)) throw Logger.Fatal<DmnParserException>($"Duplicate decision name {decisionName}");
@@ -165,19 +208,26 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                     var refId = dependsOnDecisionRef.Ref;
                     if (string.IsNullOrWhiteSpace(refId)) throw Logger.Fatal<DmnParserException>($"Missing required decision reference for {decisionName}");
 
-                    if (decisionsById.TryGetValue(refId, out var requiredDecision))
+                    if (DecisionsById.TryGetValue(refId, out var requiredDecision))
                     {
+                        /* since v1.1 only directly required inputs are added and GetAllRequiredXxx methods are added to Definition
                         //decision already processed, just add "new" inputs
                         AddNewRequiredInputs(requiredDecision.RequiredInputs, requiredInputs);
+                        */
+
+                        //decision already processed
                         requiredDecisions.Add(requiredDecision);
                         continue;
                     }
 
-                    var sourceDependsOnDecision = allDecisions.FirstOrDefault(d => d.Id == refId);
+                    var sourceDependsOnDecision = allSourceDecisions.FirstOrDefault(d => d.Id == refId);
                     if (sourceDependsOnDecision == null) throw Logger.Fatal<DmnParserException>($"Decision with reference {refId} for {decisionName} not found");
 
-                    var dependsOnDecision = ProcessDecision(sourceDependsOnDecision, allDecisions, decisionsById, inputDataById); //process needed decision first
-                    AddNewRequiredInputs(dependsOnDecision.RequiredInputs, requiredInputs);
+                    var dependsOnDecision = ProcessDecision(sourceDependsOnDecision); //process required decision first
+
+                    //since v1.1 only directly required inputs are added and GetAllRequiredXxxx methods are added to Definition
+                    //AddNewRequiredInputs(dependsOnDecision.RequiredInputs, requiredInputs);
+
                     requiredDecisions.Add(dependsOnDecision);
                 }
             }
@@ -190,8 +240,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 {
                     var refId = informationRequirement.Ref;
                     if (string.IsNullOrWhiteSpace(refId)) throw Logger.Fatal<DmnParserException>($"Missing required input reference for {decisionName}");
-                    if (!inputDataById.ContainsKey(refId)) throw Logger.Fatal<DmnParserException>($"Input with reference {refId} for {decisionName} not found");
-                    newInputs.Add(inputDataById[refId]);
+                    if (!InputDataById.ContainsKey(refId)) throw Logger.Fatal<DmnParserException>($"Input with reference {refId} for {decisionName} not found");
+                    newInputs.Add(InputDataById[refId]);
                 }
                 AddNewRequiredInputs(newInputs, requiredInputs);
             }
@@ -210,7 +260,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             }
 
             Decisions.Add(decisionName, decision);
-            decisionsById.Add(sourceDecision.Id, decision);
+            DecisionsById.Add(sourceDecision.Id, decision);
             return decision;
         }
 
@@ -222,15 +272,16 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <param name="decisionName">Unique name of decision</param>
         /// <param name="requiredInputs">Inputs required by decision</param>
         /// <param name="requiredDecisions">Decisions, the decision table depends on</param>
-        ///<exception cref="ArgumentNullException"><paramref name="sourceTable"/>, <paramref name="decisionName"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null.</exception>
-        ///<exception cref="ArgumentException"><paramref name="decisionName"/> is empty</exception>    
+        /// <exception cref="ArgumentNullException"><paramref name="sourceTable"/>, <paramref name="decisionName"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="decisionName"/> is empty</exception>    
         /// <exception cref="DmnParserException">No outputs for decision table</exception> 
         /// <exception cref="DmnParserException">No inputs for decision table</exception> 
         /// <exception cref="DmnParserException">Input variable for decision table not found</exception> 
+        /// <exception cref="DmnParserException">Input for decision table has no source</exception>
         /// <exception cref="DmnParserException">No rules for decision table</exception> 
         /// <exception cref="DmnParserException">Number of rule input entries doesn't match the number of inputs for decision table</exception> 
         /// <exception cref="DmnParserException">Number of rule output entries doesn't match the number of outputs for decision table</exception> 
-        protected DmnDecisionTable CreateDecisionTable(
+        protected virtual DmnDecisionTable CreateDecisionTable(
             DecisionTable sourceTable,
             string decisionName,
             List<IDmnVariable> requiredInputs,
@@ -250,11 +301,25 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             var outputIdx = 0;
             foreach (var sourceOutput in sourceTable.Outputs)
             {
-                //Label, Name, Id
-                var sourceVariableName =
+                string sourceVariableName;
+                if (SourceModel.DmnVersion < DmnParser.DmnVersionEnum.V1_3ext)
+                {
+                    //legacy mapping pre V1_3ext
+                    //Label, Name, Id
+                    sourceVariableName =
                     !string.IsNullOrWhiteSpace(sourceOutput.Label) ? sourceOutput.Label :
                     !string.IsNullOrWhiteSpace(sourceOutput.Name) ? sourceOutput.Name :
                     sourceOutput.Id;
+                }
+                else
+                {
+                    //mapping since V1_3ext
+                    //Name,Label, Id
+                    sourceVariableName =
+                        !string.IsNullOrWhiteSpace(sourceOutput.Name) ? sourceOutput.Name :
+                        !string.IsNullOrWhiteSpace(sourceOutput.Label) ? sourceOutput.Label :
+                        sourceOutput.Id;
+                }
 
                 var variableName = DmnVariableDefinition.NormalizeVariableName(sourceVariableName);
                 if (!Variables.TryGetValue(variableName, out var variable))
@@ -268,7 +333,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 CheckAndUpdateVariableType(variable, sourceOutput.TypeRef);
 
                 var allowedValues = sourceOutput.AllowedOutputValues?.Values;
-                outputs.Add(new DmnDecisionTableOutput(outputIdx, variable, allowedValues));
+                var label =
+                    !string.IsNullOrWhiteSpace(sourceOutput.Label) ? sourceOutput.Label :
+                    !string.IsNullOrWhiteSpace(sourceOutput.Name) ? sourceOutput.Name :
+                    null;//label??name??null(will default to Output#n)
+
+                outputs.Add(new DmnDecisionTableOutput(outputIdx, variable, allowedValues, label));
                 outputIdx++;
             }
 
@@ -282,13 +352,60 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             {
                 //Expression or  variable by Label,  Id
                 DmnVariableDefinition variable = null;
-                string expression = null;
 
-                if (string.IsNullOrWhiteSpace(sourceInput.InputExpression?.Text))
+
+                var xmlId = sourceInput.Id;
+                var xmlLabel = sourceInput.Label;
+                var xmlInputVariable = sourceInput.InputVariable; //new in v1.1
+                var xmlExpressionText = sourceInput.InputExpression?.Text;
+
+                bool isVariableInput;
+                string sourceVariableName, variableName, expression;
+
+                if (SourceModel.DmnVersion < DmnParser.DmnVersionEnum.V1_3ext)
                 {
-                    var sourceVariableName = !string.IsNullOrWhiteSpace(sourceInput.Label) ? sourceInput.Label : sourceInput.Id;
-                    var variableName = DmnVariableDefinition.NormalizeVariableName(sourceVariableName);
+                    //legacy mapping pre V1_3ext
+                    isVariableInput = string.IsNullOrWhiteSpace(xmlExpressionText);
+                    if (isVariableInput)
+                    {
+                        sourceVariableName = !string.IsNullOrWhiteSpace(xmlLabel) ? xmlLabel : xmlId;
+                        variableName = DmnVariableDefinition.NormalizeVariableName(sourceVariableName);
+                        expression = null;
+                    }
+                    else
+                    {
+                        sourceVariableName = null;
+                        variableName = null;
+                        expression = xmlExpressionText;
+                    }
+                }
+                else
+                {
+                    //mapping since V1_3ext
+                    if (!string.IsNullOrWhiteSpace(xmlInputVariable))
+                    {
+                        isVariableInput = true;
+                        sourceVariableName = xmlInputVariable;
+                        variableName = DmnVariableDefinition.NormalizeVariableName(sourceVariableName);
+                        expression = null;
+                    }
+                    else if ( //first "wins" (expression vs label) or it goes to fall back (ID)
+                        !CheckTableInputForVariable(xmlExpressionText, Variables, out isVariableInput, out sourceVariableName, out variableName, out expression) &&
+                        !CheckTableInputForVariable(xmlLabel, Variables, out isVariableInput, out sourceVariableName, out variableName, out expression))
+                    {
+                        //fall back - ID is a must, but can be only variable name
+                        CheckTableInputForVariable(xmlId, Variables, out isVariableInput, out sourceVariableName, out variableName, out expression);
+                        if (!isVariableInput)
+                        {
+                            //Error - don't use the ID as expression
+                            throw Logger.Fatal<DmnParserException>(
+                                $"Input#{inputIdx+1} for decision table {decisionName} has no source");
+                        }
+                    }
+                }
 
+                if (isVariableInput)
+                {
                     if (!Variables.TryGetValue(variableName, out variable))
                     {
                         throw Logger.Fatal<DmnParserException>(
@@ -297,13 +414,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
 
                     CheckAndUpdateVariableType(variable, sourceInput.InputExpression?.TypeRef);
                 }
-                else
-                {
-                    expression = sourceInput.InputExpression.Text;
-                }
 
                 var allowedValues = sourceInput.AllowedInputValues?.Values;
-                inputs.Add(new DmnDecisionTableInput(inputIdx, variable, expression, allowedValues));
+                var inputLabel = !string.IsNullOrWhiteSpace(xmlLabel) ? xmlLabel : isVariableInput ? sourceVariableName : null; //label??variable??null(will default to Input#n)
+
+                inputs.Add(new DmnDecisionTableInput(inputIdx, variable, expression, allowedValues, inputLabel));
                 inputIdx++;
             }
 
@@ -354,9 +469,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 decisionName,
                 sourceTable.HitPolicy, sourceTable.Aggregation,
                 inputs.ToArray(), outputs.ToArray(), rules.ToArray(),
-                requiredInputs, requiredDecisions);
+                requiredInputs, requiredDecisions,
+                label: decisionName);
             return decisionTable;
         }
+
+
 
         /// <summary>
         /// Validates the <paramref name="sourceDecision"/> within the <see cref="DmnModel"/>
@@ -366,11 +484,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <param name="decisionName">Unique name of decision</param>
         /// <param name="requiredInputs">Inputs required by decision</param>
         /// <param name="requiredDecisions">Decisions, the decision table depends on</param>
-        ///<exception cref="ArgumentNullException"><paramref name="sourceDecision"/>, <paramref name="decisionName"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null.</exception>
-        ///<exception cref="ArgumentException"><paramref name="decisionName"/> is empty</exception>    
+        /// <exception cref="ArgumentNullException"><paramref name="sourceDecision"/>, <paramref name="decisionName"/>, <paramref name="requiredInputs"/> or <paramref name="requiredDecisions"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="decisionName"/> is empty</exception>    
         /// <exception cref="DmnParserException">Missing expression for expression decision</exception> 
         /// <exception cref="DmnParserException">Missing output variable for expression decision</exception> 
-        protected DmnExpressionDecision CreateExpressionDecision(
+        protected virtual DmnExpressionDecision CreateExpressionDecision(
            Decision sourceDecision,
            string decisionName,
            IReadOnlyCollection<IDmnVariable> requiredInputs,
@@ -391,7 +509,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             if (!Variables.TryGetValue(variableName, out var variable))
             {
                 //create variable
-                variable = new DmnVariableDefinition(variableName);
+                variable = new DmnVariableDefinition(variableName, label: sourceVariableName);
                 Variables.Add(variableName, variable);
             }
 
@@ -404,8 +522,56 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             var expr = $"{sourceDecision.Expression.Text}";
 
             //create
-            var expressionDecision = new DmnExpressionDecision(decisionName, expr, variable, requiredInputs, requiredDecisions);
+            var expressionDecision = new DmnExpressionDecision(decisionName, expr, variable, requiredInputs, requiredDecisions, label: decisionName);
             return expressionDecision;
+        }
+
+        /// <summary>
+        /// Checks whether <param name="source"> is either not set (null or whitespace) or variable or expression.</param>
+        /// </summary>
+        /// <param name="source">Source string to check</param>
+        /// <param name="knownVariables">Dictionary of know variables</param>
+        /// <param name="isVariable">Out: Flag whether the <paramref name="source"/> is set and represents variable</param>
+        /// <param name="sourceVariableName">Out: Source variable name (before normalization) when <paramref name="source"/> is set and represents variable</param>
+        /// <param name="variableName">Out: Variable name when <paramref name="source"/> is set and represents variable</param>
+        /// <param name="expression">Out: Expression when <paramref name="source"/> is set and represents expression</param>
+        /// <returns>True when <param name="source"> is not null or whitespace, so it represents variable or expression</param></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="knownVariables"/> is null</exception>
+        protected virtual bool CheckTableInputForVariable(
+            string source,
+            Dictionary<string, DmnVariableDefinition> knownVariables,
+            out bool isVariable,
+            out string sourceVariableName,
+            out string variableName,
+            out string expression)
+        {
+            if (knownVariables is null) throw new ArgumentNullException(nameof(knownVariables));
+
+            if (string.IsNullOrWhiteSpace(source))
+            {
+                isVariable = false;
+                sourceVariableName = null;
+                variableName = null;
+                expression = null;
+                return false;
+            }
+            
+            if (DmnVariableDefinition.CanNormalizeVariableName(source, out var potentialVariableName,out _) &&
+                Variables.TryGetValue(potentialVariableName, out _))
+            {
+                //source is know variable name -> variable
+                isVariable = true;
+                sourceVariableName = source;
+                variableName = potentialVariableName;
+                expression = null;
+                return true;
+            }
+
+            isVariable = false;
+            sourceVariableName = null;
+            variableName = null;
+            expression = source;
+            return true;
         }
 
         /// <summary>
@@ -414,8 +580,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// </summary>
         /// <param name="newInputs"></param>
         /// <param name="requiredInputs"></param>
-        ///<exception cref="ArgumentNullException"><paramref name="requiredInputs"/> is null.</exception>
-        protected static void AddNewRequiredInputs(IReadOnlyCollection<IDmnVariable> newInputs, List<IDmnVariable> requiredInputs)
+        /// <exception cref="ArgumentNullException"><paramref name="requiredInputs"/> is null.</exception>
+        protected virtual void AddNewRequiredInputs(IReadOnlyCollection<IDmnVariable> newInputs, List<IDmnVariable> requiredInputs)
         {
             if (requiredInputs == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(requiredInputs)} is null.");
             if (newInputs == null || !newInputs.Any()) return;
@@ -434,7 +600,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <param name="variable">Variable to check or update. If null, function returns without an exception</param>
         /// <param name="typeName">Type name to assign. If null or empty, function returns without an exception (assuming that the type is not know yet)</param>
         /// <exception cref="DmnParserException">Type for variable don't match the one assigned before</exception>
-        protected static void CheckAndUpdateVariableType(DmnVariableDefinition variable, string typeName)
+        protected virtual void CheckAndUpdateVariableType(DmnVariableDefinition variable, string typeName)
         {
             if (string.IsNullOrWhiteSpace(typeName)) return;
             if (variable == null) return;
@@ -460,7 +626,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <returns><see cref="Type"/> corresponding to <paramref name="typeName"/></returns>
         /// <exception cref="ArgumentException"><paramref name="typeName"/> is null or empty</exception>
         /// <exception cref="DmnParserException">Unsupported type name</exception>
-        private static Type ParseTypeName(string typeName)
+        protected virtual Type ParseTypeName(string typeName)
         {
             if (string.IsNullOrWhiteSpace(typeName))
                 throw Logger.Fatal<ArgumentException>($"{nameof(typeName)} is null or empty");
@@ -476,6 +642,51 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 case "date": return typeof(DateTime);
                 default:
                     throw Logger.Fatal<DmnParserException>($"Unsupported type name {typeName}");
+            }
+        }
+
+        /// <summary>
+        /// When the <see cref="SourceModel"/> has the DI diagram data, it gets individual shapes having bounds and tries to find them
+        /// within <see cref="InputDataById"/> and <see cref="DecisionsById"/>. When there is a match, it creates <see cref="DiDiagramShapeExtension"/>
+        /// attached to the element. All matched bounds are also added to <see cref="DiDiagramExtension"/> attached to the definition
+        /// </summary>
+        /// <param name="dmnDefinition">DMN Definition built by factory</param>
+        /// <exception cref="ArgumentNullException"><paramref name="dmnDefinition"/> is null.</exception>
+        /// <exception cref="InvalidOperationException"><see cref="SourceModel"/>, <see cref="InputData"/> or <see cref="DecisionsById"/> is null.</exception>
+        protected virtual void ProcessDiagramExtension(DmnDefinition dmnDefinition)
+        {
+            if (dmnDefinition == null) throw Logger.Fatal<ArgumentNullException>(nameof(dmnDefinition));
+            if (SourceModel == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(SourceModel)} is null");
+            if (InputDataById == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(InputDataById)} is null");
+            if (DecisionsById == null) throw Logger.Fatal<InvalidOperationException>($"{nameof(DecisionsById)} is null");
+
+            if (SourceModel.DiagramExtension?.Diagrams is null) return;
+
+            var elements = new Dictionary<string, IDmnElement>();
+            InputDataById.ToList().ForEach(x => elements.Add(x.Key, x.Value));
+            DecisionsById.ToList().ForEach(x => elements.Add(x.Key, x.Value));
+
+            var diagramExtension = new DiDiagramExtension();
+
+            foreach (var shape in SourceModel
+                         .DiagramExtension
+                         .Diagrams
+                         .Where(d => d.Shapes != null)
+                         .SelectMany(d => d.Shapes)
+                         .Where(s => s.Bounds != null && !string.IsNullOrWhiteSpace(s.DmnElementRef)))
+            {
+                var elementRef = shape.DmnElementRef;
+                var bounds = shape.Bounds;
+                if (!elements.TryGetValue(elementRef, out var element)) continue;
+
+                var shapeExtension = new DiDiagramShapeExtension(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+                element.AddExtension(shapeExtension);
+                diagramExtension.ShapesByElement.Add(element, shapeExtension.Clone());
+            }
+
+            if (diagramExtension.ShapesByElement.Count > 0)
+            {
+                dmnDefinition.AddExtension(diagramExtension);
             }
         }
     }

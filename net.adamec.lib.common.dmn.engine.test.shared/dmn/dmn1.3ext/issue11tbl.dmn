@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_00vb4xa" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <inputData id="InputData_0ix3pwe" name="input 1 æøåščřáů" />
+  <inputData id="InputData_1buirbc" name="input2æøåščřáů" />
+  <inputData id="InputData_04ac19e" name="input3æøåščřáů" />
+  <decision id="Decision_1o8w7zp" name="ed">
+    <variable id="InformationItem_0lh7fu3" name="var 1 æøåščřáů" typeRef="boolean" />
+    <literalExpression id="LiteralExpression_190mnd9">
+      <text>(input_1_æøåščřáů % 2)==0</text>
+    </literalExpression>
+  </decision>
+  <decision id="Decision_1hb408m" name="tbl">
+    <informationRequirement id="InformationRequirement_0e3wlos">
+      <requiredDecision href="#Decision_1o8w7zp" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1la7kds" hitPolicy="FIRST" biodi:annotationsWidth="400">
+      <input id="InputClause_0wx4ldy" label="input 1 æøåščřáů" biodi:width="157">
+        <inputExpression id="LiteralExpression_1qi6do2" typeRef="integer" />
+      </input>
+      <input id="InputClause_15qm97w" label="var 1 æøåščřáů" biodi:width="162">
+        <inputExpression id="LiteralExpression_0jb8f27" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kaqmba" label="input2æøåščřáů" biodi:width="151">
+        <inputExpression id="LiteralExpression_1eymfw5" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_05l9y0b">
+          <text>"A","C","E"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0nm2kwb" biodi:width="150">
+        <inputExpression id="LiteralExpression_0v690f5" typeRef="integer">
+          <text>(input_1_æøåščřáů % 4)</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1nctoyr" biodi:width="150">
+        <inputExpression id="LiteralExpression_0mdzt6g" typeRef="boolean">
+          <text>!input3æøåščřáů</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0zvc0cw" label="var 2 æøåščřáů" typeRef="integer" biodi:width="150" />
+      <output id="OutputClause_13dvq5z" label="var3æøåščřáů" typeRef="string" biodi:width="150">
+        <outputValues id="UnaryTests_1dkd9au">
+          <text>"K","L","M","N"</text>
+        </outputValues>
+      </output>
+      <rule id="error">
+        <description>input1 99 -&gt; ERR (O is not allowed)</description>
+        <inputEntry id="UnaryTests_0svu6b1">
+          <text>99</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y4sig2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18yg5q4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yvu1rj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12sr0j3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0of5yog">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01w5vyf">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="r1">
+        <description>input1 (even &amp;&amp; &gt;3 &amp;&amp; %4 = 2), input2 = A | E, input3 = false-&gt; 11,L</description>
+        <inputEntry id="UnaryTests_03afv79">
+          <text>&gt;3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ua1we8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bpfuyl">
+          <text>"A","E"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tuzjkr">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01p69h6">
+          <text>not(false)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04svv6a">
+          <text>11</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1m3sstl">
+          <text>"L"</text>
+        </outputEntry>
+      </rule>
+      <rule id="r2">
+        <description>input1 (even &amp;&amp; &gt;3), input3 = false-&gt; 22,M</description>
+        <inputEntry id="UnaryTests_1oy53pt">
+          <text>&gt;3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gi2od4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s7n7l6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nhab24">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ly2xb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_069qau9">
+          <text>22</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_092fxk9">
+          <text>"M"</text>
+        </outputEntry>
+      </rule>
+      <rule id="r3">
+        <description>input1 (even &amp;&amp; %4 = 0)-&gt; input1+2,N/A</description>
+        <inputEntry id="UnaryTests_124npw4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x1zku2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rxuovi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hb5f94">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bfj5j8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jyphon">
+          <text>input_1_æøåščřáů+2</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1f1xe9y">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="r4">
+        <description>input1 %4 != 0 -&gt; N/A, K</description>
+        <inputEntry id="UnaryTests_1an8y47">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ltq4e">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yppgmw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n560q5">
+          <text>not(0)</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h1wt2s">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v7vpjw">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04ijjkg">
+          <text>"K"</text>
+        </outputEntry>
+      </rule>
+      <rule id="fallback">
+        <inputEntry id="UnaryTests_0hs0yiu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yqr1lh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j1rxp1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_115od3o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dtwp0o">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1942swe">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bgi4cx">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_12amy50" dmnElementRef="InputData_0ix3pwe">
+        <dc:Bounds height="45" width="125" x="118" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1kb6il7" dmnElementRef="InputData_1buirbc">
+        <dc:Bounds height="45" width="125" x="278" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1dh0h2t" dmnElementRef="InputData_04ac19e">
+        <dc:Bounds height="45" width="125" x="438" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1udkoig" dmnElementRef="Decision_1o8w7zp">
+        <dc:Bounds height="80" width="180" x="380" y="180" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1pzll09" dmnElementRef="Decision_1hb408m">
+        <dc:Bounds height="80" width="180" x="380" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0jg5knz" dmnElementRef="InformationRequirement_0e3wlos">
+        <di:waypoint x="470" y="260" />
+        <di:waypoint x="470" y="310" />
+        <di:waypoint x="470" y="330" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1176,7 +1176,9 @@ namespace net.adamec.lib.common.dmn.engine.test.issue
             act.Should().NotThrow();
 
             //normalize name 
-            act = () => def.WithVariable<string>("æøåščřáů&æøåščřáů");
+            //act = () => def.WithVariable<string>("æøåščřáů&æøåščřáů"); - valid in v1.1
+            //act.Should().Throw<ArgumentException>().WithMessage($"Variable name * contains invalid character*");
+            act = () => def.WithVariable<string>("æøåščřáů|æøåščřáů"); //still invalid in v1.1
             act.Should().Throw<ArgumentException>().WithMessage($"Variable name * contains invalid character*");
             act = () => def.WithVariable<string>("1æøåščřáů");
             act.Should().Throw<ArgumentException>().WithMessage($"Variable name * must start with letter*");
@@ -1187,6 +1189,8 @@ namespace net.adamec.lib.common.dmn.engine.test.issue
             act = () => def.WithVariable<string>("  æøåščřáů æøåščřáů");
             act.Should().Throw<DmnBuilderException>().WithMessage("Duplicate variable name*");
             act = () => def.WithVariable<string>("  æøåščřáů_æøåščřáů   ");
+            act.Should().Throw<DmnBuilderException>().WithMessage("Duplicate variable name*");
+            act = () => def.WithVariable<string>("  æøåščřáů_æøå&ščřáů   "); //added in v1.1
             act.Should().Throw<DmnBuilderException>().WithMessage("Duplicate variable name*");
         }
     }

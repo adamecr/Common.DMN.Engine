@@ -18,21 +18,25 @@ namespace net.adamec.lib.common.dmn.engine.test
         {
             File,
             File13,
+            // ReSharper disable once InconsistentNaming
+            File13ext,
             Builder
         }
+
+        public DmnParser.DmnVersionEnum? ParserVersion { get; private set; }
 
         protected virtual SourceEnum Source => SourceEnum.File;
 
         protected virtual Action<DmnExecutionContextOptions> ConfigureCtx => null;
-    
+
         // ReSharper disable once InconsistentNaming
         protected DmnExecutionContext CTX(string dmnFile, Action<DmnExecutionContextOptions> configure = null)
         {
-            
-            var ctx=
+
+            var ctx =
                 Source != SourceEnum.Builder ?
-                    DmnExecutionContextFactory.CreateExecutionContext(MODEL(dmnFile), configure??ConfigureCtx) :
-                    DmnExecutionContextFactory.CreateExecutionContext(DmnBuilderSamples.Files[dmnFile], configure??ConfigureCtx);
+                    DmnExecutionContextFactory.CreateExecutionContext(MODEL(dmnFile), configure ?? ConfigureCtx) :
+                    DmnExecutionContextFactory.CreateExecutionContext(DmnBuilderSamples.Files[dmnFile], configure ?? ConfigureCtx);
 
             TestContext.WriteLine($"CTX: Source={Source}, Opts:{CtxOptionsStr(ctx.Options)}; DMN: {dmnFile}");
             return ctx;
@@ -47,12 +51,12 @@ namespace net.adamec.lib.common.dmn.engine.test
         // ReSharper disable once InconsistentNaming
         protected static DmnExecutionContext CTX(string dmnFile, SourceEnum source, Action<DmnExecutionContextOptions> configure = null)
         {
-            var ctx=
+            var ctx =
                 source != SourceEnum.Builder ?
                     DmnExecutionContextFactory.CreateExecutionContext(MODEL(dmnFile, source), configure) :
                     DmnExecutionContextFactory.CreateExecutionContext(DmnBuilderSamples.Files[dmnFile], configure);
 
-           return ctx;
+            return ctx;
         }
 
         // ReSharper disable once InconsistentNaming
@@ -78,6 +82,7 @@ namespace net.adamec.lib.common.dmn.engine.test
         {
             if (Source == SourceEnum.File) return File11(dmnFile);
             if (Source == SourceEnum.File13) return File13(dmnFile);
+            if (Source == SourceEnum.File13ext) return File13Ext(dmnFile); 
 
             throw new NotImplementedException();
         }
@@ -87,6 +92,7 @@ namespace net.adamec.lib.common.dmn.engine.test
         {
             if (source == SourceEnum.File) return File11(dmnFile);
             if (source == SourceEnum.File13) return File13(dmnFile);
+            if (source == SourceEnum.File13ext) return File13Ext(dmnFile);
 
             throw new NotImplementedException();
         }
@@ -102,12 +108,32 @@ namespace net.adamec.lib.common.dmn.engine.test
             var file = Path.Combine(dir ?? string.Empty, $"dmn/dmn1.3/{dmnFile}");
             return file;
         }
+        private static string File13Ext(string dmnFile)
+        {
+            var dir = AppDomain.CurrentDomain.BaseDirectory;
+            var file = Path.Combine(dir ?? string.Empty, $"dmn/dmn1.3ext/{dmnFile}");
+            return file;
+        }
         // ReSharper disable once InconsistentNaming
         protected DmnModel MODEL(string dmnFile)
         {
             var file = FILE(dmnFile);
-            if (Source == SourceEnum.File) return DmnParser.Parse(file);
-            if (Source == SourceEnum.File13) return DmnParser.Parse13(file);
+            if (Source == SourceEnum.File)
+            {
+                ParserVersion = DmnParser.DmnVersionEnum.V1_1;
+                return DmnParser.Parse(file);
+            }
+
+            if (Source == SourceEnum.File13)
+            {
+                ParserVersion = DmnParser.DmnVersionEnum.V1_3;
+                return DmnParser.Parse13(file);
+            }
+            if (Source == SourceEnum.File13ext)
+            {
+                ParserVersion = DmnParser.DmnVersionEnum.V1_3ext;
+                return DmnParser.Parse13ext(file);
+            }
 
             throw new NotImplementedException();
         }
@@ -118,6 +144,7 @@ namespace net.adamec.lib.common.dmn.engine.test
             var file = FILE(dmnFile, source);
             if (source == SourceEnum.File) return DmnParser.Parse(file);
             if (source == SourceEnum.File13) return DmnParser.Parse13(file);
+            if (source == SourceEnum.File13ext) return DmnParser.Parse13ext(file);
 
             throw new NotImplementedException();
         }

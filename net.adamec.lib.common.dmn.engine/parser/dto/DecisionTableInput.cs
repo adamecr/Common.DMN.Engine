@@ -16,6 +16,12 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         public string Label { get; set; }
 
         /// <summary>
+        /// Name of the input variable if present
+        /// </summary>
+        [XmlAttribute("inputVariable",Namespace = "http://camunda.org/schema/1.0/dmn")]
+        public string InputVariable { get; set; }
+
+        /// <summary>
         /// Input expression without the <see cref="Expression.Text"/> subelement just defines the data type of the input.
         /// When  the <see cref="Expression.Text"/> subelement is provided the expression is used as the input
         /// </summary>

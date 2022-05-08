@@ -29,13 +29,15 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions.expression
         /// <param name="output">Decision output variable</param>
         /// <param name="requiredInputs">Decision required inputs (input variables)</param>
         /// <param name="requiredDecisions">List of decisions, the decision depends on</param>
+        /// <param name="label">Optional label of decision, name is used when not provided</param>
         public DmnExpressionDecision(
             string name,
             string expression,
             IDmnVariable output,
             IReadOnlyCollection<IDmnVariable> requiredInputs,
-            IReadOnlyCollection<IDmnDecision> requiredDecisions)
-        : base(name, requiredInputs, requiredDecisions)
+            IReadOnlyCollection<IDmnDecision> requiredDecisions,
+            string label=null)
+        : base(name, requiredInputs, requiredDecisions,label)
         {
             Expression = expression;
             Output = output;
