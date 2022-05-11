@@ -51,6 +51,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision](net
  | [Label](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.label__q7xq13) | public | Label of the decision | 
  | [Logger](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.logger__1xp222x) | protected | Logger | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.name__11d67s8) | public | Decision unique name | 
+ | [NameWithLabel](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.namewithlabel__wz2t4e) | public | Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.label__q7xq13) is different than [Name](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.name__11d67s8) | 
  | [RequiredDecisions](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.requireddecisions__6uus9z) | public | List of decisions, the decision depends on Only direct dependencies are here, use [GetAllRequiredDecisions()](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.getallrequireddecisions__a864n1) method to get the full list | 
  | [RequiredInputs](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.requiredinputs__1kiuu49) | public | Decision required inputs (input variables) Only direct dependencies are here, use [GetAllRequiredInputs()](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#m-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.getallrequiredinputs__1mruz7z) method to get the full list | 
 
@@ -173,6 +174,30 @@ public string Name { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>Implements: [IDmnElement.Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.name__1wmto3f)
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.namewithlabel__wz2t4e" />  DmnDecision.NameWithLabel Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.decisions](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#n-net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDecision](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision__1dk0ggj)           
+Sources: engine\decisions\DmnDecision.cs</small>
+
+
+Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.label__q7xq13) is different than [Name](net.adamec.lib.common.dmn.engine.engine.decisions__15bua3q.md#p-net.adamec.lib.common.dmn.engine.engine.decisions.dmndecision.name__11d67s8)
+
+
+
+```csharp
+public string NameWithLabel { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>Implements: [IDmnElement.NameWithLabel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.namewithlabel__qmuhj7)
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)

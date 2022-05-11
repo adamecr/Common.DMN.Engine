@@ -1,0 +1,202 @@
+﻿<UserControl x:Class="net.adamec.lib.common.dmn.engine.simulator.controls.dmngraph.DmnGraphControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmngraph"
+             xmlns:zoomcontrol="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.zoomcontrol"
+             xmlns:layout="clr-namespace:GraphShape.Algorithms.Layout;assembly=GraphShape"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:gs="clr-namespace:GraphShape.Controls;assembly=GraphShape.Controls"
+             xmlns:element="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.model.element"
+             xmlns:dummy="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.model.dummy"
+             xmlns:dmnworkspace="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{x:Static dummy:DummyModel.GraphViewModel}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="LayoutParameters.Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="DmnVertexTemplate" DataType="{x:Type element:DmnElement}">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{DynamicResource DmnDecisionTemplate}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsInput, FallbackValue=false, TargetNullValue=false}" Value="true">
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+                </StackPanel>
+
+            </DataTemplate>
+
+            <Style TargetType="{x:Type gs:VertexControl}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type gs:VertexControl}">
+                            <Border Background="Transparent" >
+                                <ContentPresenter Content="{TemplateBinding DataContext}" ContentTemplate="{StaticResource DmnVertexTemplate}"/>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderBrush" Value="Black"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Vertex.IsDecision}" Value="false">
+                                                <Setter Property="CornerRadius" Value="15"/>
+                                                <Setter Property="Padding" Value="3,0"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Vertex.IsSelected}" Value="true">
+                                                <Setter Property="BorderBrush" Value="Blue"/>
+                                                <Setter Property="BorderThickness" Value="2"/>
+                                            </DataTrigger>
+                                            <DataTrigger
+                                                Binding="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                Path=Vertex.ShapeBounds.HasSize,
+                                                FallbackValue=false,
+                                                TargetNullValue=false}"
+                                                Value="true">
+                                                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Vertex.ShapeBounds.Width}"/>
+                                                <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Vertex.ShapeBounds.Height}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type gs:EdgeControl}">
+                <Setter Property="StrokeThickness" Value="1" />
+                <Setter Property="Foreground" Value="Black" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ToggleButton Name="OpenOptionsButton" HorizontalAlignment="Right" Content="{iconPacks:BootstrapIcons Kind=Gear}" />
+
+        <Grid Grid.Row="1">
+            <mah:SplitView Grid.Column="0" Grid.Row="0"
+                            Margin="5"
+                            DisplayMode="Inline"
+                            PanePlacement="Right"
+                            IsPaneOpen="{Binding IsChecked, ElementName=OpenOptionsButton}"
+                            OpenPaneLength="360"
+                            PaneBackground="Transparent">
+                <mah:SplitView.Pane >
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <Grid Margin="3 0 0 0">
+                            <StackPanel Margin="0,10,0,0">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                        <Setter Property="Margin" Value="0,0,0,5" />
+                                    </Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                    <Style TargetType="ComboBox" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
+                                        <Setter Property="Margin" Value="0,0,0,5" />
+                                    </Style>
+                                    <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                        <Setter Property="Margin" Value="0,0,0,5" />
+                                    </Style>
+                                    <Style TargetType="Slider" BasedOn="{StaticResource MahApps.Styles.Slider}">
+                                        <Setter Property="Margin" Value="0,0,10,5" />
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <GroupBox Header="Algorithms">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="{StaticResource LabelColumnWidth}" />
+                                            <ColumnDefinition Width="{StaticResource ControlColumnWidth}" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Layout algorithm" />
+                                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                              ItemsSource="{Binding Path=LayoutAlgorithmFactory.AlgorithmTypes, ElementName=GraphLayout}"
+                                              SelectedValue="{Binding Path=LayoutAlgorithmType}" />
+
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Overlap Removal" />
+                                        <ComboBox Grid.Column="1" Grid.Row="1"
+                                              ItemsSource="{Binding Source={StaticResource AlgorithmConstraintEnum}}"
+                                              SelectedValue="{Binding Path=OverlapRemovalConstraint, ElementName=GraphLayout}" />
+
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Overlap Removal Algorithm" />
+                                        <ComboBox Grid.Column="1" Grid.Row="2"
+                                              ItemsSource="{Binding Path=OverlapRemovalAlgorithmFactory.AlgorithmTypes, ElementName=GraphLayout}"
+                                              SelectedValue="{Binding Path=OverlapRemovalAlgorithmType, ElementName=GraphLayout}" />
+
+                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Edge Routing" />
+                                        <ComboBox Grid.Column="1" Grid.Row="3"
+                                              ItemsSource="{Binding Source={StaticResource AlgorithmConstraintEnum}}"
+                                              SelectedValue="{Binding Path=EdgeRoutingConstraint, ElementName=GraphLayout}" />
+                                    </Grid>
+                                </GroupBox>
+
+                                <GroupBox Header="Layout algorithm parameters"
+                                      Content="{Binding Path=LayoutParameters, ElementName=GraphLayout}" />
+
+                                <GroupBox Header="Overlap removal parameters"
+                                      Content="{Binding Path=OverlapRemovalParameters, ElementName=GraphLayout}" />
+
+                                <Button Margin="0,10,0,0" HorizontalAlignment="Center"
+                                    Width="150"
+                                    Command="{Binding GraphRelayoutCommand }"
+                                    Style="{StaticResource MahApps.Styles.Button.Square}"
+                                    BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconBootstrapIcons Kind="ArrowClockwise" Width="10" Margin="0,0,5,0" />
+                                        <TextBlock Text="Refresh Layout" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </mah:SplitView.Pane>
+
+                <zoomcontrol:ZoomControl >
+                    <local:DmnGraphLayout x:Name="GraphLayout"
+                                          Margin="10" 
+                                          Graph="{Binding Graph}"
+                                          LayoutAlgorithmType="{Binding Path=LayoutAlgorithmType, Mode=OneWay}"
+                                          HighlightAlgorithmType="Simple"
+                                          OverlapRemovalAlgorithmType="FSA"
+                                          SelfRef="{Binding Path=GraphLayout,Mode=OneWayToSource}" LayoutMode="Simple" 
+                                          ElementClickCommand="{x:Static dmnworkspace:DmnWorkspaceCommands.SelectDmnElementRoutedCommand}">
+
+                        <local:DmnGraphLayout.LayoutParameters>
+                            <layout:ISOMLayoutParameters
+                                Width="1200"
+                                Height="1200" />
+                        </local:DmnGraphLayout.LayoutParameters>
+
+                    </local:DmnGraphLayout>
+                </zoomcontrol:ZoomControl >
+
+            </mah:SplitView>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_130i7rf" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <decision id="Decision_0zj8xe2" name="Decision 1">
+    <informationRequirement id="InformationRequirement_0t0bphg">
+      <requiredInput href="#InputData_0hkpzya" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_09o8aqq">
+      <requiredInput href="#InputData_0n9cc88" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1u9yedr">
+      <requiredInput href="#InputData_169winu" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0h5loei">
+      <requiredInput href="#InputData_0ooo01w" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_11x5knv">
+      <requiredInput href="#InputData_0fa5wug" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0tgeetp">
+      <requiredInput href="#InputData_1hhruy5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1o9eqhm" hitPolicy="COLLECT">
+      <input id="Input_1" label="Bool" camunda:inputVariable="Bool_Input">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h78t7j" label="Int" camunda:inputVariable="Int_Input">
+        <inputExpression id="LiteralExpression_1vtb3zw" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0z6o8du" label="Str" camunda:inputVariable="Str_Input">
+        <inputExpression id="LiteralExpression_1yuz4rv" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1bww33w">
+          <text>"Str1","Str2","Str3"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1l09oat" label="Long" camunda:inputVariable="Long_Input">
+        <inputExpression id="LiteralExpression_18k7quu" typeRef="long">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ol1ebt" label="Dbl" camunda:inputVariable="Dbl_Input">
+        <inputExpression id="LiteralExpression_1rrwnxv" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1xiyz0k" label="Date" camunda:inputVariable="DateInput">
+        <inputExpression id="LiteralExpression_0tsy4r1" typeRef="date">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Out Str" name="Out1" typeRef="string" />
+      <output id="OutputClause_1498kzs" label="Out Bool" typeRef="boolean" />
+      <rule id="DecisionRule_0u50nry">
+        <inputEntry id="UnaryTests_04cssat">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cy2arr">
+          <text>&gt;6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p0lb7l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_050fn88">
+          <text>&lt;50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ckfi15">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17472fr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_006r6ej">
+          <text>"Rule 1"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14ct181">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rlntgy">
+        <inputEntry id="UnaryTests_1w3cq9h">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ifdhv2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pr6a82">
+          <text>"Str1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fl9fqi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ri4xer">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15v8ihu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bohd6o">
+          <text>"Str1"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fxpwf8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0i38a0v">
+        <inputEntry id="UnaryTests_1n2e38q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09evd6w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1msislj">
+          <text>"Str2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0216amj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rrx7re">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nbaedu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06mycgj">
+          <text>"Str2"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1dfjxdy">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rr5c4x">
+        <inputEntry id="UnaryTests_0t6hul3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pr60li">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o13jkf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wkiof6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gysge5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ox1yta">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0b2ky17">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rp8hv6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1y6pthq">
+        <inputEntry id="UnaryTests_1979ncq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nulp04">
+          <text>[10..50]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aga2ye">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yq6prq">
+          <text>[20..30]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fjp45y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gq5erg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x929qe">
+          <text>"Int and Lon 20-30"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03zpjix">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07mn9za">
+        <inputEntry id="UnaryTests_1mvut1g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mc9bvl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rqrh1p">
+          <text>"Str2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t1733b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pxgz2k">
+          <text>&lt;13.5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15lrwgy">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jxe6ns">
+          <text>"Str2 &lt; 13.5"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qa9f8p">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08qt9f9">
+        <inputEntry id="UnaryTests_1s1htsl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i8p3m3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i6o7jy">
+          <text>"Str3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kp6ahk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_155daz9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_091efba">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02xu3op">
+          <text>Date_Input</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_11oyv5o">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cevjpo">
+        <inputEntry id="UnaryTests_0dxkrfs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wzkgfy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gxwaoj">
+          <text>not("Str2","Str3")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07gtzfb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ui4ffc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xwlb8x">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02d9o9d">
+          <text>"Should be Str1"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02h2yab">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0omzidd">
+        <inputEntry id="UnaryTests_001ndsk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hhvbtx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09nz6sg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gd85z9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ke6eqb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a3bznc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09q93i4">
+          <text>"Fall back"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lie51u">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0hkpzya" name="Bool Input" />
+  <inputData id="InputData_0n9cc88" name="Int Input" />
+  <inputData id="InputData_169winu" name="Long Input" />
+  <inputData id="InputData_0ooo01w" name="Str_Input" />
+  <inputData id="InputData_0fa5wug" name="Dbl_Input" />
+  <inputData id="InputData_09zkxg2" name="Prefix" />
+  <decision id="Decision_1cia7mb" name="Decision 2">
+    <variable id="InformationItem_1ff1qhj" name="FullOut" typeRef="string" />
+    <informationRequirement id="InformationRequirement_013p6tr">
+      <requiredDecision href="#Decision_0zj8xe2" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1y40oj2">
+      <requiredInput href="#InputData_09zkxg2" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_0as7122">
+      <text>Prefix?.ToString() + Out1</text>
+    </literalExpression>
+  </decision>
+  <inputData id="InputData_1hhruy5" name="DateInput" />
+  <decision id="Decision_1w6sflx" name="Decision 3">
+    <variable id="InformationItem_1c8bzze" name="doublePrefix" typeRef="double" />
+    <informationRequirement id="InformationRequirement_0uv2e3x">
+      <requiredInput href="#InputData_09zkxg2" />
+    </informationRequirement>
+    <literalExpression id="LiteralExpression_027hk7h">
+      <text>Prefix*2</text>
+    </literalExpression>
+  </decision>
+  <textAnnotation id="TextAnnotation_1xhp2nv">
+    <text>FullOut:string=Prefix?.ToString() + Out1</text>
+  </textAnnotation>
+  <association id="Association_1txqs77">
+    <sourceRef href="#TextAnnotation_1xhp2nv" />
+    <targetRef href="#Decision_1cia7mb" />
+  </association>
+  <textAnnotation id="TextAnnotation_0duzql3">
+    <text>Expect Prefix to be numeric
+doublePrefix:double=Prefix*2</text>
+  </textAnnotation>
+  <association id="Association_0hz4uck">
+    <sourceRef href="#TextAnnotation_0duzql3" />
+    <targetRef href="#Decision_1w6sflx" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0zj8xe2">
+        <dc:Bounds height="80" width="180" x="400" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0sm00t5" dmnElementRef="InputData_0hkpzya">
+        <dc:Bounds height="45" width="125" x="157" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0h2ezyi" dmnElementRef="InputData_0n9cc88">
+        <dc:Bounds height="45" width="125" x="307" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0g4n1fe" dmnElementRef="InputData_169winu">
+        <dc:Bounds height="45" width="125" x="457" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_19gtv1s" dmnElementRef="InputData_0ooo01w">
+        <dc:Bounds height="45" width="125" x="607" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0l16qmp" dmnElementRef="InputData_0fa5wug">
+        <dc:Bounds height="45" width="125" x="757" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1jzc0jl" dmnElementRef="InformationRequirement_0t0bphg">
+        <di:waypoint x="220" y="123" />
+        <di:waypoint x="426" y="310" />
+        <di:waypoint x="426" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1r5ghnt" dmnElementRef="InformationRequirement_09o8aqq">
+        <di:waypoint x="370" y="123" />
+        <di:waypoint x="451" y="310" />
+        <di:waypoint x="451" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0rbpc78" dmnElementRef="InformationRequirement_1u9yedr">
+        <di:waypoint x="520" y="123" />
+        <di:waypoint x="477" y="310" />
+        <di:waypoint x="477" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0emhrt3" dmnElementRef="InformationRequirement_0h5loei">
+        <di:waypoint x="670" y="123" />
+        <di:waypoint x="503" y="310" />
+        <di:waypoint x="503" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0rdl3if" dmnElementRef="InformationRequirement_11x5knv">
+        <di:waypoint x="820" y="123" />
+        <di:waypoint x="529" y="310" />
+        <di:waypoint x="529" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0puoyel" dmnElementRef="InputData_09zkxg2">
+        <dc:Bounds height="45" width="125" x="857" y="467" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_10ys54w" dmnElementRef="Decision_1cia7mb">
+        <dc:Bounds height="80" width="180" x="730" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09m4kdc" dmnElementRef="InformationRequirement_013p6tr">
+        <di:waypoint x="580" y="370" />
+        <di:waypoint x="710" y="370" />
+        <di:waypoint x="730" y="370" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1lrimge" dmnElementRef="InformationRequirement_1y40oj2">
+        <di:waypoint x="920" y="467" />
+        <di:waypoint x="820" y="430" />
+        <di:waypoint x="820" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1tqn1j2" dmnElementRef="InputData_1hhruy5">
+        <dc:Bounds height="45" width="125" x="908" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_07naadj" dmnElementRef="InformationRequirement_0tgeetp">
+        <di:waypoint x="971" y="124" />
+        <di:waypoint x="554" y="310" />
+        <di:waypoint x="554" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0i3ugdn" dmnElementRef="Association_11mh24v">
+        <di:waypoint x="1137" y="280" />
+        <di:waypoint x="1083" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_137rdji" dmnElementRef="Decision_1w6sflx">
+        <dc:Bounds height="80" width="180" x="950" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1njkgpr" dmnElementRef="TextAnnotation_1xhp2nv">
+        <dc:Bounds height="80" width="100" x="840" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_15rkqe9" dmnElementRef="Association_1txqs77">
+        <di:waypoint x="847" y="280" />
+        <di:waypoint x="863" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0jyotf8" dmnElementRef="InformationRequirement_0uv2e3x">
+        <di:waypoint x="920" y="467" />
+        <di:waypoint x="1040" y="430" />
+        <di:waypoint x="1040" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0qfvyhh" dmnElementRef="TextAnnotation_0duzql3">
+        <dc:Bounds height="80" width="100" x="1060" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qrvqc4" dmnElementRef="Association_0hz4uck">
+        <di:waypoint x="1067" y="280" />
+        <di:waypoint x="1083" y="330" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

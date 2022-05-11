@@ -242,6 +242,8 @@ As the [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adam
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
+ | [DefaultKnowTypes](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.defaultknowtypes__12ulxuh) | public static | Default known types recognized by factory | 
+ | [knownTypes](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.knowntypes__4vc8h6) | private | Set of known types that can be used for inputs/variables | 
  | [Logger](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.logger__a8qmti) | protected static | Logger | 
 
  
@@ -255,6 +257,7 @@ As the [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adam
  | [DecisionsById](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.decisionsbyid__2fd72z) | protected | Dictionary of decision definitions (by ID) | 
  | [InputData](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.inputdata__l7jpfg) | protected | Input data interface. Input data will be stored as Variables, complex objects are supported. Dictionary by Input/Variable name | 
  | [InputDataById](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.inputdatabyid__5owg9s) | protected | Dictionary of input data variable definitions (by ID) | 
+ | [KnownTypes](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.knowntypes__9ae0qg) | public | Set of known types that can be used for inputs/variables | 
  | [SourceModel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.sourcemodel__vkf8za) | protected | Source DMN Model parsed from XML | 
  | [Variables](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.variables__85kbnj) | protected | Variables used while executing the DMN model - can be used within the Decision Tables and/or Expressions In general, it holds the Input Data of DMN model and outputs from Decision Tables and/or Expressions Dictionary by Variable name | 
 
@@ -280,13 +283,62 @@ As the [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adam
  | [CreateExpressionDecision(Decision, string, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable&gt;, IReadOnlyCollection&lt;net.adamec.lib.common.dmn.engine.engine.decisions.IDmnDecision&gt;)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.createexpressiondecision_net.adamec.lib.common.dmn.engine.parser.dto.decision-system.string-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.definition.idmnvariable_-system.collections.generic.ireadonlycollection_net.adamec.lib.common.dmn.engine.engine.decisions.idmndecision____iyvnd5) | protected | Validates the <strong>sourceDecision</strong> within the [DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9) and creates [DmnExpressionDecision](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision__wqzfc9) | 
  | [CheckAndUpdateVariableType(DmnVariableDefinition, string)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.checkandupdatevariabletype_net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition-system.string___zic7ay) | protected | Assigns the <strong>variable</strong> with <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> corresponding to the <strong>typeName</strong> . When the variable already contains the type information, it must match with the <strong>typeName</strong> | 
  | [CheckTableInputForVariable(string, Dictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;, bool, string, string, string)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.checktableinputforvariable_system.string-system.collections.generic.dictionary_system.string-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition_-system.boolean--system.string--system.string--system.string-___yuaco1) | protected | Checks whether is either not set (null or whitespace) or variable or expression. | 
- | [ParseTypeName(string)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.parsetypename_system.string___1eh82ka) | protected | Parses the type name to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> | 
+ | [InitKnownTypes()](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.initknowntypes__ckc9g5) | protected | Initialize set of known types that can be used in DMN definition for inputs/variables | 
+ | [ParseTypeName(string)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.parsetypename_system.string___1eh82ka) | public | Parses the type name to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> | 
  | [ProcessDecision(Decision)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.processdecision_net.adamec.lib.common.dmn.engine.parser.dto.decision___kq81f8) | protected | Validates the <strong>sourceDecision</strong> within the [DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9) and creates [DmnExpressionDecision](net.adamec.lib.common.dmn.engine.engine.decisions.expression__16b1yci.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.expression.dmnexpressiondecision__wqzfc9) or [DmnDecisionTable](net.adamec.lib.common.dmn.engine.engine.decisions.table__1gb724k.md#t-net.adamec.lib.common.dmn.engine.engine.decisions.table.dmndecisiontable__186v1kh) . Populates [Decisions](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.decisions__1rcbwu9) and [DecisionsById](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.decisionsbyid__2fd72z) | 
  | [ProcessDiagramExtension(DmnDefinition)](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.processdiagramextension_net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition___1udrwgf) | protected | When the [SourceModel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.sourcemodel__vkf8za) has the DI diagram data, it gets individual shapes having bounds and tries to find them within [InputDataById](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.inputdatabyid__5owg9s) and [DecisionsById](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.decisionsbyid__2fd72z) . When there is a match, it creates [DiDiagramShapeExtension](net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25.md#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramshapeextension__1g3jyq3) attached to the element. All matched bounds are also added to [DiDiagramExtension](net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25.md#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramextension__rjfeea) attached to the definition | 
  | [ProcessInputDataSource()](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.processinputdatasource__1jtm787) | protected | Validates the inputs of the [DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9) ( [SourceModel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.sourcemodel__vkf8za) ) and populates [InputData](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.inputdata__l7jpfg) , [InputDataById](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.inputdatabyid__5owg9s) and related [Variables](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.variables__85kbnj) | 
  | [ProcessModel()](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.processmodel__knqybn) | protected | Validates the [SourceModel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.sourcemodel__vkf8za) model and creates the [DmnDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinition__1clvtf4) from [DmnModel](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.dmnmodel__tqe6m9) | 
 
  
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.defaultknowtypes__12ulxuh" />  DmnDefinitionFactory.DefaultKnowTypes Field ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionFactory](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory__1rr2kdi)           
+Sources: engine\definition\DmnDefinitionFactory.cs</small>
+
+
+Default known types recognized by factory
+
+
+
+```csharp
+public static Dictionary<string,System.Type> DefaultKnowTypes
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,System.Type&gt;</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.knowntypes__4vc8h6" />  DmnDefinitionFactory.knownTypes Field ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionFactory](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory__1rr2kdi)           
+Sources: engine\definition\DmnDefinitionFactory.cs</small>
+
+
+Set of known types that can be used for inputs/variables
+
+
+
+```csharp
+private Dictionary<string,System.Type> knownTypes
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,System.Type&gt;</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -407,6 +459,30 @@ protected Dictionary<string,net.adamec.lib.common.dmn.engine.engine.definition.D
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,net.adamec.lib.common.dmn.engine.engine.definition.DmnVariableDefinition&gt;</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.knowntypes__9ae0qg" />  DmnDefinitionFactory.KnownTypes Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionFactory](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory__1rr2kdi)           
+Sources: engine\definition\DmnDefinitionFactory.cs</small>
+
+
+Set of known types that can be used for inputs/variables
+
+
+
+```csharp
+public Dictionary<string,System.Type> KnownTypes { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,System.Type&gt;</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -663,6 +739,30 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.initknowntypes__ckc9g5" />  DmnDefinitionFactory.InitKnownTypes() Method ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnDefinitionFactory](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory__1rr2kdi)           
+Sources: engine\definition\DmnDefinitionFactory.cs</small>
+
+
+Initialize set of known types that can be used in DMN definition for inputs/variables
+
+
+
+```csharp
+protected virtual void InitKnownTypes()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
 ##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.dmndefinitionfactory.parsetypename_system.string___1eh82ka" />  DmnDefinitionFactory.ParseTypeName(string) Method ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
 Assembly: net.adamec.lib.common.dmn.engine           
@@ -675,7 +775,7 @@ Parses the type name to <a href="https://docs.microsoft.com/en-us/dotnet/api/sys
 
 
 ```csharp
-protected virtual Type ParseTypeName(string typeName)
+public virtual Type ParseTypeName(string typeName)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>typeName</strong></dt><dd>Type name to parse</dd></dl>
@@ -842,6 +942,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.definition.IDmnVariable](ne
  | [IsInputParameter](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.isinputparameter__1uoo4y9) | public | Flag whether the variable represents the input parameter of the decision model. Such variable will be read-only | 
  | [Label](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.label__me2mk) | public | Label of the variable (used for input parameters) | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.name__1vxst0n) | public | Name of the variable | 
+ | [NameWithLabel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.namewithlabel__30a3qf) | public | Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.label__me2mk) is different than [Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.name__1vxst0n) | 
  | [Type](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.type__1ddehym) | public | Type of the variable when recognized from the decisions | 
  | [ValueSetters](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.valuesetters__1m2s7dp) | public | Enumerable list of value &quot;setters&quot; for the variable. | 
 
@@ -1018,6 +1119,30 @@ public string Name { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>Implements: [IDmnElement.Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.name__1wmto3f)
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.namewithlabel__30a3qf" />  DmnVariableDefinition.NameWithLabel Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnVariableDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88)           
+Sources: engine\definition\DmnVariableDefinition.cs</small>
+
+
+Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.label__me2mk) is different than [Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition.name__1vxst0n)
+
+
+
+```csharp
+public string NameWithLabel { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>Implements: [IDmnElement.NameWithLabel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.namewithlabel__qmuhj7)
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -1403,6 +1528,7 @@ Implements: [net.adamec.lib.common.dmn.engine.engine.definition.extensions.IDmnE
  | ------ | ---------- | --------- | 
  | [Label](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.label__h6tcbk) | public abstract | Label of the element | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.name__1wmto3f) | public abstract | Name of the element | 
+ | [NameWithLabel](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.namewithlabel__qmuhj7) | public abstract | Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.label__h6tcbk) is different than [Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.name__1wmto3f) | 
 
  
 
@@ -1450,6 +1576,30 @@ Name of the element
 
 ```csharp
 public abstract string Name { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.namewithlabel__qmuhj7" />  IDmnElement.NameWithLabel Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#n-net.adamec.lib.common.dmn.engine.engine.definition__199kcn6)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [IDmnElement](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement__1odpnhw)           
+Sources: engine\definition\IDmnElement.cs</small>
+
+
+Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.label__h6tcbk) is different than [Name](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#p-net.adamec.lib.common.dmn.engine.engine.definition.idmnelement.name__1wmto3f)
+
+
+
+```csharp
+public abstract string NameWithLabel { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>

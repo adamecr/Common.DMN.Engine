@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using net.adamec.lib.common.dmn.engine.utils;
 
 namespace net.adamec.lib.common.dmn.engine.engine.definition
 {
@@ -19,6 +20,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// Label of the variable (used for input parameters)
         /// </summary>
         public string Label { get; }
+
+        /// <summary>
+        /// Name with label information in case <see cref="Label"/> is different than <see cref="Name"/>
+        /// </summary>
+        public string NameWithLabel => DmnUtils.NameWithLabel(Name, Label);
 
         /// <summary>
         /// Type of the variable when recognized from the decisions

@@ -1,0 +1,72 @@
+﻿<mah:MetroWindow x:Class="net.adamec.lib.common.dmn.engine.simulator.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:net.adamec.lib.common.dmn.engine.simulator"
+             xmlns:model="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.model"
+             xmlns:dmnworkplace="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d"
+             d:DataContext="{x:Static local:MainWindowViewModel.DesignTime}"
+             Title="DMN Engine Simulator" Height="800" Width="1200"
+             BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+             BorderThickness="1">
+  
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <mah:DropDownButton Margin="5"
+                                Content="Add DMN"
+                                DisplayMemberPath="Value"
+                                ToolTip="Add DMN workspace"
+                                ItemsSource="{Binding AddDmnMenuItemsDict}">
+                <mah:DropDownButton.Icon>
+                    <iconPacks:PackIconBootstrapIcons Margin="1" Kind="PlusCircle" />
+                </mah:DropDownButton.Icon>
+                <mah:DropDownButton.ItemContainerStyle>
+                    <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+                        <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mah:DropDownButton}}, Path=DataContext.AddDmnCommand}" />
+                        <Setter Property="CommandParameter" Value="{Binding Key}" />
+                    </Style>
+                </mah:DropDownButton.ItemContainerStyle>
+            </mah:DropDownButton>
+
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <Grid>
+        <mah:MetroTabControl Grid.Row="0"
+                             Margin="5"
+                             ItemsSource="{Binding DmnWorkspaceModels}" 
+                             SelectedItem="{Binding CurrentDmnWorkspaceModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="False"
+                             mah:HeaderedControlHelper.HeaderFontSize="12" 
+                             mah:TabControlHelper.Underlined="TabPanel"
+                             mah:TabControlHelper.UnderlinePlacement="Bottom"
+                             KeepVisualTreeInMemoryWhenChangingTabs="true"
+                             MoveFocusToContentWhenSelectionChanges="True" >
+            <TabControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type model:DmnWorkspaceModel}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}"/>
+                        <Button Margin="3,0,2,0"  VerticalAlignment="Top" Style="{StaticResource CloseButtonStyle}"
+                            Content="r" 
+                            Command="{Binding DataContext.CloseDmnCommand, RelativeSource={RelativeSource AncestorType=mah:MetroTabControl}}" 
+                            CommandParameter="{Binding}" 
+                            >
+
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate DataType="{x:Type model:DmnWorkspaceModel}">
+                    <dmnworkplace:DmnWorkspaceControl  />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </mah:MetroTabControl>
+    </Grid>
+</mah:MetroWindow>

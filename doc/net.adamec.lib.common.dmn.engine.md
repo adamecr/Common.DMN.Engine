@@ -18,6 +18,7 @@
  | [net.adamec.lib.common.dmn.engine.parser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#n-net.adamec.lib.common.dmn.engine.parser__src1fa) |  | 
  | [net.adamec.lib.common.dmn.engine.parser.dto](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#n-net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp) |  | 
  | [net.adamec.lib.common.dmn.engine.parser.dto.diagram](net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.md#n-net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq) |  | 
+ | [net.adamec.lib.common.dmn.engine.utils](net.adamec.lib.common.dmn.engine.utils__1g4rfg6.md#n-net.adamec.lib.common.dmn.engine.utils__1g4rfg6) |  | 
 
 ##  <a id="type-list" />  Types ##
 
@@ -69,6 +70,7 @@
  | [DmnParser](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparser__ckbnga) | public | Class | DMN Model XML parser | 
  | [DmnParserException](net.adamec.lib.common.dmn.engine.parser__src1fa.md#t-net.adamec.lib.common.dmn.engine.parser.dmnparserexception__1bq7ch7) | public | Class | Exception thrown while parsing the DMN Model | 
  | [DmnResultVariable](net.adamec.lib.common.dmn.engine.engine.execution.result__q1n4oi.md#t-net.adamec.lib.common.dmn.engine.engine.execution.result.dmnresultvariable__11d1drg) | public | Class | Execution result variable | 
+ | [DmnUtils](net.adamec.lib.common.dmn.engine.utils__1g4rfg6.md#t-net.adamec.lib.common.dmn.engine.utils.dmnutils__3sc2yu) | public | Class | DMN engine related utilities | 
  | [DmnVariableDefinition](net.adamec.lib.common.dmn.engine.engine.definition__199kcn6.md#t-net.adamec.lib.common.dmn.engine.engine.definition.dmnvariabledefinition__1spm88) | public | Class | Definition of DMN model variable | 
  | [Edge](net.adamec.lib.common.dmn.engine.parser.dto.diagram__zmvieq.md#t-net.adamec.lib.common.dmn.engine.parser.dto.diagram.edge__u1u2r5) | public | Class | Represents dmndi:DMNEdge element in DMN XML | 
  | [Expression](net.adamec.lib.common.dmn.engine.parser.dto__17tk5mp.md#t-net.adamec.lib.common.dmn.engine.parser.dto.expression__tql32b) | public | Class | Expression within the DMN definition file | 

@@ -29,6 +29,21 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         protected static ILogger Logger = CommonLogging.CreateLogger<DmnDefinitionFactory>();
 
         /// <summary>
+        /// Default known types recognized by factory
+        /// </summary>
+        public static Dictionary<string, Type> DefaultKnowTypes = new Dictionary<string, Type>()
+        {
+            { "string", typeof(string) },
+            { "boolean", typeof(bool) },
+            { "integer", typeof(int) },
+            { "long", typeof(long) },
+            { "double", typeof(double) },
+            { "date", typeof(DateTime) }
+        };
+
+
+
+        /// <summary>
         /// Source DMN Model parsed from XML
         /// </summary>
         protected DmnModel SourceModel { get; }
@@ -59,6 +74,24 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// Dictionary of decision definitions (by ID)
         /// </summary>
         protected Dictionary<string, IDmnDecision> DecisionsById { get; } = new Dictionary<string, IDmnDecision>();
+
+        /// <summary>
+        /// Set of known types that can be used for inputs/variables
+        /// </summary>
+        private Dictionary<string, Type> knownTypes = new Dictionary<string, Type>();
+
+        /// <summary>
+        /// Set of known types that can be used for inputs/variables
+        /// </summary>
+        public Dictionary<string, Type> KnownTypes
+        {
+            get
+            {
+                if (knownTypes == null) knownTypes = new Dictionary<string, Type>();
+                if (knownTypes.Count == 0) InitKnownTypes();
+                return knownTypes;
+            }
+        }
 
         /// <summary>
         /// Protected CTOR
@@ -399,7 +432,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                         {
                             //Error - don't use the ID as expression
                             throw Logger.Fatal<DmnParserException>(
-                                $"Input#{inputIdx+1} for decision table {decisionName} has no source");
+                                $"Input#{inputIdx + 1} for decision table {decisionName} has no source");
                         }
                     }
                 }
@@ -555,8 +588,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
                 expression = null;
                 return false;
             }
-            
-            if (DmnVariableDefinition.CanNormalizeVariableName(source, out var potentialVariableName,out _) &&
+
+            if (DmnVariableDefinition.CanNormalizeVariableName(source, out var potentialVariableName, out _) &&
                 Variables.TryGetValue(potentialVariableName, out _))
             {
                 //source is know variable name -> variable
@@ -619,6 +652,20 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             }
         }
 
+
+        /// <summary>
+        /// Initialize set of known types that can be used in DMN definition for inputs/variables
+        /// </summary>
+        protected virtual void InitKnownTypes()
+        {
+            knownTypes.Clear();
+            foreach (var defaultKnowType in DefaultKnowTypes)
+            {
+                knownTypes.Add(defaultKnowType.Key, defaultKnowType.Value);
+               
+            }
+        }
+
         /// <summary>
         /// Parses the type name to <see cref="Type"/>
         /// </summary>
@@ -626,23 +673,14 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         /// <returns><see cref="Type"/> corresponding to <paramref name="typeName"/></returns>
         /// <exception cref="ArgumentException"><paramref name="typeName"/> is null or empty</exception>
         /// <exception cref="DmnParserException">Unsupported type name</exception>
-        protected virtual Type ParseTypeName(string typeName)
+        public virtual Type ParseTypeName(string typeName)
         {
-            if (string.IsNullOrWhiteSpace(typeName))
-                throw Logger.Fatal<ArgumentException>($"{nameof(typeName)} is null or empty");
+            if (string.IsNullOrWhiteSpace(typeName)) throw Logger.Fatal<ArgumentException>($"{nameof(typeName)} is null or empty");
 
             typeName = typeName.ToLower();
-            switch (typeName)
-            {
-                case "string": return typeof(string);
-                case "boolean": return typeof(bool);
-                case "integer": return typeof(int);
-                case "long": return typeof(long);
-                case "double": return typeof(double);
-                case "date": return typeof(DateTime);
-                default:
-                    throw Logger.Fatal<DmnParserException>($"Unsupported type name {typeName}");
-            }
+            if (KnownTypes.TryGetValue(typeName, out var type)) return type;
+
+            throw Logger.Fatal<DmnParserException>($"Unsupported type name {typeName}");
         }
 
         /// <summary>

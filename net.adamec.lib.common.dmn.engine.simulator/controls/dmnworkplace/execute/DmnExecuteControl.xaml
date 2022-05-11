@@ -1,0 +1,225 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:model="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.execute.model"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:variable="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.model.variable"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:common="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.common"
+             xmlns:local="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.execute"
+             xmlns:dummy="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.model.dummy"
+             x:Class="net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.execute.DmnExecuteControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{x:Static dummy:DummyModel.ExecuteViewModel}">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <mah:MetroHeader Grid.Row="0" Grid.Column="0" Header="Decision"  >
+            <ComboBox Margin="5" 
+                                      HorizontalContentAlignment="Left"
+                                      ItemsSource="{Binding DmnDecisionInfos}"
+                                      SelectedItem="{Binding DecisionForExecution}"
+                                      ItemTemplate="{StaticResource DmnDecisionTemplate}"/>
+        </mah:MetroHeader>
+        <mah:MetroHeader Grid.Row="1" Grid.Column="0" Header="Inputs" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <mah:ToggleSwitch Grid.Row="0"   IsOn="{Binding HasInputsForExecutionDecisionOnly}" Content="For selected decision only" />
+                <ListView Grid.Row="1" Margin="2" ItemsSource="{Binding InputsForExecution}"
+              ScrollViewer.VerticalScrollBarVisibility="Auto"
+              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+              ScrollViewer.CanContentScroll="true"
+              SelectedItem="{Binding SelectedInputInfo}"
+              SelectionMode="Single">
+                    <ListView.ItemTemplate>
+                        <DataTemplate DataType="model:InputVariable">
+                            <mah:MetroHeader Header="{Binding NameWithLabel}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="0" BorderThickness="0" BorderBrush="Transparent" >
+                                        <Border.Style>
+                                            <Style>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsInputValueValid}" Value="False">
+                                                        <Setter Property="Border.BorderThickness" Value="2"/>
+                                                        <Setter Property="Border.BorderBrush" Value="Red"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <CheckBox IsEnabled="True"
+                                                          Visibility="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Boolean}}}">
+                                                    <CheckBox.Style>
+                                                        <Style BasedOn="{StaticResource MahApps.Styles.CheckBox.Win10}" TargetType="{x:Type CheckBox}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Boolean}}}" Value="Visible">
+                                                                    <Setter Property="IsChecked" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </CheckBox.Style>
+                                                </CheckBox>
+
+                                                <mah:NumericUpDown NumericInputMode="Numbers"
+                                                                   Minimum="-2147483648"
+                                                                   Maximum="2147483647"
+                                                                   Visibility="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Int32}}}">
+                                                    <mah:NumericUpDown.Style>
+                                                        <Style TargetType="{x:Type mah:NumericUpDown}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Int32}}}" Value="Visible">
+                                                                    <Setter Property="Value" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </mah:NumericUpDown.Style>
+                                                </mah:NumericUpDown>
+
+                                                <mah:NumericUpDown NumericInputMode="Numbers"
+                                                                   Minimum="-9223372036854775808"
+                                                                   Maximum="9223372036854775807"
+                                                                   Visibility="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Int64}}}">
+                                                    <mah:NumericUpDown.Style>
+                                                        <Style TargetType="{x:Type mah:NumericUpDown}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Int64}}}" Value="Visible">
+                                                                    <Setter Property="Value" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </mah:NumericUpDown.Style>
+                                                </mah:NumericUpDown>
+
+                                                <mah:NumericUpDown NumericInputMode="Numbers"
+                                                                   Minimum="-9223372036854775808"
+                                                                   Maximum="9223372036854775807"
+                                                                   Visibility="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Double}}}">
+                                                    <mah:NumericUpDown.Style>
+                                                        <Style TargetType="{x:Type mah:NumericUpDown}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:Double}}}" Value="Visible">
+                                                                    <Setter Property="Value" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </mah:NumericUpDown.Style>
+                                                </mah:NumericUpDown>
+
+                                                <mah:DateTimePicker IsClockVisible="False"
+                                                                    Visibility="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:DateTime}}}">
+                                                    <mah:DateTimePicker.Style>
+                                                        <Style TargetType="{x:Type mah:DateTimePicker}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:DateTime}}}" Value="Visible">
+                                                                    <Setter Property="SelectedDateTime" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </mah:DateTimePicker.Style>
+                                                </mah:DateTimePicker>
+
+                                                <TextBox Visibility="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:String}}}">
+                                                    <TextBox.Style>
+                                                        <Style TargetType="{x:Type TextBox}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding DataType, Converter={common:VisibilityConverter IsEqual={x:Type system:String}}}" Value="Visible">
+                                                                    <Setter Property="Text" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBox.Style>
+                                                </TextBox>
+
+                                                <TextBox Visibility="{Binding IsKnownDataType, Converter={common:VisibilityConverter Inverted=True}}">
+                                                    <TextBox.Style>
+                                                        <Style TargetType="{x:Type TextBox}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsKnownDataType, Converter={common:VisibilityConverter Inverted=True}}" Value="Visible">
+                                                                    <Setter Property="Text" Value="{Binding RawInputValue}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBox.Style>
+                                                </TextBox>
+                                            </StackPanel>
+                                            <Button Grid.Column="1" 
+                                                    Style="{StaticResource CloseButtonStyle}"
+                                                    Margin="3,0,3,0"
+                                                    Command="{Binding DataContext.ResetInputCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:DmnExecuteControl}}}"
+                                                    CommandParameter="{Binding}">
+                                                <iconPacks:PackIconBootstrapIcons Kind="X" />
+                                            </Button>
+                                        </Grid>
+                                    </Border>
+                                    <TextBlock Grid.Row="1" Text="{Binding InputValueError}" Foreground="Red" TextWrapping="WrapWithOverflow"
+                                                           Visibility="{Binding IsInputValueInvalid, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    <Grid Grid.Row="2" Margin="3,0,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0"  FontSize="10" Text="{Binding DataTypeName}" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="1"
+                                                   FontSize="10"
+                                                   Text="as"
+                                                   Margin="5,0,5,0"
+                                                   VerticalAlignment="Center"
+                                                   Visibility="{Binding IsKnownDataType, Converter={common:VisibilityConverter Inverted=True}}"/>
+                                        <ComboBox Grid.Column="2" Margin="2"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalContentAlignment="Left"
+                                                  ItemsSource="{x:Static variable:KnownType.KnownTypes}"
+                                                  SelectedItem="{Binding SelectedProxyType}"
+                                                  Visibility="{Binding IsKnownDataType, Converter={common:VisibilityConverter Inverted=True}}"
+                                                 >
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate DataType="{x:Type variable:KnownType}">
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </Grid>
+
+
+
+                                </Grid>
+                            </mah:MetroHeader>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+        </mah:MetroHeader>
+
+        <Button Grid.Row="2" HorizontalAlignment="Center" Command="{Binding ExecuteDecisionCommand}">
+            <StackPanel Orientation="Horizontal">
+                <iconPacks:PackIconBootstrapIcons Kind="PlayCircle" />
+                <TextBlock Margin="5,0,0,0"><Run Text="Execute"/></TextBlock>
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</UserControl>

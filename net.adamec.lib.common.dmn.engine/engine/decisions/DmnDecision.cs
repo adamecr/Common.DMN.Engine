@@ -6,6 +6,7 @@ using net.adamec.lib.common.dmn.engine.engine.definition;
 
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
 using net.adamec.lib.common.dmn.engine.engine.execution.result;
+using net.adamec.lib.common.dmn.engine.utils;
 
 namespace net.adamec.lib.common.dmn.engine.engine.decisions
 {
@@ -28,6 +29,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.decisions
         /// Label of the decision
         /// </summary>
         public string Label { get; }
+
+        /// <summary>
+        /// Name with label information in case <see cref="Label"/> is different than <see cref="Name"/>
+        /// </summary>
+        public string NameWithLabel => DmnUtils.NameWithLabel(Name, Label);
 
         /// <summary>
         /// Decision required inputs (input variables)

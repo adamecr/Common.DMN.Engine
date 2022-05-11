@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.dmn.engine.engine.execution.context;
+using net.adamec.lib.common.dmn.engine.utils;
 
 namespace net.adamec.lib.common.dmn.engine.engine.execution.result
 {
@@ -18,7 +19,12 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.result
         /// Label of the variable (used for input parameters)
         /// </summary>
         public string Label { get; }
-    
+
+        /// <summary>
+        /// Name with label information in case <see cref="Label"/> is different than <see cref="Name"/>
+        /// </summary>
+        public string NameWithLabel => DmnUtils.NameWithLabel(Name, Label);
+
         /// <summary>
         /// Variable type or null if not defined
         /// </summary>

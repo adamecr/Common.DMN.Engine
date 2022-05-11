@@ -1,0 +1,924 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:layout="clr-namespace:GraphShape.Algorithms.Layout;assembly=GraphShape"
+                    xmlns:overlapRemoval="clr-namespace:GraphShape.Algorithms.OverlapRemoval;assembly=GraphShape"
+                    xmlns:controls="clr-namespace:GraphShape.Controls;assembly=GraphShape.Controls"
+                    xmlns:algorithm="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmngraph.algorithm">
+    <GridLength x:Key="LabelColumnWidth">175</GridLength>
+    <GridLength x:Key="ControlColumnWidth">150</GridLength>
+
+    <ObjectDataProvider
+        x:Key="AlgorithmConstraintEnum"
+        MethodName="GetValues"
+        ObjectType="{x:Type system:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="controls:AlgorithmConstraints" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider
+        MethodName="GetValues"
+        ObjectType="{x:Type system:Enum}"
+        x:Key="LayoutDirectionEnum">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="layout:LayoutDirection" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider
+        MethodName="GetValues"
+        ObjectType="{x:Type system:Enum}"
+        x:Key="TreeGenerationTypeEnum">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="layout:SpanningTreeGeneration" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider
+        MethodName="GetValues"
+        ObjectType="{x:Type system:Enum}"
+        x:Key="SugiyamaEdgeRoutingEnum">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="layout:SugiyamaEdgeRouting" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <!-- Default DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:LayoutParametersBase}">
+        <TextBlock Text="No parameter" />
+    </DataTemplate>
+
+    <!-- SimpleTreeLayoutParameters -->
+    <DataTemplate DataType="{x:Type layout:SimpleTreeLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Layer Gap" />
+            <StackPanel
+                Grid.Row="0"
+                Orientation="Horizontal"
+                Grid.Column="1">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="50"
+                    Value="{Binding Path=LayerGap, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=LayerGap, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Vertex Gap" />
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        Grid.Row="1">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="50"
+                    Value="{Binding Path=VertexGap, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=VertexGap, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Layout direction"/>
+            <ComboBox
+                Grid.Row="2"
+                Grid.Column="1"
+                ItemsSource="{Binding Source={StaticResource LayoutDirectionEnum}, Mode=OneWay}"
+                SelectedValue="{Binding Path=Direction, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Tree Generation" />
+            <ComboBox
+                Grid.Row="3"
+                Grid.Column="1"
+                ItemsSource="{Binding Source={StaticResource TreeGenerationTypeEnum}, Mode=OneWay}"
+                SelectedValue="{Binding Path=SpanningTreeGeneration, Mode=TwoWay}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Fruchterman-Reingold DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:FreeFRLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="K" />
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Path=K, Mode=OneWay}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Attraction Multiplier" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,0,20.853,3.96"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider1"
+                    Width="100"
+                    Height="22"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=AttractionMultiplier, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider1, Mode=Default}"
+                    TextWrapping="Wrap"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Repulsive Multiplier" />
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider2"
+                    Width="100"
+                    Height="22"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=RepulsiveMultiplier, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider2, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Fruchterman-Reingold (Bounded) DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:BoundedFRLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Width" />
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider"
+                    Width="100"
+                    Height="22" 
+                    Minimum="0"
+                    Maximum="1000"
+                    Value="{Binding Path=Width, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Height" />
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="1"
+                Grid.Column="1">
+                <Slider
+                    x:Name="slider1"
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="1000"
+                    Value="{Binding Path=Height, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider1, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="K" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="{Binding Path=K, Mode=OneWay}" />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Attraction Multiplier" />
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="0,0,20.853,3.96"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider2"
+                    Width="100"
+                    Height="22"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=AttractionMultiplier, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider2, Mode=Default}"
+                    TextWrapping="Wrap"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Repulsive Multiplier" />
+
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider3"
+                    Width="100"
+                    Height="22"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=RepulsiveMultiplier, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider3, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Kamada-Kawai DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:KKLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Width" />
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider"
+                    Width="100"
+                    Height="22" 
+                    Minimum="0"
+                    Maximum="1000"
+                    Value="{Binding Path=Width, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Height" />
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="1"
+                Grid.Column="1">
+                <Slider
+                    x:Name="slider1"
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="1000"
+                    Value="{Binding Path=Height, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider1, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Exchange Vertices" />
+            <CheckBox
+                Grid.Row="2"
+                Grid.Column="1"
+                IsChecked="{Binding Path=ExchangeVertices, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Disconnected Multiplier" />
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    x:Name="slider2"
+                    Width="100"
+                    Height="22"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=DisconnectedMultiplier, Mode=TwoWay}" />
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="{Binding Path=Value, ElementName=slider2, Mode=Default}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Meyer's ISOM DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:ISOMLayoutParameters}">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Width" />
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+                    <Slider
+                        x:Name="slider"
+                        MinWidth="100"
+                        Minimum="0"
+                        Maximum="1000"
+                        Value="{Binding Path=Width, Mode=TwoWay}" />
+                    <TextBlock
+                        Margin="5 0 0 0"
+                        Text="{Binding Path=Value, ElementName=slider, Mode=Default}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Height" />
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+                    <Slider
+                        x:Name="slider2"
+                        MinWidth="100"
+                        Minimum="0"
+                        Maximum="1000"
+                        Value="{Binding Path=Height, Mode=TwoWay}" />
+                    <TextBlock
+                        Margin="5 0 0 0"
+                        Text="{Binding Path=Value, ElementName=slider2, Mode=Default}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Max Epochs" />
+                <TextBox
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="{Binding Path=MaxEpochs, Mode=TwoWay}" />
+
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="Radius Constant Time" />
+                <StackPanel
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+                    <Slider
+                        x:Name="slider3"
+                        MinWidth="100"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding Path=RadiusConstantTime, Mode=TwoWay}" />
+                    <TextBlock
+                        Margin="5 0 0 0"
+                        Text="{Binding Path=Value, ElementName=slider3, Mode=Default}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="Initial Radius" />
+                <StackPanel
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+                    <Slider
+                        x:Name="slider4"
+                        MinWidth="100"
+                        Minimum="0"
+                        Maximum="5"
+                        Value="{Binding Path=InitialRadius, Mode=TwoWay}" />
+                    <TextBlock
+                        Margin="5 0 0 0"
+                        Text="{Binding Path=Value, ElementName=slider4, Mode=Default}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Text="Min Radius" />
+                <TextBox
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Text="{Binding Path=MinRadius, Mode=TwoWay}" />
+
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Text="Initial Adaptation" />
+                <TextBox
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Text="{Binding Path=InitialAdaptation, Mode=TwoWay}" />
+
+                <TextBlock
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Text="Min Adaptation" />
+                <TextBox
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Text="{Binding Path=MinAdaptation}" />
+
+                <TextBlock
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Text="Cooling Factor" />
+                <TextBox
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Text="{Binding Path=CoolingFactor, Mode=TwoWay}" />
+            </Grid>
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- LinLog DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:LinLogLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Attraction Exponent" />
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=AttractionExponent, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=AttractionExponent, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Repulsive Exponent" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=RepulsiveExponent, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=RepulsiveExponent, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Gravitation Multiplier" />
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="5"
+                    Value="{Binding Path=GravitationMultiplier, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=GravitationMultiplier, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Max Iterations" />
+            <Slider
+                Grid.Row="3"
+                Grid.Column="1"
+                Minimum="0"
+                Maximum="1000"
+                Value="{Binding Path=MaxIterations, Mode=TwoWay}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Sugiyama DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:SugiyamaLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Layer gap" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Path=LayerGap, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Slice gap" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Path=SliceGap, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Position Mode" />
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="-1"
+                    Maximum="3"
+                    Value="{Binding Path=PositionMode, Mode=TwoWay}" />
+                <TextBlock Margin="5 0 0 0" Text="{Binding Path=PositionMode, Mode=OneWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Minimize Edge Length" />
+            <CheckBox
+                Grid.Row="3"
+                Grid.Column="1"
+                IsChecked="{Binding Path=MinimizeEdgeLength, Mode=TwoWay}"
+                Content="{Binding Path=MinimizeEdgeLength, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Edge routing" />
+            <ComboBox
+                Grid.Row="4"
+                Grid.Column="1"
+                ItemsSource="{Binding Source={StaticResource SugiyamaEdgeRoutingEnum}, Mode=OneWay}"
+                SelectedValue="{Binding Path=EdgeRouting, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Optimize Width" />
+            <CheckBox
+                Grid.Row="5"
+                Grid.Column="1"
+                IsChecked="{Binding Path=OptimizeWidth, Mode=TwoWay}"
+                Content="{Binding Path=OptimizeWidth, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="0"
+                Text="Layout Direction" />
+            <ComboBox
+                Grid.Row="6"
+                Grid.Column="1"
+                ItemsSource="{Binding Source={StaticResource LayoutDirectionEnum}, Mode=OneWay}"
+                SelectedValue="{Binding Path=Direction, Mode=TwoWay}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Random DataTemplate -->
+    <DataTemplate DataType="{x:Type layout:RandomLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Width" />
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="100"
+                    Maximum="3000"
+                    Value="{Binding Path=Width, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=Width, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Height" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="100"
+                    Maximum="3000"
+                    Value="{Binding Path=Height, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=Height, Mode=TwoWay}" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Overlap Removal -->
+    <DataTemplate DataType="{x:Type overlapRemoval:OverlapRemovalParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Horizontal Gap" />
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="50"
+                    Value="{Binding Path=HorizontalGap, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=HorizontalGap, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Column="0"
+                Grid.Row="1"
+                Text="Vertical Gap" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="50"
+                    Value="{Binding Path=VerticalGap, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=VerticalGap, Mode=TwoWay}" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+
+    <!-- DmnDiLayoutParameters -->
+    <DataTemplate DataType="{x:Type algorithm:DmnDiLayoutParameters}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+
+            <TextBlock 
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Width" />
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="100"
+                    Maximum="3000"
+                    Value="{Binding Path=Width, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=Width, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Height" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="100"
+                    Maximum="3000"
+                    Value="{Binding Path=Height, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=Height, Mode=TwoWay}" />
+            </StackPanel>
+
+
+            <TextBlock 
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="X Offset" />
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="100"
+                    Maximum="3000"
+                    Value="{Binding Path=XOffset, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=XOffset, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Y Offset" />
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Slider
+                    MinWidth="100"
+                    Minimum="100"
+                    Maximum="3000"
+                    Value="{Binding Path=YOffset, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=YOffset, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Vertical Spacing" />
+            <StackPanel
+                Grid.Row="4"
+                Orientation="Horizontal"
+                Grid.Column="1">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="50"
+                    Value="{Binding Path=VerticalSpacing, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=VerticalSpacing, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Horizontal Spacing" />
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        Grid.Row="5">
+                <Slider
+                    MinWidth="100"
+                    Minimum="0"
+                    Maximum="50"
+                    Value="{Binding Path=HorizontalSpacing, Mode=TwoWay}" />
+                <TextBox Margin="5 0 0 0" Text="{Binding Path=HorizontalSpacing, Mode=TwoWay}" />
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

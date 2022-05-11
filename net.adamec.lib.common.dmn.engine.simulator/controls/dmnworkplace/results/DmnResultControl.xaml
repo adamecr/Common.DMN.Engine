@@ -1,0 +1,211 @@
+﻿<UserControl x:Class="net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.results.DmnResultControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:compositeItems="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.common.compositeItems"
+             xmlns:definition="clr-namespace:net.adamec.lib.common.dmn.engine.engine.decisions.table.definition;assembly=net.adamec.lib.common.dmn.engine"
+             xmlns:model="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.results.model"
+             xmlns:results="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace.results"
+             xmlns:dmnworkspace="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.dmnworkplace"
+             xmlns:common="clr-namespace:net.adamec.lib.common.dmn.engine.simulator.controls.common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type={x:Type model:DmnResultViewModel}, IsDesignTimeCreatable=True}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Visibility="{Binding IsExecuted, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Grid.Row="0"
+                       Foreground="Red"
+                       Text="{Binding ErrorMessage}"
+                       TextWrapping="Wrap"
+                       Visibility="{Binding HasError, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
+        <TabControl Grid.Row="1" mah:HeaderedControlHelper.HeaderFontSize="11" TabStripPlacement="Bottom"  >
+            <TabItem Header="Outputs">
+                <Grid Visibility="{Binding IsExecuted, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <ContentPresenter Grid.Row="1" Content="{Binding Output.Decision}" ContentTemplate="{StaticResource DmnDecisionTemplate}"/>
+                    <ContentPresenter Grid.Row="2" Content="{Binding}">
+                        <ContentPresenter.ContentTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Name="empty" Grid.Row="0" Visibility="Collapsed">No outputs returned from decision</TextBlock>
+                                    <ListView Grid.Row="0" Name="list"
+                                              ItemsSource="{Binding Output.Outputs}"
+                                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                              ScrollViewer.CanContentScroll="true">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate DataType="model:ExecutionStepOutput">
+                                                <mah:MetroHeader Header="{Binding Title}">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto" />
+                                                            <RowDefinition />
+                                                        </Grid.RowDefinitions>
+                                                        <ItemsControl Grid.Row="1" 
+                                                                      ItemsSource="{Binding Variables}"
+                                                                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                                      ScrollViewer.CanContentScroll="true">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Grid >
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition Width="120" />
+                                                                            <ColumnDefinition Width="*" />
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <TextBlock Text="{Binding Name}"  Margin="5,0"/>
+                                                                        <TextBlock Grid.Column="1" Text="{Binding Value}"  Margin="5,0"/>
+                                                                    </Grid>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </Grid>
+
+                                                </mah:MetroHeader>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding Output.HasOutputs, FallbackValue=false}"  Value="false">
+                                        <Setter TargetName="empty" Property="Visibility" Value="Visible"></Setter>
+                                        <Setter TargetName="list" Property="Visibility" Value="Collapsed"></Setter>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ContentPresenter.ContentTemplate>
+                    </ContentPresenter>
+
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Execution steps">
+                <Grid Visibility="{Binding IsExecuted, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <common:TreeViewEx Grid.Row="0" ItemsSource="{Binding Steps}" Grid.IsSharedSizeScope="True"
+                                    SelectDmnElementCommand="{x:Static dmnworkspace:DmnWorkspaceCommands.SelectDmnElementRoutedCommand}">
+                        <TreeView.Resources>
+                            <DataTemplate DataType="{x:Type compositeItems:ItemWithTemplateKey}">
+                                <ContentPresenter Name="Presenter" Content="{Binding Item}" />
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding DataTemplateKey}" Value="VariableInOutputTemplate">
+                                        <Setter TargetName="Presenter" 
+                                            Property="ContentTemplate"
+                                            Value="{DynamicResource VariableInOutputTemplate}" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                            <!-- Variable in output template -->
+                            <!--  has x:Key, so it will not be automatically used for ExecutionResultVariable
+                              instead a output variables are wrapped in ItemWithTemplateKey using CompositeItemsHelper and CompositeItemsContainer
+                              unfortunately it means that "VariableInOutputTemplate" key is hard coded in view model and
+                              also there has to be hard coded trigger in data template for ItemWithTemplateKey that does the mapping to template
+                        -->
+                            <DataTemplate x:Key="VariableInOutputTemplate" DataType="{x:Type model:ExecutionResultVariable}">
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="VariableNameInOutput" />
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="VariableTypeInOutput" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Margin="3,0" Text="{Binding Name}" />
+
+                                    <TextBlock Grid.Column="1" Margin="3,0" Text="{Binding DataTypeName}"/>
+                                    <TextBlock Grid.Column="2" Margin="3,0" Text="{Binding Value}" FontStyle="Italic"/>
+                                </Grid>
+                            </DataTemplate>
+                            <!-- Variable in step ("all variables") template -->
+                            <DataTemplate DataType="{x:Type model:ExecutionResultVariable}">
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="VariableNameInStep"  />
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="VariableTypeInStep" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Margin="3,0" Text="{Binding Name}"/>
+                                    <TextBlock Grid.Column="1" Margin="3,0" Text="{Binding DataTypeName}"/>
+                                    <TextBlock Grid.Column="2" Margin="3,0" Text="{Binding OldValue, TargetNullValue=[null]}" 
+                                           Visibility="{Binding IsChanged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    <TextBlock Grid.Column="3" Text="->" 
+                                           Visibility="{Binding IsChanged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    <TextBlock Grid.Column="4" Margin="3,0" Text="{Binding Value, TargetNullValue=[null]}" />
+
+                                </Grid>
+                            </DataTemplate>
+                            <DataTemplate  DataType="{x:Type definition:DmnDecisionTableRule}">
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="RuleIndexInOutput" />
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="RuleNameInOutput" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Margin="3,0" Text="{Binding Index, StringFormat='#{0}'}" />
+
+                                    <TextBlock Grid.Column="1" Margin="3,0" Text="{Binding Name}"/>
+                                    <TextBlock Grid.Column="2" Margin="3,0" Text="{Binding Description}"/>
+                                </Grid>
+                            </DataTemplate>
+                            <!-- Step sub-tree template (Hit rules +(output) Variables) -->
+                            <HierarchicalDataTemplate DataType="{x:Type model:ExecutionStepOutput}"
+                                                  ItemsSource="{Binding TreeViewSource}">
+                                <TextBlock Text="{Binding Title}"/>
+                            </HierarchicalDataTemplate>
+
+                            <!-- Header:  -->
+                            <!--   All variables in Step (sibling of Output[])-->
+                            <!--   Hit rules and Variables in Output-->
+                            <HierarchicalDataTemplate DataType="{x:Type compositeItems:CompositeItemsContainer}"
+                                                  ItemsSource="{Binding Items}">
+                                <TextBlock Text="{Binding Title}"/>
+                            </HierarchicalDataTemplate>
+
+                            <!-- Step template (outputs+"Variables"/All variables) -->
+                            <HierarchicalDataTemplate DataType="{x:Type model:ExecutionStepResult}"
+                                                  ItemsSource="{Binding TreeViewSource}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Step, StringFormat='Step #{0}'}"/>
+                                    <ContentPresenter Grid.Column="1"
+                                                  Margin="5,0,0,0"
+                                                  Content="{Binding Decision}" 
+                                                  ContentTemplate="{StaticResource DmnDecisionTemplate}"/>
+                                </Grid>
+                            </HierarchicalDataTemplate>
+
+
+                        </TreeView.Resources>
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="{x:Type TreeViewItem}"  BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">
+                                <Setter Property="IsExpanded" Value="True"/>
+                                <Setter Property="Padding" Value="0,3"></Setter>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                    </common:TreeViewEx>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Variables">
+                <Grid Visibility="{Binding IsExecuted, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <results:ResultVariablesControl DataContext="{Binding VariablesHistory}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

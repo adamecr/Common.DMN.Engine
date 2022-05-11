@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using net.adamec.lib.common.core.logging;
 using net.adamec.lib.common.dmn.engine.engine.definition;
+using net.adamec.lib.common.dmn.engine.utils;
 
 namespace net.adamec.lib.common.dmn.engine.engine.execution.context
 {
@@ -29,6 +30,11 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
         /// Label of the variable (used for input parameters)
         /// </summary>
         public string Label => Definition.Label;
+
+        /// <summary>
+        /// Name with label information in case <see cref="Label"/> is different than <see cref="Name"/>
+        /// </summary>
+        public string NameWithLabel => DmnUtils.NameWithLabel(Name, Label);
 
         /// <summary>
         /// Variable type or null if not defined

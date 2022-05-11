@@ -1751,6 +1751,7 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
  | [IsInputParameter](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.isinputparameter__42owxq) | public | Flag whether the variable is input parameter | 
  | [Label](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.label__bm6ver) | public | Label of the variable (used for input parameters) | 
  | [Name](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.name__bp1gta) | public | Unique variable name | 
+ | [NameWithLabel](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.namewithlabel__1f40tgo) | public | Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.label__bm6ver) is different than [Name](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.name__bp1gta) | 
  | [Type](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.type__zll1w1) | public | Variable type or null if not defined | 
  | [Value](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.value__19higaq) | public | Variable value | 
 
@@ -1919,6 +1920,30 @@ Unique variable name
 
 ```csharp
 public string Name { get; }
+```
+
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.namewithlabel__1f40tgo" />  DmnExecutionVariable.NameWithLabel Property ##
+<small>Namespace: [net.adamec.lib.common.dmn.engine.engine.execution.context](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#n-net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa)           
+Assembly: net.adamec.lib.common.dmn.engine           
+Type: [DmnExecutionVariable](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#t-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable__1bfwjcn)           
+Sources: engine\execution\context\DmnExecutionVariable.cs</small>
+
+
+Name with label information in case [Label](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.label__bm6ver) is different than [Name](net.adamec.lib.common.dmn.engine.engine.execution.context__143xaoa.md#p-net.adamec.lib.common.dmn.engine.engine.execution.context.dmnexecutionvariable.name__bp1gta)
+
+
+
+```csharp
+public string NameWithLabel { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
