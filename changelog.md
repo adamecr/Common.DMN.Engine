@@ -2,18 +2,30 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-## Unreleased ##
-### Breaking change ###
+## [1.1.0] - 2022-05-13 ##
+As this is a major update, it's recommended to go through the [documentation](readme.md) for both "big picture" and the details.
+
+### Breaking changes ###
+- `DmnDefinitionFactory` - when building the definition, `RequiredInputs` now contain direct input requirements only (before v1.1.0, it did the recursive check through required decisions and added also the inputs required by them). 
 - Removed support for .Net Core 2.1 
-  - The library still migh work when used in .Net Core 2.1 apps, however it's not being tested against .Net Core 2.1 anymore and no related fixes/updates are exected in future
+  - The library still might work when used in .Net Core 2.1 apps, however it's not being tested against .Net Core 2.1 anymore and no related fixes/updates are expected in future
 
 ### Fixed ###
 - [Issue#15 Memory leak detected within DmnExecutionContext class](https://github.com/adamecr/Common.DMN.Engine/issues/15) - The (static) parsed expression cache have been split to instance dictionary (for Execution and Context scopes) and to static dictionary (for Definition and Global scopes). The purge methods for individual scopes have been added to `DmnExecutionContext` class. Thanks [@JoanRosell](https://github.com/JoanRosell) for identifying the issue. 
+- `DmnDefinition` now implements `IDmnDefinition`
 
 ### Added ###
+- `DmnParser.DmnVersionEnum.V1_3ext` - new version of algorithm and mapping when building the DmnDefinition from DMN XML. **Read the [documentation](readme.md) for details** as it might have the impact on the way how to prepare DMN XML models for DMN engine when using the extended version (1_3ext). The major change is for table inputs, mapping of table output attributes also changed.
+- Support for *extensions* to DMN definition, decision and variable. These can be used to store and manage any custom data, however the engine doesn't "touch" the extensions during the execution. When parsing with version 1_3 and above, the DMN DI shape data are stored as extensions. More information is provided in the [documentation](readme.md).
+- Information about `DmnParser.DmnVersionEnum` used/required is added to `DmnModel`. 
+- DmnDefinition entities Decision, Variable, Table Input, Table Output now have also the `Label` and `NameWithLabel` properties that might be used for visualization (are not significant for execution).
+- Demo application **DMN Engine Simulator** has been added as WPF application targeting .Net 6.0 (Desktop) to demonstrate features of DMN Engine. It uses the `DmnParser.DmnVersionEnum.V1_3ext` when reading the DMN XML files! 
 - Support (and test project) for .Net 6.0
 
 ### Changed ###
+- `DmnDefinitionFactory` protected methods are made virtual and the factory has been refactored a bit allowing to create the customized factories based on the DmnDefinitionFactory.
+- Methods `GetAllRequiredInputs` and `GetAllRequiredDecisions` providing the required information through all dependency tree were added to `DmnDecision`.
+- Method 'DmnVariableDefinition.NormalizeVariableName` allows the characters `?#$%&*()` in non-normalized variable name. These characters are removed during the normalization without throwing the exception. Public static method `CanNormalizeVariableName` has been added allowing to check the variable name "soft" way.
 - Other
   - Referenced NuGet packages versions update
   - Solution now primary for VS2022 (was 2019)
@@ -22,7 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.0.1] - 2022-01-08 ##
 ### Fixed ###
 - [Issue#11 NormalizeVariableName(string name)](https://github.com/adamecr/Common.DMN.Engine/issues/11) -  with the main fix in [PR#12 
-allowing international letters like æøå](https://github.com/adamecr/Common.DMN.Engine/pull/12) by [@samuelsen](https://github.com/samuelsen). 
+allowing international letters like Ã¦Ã¸Ã¥](https://github.com/adamecr/Common.DMN.Engine/pull/12) by [@samuelsen](https://github.com/samuelsen). 
 
 ## [1.0.0] - 2021-12-29 ##
 As this is a major update, it's recommended to go through the [documentation](readme.md) for both "big picture" and the details.
@@ -85,6 +97,7 @@ As this is a major update, it's recommended to go through the [documentation](re
 ### Added ###
 - Initial release
 
+[1.1.0]: https://github.com/adamecr/Common.DMN.Engine/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/adamecr/Common.DMN.Engine/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/adamecr/Common.DMN.Engine/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/adamecr/Common.DMN.Engine/compare/v0.1.1...v0.1.2
