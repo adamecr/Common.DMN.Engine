@@ -12,25 +12,25 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto.diagram
         /// X position of shape
         /// </summary>
         [XmlAttribute("x")]
-        public int X { get; set; }
+        public double X { get; set; }
 
         /// <summary>
         /// Y position of shape
         /// </summary>
         [XmlAttribute("y")]
-        public int Y { get; set; }
+        public double Y { get; set; }
 
         /// <summary>
         /// Width of shape
         /// </summary>
         [XmlAttribute("width")]
-        public int Width { get; set; }
+        public double Width { get; set; }
 
         /// <summary>
         /// Height of shape
         /// </summary>
         [XmlAttribute("height")]
-        public int Height { get; set; }
+        public double Height { get; set; }
 
         /// <inheritdoc />
         /// <summary>Returns a string that represents the current object.</summary>

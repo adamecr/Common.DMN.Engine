@@ -159,6 +159,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
         {
             if (CanNormalizeVariableName(name, out var normalizedName, out var error)) return normalizedName;
             throw new ArgumentException(error, nameof(name));
+
         }
 
         /// <summary>
@@ -175,6 +176,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             error = null;
             var retVal = name?.Trim()
                 .Replace(' ', '_')
+                .Replace('-', '_')
                 .Replace("?", "")
                 .Replace("#", "")
                 .Replace("$", "")
@@ -186,16 +188,15 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
 
             if (string.IsNullOrWhiteSpace(retVal))
             {
-                error = $"Variable name is null or empty"; 
-
+                error = $"Variable name is null or empty";
             }
             else if (retVal.Any(c => !(char.IsLetter(c) || char.IsDigit(c) || c == '_')))
             {
                 error = $"Variable name '{name}' contains invalid character";
             }
-            else if (!char.IsLetter(retVal[0]))
+            else if (!char.IsLetter(retVal[0]) && retVal[0]!='_')
             {
-                error = $"Variable name '{nameof(name)}' must start with letter";
+                error = $"Variable name '{nameof(name)}' must start with letter or underscore";
             }
 
             if (error == null)

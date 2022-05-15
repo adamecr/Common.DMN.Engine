@@ -52,7 +52,9 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto
         {
             reader.MoveToContent();
             reader.ReadStartElement();
-            Text = reader.ReadElementString("text");
+            reader.MoveToContent();
+            //Text = reader.ReadElementString("text");
+            Text = reader.ReadElementContentAsString("text",reader.NamespaceURI);
             reader.ReadEndElement();
         }
 

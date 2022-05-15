@@ -233,7 +233,7 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.icloneab
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [DiDiagramShapeExtension(int, int, int, int)](net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25.md#m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramshapeextension.-ctor_system.int32-system.int32-system.int32-system.int32___1g0zie8) | public | CTOR | 
+ | [DiDiagramShapeExtension(double, double, double, double)](net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25.md#m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramshapeextension.-ctor_system.double-system.double-system.double-system.double___xbxmn4) | public | CTOR | 
 
  
 
@@ -276,10 +276,10 @@ Height of shape in diagram
 
 
 ```csharp
-public int Height { get; }
+public double Height { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -300,10 +300,10 @@ Width of shape in diagram
 
 
 ```csharp
-public int Width { get; }
+public double Width { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -324,10 +324,10 @@ X position of shape in diagram
 
 
 ```csharp
-public int X { get; }
+public double X { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -348,10 +348,10 @@ Y position of shape in diagram
 
 
 ```csharp
-public int Y { get; }
+public double Y { get; }
 ```
 
-<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
+<strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
@@ -360,7 +360,7 @@ Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types
  
 
 
-##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramshapeextension.-ctor_system.int32-system.int32-system.int32-system.int32___1g0zie8" />  DiDiagramShapeExtension.DiDiagramShapeExtension(int, int, int, int) Constructor ##
+##  <a id="m-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramshapeextension.-ctor_system.double-system.double-system.double-system.double___xbxmn4" />  DiDiagramShapeExtension.DiDiagramShapeExtension(double, double, double, double) Constructor ##
 <small>Namespace: [net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram](net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25.md#n-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25)           
 Assembly: net.adamec.lib.common.dmn.engine           
 Type: [DiDiagramShapeExtension](net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram__1fw6w25.md#t-net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram.didiagramshapeextension__1g3jyq3)           
@@ -372,10 +372,10 @@ CTOR
 
 
 ```csharp
-public DiDiagramShapeExtension(int x, int y, int width, int height)
+public DiDiagramShapeExtension(double x, double y, double width, double height)
 ```
 
-<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>x</strong></dt><dd>X position of shape in diagram</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>y</strong></dt><dd>Y position of shape in diagram</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>width</strong></dt><dd>Width of shape in diagram</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a> <strong>height</strong></dt><dd>Height of shape in diagram</dd></dl>
+<strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>x</strong></dt><dd>X position of shape in diagram</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>y</strong></dt><dd>Y position of shape in diagram</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>width</strong></dt><dd>Width of shape in diagram</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double" target="_blank" >double</a> <strong>height</strong></dt><dd>Height of shape in diagram</dd></dl>
 Go to [namespaces](net.adamec.lib.common.dmn.engine.md#namespace-list) or [types](net.adamec.lib.common.dmn.engine.md#type-list)
 
 

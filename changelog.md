@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+## [1.1.1] - 2022-05-15 ##
+
+### Fixed ###
+Diagram Shape `Bounds` and Edged `Waypoint` properties are `double` now (changed in Parser, Definition, Simulator) according to the OMG standard. It was `int` in v1.1.0 and it blocked loading the DMN XML models with double values in boundaries due to a parser exception.
+DmnDefinitionFactory ignores unsupported decision types 
+
+### Added ###
+Known types now recognize `number` as a `typeRef` in DMN XML and maps it to `decimal` .NET type
+
+### Changed ###
+`NormalizeVariableName` replace `-` (dash) with `_` (underscore). The name of (normalized) variable can also start with underscore
+When there are multiple DI:Shapes for the same element within the diagram, the element will have multiple extensions, but the extension at Definition level will have just the last one.
+
 ## [1.1.0] - 2022-05-13 ##
 As this is a major update, it's recommended to go through the [documentation](readme.md) for both "big picture" and the details.
 
@@ -97,6 +110,7 @@ As this is a major update, it's recommended to go through the [documentation](re
 ### Added ###
 - Initial release
 
+[1.1.1]: https://github.com/adamecr/Common.DMN.Engine/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/adamecr/Common.DMN.Engine/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/adamecr/Common.DMN.Engine/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/adamecr/Common.DMN.Engine/compare/v0.1.2...v1.0.0

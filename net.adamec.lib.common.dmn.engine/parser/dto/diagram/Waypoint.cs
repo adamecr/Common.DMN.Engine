@@ -12,13 +12,13 @@ namespace net.adamec.lib.common.dmn.engine.parser.dto.diagram
         /// X position of waypoint
         /// </summary>
         [XmlAttribute("x")]
-        public int X { get; set; }
+        public double X { get; set; }
         
         /// <summary>
         /// Y position of waypoint
         /// </summary>
         [XmlAttribute("y")]
-        public int Y { get; set; }
+        public double Y { get; set; }
 
         /// <inheritdoc />
         /// <summary>Returns a string that represents the current object.</summary>

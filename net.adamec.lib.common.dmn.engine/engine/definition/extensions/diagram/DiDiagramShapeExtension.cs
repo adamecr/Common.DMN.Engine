@@ -11,22 +11,22 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram
         /// <summary>
         /// Height of shape in diagram
         /// </summary>
-        public int Height { get; }
+        public double Height { get; }
 
         /// <summary>
         /// Width of shape in diagram
         /// </summary>
-        public int Width { get; }
+        public double Width { get; }
 
         /// <summary>
         /// X position of shape in diagram
         /// </summary>
-        public int X { get; }
+        public double X { get; }
 
         /// <summary>
         /// Y position of shape in diagram
         /// </summary>
-        public int Y { get; }
+        public double Y { get; }
 
         /// <summary>
         /// CTOR
@@ -35,7 +35,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition.extensions.diagram
         /// <param name="y">Y position of shape in diagram</param>
         /// <param name="width">Width of shape in diagram</param>
         /// <param name="height">Height of shape in diagram</param>
-        public DiDiagramShapeExtension(int x, int y, int width, int height)
+        public DiDiagramShapeExtension(double x, double y, double width, double height)
         {
             X = x;
             Y = y;

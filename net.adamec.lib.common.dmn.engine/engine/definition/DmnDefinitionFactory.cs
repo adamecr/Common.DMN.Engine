@@ -38,7 +38,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             { "integer", typeof(int) },
             { "long", typeof(long) },
             { "double", typeof(double) },
-            { "date", typeof(DateTime) }
+            { "date", typeof(DateTime) },
+            { "number", typeof(decimal) }
         };
 
 
@@ -260,8 +261,8 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
 
                     //since v1.1 only directly required inputs are added and GetAllRequiredXxxx methods are added to Definition
                     //AddNewRequiredInputs(dependsOnDecision.RequiredInputs, requiredInputs);
-
-                    requiredDecisions.Add(dependsOnDecision);
+                    
+                    if(dependsOnDecision!=null) requiredDecisions.Add(dependsOnDecision); //when null, it was ignored (not processed)
                 }
             }
 
@@ -280,21 +281,30 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             }
 
             //Decision factory
-            IDmnDecision decision;
-            if (sourceDecision.DecisionTable == null)
-            {
-                //expression
-                decision = CreateExpressionDecision(sourceDecision, decisionName, requiredInputs, requiredDecisions);
-            }
-            else
+            IDmnDecision decision=null;
+            if (sourceDecision.DecisionTable != null)
             {
                 //decision table
                 decision = CreateDecisionTable(sourceDecision.DecisionTable, decisionName, requiredInputs, requiredDecisions);
             }
+            else if (sourceDecision.Expression != null)
+            {
+                //expression
+                decision = CreateExpressionDecision(sourceDecision, decisionName, requiredInputs, requiredDecisions);
+            }else 
+            {
+                //unsupported decision type
+            }
 
-            Decisions.Add(decisionName, decision);
-            DecisionsById.Add(sourceDecision.Id, decision);
+            if (decision != null)
+            {
+                Decisions.Add(decisionName, decision);
+                DecisionsById.Add(sourceDecision.Id, decision);
+            }
+
             return decision;
+            
+
         }
 
         /// <summary>
@@ -662,7 +672,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
             foreach (var defaultKnowType in DefaultKnowTypes)
             {
                 knownTypes.Add(defaultKnowType.Key, defaultKnowType.Value);
-               
+
             }
         }
 
@@ -719,7 +729,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.definition
 
                 var shapeExtension = new DiDiagramShapeExtension(bounds.X, bounds.Y, bounds.Width, bounds.Height);
                 element.AddExtension(shapeExtension);
-                diagramExtension.ShapesByElement.Add(element, shapeExtension.Clone());
+                diagramExtension.ShapesByElement[element]= shapeExtension.Clone();
             }
 
             if (diagramExtension.ShapesByElement.Count > 0)

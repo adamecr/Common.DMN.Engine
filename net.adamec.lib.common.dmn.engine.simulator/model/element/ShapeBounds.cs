@@ -8,19 +8,19 @@ public class ShapeBounds
     /// <summary>
     /// Height of the DMN Shape
     /// </summary>
-    public int Height { get; set; }
+    public double Height { get; set; }
     /// <summary>
     /// Width of the DMN Shape
     /// </summary>
-    public int Width { get; set; }
+    public double Width { get; set; }
     /// <summary>
     /// X position of the DMN Shape
     /// </summary>
-    public int X { get; set; }
+    public double X { get; set; }
     /// <summary>
     /// Y position of the DMN Shape
     /// </summary>
-    public int Y { get; set; }
+    public double Y { get; set; }
 
     /// <summary>
     /// Flag whether the DMN shape has size (both <see cref="Width"/> and <see cref="Height"/> are set)

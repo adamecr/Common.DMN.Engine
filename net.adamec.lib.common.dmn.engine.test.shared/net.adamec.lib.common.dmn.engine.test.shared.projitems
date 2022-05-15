@@ -113,6 +113,9 @@
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\diagram_partial.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\dmn13examle.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3ext\dynamictypes.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -249,6 +252,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\diagram_partial.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\dmn13examle.dmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)dmn\dmn1.3\dynamictypes.dmn">

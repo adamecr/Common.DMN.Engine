@@ -35,5 +35,12 @@ namespace net.adamec.lib.common.dmn.engine.test.unit
             Action act = () => DmnParser.Parse13(file);
             act.Should().Throw<DmnParserException>().WithMessage("Can't parse file *");
         }
+
+        [TestMethod]
+        public void ParseOmgDmnExampleFileTest()
+        {
+            var def = DEF("dmn13examle.dmn");
+            def.Should().NotBeNull();
+        }
     }
 }

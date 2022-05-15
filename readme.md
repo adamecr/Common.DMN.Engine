@@ -294,9 +294,9 @@ var def = new DmnDefinitionBuilder()
 *Note: The expressions are not parsed/analyzed when the definition is being prepared, so there is no kind of detection/validation of the variables within the expressions*
 
 ### Variable Names ###
-The names of the variables can contain the letters (`char.IsLetter()`), digits (`char.IsDigit()`) and underscore (`_`). The first character must be a letter. 
+The names of the variables can contain the letters (`char.IsLetter()`), digits (`char.IsDigit()`) and underscore (`_`). The first character must be a letter or undercore. 
 
-As it's quite common (although not recommended) to use the space in the variable names, the variable names are "normalized" - the trailing spaces are removed and the inner spaces are replaced by underscore (`name.Trim().Replace(' ', '_')`). Also the characters `?#$%&*()` are being removed from the name during the normalization. This is to keep the variable name "compact" when used in expressions (either implicit ones used when evaluating the decision table rules or explicit ones defined in the DMN definition). This is important to be kept in mind when designing the definition - for example when there will be a variable `Some Variable_1  with spaces ? `, it must be referred as `Some_Variable_1__with_spaces` within the expressions. The normalization might also cause the unintentional duplicity if not taken into the consideration - for example variables `A B` and `A_B` will be duplicates as the first one will be normalized to `A_B`.
+As it's quite common (although not recommended) to use the space in the variable names, the variable names are "normalized" - the trailing spaces are removed and the inner spaces and dashes are replaced by underscore (`name.Trim().Replace(' ', '_').Replace('-', '_')`). Also the characters `?#$%&*()` are being removed from the name during the normalization. This is to keep the variable name "compact" when used in expressions (either implicit ones used when evaluating the decision table rules or explicit ones defined in the DMN definition). This is important to be kept in mind when designing the definition - for example when there will be a variable `Some Variable_1  with spaces ? `, it must be referred as `Some_Variable_1__with_spaces` within the expressions. The normalization might also cause the unintentional duplicity if not taken into the consideration - for example variables `A B` and `A_B` will be duplicates as the first one will be normalized to `A_B`.
 
 As the input names are used for backing variables, the above mentioned applies for the DMN input names as well.
 
@@ -313,6 +313,7 @@ When the data type is defined in DMN model (attribute `typeRef`), the parser map
      case "long": return typeof(long);
      case "double": return typeof(double);
      case "date": return typeof(DateTime);
+     case "number": return typeof(decimal);
      default: throw Logger.Fatal<DmnParserException>( $"Unsupported type name {typeName}");
    }
 ...
