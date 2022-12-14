@@ -10,10 +10,10 @@
     <RadMajor>1</RadMajor>
     <RadMinor>1</RadMinor>
     <RadPatch>1</RadPatch>
-    <RadBuild>1385</RadBuild>
-    <PackageVersionShort>1.1.1</PackageVersionShort>
-    <PackageVersionFull>1.1.1+1385.220515020318.release.39f4e48</PackageVersionFull>
-    <GitCommit>39f4e48</GitCommit>
-    <GitBranch>release</GitBranch>
+    <RadBuild>1394</RadBuild>
+    <PackageVersionShort>1.1.1-dev.1394.221214120330</PackageVersionShort>
+    <PackageVersionFull>1.1.1-dev.1394.221214120330+72.dynamic-expresso-options.9c849a7-dirty</PackageVersionFull>
+    <GitCommit>9c849a7-dirty</GitCommit>
+    <GitBranch>dynamic-expresso-options</GitBranch>
   </PropertyGroup>
 </Project>

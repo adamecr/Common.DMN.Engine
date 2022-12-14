@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+## [1.2.0] - 2022-12-14 ##
+
+### Added ###
+DmnExecutionContextOptions now supports external configurations to initialize dynamic expresso interpreter options.
+
 ## [1.1.1] - 2022-05-15 ##
 
 ### Fixed ###
