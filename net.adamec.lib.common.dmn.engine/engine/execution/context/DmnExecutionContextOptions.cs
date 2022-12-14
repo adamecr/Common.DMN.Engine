@@ -1,4 +1,6 @@
-﻿namespace net.adamec.lib.common.dmn.engine.engine.execution.context
+﻿using DynamicExpresso;
+
+namespace net.adamec.lib.common.dmn.engine.engine.execution.context
 {
     /// <summary>
     /// Execution configuration options
@@ -25,5 +27,10 @@
         /// Scope of the parsed expression cache (Cache parsed expressions for definition cross contexts by default)
         /// </summary>
         public ParsedExpressionCacheScopeEnum ParsedExpressionCacheScope { get; set; } = ParsedExpressionCacheScopeEnum.Definition;
+
+        /// <summary>
+        /// Scope of the dynamic expresso interpreter (InterpreterOptions.Default option by default)
+        /// </summary>
+        public InterpreterOptions InterpreterOptions { get; set; } = InterpreterOptions.Default;
     }
 }

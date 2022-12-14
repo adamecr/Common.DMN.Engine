@@ -233,7 +233,7 @@ namespace net.adamec.lib.common.dmn.engine.engine.execution.context
                 throw Logger.Fatal<ArgumentException>($"{nameof(expression)} is null or empty");
             if (outputType == null) throw Logger.Fatal<ArgumentNullException>($"{nameof(outputType)} is null");
 
-            var interpreter = new Interpreter();
+            var interpreter = new Interpreter(Options.InterpreterOptions);
             ConfigureInterpreter(interpreter);
 
             var parameters = new List<Parameter>();
